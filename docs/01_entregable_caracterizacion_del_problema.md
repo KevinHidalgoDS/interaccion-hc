@@ -7,7 +7,7 @@
 <a><img src="https://minaslap.net/pluginfile.php/1/core_admin/logo/0x200/1770226238/Logo%20MinasLAP-3%20%281%29.png" width="100" align="center"></a>
 <h1><center>Interacción Humano-Computador</center></h1>
 <h2><center>Introducción a la Interacción Humano-Computador</center></h2>
-<h3><center>Entregable #1</center></h3>
+<h3><center>Entregable #1 Caracterisación del problema</center></h3>
 
 <a name="conte"></a>
 
@@ -15,8 +15,10 @@
 
 **Elaborado por:** _Milena Castaño_ & _Daniela Torres_ & _Sebastian Sanchez_ & _Kevin Hidalgo_
 
-**Correos:** _correo@unal.edu.co_ & _correo@unal.edu.co_ & _correo@unal.edu.co_ &
+**Correos:** _lmcastanoh@unal.edu.co_ & _datorresgom@unal.edu.co_ & _sebsanchezar@unal.edu.co_ &
 _kfhidalgoh@unal.edu.co_
+
+**Grupo:** 5
 
 **Fecha de elaboración:** _2026 Septiembre 02_
 
