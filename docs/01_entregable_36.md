@@ -15,7 +15,7 @@
 
 **Elaborado por:** _Milena Castaño_ & _Daniela Torres_ & _Sebastian Sanchez_ & _Kevin Hidalgo_
 
-**Correos:** _correo@unal.edu.co_ & _correo@unal.edu.co_ & _correo@unal.edu.co_ &
+**Correos:** _datorresgom@unal.edu.co_ & _correo@unal.edu.co_ & _correo@unal.edu.co_ &
 _kfhidalgoh@unal.edu.co_
 
 **Fecha de elaboración:** _2026 Septiembre 02_
@@ -36,13 +36,29 @@ o bases de datos como Scopus, IEEE o Science Direct._
 presenta el problema (por ejemplo, una aplicación móvil, un sistema de escritorio, un sitio web,
 dispositivos de asistencia para personas con discapacidades, etc.)._
 
-> [Escribe tu respuesta aquí...]
+> El problema se presenta en SIMEM (simem.co), una plataforma web de datos abiertos que pone a disposición de usuarios internos y externos información relacionada con el Mercado de Energía Mayorista (MEM) y la operación del Sistema Interconectado Nacional (SIN).
+
+> La plataforma ofrece acceso a los datos mediante consultas web y una API pública, la cual es utilizada por diferentes tipos de usuarios para realizar análisis, desarrollos tecnológicos y procesos de toma de decisiones. La información publicada se alimenta desde un Data Lake, que recibe aproximadamente un millón de registros diarios provenientes de múltiples fuentes de información, incluyendo bases de datos transaccionales, archivos Excel, APIs y otros sistemas de la organización.
+
+> Actualmente, existen mecanismos para monitorear la ejecución de las cargas de datos hacia el Data Lake y hacia la plataforma; sin embargo, dichos controles están enfocados principalmente en verificar que los procesos se ejecuten correctamente, sin validar de forma integral la calidad, consistencia, oportunidad y confiabilidad de los datos publicados.
+
+> Esta situación genera que problemas como registros erróneos, datos atípicos, inconsistencias entre fuentes, retrasos en la publicación o fallas intermitentes en los procesos de carga no sean detectados oportunamente por los administradores de la plataforma. En numerosos casos, son los propios usuarios quienes identifican y reportan las anomalías después de consumir la información, lo que afecta la confianza en los datos y la experiencia de uso del portal.
+
+> Adicionalmente, la plataforma carece de una capa de analítica y visualización (BI) que permita monitorear el comportamiento de los datos de forma gráfica e intuitiva. La información disponible se encuentra principalmente en formatos estructurados, lo que dificulta la identificación temprana de tendencias inusuales.
+
+> Esta limitación es aún más evidente en los conjuntos de datos con actualizaciones esporádicas, ya que actualmente no existe una vista consolidada que permita conocer la frecuencia esperada de publicación, la última actualización realizada o la existencia de posibles retrasos e incumplimientos.
+
+> Como resultado, los responsables de la plataforma carecen de una visión centralizada y proactiva sobre la calidad y el estado de los datos publicados, lo que limita su capacidad para detectar problemas antes de que impacten a los usuarios finales.
+
 
 **Antecedentes** _Instrucción: Menciona brevemente los sistemas actuales o las soluciones previas
 que existen en el ámbito del problema. Esto puede incluir una breve revisión de trabajos previos,
 investigaciones o proyectos que hayan intentado abordar el problema._
 
-> [Escribe tu respuesta aquí...]
+> Actualmente, los administradores de la plataforma cuentan con una herramienta desarrollada en Python para realizar validaciones de consistencia entre los datos de las fuentes originales y los datos almacenados en el Data Lake de SIMEM.
+
+> Cuando la herramienta identifica diferencias o inconsistencias durante las validaciones ejecutadas, genera automáticamente una notificación por correo electrónico dirigida a los administradores de la plataforma. Adicionalmente, los hallazgos detectados son almacenados en archivos CSV para su posterior revisión.
+
 
 ---
 
