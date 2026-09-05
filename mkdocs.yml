@@ -12,22 +12,23 @@ repo_url: https://github.com/KevinHidalgoDS/interaccion-hc
 # -----------------------------------------------------------------------------
 
 theme:
-  name: dracula
-  logo: img/dracula.png
-  favicon: img/favicon.ico
+#  name: dracula
+#  logo: img/dracula.png
+#  favicon: img/favicon.ico
+#  language: es
+  name: material
   language: es
-#  name: material
-#  palette:
-#    # Modo claro
-#    - scheme: default
-#      toggle:
-#        icon: material/brightness-7
-#        name: Cambiar a modo oscuro
-#    # Modo oscuro
-#    - scheme: slate
-#      toggle:
-#        icon: material/brightness-4
-#        name: Cambiar a modo claro
+  palette:
+    # Modo claro
+    - scheme: default
+      toggle:
+        icon: material/brightness-7
+        name: Cambiar a modo oscuro
+    # Modo oscuro
+    - scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Cambiar a modo claro
   features:
     - navigation.tabs          # Pestañas en la barra superior
     - navigation.sections      # Secciones colapsables en la barra lateral
@@ -100,6 +101,7 @@ markdown_extensions:
   # Soporte para fórmulas matemáticas (LaTeX)
   - pymdownx.arithmatex:
       generic: true
+  - footnotes
 
 # -----------------------------------------------------------------------------
 # SCRIPTS EXTRA (MathJax)
@@ -113,4 +115,5 @@ extra_javascript:
 
 nav:
   - Inicio: index.md
-  - Referencia API: api_referencia.md
+  - Entregable 1 Caracterización del problema: 01_entregable_caracterizacion_del_problema
+  # - Referencia API: api_referencia.md

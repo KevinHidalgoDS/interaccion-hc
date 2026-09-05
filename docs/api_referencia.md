@@ -1,3 +1,8 @@
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/gh/dracula/markdown-css/dracula-markdown.css"
+/>
+
 # Referencia de la API
 
 Esta sección contiene la documentación automática de las funciones de ingeniería de características.

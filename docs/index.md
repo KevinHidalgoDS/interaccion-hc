@@ -1,17 +1,11 @@
-# Welcome to MkDocs
+## 📖 Descripción del Proyecto
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+Este repositorio define los estándares arquitectónicos y metodológicos para el desarrollo de
+productos de datos centrados en el usuario, diseñado específicamente para la asignatura
+**Interacción Humano Computador** (3009669) de la **Facultad de Minas, Universidad Nacional de
+Colombia, Sede Medellín**.
 
-## Commands
-
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
-
-## Project layout
-
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+El objetivo principal es profundizar en el intercambio de información entre las personas y los
+computadores a través del diseño de interfaces para aplicaciones de ciencia de datos. El
+proyecto integra el ciclo de vida de HCI desde la perspectiva de la ingeniería de software y
+metodologías ágiles, analizando modelos mentales, aprendizaje humano y percepción.
