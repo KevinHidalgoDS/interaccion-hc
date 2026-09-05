@@ -111,17 +111,21 @@ frustrante._
 
 ### Paso 3: Definición de las necesidades no satisfechas
 
-**¿Qué necesitan los usuarios?** _Instrucción: Enumera las necesidades o expectativas que los
-usuarios tienen, las cuales no están siendo atendidas por las interfaces o sistemas actuales. Esto
-puede incluir facilidad de uso, rapidez, accesibilidad, personalización, etc._
+**¿Qué necesitan los usuarios?** 
 
-> [Escribe tu respuesta aquí...]
+* **Visibilidad del estado de los datos:** Saber si los datos consultados están correctos, completos y cumplen con los estándares de calidad definidos por la organización.
+* **Agilidad:** No tener que realizar tareas manuales de validación de datos, lo cual permite a los usuarios dedicar el tiempo a la extracción del conocimiento que hay en los datos, el valor del negocio y la interpretación y generación de *insights*.
+* **Alertas proactivas:** Ser notificados de manera automática sobre los errores en los datos, permitiendo así saber con seguridad qué usar y qué no.
+* **Canales eficientes de comunicación y gestión de errores en el *datalake*:** Al tener la calidad de datos centralizada, será más fácil la gestión de *backfills* para datos faltantes o la implementación de controles o flujos automatizados para la carga de información faltante.
+* **Fuentes de confianza:** El usuario necesita conocer de primera mano la calidad que tienen los datos que está usando, así como la calidad de los procesos de carga de datos desde las fuentes.
 
-**Problemas actuales** _Instrucción: Expón los problemas que surgen debido a las deficiencias de
-las interfaces actuales (por ejemplo, dificultades de navegación, sobrecarga de información,
-problemas de accesibilidad para personas con discapacidades)._
+**Problemas actuales** 
 
-> [Escribe tu respuesta aquí...]
+* **Inexistencia de un centro de control de calidad de datos unificado:** Al no tener una herramienta unificada de control de calidad de datos y cargas de información, los usuarios no pueden conocer el estado real de la información del *datalake*, lo que genera pérdida de confianza en los datos, gestión reactiva en lugar de preventiva, y adicionalmente no hay gobernanza de datos o trazabilidad clara de los mismos.
+* **Sobrecarga cognitiva por revisión manual:** La inspección de errores de cargas o revisión de calidad de datos se convierte en un problema al ser ejecutado de forma manual, ya que se pueden presentar problemas de errores por omisión, desgaste de los analistas, falta de enfoque en el rol de análisis de información del mercado energético y dependencia de intermediarios.
+* **Procesamiento y análisis lento:** En ocasiones, no se pueden analizar los datos completamente por la falta de personal operativo que revise la calidad de los datos.
+* **Incertidumbre y falta de confianza en los datos:** Al no tener un repositorio centralizado que mida la completitud, consistencia, precisión e integridad de la información, se vuelve difícil confiar plenamente en la información presentada.
+
 
 ---
 
