@@ -71,9 +71,9 @@ Adicionalmente, no se dispone de un catálogo o repositorio estructurado de inco
 
 Como parte del análisis de antecedentes y soluciones existentes en el ámbito de la calidad de datos, se revisaron los siguientes artículos:
 
-__An Intelligent Linked Data Quality Dashboard__  [**1**](#art_1). En este trabajo los autores plantean la siguiente pregunta de investigación: 
+__An Intelligent Linked Data Quality Dashboard__  [**[1]**](#art_1). En este trabajo los autores plantean la siguiente pregunta de investigación: 
 
-> ¿En qué medida un dashboard inteligente, basado en grafos de conocimiento y análisis de causa raíz, puede ayudar a los usuarios a comprender los problemas de calidad de los datos, identificar las correcciones necesarias y priorizar las acciones de mejora?
+>  ¿En qué medida un dashboard inteligente, basado en grafos de conocimiento y análisis de causa raíz, puede ayudar a los usuarios a comprender los problemas de calidad de los datos, identificar las correcciones necesarias y priorizar las acciones de mejora?
 
 Para abordar esta problemática, en el artículo proponen un dashboard enfocado en facilitar la comprensión y gestión de los problemas de calidad de datos mediante mecanismos visuales. Las funcionalidades más relevantes son:
 
@@ -85,7 +85,7 @@ Para abordar esta problemática, en el artículo proponen un dashboard enfocado 
 6. Caracterización del impacto global de una anomalía: Los defectos encontrados no se muestran de forma aislada, sino dentro del contexto de otros problemas relacionados.
 
 
-__DataLens: ML-Oriented Interactive Tabular Data Quality Dashboard__ [**2**](#art_2). Este artículo presenta **DataLens**, una plataforma orientada a la administración de la calidad de datos mediante un dashboard interactivo. Tiene dos módulos que destacan y que son diferentes al propuesto por el artículo de Vaidyambath:
+__DataLens: ML-Oriented Interactive Tabular Data Quality Dashboard__ [**[2]**](#art_2). Este artículo presenta **DataLens**, una plataforma orientada a la administración de la calidad de datos mediante un dashboard interactivo. Tiene dos módulos que destacan y que son diferentes al propuesto por el artículo de Vaidyambath:
 
 1. Módulo de limpieza iterativa con ML: La plataforma incluye un mecanismo de limpieza iterativa, capaz de seleccionar automáticamente las herramientas o técnicas de limpieza más apropiadas para mejorar la calidad de los datos. 
 
@@ -279,7 +279,7 @@ Scopus, IEEE, Science Direct, etc._
 <a id="art_1"></a>
 **[1]** Vaidyambath, R., Debattista, J., Srivatsa, N., & Brennan, R. (2019). *An Intelligent Linked Data Quality Dashboard*. ADAPT Centre, School of Computing, Dublin City University; TopQuadrant; Northern Kentucky University. Disponible en: https://doras.dcu.ie/24121/1/AICSDashboardv02-cameraReady.pdf
 
-<a id="art_2"> [1] </a>
+<a id="art_2"></a>
 **[2]** Abdelaal, M., Lokadjaja, S., Kreuz, A., & Schöning, H. (2025). *DataLens: ML-Oriented Interactive Tabular Data Quality Dashboard*. arXiv preprint arXiv:2501.17074. Disponible en: https://arxiv.org/abs/2501.17074
 
 [^5]: es la capacidad de una persona para buscar, comprender, evaluar, crear y utilizar información
