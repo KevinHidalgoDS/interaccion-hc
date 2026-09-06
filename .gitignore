@@ -103,6 +103,7 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+.ihc_class/
 
 # Spyder project settings
 .spyderproject
