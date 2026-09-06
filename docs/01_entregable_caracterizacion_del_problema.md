@@ -214,7 +214,7 @@ _kfhidalgoh@unal.edu.co_
 **¿Qué necesitan los usuarios?**
 
 > - **Visibilidad del estado de los datos:** Saber si los datos consultados están correctos,
->   completos y cumplen con los estándares de calidad definidos por la organización.
+>   completos y cumplen con los estándares de calidad definidos por la organización. [3]
 > - **Agilidad:** No tener que realizar tareas manuales de validación de datos, lo cual permite a
 >   los usuarios dedicar el tiempo a la extracción del conocimiento que hay en los datos, el valor
 >   del negocio y la interpretación y generación de _insights_.
@@ -232,11 +232,11 @@ _kfhidalgoh@unal.edu.co_
 >   herramienta unificada de control de calidad de datos y cargas de información, los usuarios no
 >   pueden conocer el estado real de la información del _datalake_, lo que genera pérdida de
 >   confianza en los datos, gestión reactiva en lugar de preventiva, y adicionalmente no hay
->   gobernanza de datos o trazabilidad clara de los mismos.
+>   gobernanza de datos o trazabilidad clara de los mismos. [4]
 > - **Sobrecarga cognitiva por revisión manual:** La inspección de errores de cargas o revisión de
 >   calidad de datos se convierte en un problema al ser ejecutado de forma manual, ya que se pueden
 >   presentar problemas de errores por omisión, desgaste de los analistas, falta de enfoque en el
->   rol de análisis de información del mercado energético y dependencia de intermediarios.
+>   rol de análisis de información del mercado energético y dependencia de intermediarios. [5]
 > - **Procesamiento y análisis lento:** En ocasiones, no se pueden analizar los datos completamente
 >   por la falta de personal operativo que revise la calidad de los datos.
 > - **Incertidumbre y falta de confianza en los datos:** Al no tener un repositorio centralizado
@@ -400,6 +400,13 @@ https://doras.dcu.ie/24121/1/AICSDashboardv02-cameraReady.pdf
 [2] Abdelaal, M., Lokadjaja, S., Kreuz, A., & Schöning, H. (2025). _DataLens: ML-Oriented
 Interactive Tabular Data Quality Dashboard_. arXiv preprint arXiv:2501.17074. Disponible en:
 https://arxiv.org/abs/2501.17074
+
+[3] F. Ridzuan and W. M. N. Wan Zainon, "A Review on Data Quality Dimensions for Big Data," Procedia Computer Science, vol. 234, pp. 341–348, 2024, doi: 10.1016/j.procs.2024.03.008. Disponible en: https://www.sciencedirect.com/science/article/pii/S187705092400365X?via%3Dihub
+
+[4] M. Souibgui, F. Atigui, S. Zammali, S. Cherfi, and S. Ben Yahia, "Data quality in ETL process: A preliminary study," Procedia Computer Science, vol. 159, pp. 676–687, 2019, doi: 10.1016/j.procs.2019.09.222. Disponible en:
+https://www.sciencedirect.com/science/article/pii/S1877050919314097
+
+[5] B. G. da S. Cezar and A. C. G. Maçada, "Data literacy and the cognitive challenges of a data-rich business environment: an analysis of perceived data overload, technostress and their relationship to individual performance," Aslib Journal of Information Management, vol. 73, no. 5, pp. 618–638, Jul. 2021, doi: 10.1108/AJIM-01-2021-0015. Disponible en: https://www.sciencedirect.com/org/science/article/abs/pii/S2050380621000235
 
 [^1]: Es la capacidad de una persona para buscar, comprender, evaluar, crear y utilizar información
     mediante tecnologías digitales de manera crítica, segura y responsable.
