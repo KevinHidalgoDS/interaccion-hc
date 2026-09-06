@@ -1,0 +1,955 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentación y laboratorio de Interacción Humano Computador">
+      
+      
+        <meta name="author" content="Kevin Hidalgo">
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>01 entregable caracterizacion del problema - Interacción Humano Computador</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/_mkdocstrings.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#1-descripcion-del-problema" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href=".." title="Interacción Humano Computador" class="md-header__button md-logo" aria-label="Interacción Humano Computador" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Interacción Humano Computador
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              01 entregable caracterizacion del problema
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Cambiar a modo oscuro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo oscuro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Cambiar a modo claro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo claro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/KevinHidalgoDS/interaccion-hc" title="Ir al repositorio" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    KevinHidalgoDS/interaccion-hc
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Pestañas" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Inicio
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Entregable 1 Caracterización del problema
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Interacción Humano Computador" class="md-nav__button md-logo" aria-label="Interacción Humano Computador" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Interacción Humano Computador
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/KevinHidalgoDS/interaccion-hc" title="Ir al repositorio" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    KevinHidalgoDS/interaccion-hc
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inicio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Entregable 1 Caracterización del problema
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-descripcion-del-problema" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Descripción del Problema
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Descripción del Problema">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#paso-1-contextualizacion-del-problema" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Paso 1: Contextualización del problema
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#paso-2-identificacion-de-los-usuarios-afectados" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Paso 2: Identificación de los usuarios afectados
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#paso-3-definicion-de-las-necesidades-no-satisfechas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Paso 3: Definición de las necesidades no satisfechas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#paso-4-impacto-del-problema" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Paso 4: Impacto del problema
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#paso-5-objetivos-del-proyecto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Paso 5: Objetivos del proyecto
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#referencias-bibliograficas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Referencias Bibliográficas
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<hr style="border:2px solid #CC00FF">
+<p></hr>
+<a><img src="https://www.vhv.rs/dpng/d/313-3134285_logo-de-la-universidad-nacional-de-colombia-png.png" width="100" align="center"></a>
+<a><img src="https://minaslap.net/pluginfile.php/1/core_admin/logo/0x200/1770226238/Logo%20MinasLAP-3%20%281%29.png" width="100" align="center"></a></p>
+<h1><center>Interacción Humano-Computador</center></h1>
+<h2><center>Introducción a la Interacción Humano-Computador</center></h2>
+<h3><center>Entregable #1 Caracterización del problema</center></h3>
+
+<p><a name="conte"></a></p>
+<hr style="border:2px solid #CC00FF">
+</hr>
+<p><strong>Elaborado por:</strong> <em>Milena Castaño</em> &amp; <em>Daniela Torres</em> &amp; <em>Sebastian Sanchez</em> &amp; <em>Kevin Hidalgo</em></p>
+<p><strong>Correos:</strong> <em>lmcastanoh@unal.edu.co</em> &amp; <em>datorresgom@unal.edu.co</em> &amp; <em>sebsanchezar@unal.edu.co</em> &amp;
+<em>kfhidalgoh@unal.edu.co</em></p>
+<p><strong>Grupo:</strong> 5</p>
+<p><strong>Fecha de elaboración:</strong> <em>2026 Septiembre 02</em></p>
+<p><strong>Fecha última modificación:</strong> <em>2026 Septiembre 06</em></p>
+<hr />
+<h2 id="1-descripcion-del-problema">1. Descripción del Problema<a class="headerlink" href="#1-descripcion-del-problema" title="Permanent link">&para;</a></h2>
+<h3 id="paso-1-contextualizacion-del-problema">Paso 1: Contextualización del problema<a class="headerlink" href="#paso-1-contextualizacion-del-problema" title="Permanent link">&para;</a></h3>
+<p><strong>¿Dónde y cuándo ocurre el problema?</strong></p>
+<blockquote>
+<p>El problema se presenta en el <em>Sistema de información para el Mercado de Energía Mayorista</em>
+<a href="https://www.simem.co">SIMEM</a>, una plataforma web de datos abiertos que pone a disposición de
+usuarios internos y externos información relacionada con el Mercado de Energía Mayorista (<em>MEM</em>)
+y la operación del Sistema Interconectado Nacional (<em>SIN</em>).</p>
+<p>La plataforma ofrece acceso a los datos mediante consultas web y una Interfaz de Programación de
+Aplicaciones (<em>API</em>) pública, la cual es utilizada por diferentes tipos de usuarios para realizar
+análisis, desarrollos tecnológicos y procesos de toma de decisiones. La información publicada se
+alimenta desde un lago de datos (<em>dataLake</em>), que recibe aproximadamente un millón de registros
+diarios provenientes de múltiples fuentes de información, incluyendo bases de datos
+transaccionales, archivos <em>Excel</em>, <em>API's</em> y otros sistemas de la organización. Actualmente, existen
+mecanismos para monitorear la ejecución de los procesos de carga hacia el <em>dataLake</em> y hacia
+<em>SIMEM</em>. Sin embargo, estos controles se enfocan principalmente en verificar la finalización
+técnica de los procesos y no en validar integralmente la calidad, completitud, oportunidad,
+consistencia y confiabilidad de los datos publicados.</p>
+<p>Como consecuencia, pueden presentarse situaciones en las que los datos son cargados exitosamente
+desde el punto de vista técnico, pero contienen errores o inconsistencias que pasan
+desapercibidos para los administradores de la plataforma. Entre los problemas más frecuentes se
+encuentran registros erróneos, valores atípicos, retrasos en las publicaciones y pérdida de
+información histórica. En numerosos casos, estas situaciones son identificadas únicamente cuando
+los usuarios consumen la información y reportan novedades a través de los canales de atención <em>CRM</em>
+(Customer Relationship Management o Gestión de Relaciones con el Cliente), generando un aumento
+en los requerimientos gestionados por el equipo administrador y afectando la confianza de los
+usuarios en la plataforma. Uno de los escenarios más críticos corresponde a la ausencia de
+versiones específicas de información que deben publicarse de manera secuencial. Por ejemplo,
+algunas variables asociadas a los procesos de liquidación del mercado cuentan con distintas
+versiones publicadas en momentos diferentes. Puede ocurrir que la primera versión de una
+liquidación (TX1 versión preliminar) sea cargada correctamente, mientras que la versión que sale
+2 días después (TX2) no sea incorporada al Data Lake. La recuperación de estas versiones
+faltantes representa un reto operativo significativo, ya que en muchos casos las versiones
+históricas dejan de estar disponibles en las bases de datos fuente.</p>
+<p>Para reconstruirlas es necesario acudir a repositorios alternos, como servidores FTP (File
+Transfer Protocol o Protocolo de Transferencia de Archivos), y ejecutar procesos manuales de
+búsqueda, validación y cargue, los cuales consumen tiempo, requieren conocimiento especializado y
+aumentan el riesgo de errores operativos. Otro problema recurrente está relacionado con la
+pérdida de sincronización entre la fecha de publicación esperada y la fecha real de los datos
+disponibles. Por ejemplo, existen variables que deben publicar diariamente la información
+correspondiente al día inmediatamente anterior, por ejemplo, el precio de bolsa del mercado. Si
+por una intermitencia una ejecución no incorpora los datos esperados, el proceso puede continuar
+ejecutándose sin errores aparentes, pero publicando información desactualizada. En este
+escenario, los administradores observan que las cargas continúan ejecutándose correctamente,
+cuando en realidad los usuarios están consultando datos con uno o varios días de retraso. Esta
+situación puede mantenerse durante largos períodos sin ser detectada. Esta limitación es aún más
+evidente en los conjuntos de datos con actualizaciones esporádicas, ya que actualmente no existe
+una vista consolidada que permita conocer la frecuencia esperada de publicación, la última
+actualización realizada o la existencia de posibles retrasos e incumplimientos.</p>
+<p>Adicionalmente, la plataforma carece de una capa de analítica y visualización <em>BI</em> (Business
+Intelligence) que permita monitorear el comportamiento de los datos de forma gráfica e intuitiva.
+La información disponible se encuentra principalmente en formatos estructurados, lo que dificulta
+la identificación temprana de tendencias inusuales. Como resultado, los responsables de la
+plataforma carecen de una visión centralizada y proactiva sobre la calidad y el estado de los
+datos publicados, lo que limita su capacidad para detectar problemas antes de que impacten a los
+usuarios finales.</p>
+</blockquote>
+<p><strong>Antecedentes:</strong></p>
+<blockquote>
+<p>Actualmente, los administradores de la plataforma cuentan con una herramienta desarrollada en
+Python para realizar validaciones de consistencia entre los datos de las fuentes originales y los
+datos almacenados en el Data Lake de SIMEM. La validación se hace posterior a la carga de
+información del sistema, aunque también se puede ejecutar para validar datos históricos a
+demanda. La configuración de los conjuntos de datos a evaluar se hace a través de un archivo
+<code>.CSV</code>. Cuando la herramienta identifica diferencias o inconsistencias durante las validaciones
+ejecutadas, genera automáticamente una notificación por correo electrónico dirigida a los
+administradores de la plataforma. Adicionalmente, los hallazgos detectados son almacenados en
+archivos <code>.CSV</code> para su posterior revisión.</p>
+<p>Además, el sistema cuenta con metadatos de cada uno de los conjuntos como son: última fecha de
+actualización, si la última ejecución fue exitosa o no, qué fechas indexadas se cargaron con cada
+ejecución, la fecha indexada máxima disponible, periodicidad (diario, semanal, mensual,
+trimestral, semestral, anual), la clasificación (si carga datos del día anterior, de la semana
+siguiente, del mes en curso, etc) y la próxima fecha de ejecución programada. Sin embargo, a día
+de hoy no existe una plataforma centralizada que permita consolidar los hallazgos, visualizar
+tendencias, generar indicadores o medir la evolución de la calidad de los datos a lo largo del
+tiempo. Adicionalmente, no se dispone de un catálogo o repositorio estructurado de
+inconsistencias que permita clasificarlas según su tipología, impacto, criticidad o causa raíz.
+Esto limita la capacidad de identificar patrones recurrentes, priorizar acciones de mejora y
+construir una visión global de la calidad de los datos publicados.</p>
+<p><strong>Artículos Académicos:</strong> Como parte del análisis de antecedentes y soluciones existentes en el
+ámbito de la calidad de datos, se revisaron los siguientes artículos: <strong>An Intelligent Linked
+Data Quality Dashboard</strong> <strong>[1]</strong>. En este trabajo los autores plantean la siguiente pregunta de
+investigación: ¿En qué medida un dashboard inteligente, basado en grafos de conocimiento y
+análisis de causa raíz, puede ayudar a los usuarios a comprender los problemas de calidad de los
+datos, identificar las correcciones necesarias y priorizar las acciones de mejora? Para abordar
+esta problemática, en el artículo proponen un dashboard enfocado en facilitar la comprensión y
+gestión de los problemas de calidad de datos mediante mecanismos visuales. Las funcionalidades
+más relevantes son:</p>
+<ol>
+<li>Visualización de problemas por métrica: Mecanismos que les permitan evaluar el estado de
+   calidad de los datos de forma periódica y sistemática.</li>
+<li>Indicadores visuales y tableros de control: Necesarios para que los usuarios pueden conocer
+   rápidamente el estado de salud de la información.</li>
+<li>Priorización de hallazgos: El sistema organiza automáticamente los problemas según su impacto
+   sobre la calidad del conjunto de datos.</li>
+<li>Múltiples vistas de análisis: Incluye vistas por recurso y por tipo de problema.</li>
+<li>Análisis de causa raíz: Servicios que relacionan las métricas, los datos afectados y los
+   reportes de errores. A partir de estas relaciones se aplican técnicas de análisis de causa
+   raíz para identificar conexiones entre diferentes problemas y determinar su origen común.</li>
+<li>Caracterización del impacto global de una anomalía: Los defectos encontrados no se muestran de
+   forma aislada, sino dentro del contexto de otros problemas relacionados.</li>
+</ol>
+<p><strong>DataLens: ML-Oriented Interactive Tabular Data Quality Dashboard</strong> <strong>[2]</strong>. Este artículo
+presenta <strong>DataLens</strong>, una plataforma orientada a la administración de la calidad de datos
+mediante un dashboard interactivo. Tiene dos módulos que destacan y que son diferentes al
+propuesto por el artículo de Vaidyambath:</p>
+<ol>
+<li>Módulo de limpieza iterativa con ML: La plataforma incluye un mecanismo de limpieza iterativa,
+   capaz de seleccionar automáticamente las herramientas o técnicas de limpieza más apropiadas
+   para mejorar la calidad de los datos.</li>
+<li>Visualización gráfica de inconsistencias: Generación automática de visualizaciones que
+   muestran la distribución de errores detectados en el conjunto de datos. Con esto identificar:</li>
+</ol>
+</blockquote>
+<hr />
+<h3 id="paso-2-identificacion-de-los-usuarios-afectados">Paso 2: Identificación de los usuarios afectados<a class="headerlink" href="#paso-2-identificacion-de-los-usuarios-afectados" title="Permanent link">&para;</a></h3>
+<p><strong>¿Quiénes son los usuarios principales?</strong></p>
+<blockquote>
+<p>Los usuarios principales son el personal interno de XM (analistas de datos, ingenieros y
+operadores del mercado) encargados de monitorear y velar por la calidad de los datos publicados
+en el portal del <a href="https://www.simem.co">SIMEM</a> (<em>Sistema de información para el Mercado de Enegía
+Mayorista</em>).</p>
+<p><strong>Perfil del usuario:</strong></p>
+<ul>
+<li><strong>Conocimiento y experiencia:</strong> Son <strong>usuarios expertos en el dominio</strong> (poseen un alto
+  conocimiento técnico del mercado energético y la estructura de los datos) y tienen una alta
+  literacidad digital<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>. Sin embargo, no necesariamente son expertos en la adopción de nuevas
+  herramientas de software, por lo que la curva de aprendizaje de la interfaz debe ser baja.</li>
+<li><strong>Frecuencia y contexto de uso:</strong> Son usuarios <strong>intensivos/frecuentes</strong>. Su interacción con el
+  sistema es diaria y prolongada. Operan principalmente en entornos de oficina (a menudo con
+  configuraciones de múltiples monitores) para poder cruzar e inspeccionar grandes volúmenes de
+  información simultáneamente.</li>
+<li><strong>Carga cognitiva:</strong> Manejan una <strong>alta carga cognitiva</strong>. Su tarea de asegurar la calidad de
+  los datos requiere concentración extrema para identificar anomalías, patrones o valores
+  atípicos, a menudo bajo restricciones de tiempo crítico antes de la publicación oficial.</li>
+<li><strong>Accesibilidad y ergonomía:</strong> Debido a las largas jornadas frente a pantallas analizando
+  tablas y tableros de control (dashboards), son altamente susceptibles a la fatiga visual y
+  motora. Requieren interfaces que prioricen la claridad tipográfica en datos numéricos, alto
+  contraste, y atajos de teclado o flujos de trabajo optimizados que minimicen la dependencia de
+  clics repetitivos con el ratón.</li>
+</ul>
+</blockquote>
+<p><strong>¿Cómo interactúan estos usuarios con el sistema?</strong></p>
+<blockquote>
+<p>Actualmente, la interacción no ocurre en una plataforma centralizada, sino a través de un
+ecosistema fragmentado (correo electrónico, hojas de cálculo locales, portal web). El flujo de
+tareas principal consiste en la validación y corrección de datos suministrados por los agentes
+generadores, enfrentando severas deficiencias de usabilidad: <strong>Flujo de interacción actual y sus
+puntos de fricción:</strong></p>
+<ol>
+<li><strong>Notificación pasiva y descontextualizada:</strong> El sistema ETL notifica los errores mediante
+   correos electrónicos.</li>
+<li>Fricción (IHC): <strong>Baja visibilidad del estado del sistema</strong>. El usuario recibe una alerta
+     fuera de contexto, sin un enlace directo o interfaz que lo lleve inmediatamente al entorno
+     del error para su evaluación.</li>
+<li><strong>Comparación manual de datos (Búsqueda a ciegas):</strong> Al carecer de una interfaz de
+   contrastación (tipo data diffing), el usuario debe buscar manualmente el dato erróneo cruzando
+   la información entregada por el agente con el resultado fallido de la ETL.</li>
+<li>Fricción (IHC): <strong>Sobrecarga cognitiva y de la memoria de trabajo</strong>. Obligar al usuario a
+     recordar o cruzar visualmente datos entre múltiples ventanas o archivos genera fatiga visual
+     severa y alta probabilidad de error humano (slips y mistakes).</li>
+<li><strong>Corrección mediante "Workarounds" (Soluciones informales):</strong> Para corregir el error, el
+   usuario debe extraer el dato, estructurar un archivo CSV de forma manual y redactar un correo
+   al equipo de soporte.</li>
+<li>Fricción (IHC): <strong>Alto Abismo de Ejecución (Gulf of Execution)</strong><sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup>. Falta de manipulación
+     directa. El usuario sabe qué quiere corregir, pero el sistema no le da la herramienta para
+     hacerlo por sí mismo, obligándolo a abandonar su flujo de trabajo y usar herramientas de
+     terceros (<em>Excel/Notepad, Outlook</em>).</li>
+<li><strong>Dependencia de terceros y Feedback Asíncrono:</strong> El equipo de soporte actualiza la base de
+   datos y re-ejecuta la ETL. El usuario debe esperar y posteriormente entrar de nuevo al portal
+   <em>SIMEM</em> para validar.</li>
+<li>Fricción (IHC): <strong>Abismo de Evaluación (Gulf of Evaluation)<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup> y cuellos de botella</strong>. El
+     ciclo de retroalimentación (feedback loop) está roto. El usuario no recibe confirmación en
+     tiempo real de su acción, generando tiempos muertos, ansiedad y rompiendo por completo la
+     continuidad de la tarea (ruptura del estado de flujo).</li>
+</ol>
+</blockquote>
+<hr />
+<h3 id="paso-3-definicion-de-las-necesidades-no-satisfechas">Paso 3: Definición de las necesidades no satisfechas<a class="headerlink" href="#paso-3-definicion-de-las-necesidades-no-satisfechas" title="Permanent link">&para;</a></h3>
+<p><strong>¿Qué necesitan los usuarios?</strong></p>
+<blockquote>
+<ul>
+<li><strong>Visibilidad del estado de los datos:</strong> Saber si los datos consultados están correctos,
+  completos y cumplen con los estándares de calidad definidos por la organización.</li>
+<li><strong>Agilidad:</strong> No tener que realizar tareas manuales de validación de datos, lo cual permite a
+  los usuarios dedicar el tiempo a la extracción del conocimiento que hay en los datos, el valor
+  del negocio y la interpretación y generación de <em>insights</em>.</li>
+<li><strong>Alertas proactivas:</strong> Ser notificados de manera automática sobre los errores en los datos,
+  permitiendo así saber con seguridad qué usar y qué no.</li>
+<li><strong>Canales eficientes de comunicación y gestión de errores en el <em>datalake</em>:</strong> Al tener la
+  calidad de datos centralizada, será más fácil la gestión de <em>backfills</em> para datos faltantes o
+  la implementación de controles o flujos automatizados para la carga de información faltante.</li>
+<li><strong>Fuentes de confianza:</strong> El usuario necesita conocer de primera mano la calidad que tienen los
+  datos que está usando, así como la calidad de los procesos de carga de datos desde las fuentes.</li>
+</ul>
+</blockquote>
+<p><strong>Problemas actuales:</strong></p>
+<blockquote>
+<ul>
+<li><strong>Inexistencia de un centro de control de calidad de datos unificado:</strong> Al no tener una
+  herramienta unificada de control de calidad de datos y cargas de información, los usuarios no
+  pueden conocer el estado real de la información del <em>datalake</em>, lo que genera pérdida de
+  confianza en los datos, gestión reactiva en lugar de preventiva, y adicionalmente no hay
+  gobernanza de datos o trazabilidad clara de los mismos.</li>
+<li><strong>Sobrecarga cognitiva por revisión manual:</strong> La inspección de errores de cargas o revisión de
+  calidad de datos se convierte en un problema al ser ejecutado de forma manual, ya que se pueden
+  presentar problemas de errores por omisión, desgaste de los analistas, falta de enfoque en el
+  rol de análisis de información del mercado energético y dependencia de intermediarios.</li>
+<li><strong>Procesamiento y análisis lento:</strong> En ocasiones, no se pueden analizar los datos completamente
+  por la falta de personal operativo que revise la calidad de los datos.</li>
+<li><strong>Incertidumbre y falta de confianza en los datos:</strong> Al no tener un repositorio centralizado
+  que mida la completitud, consistencia, precisión e integridad de la información, se vuelve
+  difícil confiar plenamente en la información presentada.</li>
+</ul>
+</blockquote>
+<hr />
+<h3 id="paso-4-impacto-del-problema">Paso 4: Impacto del problema<a class="headerlink" href="#paso-4-impacto-del-problema" title="Permanent link">&para;</a></h3>
+<p><strong>Consecuencias para los usuarios:</strong></p>
+<blockquote>
+<p>La ausencia de una interfaz centralizada para monitorear la calidad, disponibilidad y estado de
+los datos del <em>datalake</em> genera consecuencias directas sobre las actividades realizadas por los
+analistas, ingenieros y operadores de <em>XM</em>. El impacto no se limita únicamente a aspectos técnicos
+relacionados con los datos, sino que también afecta la experiencia de interacción, la eficiencia
+operativa y la capacidad de los usuarios para tomar decisiones oportunas.</p>
+<ul>
+<li>Incremento de la carga cognitiva: Los usuarios deben revisar diferentes fuentes de información,
+  correos electrónicos, archivos CSV, tablas y resultados de procesos de carga para determinar si
+  existe algún problema con los datos. Esta fragmentación obliga al usuario a mantener
+  información en su memoria de trabajo y realizar comparaciones manuales, aumentando el esfuerzo
+  mental requerido para completar una tarea que podría ser soportada directamente por una
+  interfaz.</li>
+<li>Mayor probabilidad de error humano: La revisión manual de grandes cantidades de información
+  aumenta la posibilidad de omitir inconsistencias, interpretar incorrectamente un dato o no
+  identificar oportunamente un conjunto que no fue actualizado. Esto resulta especialmente
+  relevante cuando existen múltiples conjuntos de datos que deben ser supervisados diariamente.</li>
+<li>Reducción de la productividad: Una parte del tiempo de los usuarios debe destinarse a
+  localizar, verificar, reportar y hacer seguimiento a errores de calidad o fallos en las cargas.
+  En consecuencia, disminuye el tiempo disponible para actividades de mayor valor, como el
+  análisis del comportamiento del mercado energético, la identificación de tendencias y la
+  generación de conocimiento a partir de los datos.</li>
+<li>Aumento del tiempo para diagnosticar y resolver errores: La ausencia de un monitor que indique
+  de manera visual qué conjunto presenta problemas, cuál es la causa, desde cuándo ocurre y cuál
+  es su estado de gestión obliga al usuario a investigar manualmente el incidente. Además, cuando
+  la solución depende de comunicaciones por correo electrónico y de la intervención de otros
+  equipos, el ciclo de resolución se prolonga.</li>
+<li>Pérdida de continuidad en la interacción: El usuario debe cambiar constantemente entre
+  herramientas y contextos —por ejemplo, <em>SIMEM</em>, archivos locales, correo electrónico y sistemas
+  internos— para completar una misma tarea. Desde la perspectiva de Interacción
+  Humano-Computador, esta fragmentación interrumpe el flujo de trabajo, aumenta el número de
+  acciones necesarias y dificulta mantener el contexto de la actividad.</li>
+<li>Incertidumbre sobre la confiabilidad de los datos: Si el usuario no dispone de indicadores
+  visibles sobre completitud, consistencia, precisión, vigencia o estado de carga de un conjunto
+  de datos, no puede determinar rápidamente si la información disponible es suficientemente
+  confiable para utilizarla. Esto puede provocar que los analistas recurran a fuentes
+  alternativas, como archivos <code>.txt</code> obtenidos directamente de otros procesos, aunque los datos
+  también se encuentren publicados posteriormente en <em>SIMEM</em>.</li>
+<li>Frustración y disminución de la confianza en el sistema: Cuando los usuarios detectan
+  repetidamente datos faltantes, cargas atrasadas o inconsistencias sin contar con mecanismos
+  claros para identificar su causa y seguimiento, se deteriora la percepción de confiabilidad del
+  sistema. Como resultado, pueden desarrollarse mecanismos de trabajo alternativos o workarounds
+  que reducen aún más la utilización de la plataforma como fuente principal de información.</li>
+<li>Dificultad para priorizar incidentes: Actualmente, la falta de clasificación visual de los
+  errores y de indicadores de severidad dificulta distinguir rápidamente entre un problema menor
+  y uno que puede afectar de forma importante la disponibilidad o confiabilidad de la
+  información. Esto obliga a los usuarios a evaluar manualmente cada situación antes de
+  determinar su prioridad.</li>
+</ul>
+</blockquote>
+<p><strong>Impacto en la organización o contexto</strong></p>
+<blockquote>
+<p>El problema también tiene repercusiones organizacionales para <em>XM</em>, considerando su responsabilidad
+en la administración del Mercado de Energía Mayorista y en la disponibilidad de información
+utilizada por diferentes actores del sector energético.</p>
+<ul>
+<li>Gestión reactiva de la calidad de datos: Al no existir un centro de monitoreo unificado con
+  indicadores, alertas y mecanismos de seguimiento, muchos problemas se gestionan después de ser
+  detectados por un usuario. Esto limita la posibilidad de anticiparse a fallos de carga,
+  conjuntos atrasados o degradaciones progresivas de la calidad.</li>
+<li>Incremento de los costos operativos: Las actividades manuales de identificación, comunicación,
+  corrección, seguimiento y re-ejecución de procesos consumen tiempo de analistas, ingenieros y
+  equipos de soporte. Tareas que podrían ser detectadas, clasificadas o incluso corregidas
+  automáticamente requieren actualmente intervención humana.</li>
+<li>Dependencia de personas y conocimiento tácito: Parte del procedimiento para identificar y
+  solucionar problemas puede depender de la experiencia individual de determinados analistas o
+  integrantes del equipo. Esto representa un riesgo operativo debido a que el conocimiento sobre
+  qué revisar, cómo interpretar un error o cómo solicitar una corrección puede no encontrarse
+  centralizado en el sistema.</li>
+<li>Dificultades de trazabilidad y gobernanza: Sin una plataforma que mantenga el historial de
+  errores, versiones, reglas de calidad, acciones realizadas y responsables de cada incidente,
+  resulta más difícil reconstruir lo ocurrido con un conjunto de datos y determinar cuándo
+  apareció el problema, cómo fue corregido y si volvió a presentarse.</li>
+<li>Riesgo de publicación o utilización de información incompleta: Una carga tardía, incompleta o
+  incorrecta puede hacer que determinados conjuntos de datos no estén disponibles en el momento
+  esperado. Esto puede afectar los análisis realizados por los equipos internos y por los
+  diferentes agentes del sector que dependen de información confiable y oportuna.</li>
+<li>Uso de fuentes alternativas y duplicación de esfuerzos: Cuando los datos disponibles en el
+  <em>datalake</em> o en <em>SIMEM</em> no se actualizan oportunamente, algunos usuarios pueden preferir consultar
+  archivos <code>txt</code> u otras fuentes que se encuentren disponibles con mayor anticipación. Esto genera
+  duplicidad de procesos, dificulta establecer una única fuente de verdad y reduce el
+  aprovechamiento de la infraestructura de datos existente.</li>
+<li>Menor capacidad para evaluar el desempeño de la calidad de los datos: La inexistencia de
+  métricas consolidadas impide responder fácilmente preguntas como qué porcentaje de los
+  conjuntos presenta problemas, cuáles son los errores más frecuentes, cuánto tarda su
+  resolución, qué fuentes presentan mayores incidencias o cuál ha sido la evolución de la calidad
+  de los datos a lo largo del tiempo.</li>
+</ul>
+<p>En consecuencia, el problema identificado no consiste únicamente en la existencia de errores
+dentro del <em>datalake</em>, sino en la dificultad que tienen los usuarios para percibir, comprender,
+diagnosticar y gestionar el estado de calidad de los datos mediante las interfaces y herramientas
+actuales. Desde la perspectiva de la Interacción Humano-Computador, existe una brecha entre la
+información que el sistema posee sobre sus procesos de carga y calidad y la información que
+presenta de manera comprensible y accionable al usuario. Por esta razón, una interfaz de
+monitoreo de calidad de datos permitiría transformar un proceso actualmente fragmentado y
+reactivo en un flujo de trabajo más visible, centralizado y orientado a la toma de decisiones,
+facilitando que los usuarios identifiquen anomalías, comprendan su impacto, prioricen incidentes
+y hagan seguimiento a su resolución desde un único entorno.</p>
+</blockquote>
+<hr />
+<h3 id="paso-5-objetivos-del-proyecto">Paso 5: Objetivos del proyecto<a class="headerlink" href="#paso-5-objetivos-del-proyecto" title="Permanent link">&para;</a></h3>
+<p><strong>¿Qué se quiere lograr?</strong></p>
+<blockquote>
+<p>El aplicativo debe ser capaz de responder preguntas como:</p>
+<ul>
+<li>¿Cuántas inconsistencias se presentan por período?</li>
+<li>¿Cuáles son las fuentes de datos con mayor cantidad de errores?</li>
+<li>¿Qué tipos de inconsistencias ocurren con mayor frecuencia y cuándo?</li>
+<li>¿Cuánto tiempo tarda la resolución de una inconsistencia?</li>
+<li>¿Cuáles hallazgos ya fueron gestionados y cuáles permanecen pendientes?</li>
+<li>¿Qué conjuntos están atrasados en las cargas y por cuanto tiempo han estado así?</li>
+<li>¿Los conjuntos versionados disponen de todas las versiones disponibles?</li>
+<li>¿Cuál es el porcentaje global de calidad de datos del sitio y por conjunto de datos?</li>
+<li>¿Cómo puedo ver gráficamente una variable para identificar tendencias?</li>
+<li>Ejemplo: ¿Los vertimientos del embalse ESMERALDA están correctos para el día 2026-09-01 o hay
+  errores de calidad?</li>
+</ul>
+<p><strong>Objetivos:</strong></p>
+<p>Diseñar e implementar una plataforma de monitoreo, observabilidad y gestión de calidad de datos
+para el <strong>Sistema de Información del Mercado de Energía Mayorista (SIMEM)</strong> que permita detectar
+oportunamente anomalías e inconsistencias, facilitar su análisis y seguimiento, y mejorar la
+confiabilidad de la información publicada a los usuarios internos y externos. La plataforma debe
+contar con las siguientes características:</p>
+<ol>
+<li>Centralizar la gestión de inconsistencias de calidad de datos</li>
+<li>Módulo de configuración de nuevos conjuntos de datos a ser evaluados por la herramienta</li>
+<li>Monitoreo de la oportunidad de publicación de los conjuntos de datos y con posibilidad de
+   relanzar masivamente los que estén atrasados.</li>
+<li>Verificador de la completitud de los conjuntos de datos de la liquidación del mercado de
+   energía y si cuentan con todas sus versiones.</li>
+<li>Implementar indicadores y métricas de calidad de sistema, tanto global como por conjunto de
+   datos.</li>
+<li>Visualizar la evolución de la calidad de los datos en el tiempo, facilitando la identificación
+   de tendencias,</li>
+<li>Caracterizar y clasificar las inconsistencias detectadas, identificando su tipología,
+   frecuencia, criticidad, origen e impacto.</li>
+<li>Proporcionar trazabilidad de los hallazgos.</li>
+</ol>
+</blockquote>
+<hr />
+<h2 id="referencias-bibliograficas">Referencias Bibliográficas<a class="headerlink" href="#referencias-bibliograficas" title="Permanent link">&para;</a></h2>
+<p>[1] Vaidyambath, R., Debattista, J., Srivatsa, N., &amp; Brennan, R. (2019). <em>An Intelligent Linked
+Data Quality Dashboard</em>. ADAPT Centre, School of Computing, Dublin City University; TopQuadrant;
+Northern Kentucky University. Disponible en:
+https://doras.dcu.ie/24121/1/AICSDashboardv02-cameraReady.pdf</p>
+<p>[2] Abdelaal, M., Lokadjaja, S., Kreuz, A., &amp; Schöning, H. (2025). <em>DataLens: ML-Oriented
+Interactive Tabular Data Quality Dashboard</em>. arXiv preprint arXiv:2501.17074. Disponible en:
+https://arxiv.org/abs/2501.17074</p>
+<!-- Referencia != nota al pie -->
+
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p>Es la capacidad de una persona para buscar, comprender, evaluar, crear y utilizar información
+mediante tecnologías digitales de manera crítica, segura y responsable.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:2">
+<p>Abismo de Ejecución: la dificultad de hacer que el sistema haga lo que quiero. Don Norman&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:3">
+<p>Abismo de Evaluación: la dificultad de saber si el sistema hizo lo que le pedí. Don Norman&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Volver al principio
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 Kevin Hidalgo - Universidad Nacional de Colombia
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "search.suggest", "search.highlight", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../javascripts/mathjax.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
