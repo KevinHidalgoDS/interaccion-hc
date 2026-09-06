@@ -135,13 +135,47 @@ frustrante._
 los usuarios. Esto puede incluir aspectos como baja productividad, frustración, errores frecuentes,
 abandono del sistema, o incluso consecuencias más graves como exclusión digital._
 
-> [Escribe tu respuesta aquí...]
+> La ausencia de una interfaz centralizada para monitorear la calidad, disponibilidad y estado de los datos del datalake genera consecuencias directas sobre las actividades realizadas por los analistas, ingenieros y operadores de XM. El impacto no se limita únicamente a aspectos técnicos relacionados con los datos, sino que también afecta la experiencia de interacción, la eficiencia operativa y la capacidad de los usuarios para tomar decisiones oportunas.
+
+*  Incremento de la carga cognitiva: Los usuarios deben revisar diferentes fuentes de información, correos electrónicos, archivos CSV, tablas y resultados de procesos de carga para determinar si existe algún problema con los datos. Esta fragmentación obliga al usuario a mantener información en su memoria de trabajo y realizar comparaciones manuales, aumentando el esfuerzo mental requerido para completar una tarea que podría ser soportada directamente por una interfaz.
+
+* Mayor probabilidad de error humano: La revisión manual de grandes cantidades de información aumenta la posibilidad de omitir inconsistencias, interpretar incorrectamente un dato o no identificar oportunamente un conjunto que no fue actualizado. Esto resulta especialmente relevante cuando existen múltiples conjuntos de datos que deben ser supervisados diariamente.
+
+* Reducción de la productividad: Una parte del tiempo de los usuarios debe destinarse a localizar, verificar, reportar y hacer seguimiento a errores de calidad o fallos en las cargas. En consecuencia, disminuye el tiempo disponible para actividades de mayor valor, como el análisis del comportamiento del mercado energético, la identificación de tendencias y la generación de conocimiento a partir de los datos.
+
+* Aumento del tiempo para diagnosticar y resolver errores: La ausencia de un monitor que indique de manera visual qué conjunto presenta problemas, cuál es la causa, desde cuándo ocurre y cuál es su estado de gestión obliga al usuario a investigar manualmente el incidente. Además, cuando la solución depende de comunicaciones por correo electrónico y de la intervención de otros equipos, el ciclo de resolución se prolonga.
+
+* Pérdida de continuidad en la interacción: El usuario debe cambiar constantemente entre herramientas y contextos —por ejemplo, SIMEM, archivos locales, correo electrónico y sistemas internos— para completar una misma tarea. Desde la perspectiva de Interacción Humano-Computador, esta fragmentación interrumpe el flujo de trabajo, aumenta el número de acciones necesarias y dificulta mantener el contexto de la actividad.
+
+* Incertidumbre sobre la confiabilidad de los datos: Si el usuario no dispone de indicadores visibles sobre completitud, consistencia, precisión, vigencia o estado de carga de un conjunto de datos, no puede determinar rápidamente si la información disponible es suficientemente confiable para utilizarla. Esto puede provocar que los analistas recurran a fuentes alternativas, como archivos TXT obtenidos directamente de otros procesos, aunque los datos también se encuentren publicados posteriormente en SIMEM.
+
+* Frustración y disminución de la confianza en el sistema: Cuando los usuarios detectan repetidamente datos faltantes, cargas atrasadas o inconsistencias sin contar con mecanismos claros para identificar su causa y seguimiento, se deteriora la percepción de confiabilidad del sistema. Como resultado, pueden desarrollarse mecanismos de trabajo alternativos o workarounds que reducen aún más la utilización de la plataforma como fuente principal de información.
+
+* Dificultad para priorizar incidentes: Actualmente, la falta de clasificación visual de los errores y de indicadores de severidad dificulta distinguir rápidamente entre un problema menor y uno que puede afectar de forma importante la disponibilidad o confiabilidad de la información. Esto obliga a los usuarios a evaluar manualmente cada situación antes de determinar su prioridad.
 
 **Impacto en la organización o contexto** _Instrucción: Si es relevante, también puedes mencionar
 cómo el problema afecta a la organización, empresa o comunidad que usa el sistema (por ejemplo,
 pérdida de clientes, costes adicionales, insatisfacción general)._
 
-> [Escribe tu respuesta aquí...]
+> El problema también tiene repercusiones organizacionales para XM, considerando su responsabilidad en la administración del Mercado de Energía Mayorista y en la disponibilidad de información utilizada por diferentes actores del sector energético.
+
+* Gestión reactiva de la calidad de datos: Al no existir un centro de monitoreo unificado con indicadores, alertas y mecanismos de seguimiento, muchos problemas se gestionan después de ser detectados por un usuario. Esto limita la posibilidad de anticiparse a fallos de carga, conjuntos atrasados o degradaciones progresivas de la calidad.
+
+* Incremento de los costos operativos: Las actividades manuales de identificación, comunicación, corrección, seguimiento y reejecución de procesos consumen tiempo de analistas, ingenieros y equipos de soporte. Tareas que podrían ser detectadas, clasificadas o incluso corregidas automáticamente requieren actualmente intervención humana.
+
+* Dependencia de personas y conocimiento tácito: Parte del procedimiento para identificar y solucionar problemas puede depender de la experiencia individual de determinados analistas o integrantes del equipo. Esto representa un riesgo operativo debido a que el conocimiento sobre qué revisar, cómo interpretar un error o cómo solicitar una corrección puede no encontrarse centralizado en el sistema.
+
+* Dificultades de trazabilidad y gobernanza: Sin una plataforma que mantenga el historial de errores, versiones, reglas de calidad, acciones realizadas y responsables de cada incidente, resulta más difícil reconstruir lo ocurrido con un conjunto de datos y determinar cuándo apareció el problema, cómo fue corregido y si volvió a presentarse.
+
+* Riesgo de publicación o utilización de información incompleta: Una carga tardía, incompleta o incorrecta puede hacer que determinados conjuntos de datos no estén disponibles en el momento esperado. Esto puede afectar los análisis realizados por los equipos internos y por los diferentes agentes del sector que dependen de información confiable y oportuna.
+
+* Uso de fuentes alternativas y duplicación de esfuerzos: Cuando los datos disponibles en el datalake o en SIMEM no se actualizan oportunamente, algunos usuarios pueden preferir consultar archivos TXT u otras fuentes que se encuentren disponibles con mayor anticipación. Esto genera duplicidad de procesos, dificulta establecer una única fuente de verdad y reduce el aprovechamiento de la infraestructura de datos existente.
+
+* Menor capacidad para evaluar el desempeño de la calidad de los datos: La inexistencia de métricas consolidadas impide responder fácilmente preguntas como qué porcentaje de los conjuntos presenta problemas, cuáles son los errores más frecuentes, cuánto tarda su resolución, qué fuentes presentan mayores incidencias o cuál ha sido la evolución de la calidad de los datos a lo largo del tiempo.
+
+En consecuencia, el problema identificado no consiste únicamente en la existencia de errores dentro del datalake, sino en la dificultad que tienen los usuarios para percibir, comprender, diagnosticar y gestionar el estado de calidad de los datos mediante las interfaces y herramientas actuales. Desde la perspectiva de la Interacción Humano-Computador, existe una brecha entre la información que el sistema posee sobre sus procesos de carga y calidad y la información que presenta de manera comprensible y accionable al usuario.
+
+Por esta razón, una interfaz de monitoreo de calidad de datos permitiría transformar un proceso actualmente fragmentado y reactivo en un flujo de trabajo más visible, centralizado y orientado a la toma de decisiones, facilitando que los usuarios identifiquen anomalías, comprendan su impacto, prioricen incidentes y hagan seguimiento a su resolución desde un único entorno.
 
 ---
 
