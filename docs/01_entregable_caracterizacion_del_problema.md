@@ -408,4 +408,4 @@ https://arxiv.org/abs/2501.17074
 
 [^3]: Abismo de Evaluación: la dificultad de saber si el sistema hizo lo que le pedí. Don Norman
 
-<!-- Referia != nota al pie -->
+<!-- Referencia != nota al pie -->
