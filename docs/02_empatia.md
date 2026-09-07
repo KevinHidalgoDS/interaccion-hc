@@ -22,80 +22,128 @@ _kfhidalgoh@unal.edu.co_
 
 ---
 
+<h2><center>Tabla de contenido</center></h2>
+
+- [1. Claridad del objetivo](#1-claridad-del-objetivo)
+- [2. Descripción del perfil de usuario](#2-descripción-del-perfil-de-usuario)
+- [3. Metodología utilizada](#3-metodología-utilizada)
+- [4. Análisis y síntesis de la información](#4-análisis-y-síntesis-de-la-información)
+- [5. Hallazgos clave (Insights)](#5-hallazgos-clave-insights)
+- [6. Implicaciones para el diseño](#6-implicaciones-para-el-diseño)
+- [7. Evidencias y documentación](#7-evidencias-y-documentación)
+- [8. Conclusión y reflexión](#8-conclusión-y-reflexión)
+- [Referencias](#referencias)
+
+---
+
 ## 1. Claridad del objetivo
 
-* **Propósito del proceso de empatía:**
-  * [Define con precisión por qué se realizó el estudio y qué se buscaba comprender: ej. mejorar experiencia, detectar problemas de accesibilidad, etc.]
-* **Contexto general del proyecto:**
-  * [Sitúa el estudio dentro del proyecto: qué producto o servicio se está diseñando o evaluando.]
+- **Propósito del proceso de empatía:**
+  - [Define con precisión por qué se realizó el estudio y qué se buscaba comprender: ej. mejorar
+    experiencia, detectar problemas de accesibilidad, etc.]
+    > [Escribe tu respuesta aquí...]
+- **Contexto general del proyecto:**
+  - [Sitúa el estudio dentro del proyecto: qué producto o servicio se está diseñando o evaluando.]
+    > [Escribe tu respuesta aquí...]
 
 ---
 
 ## 2. Descripción del perfil de usuario
 
-* **Caracterización general:**
-  * [Describe a los usuarios estudiados: edad, ocupación, entorno tecnológico, nivel de experiencia y objetivos de uso.]
-* **Segmentación de usuarios:**
-  * [Si aplica, divide a los usuarios en grupos distintos: ej. novatos, expertos, ocasionales.]
-* **Personas o Arquetipos:**
-  * [Presenta aquí los perfiles representativos basados en los patrones identificados durante el estudio.]
+- **Caracterización general:**
+  - [Describe a los usuarios estudiados: edad, ocupación, entorno tecnológico, nivel de experiencia
+    y objetivos de uso.]
+    > [Escribe tu respuesta aquí...]
+- **Segmentación de usuarios:**
+  - [Si aplica, divide a los usuarios en grupos distintos: ej. novatos, expertos, ocasionales.]
+    > [Escribe tu respuesta aquí...]
+- **Personas o Arquetipos:**
+  - [Presenta aquí los perfiles representativos basados en los patrones identificados durante el
+    estudio.]
+    > [Escribe tu respuesta aquí...]
 
 ---
 
 ## 3. Metodología utilizada
 
-* **Técnicas empleadas:**
-  * [Enumera las técnicas: entrevistas, observación contextual, mapas de empatía, shadowing, diarios, cuestionarios, etc.]
-* **Proceso de aplicación:**
-  * [Explica cómo y cuándo se realizaron, cantidad de participantes, contexto y herramientas utilizadas.]
-* **Justificación metodológica:**
-  * [Argumenta por qué se eligieron estos métodos de acuerdo con los objetivos del proyecto.]
+- **Técnicas empleadas:**
+  - [Enumera las técnicas: entrevistas, observación contextual, mapas de empatía, shadowing,
+    diarios, cuestionarios, etc.]
+    > [Escribe tu respuesta aquí...]
+- **Proceso de aplicación:**
+  - [Explica cómo y cuándo se realizaron, cantidad de participantes, contexto y herramientas
+    utilizadas.]
+    > [Escribe tu respuesta aquí...]
+- **Justificación metodológica:**
+  - [Argumenta por qué se eligieron estos métodos de acuerdo con los objetivos del proyecto.]
+    > [Escribe tu respuesta aquí...]
 
 ---
 
 ## 4. Análisis y síntesis de la información
 
-* **Procesamiento de datos:**
-  * [Explica cómo se organizaron, interpretaron y sintetizaron los datos recolectados.]
-* **Identificación de patrones:**
-  * [Describe los comportamientos comunes, necesidades, motivaciones y frustraciones detectadas.]
-* **Representaciones visuales:**
-  * [Inserta aquí tus representaciones: mapas de empatía, journey maps o diagramas de afinidad.]
+- **Procesamiento de datos:**
+  - [Explica cómo se organizaron, interpretaron y sintetizaron los datos recolectados.]
+    > [Escribe tu respuesta aquí...]
+- **Identificación de patrones:**
+  - [Describe los comportamientos comunes, necesidades, motivaciones y frustraciones detectadas.]
+    > [Escribe tu respuesta aquí...]
+- **Representaciones visuales:**
+  - [Inserta aquí tus representaciones: mapas de empatía, journey maps o diagramas de afinidad.]
+    > [Escribe tu respuesta aquí...]
 
 ---
 
 ## 5. Hallazgos clave (Insights)
 
-* **Descubrimientos principales:**
-  * [Enumera los insights obtenidos a partir del análisis.]
-* **Relación con los objetivos:**
-  * [Explica cómo estos hallazgos aportan a la comprensión de la experiencia del usuario y se alinean al proyecto.]
-* **Puntos fuertes y de mejora:**
-  * [Destaca aspectos positivos actuales frente a las dificultades detectadas.]
+- **Descubrimientos principales:**
+  - [Enumera los insights obtenidos a partir del análisis.]
+    > [Escribe tu respuesta aquí...]
+- **Relación con los objetivos:**
+  - [Explica cómo estos hallazgos aportan a la comprensión de la experiencia del usuario y se
+    alinean al proyecto.]
+    > [Escribe tu respuesta aquí...]
+- **Puntos fuertes y de mejora:**
+  - [Destaca aspectos positivos actuales frente a las dificultades detectadas.]
+    > [Escribe tu respuesta aquí...]
 
 ---
 
 ## 6. Implicaciones para el diseño
 
-* **Criterios y recomendaciones:**
-  * [Traduce los hallazgos en requisitos de usabilidad, criterios de diseño o recomendaciones concretas.]
-* **Orientación para futuras fases:**
-  * [Explica cómo esta información guiará la definición del problema, ideación, prototipado o pruebas.]
+- **Criterios y recomendaciones:**
+  - [Traduce los hallazgos en requisitos de usabilidad, criterios de diseño o recomendaciones
+    concretas.]
+    > [Escribe tu respuesta aquí...]
+- **Orientación para futuras fases:**
+  - [Explica cómo esta información guiará la definición del problema, ideación, prototipado o
+    pruebas.]
+    > [Escribe tu respuesta aquí...]
 
 ---
 
 ## 7. Evidencias y documentación
 
-* **Registro del proceso:**
-  * [Adjunta o enlaza extractos de entrevistas, fotografías, capturas, fragmentos de observación o citas.]
-* **Consideraciones éticas:**
-  * [Garantiza y explica cómo se manejó el anonimato y el consentimiento informado de los participantes.]
+- **Registro del proceso:**
+  - [Adjunta o enlaza extractos de entrevistas, fotografías, capturas, fragmentos de observación o
+    citas.]
+    > [Escribe tu respuesta aquí...]
+- **Consideraciones éticas:**
+  - [Garantiza y explica cómo se manejó el anonimato y el consentimiento informado de los
+    participantes.]
+    > [Escribe tu respuesta aquí...]
 
 ---
 
 ## 8. Conclusión y reflexión
 
-* **Resumen de aprendizajes:**
-  * [Sintetiza lo aprendido sobre los usuarios y su interacción con el sistema.]
-* **Limitaciones del proceso:**
-  * [Reflexiona sobre posibles sesgos, tamaño de la muestra o limitaciones de las técnicas usadas.]
+- **Resumen de aprendizajes:**
+  - [Sintetiza lo aprendido sobre los usuarios y su interacción con el sistema.]
+    > [Escribe tu respuesta aquí...]
+- **Limitaciones del proceso:**
+  - [Reflexiona sobre posibles sesgos, tamaño de la muestra o limitaciones de las técnicas usadas.]
+    > [Escribe tu respuesta aquí...]
+
+## Referencias
+
+<!-- Referencia != nota al pie -->
