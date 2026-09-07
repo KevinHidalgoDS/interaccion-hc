@@ -65,6 +65,8 @@ plugins:
   - mkdocs-jupyter:
       include_source: true
       ignore_h1_titles: true
+#  - bibtex:
+#      bib_file: "referencias.bib"
 
 # -----------------------------------------------------------------------------
 # EXTENSIONES DE MARKDOWN
