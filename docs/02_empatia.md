@@ -38,13 +38,23 @@ _kfhidalgoh@unal.edu.co_
 
 ## 1. Claridad del objetivo
 
-- **Propósito del proceso de empatía:**
+- **Propósito del proceso de empatía y contexto general del proyecto:**
   - [Define con precisión por qué se realizó el estudio y qué se buscaba comprender: ej. mejorar
     experiencia, detectar problemas de accesibilidad, etc.]
-    > [Escribe tu respuesta aquí...]
-- **Contexto general del proyecto:**
-  - [Sitúa el estudio dentro del proyecto: qué producto o servicio se está diseñando o evaluando.]
-    > [Escribe tu respuesta aquí...]
+    > El proceso de empatía se realizó con el propósito de comprender las necesidades, dificultades, comportamientos y expectativas de los administradores y analistas encargados de la operación de SIMEM, particularmente en las actividades relacionadas con el monitoreo de la calidad, disponibilidad y actualización de los datos publicados en la plataforma.
+
+    > Actualmente, la información asociada al estado de los datos y a las validaciones de calidad se encuentra distribuida en múltiples mecanismos independientes: correos electrónicos, archivos CSV, consultas manuales a las bases de datos de SIMEM, monitor de carga de datos diario y una alerta de conjuntos de datos con publicaciones definidas en plazos regulatorios [**[1]**](#regulatorio). Esta situación genera una experiencia fragmentada que dificulta la identificación temprana de incidentes, el seguimiento de problemas y la priorización de acciones correctivas.
+
+    > A través de este estudio se busca comprender:
+
+    > Cómo identifican actualmente los usuarios los problemas de calidad de datos.
+    > Qué información necesitan para investigar y resolver un incidente de calidad.
+    > Cuáles son las principales dificultades para monitorear la integridad, completitud y oportunidad de los datos publicados.
+    > Qué factores generan retrasos en la detección y resolución de problemas.
+    > Cómo debería ser una herramienta centralizada que facilite la supervisión operativa y reduzca la dependencia de procesos manuales.
+
+    > El objetivo final es generar los insumos necesarios para diseñar una aplicación web con enfoque centrado en el usuario, que permita consolidar métricas, alertas, hallazgos e indicadores de calidad de datos en un único punto de consulta, facilitando una gestión más proactiva, eficiente que permita un análisis más concreto y la toma ráida de desiciones frente a los incidentes de calidad, antes de que estos impacten a los consumidores de información de SIMEM. Además, busca reducir la carga operativa que conlleva la atención de requerimientos por parte de los usuarios finales. 
+
 
 ---
 
@@ -53,10 +63,25 @@ _kfhidalgoh@unal.edu.co_
 - **Caracterización general:**
   - [Describe a los usuarios estudiados: edad, ocupación, entorno tecnológico, nivel de experiencia
     y objetivos de uso.]
-    > [Escribe tu respuesta aquí...]
+    > Los usuarios involucrados en la operación y monitoreo de SIMEM son profesionales entre 25 y 45 años, con formación universitaria o de posgrado en áreas como ingeniería eléctrica, ingeniería física, ingeniería de sistemas, ciencia de datos o disciplinas afines.
+
+    Sus principales objetivos son:
+
+    > 1. Garantizar la disponibilidad y confiabilidad de los datos publicados.
+    > 2. Detectar oportunamente errores e inconsistencias.
+    > 3. Investigar causas raíz de incidentes.
+    > 4. Realizar seguimiento al estado de las cargas de información.
+    > 5. Atención de requierimientos de los usuarios finales.
+    > 6. Cumplir con los tiempos regulatorios y operativos establecidos para la publicación de información, entre otros.
+
 - **Segmentación de usuarios:**
   - [Si aplica, divide a los usuarios en grupos distintos: ej. novatos, expertos, ocasionales.]
-    > [Escribe tu respuesta aquí...]
+    > **Soporte SIMEM**: Personal con conocimiento técnico avanzado sobre la infraestructura, cargas de datos, procesos de integración, APIs y componentes tecnológicos de la plataforma.
+
+    > **Analista SIMEM Experto**: Usuarios con amplio conocimiento de las reglas de negocio, la operación del Mercado de Energía Mayorista y los diferentes conjuntos de datos publicados en SIMEM.
+
+    > **Analista SIMEM Novato**:  Personal recientemente vinculado al equipo o con experiencia limitada en la plataforma, que participa en actividades operativas específicas y requiere un proceso rápido de aprendizaje. Debido a la rotación frecuente de este rol, los usuarios suelen depender de documentación, acompañamiento y procesos manuales para comprender el funcionamiento del sistema.
+
 - **Personas o Arquetipos:**
   - [Presenta aquí los perfiles representativos basados en los patrones identificados durante el
     estudio.]
@@ -69,14 +94,23 @@ _kfhidalgoh@unal.edu.co_
 - **Técnicas empleadas:**
   - [Enumera las técnicas: entrevistas, observación contextual, mapas de empatía, shadowing,
     diarios, cuestionarios, etc.]
-    > [Escribe tu respuesta aquí...]
+    > **Entrevista actitudinal**:
+    > Se realizaron entrevistas donde figuraban las siguientes preguntas:
 - **Proceso de aplicación:**
   - [Explica cómo y cuándo se realizaron, cantidad de participantes, contexto y herramientas
     utilizadas.]
     > [Escribe tu respuesta aquí...]
 - **Justificación metodológica:**
   - [Argumenta por qué se eligieron estos métodos de acuerdo con los objetivos del proyecto.]
-    > [Escribe tu respuesta aquí...]
+    > La entrevista actitudinal fue seleccionada como método principal debido a que el objetivo fue entender cómo los usuarios experimentan actualmente la gestión de incidentes de calidad dentro de SIMEM. Esta técnica permitió profundizar en aspectos como:
+
+    > Frustraciones durante la búsqueda de información.
+    > Dificultades para identificar incidentes críticos y priorizarlos.
+    > Necesidades de seguimiento y trazabilidad.
+    > Percepciones sobre la efectividad de las herramientas actuales de monitoreo.
+    > Expectativas frente a una plataforma centralizada de gestión de calidad de datos.
+
+    > La elección de una metodología también estuvo motivada por las características del equipo de trabajo: un grupo reducido de analistas con amplio conocimiento del proceso. Además, la existencia de una herramienta preliminar de calidad permitió enfocar las conversaciones en la experiencia de uso actual.
 
 ---
 
@@ -146,4 +180,5 @@ _kfhidalgoh@unal.edu.co_
 
 ## Referencias
 
-<!-- Referencia != nota al pie -->
+ <a id="regulatorio">[1]</a> Los conjuntos de datos regulatorios están definidos en la resolución CREG 101 018 del 2022, por la cual se crea el Sistema de Información del Mercado de Energía Mayorista, SIMEM. Estos tienen fechas exactas en las que se debe publicar la información. En caso contrario pueden existir sanciones por incumplimiento de la normatividad.
+
