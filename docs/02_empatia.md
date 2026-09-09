@@ -70,7 +70,8 @@ _kfhidalgoh@unal.edu.co_
 ## 1. Claridad del objetivo
 
 - **Propósito del proceso de empatía y contexto general del proyecto:**
-
+  - [Define con precisión por qué se realizó el estudio y qué se buscaba comprender: ej. mejorar
+    experiencia, detectar problemas de accesibilidad, etc.]
   > El proceso de empatía se realizó con el propósito de comprender las necesidades, dificultades,
   > comportamientos y expectativas de los administradores y analistas encargados de la operación de
   > SIMEM, particularmente en las actividades relacionadas con el monitoreo de la calidad,
@@ -105,7 +106,8 @@ _kfhidalgoh@unal.edu.co_
 ## 2. Descripción del perfil de usuario
 
 - **Caracterización general:**
-
+  - [Describe a los usuarios estudiados: edad, ocupación, entorno tecnológico, nivel de experiencia
+    y objetivos de uso.]
   > Los usuarios involucrados en la operación y monitoreo de SIMEM son profesionales entre 25 y 45
   > años, con formación universitaria o de posgrado en áreas como ingeniería eléctrica, ingeniería
   > física, ingeniería de sistemas, ciencia de datos o disciplinas afines.
@@ -121,7 +123,7 @@ _kfhidalgoh@unal.edu.co_
   >    información, entre otros.
 
 - **Segmentación de usuarios:**
-
+  - [Si aplica, divide a los usuarios en grupos distintos: ej. novatos, expertos, ocasionales.]
   > - **Soporte SIMEM**: Personal con conocimiento técnico avanzado sobre la infraestructura,
   >   cargas de datos, procesos de integración, API's y componentes tecnológicos de la plataforma.
   > - **Analista SIMEM Experto**: Usuarios con amplio conocimiento de las reglas de negocio, la
@@ -134,7 +136,8 @@ _kfhidalgoh@unal.edu.co_
   >   funcionamiento del sistema.
 
 - **Personas o Arquetipos:**
-
+  - [Presenta aquí los perfiles representativos basados en los patrones identificados durante el
+    estudio.]
   > A partir de la segmentación y los patrones identificados en el proceso de empatía, se
   > construyeron los siguientes arquetipos enfocados en las dimensiones cognitivas y emocionales de
   > los usuarios frente al monitoreo de SIMEM:
@@ -202,7 +205,8 @@ _kfhidalgoh@unal.edu.co_
   > información dispersa en un retrato emocional que refleja lo que el usuario dice, piensa, hace y
   > siente.
 - **Proceso de aplicación:**
-
+  - [Explica cómo y cuándo se realizaron, cantidad de participantes, contexto y herramientas
+    utilizadas.]
   > El proceso se estructuró siguiendo las buenas prácticas de la investigación cualitativa
   > (directa), dividido en las siguientes fases:
   >
@@ -225,7 +229,7 @@ _kfhidalgoh@unal.edu.co_
   >   los arquetipos empáticos presentados en la sección anterior.
 
 - **Justificación metodológica:**
-
+  - [Argumenta por qué se eligieron estos métodos de acuerdo con los objetivos del proyecto.]
   > La entrevista actitudinal fue seleccionada como método principal debido a que el objetivo fue
   > entender cómo los usuarios experimentan actualmente la gestión de incidentes de calidad dentro
   > de SIMEM. Esta técnica permitió profundizar en aspectos como:
@@ -245,7 +249,7 @@ _kfhidalgoh@unal.edu.co_
 ## 4. Análisis y síntesis de la información
 
 - **Procesamiento de datos:**
-
+  - [Explica cómo se organizaron, interpretaron y sintetizaron los datos recolectados.]
   > Para transformar el volumen de datos recopilados en las entrevistas y observaciones en
   > información procesable, se aplicó la técnica de Mapeo de Afinidad. El proceso se estructuró en
   > tres fases metodológicas:
@@ -263,7 +267,7 @@ _kfhidalgoh@unal.edu.co_
   >    definición de requerimientos
 
 - **Identificación de patrones:**
-
+  - [Describe los comportamientos comunes, necesidades, motivaciones y frustraciones detectadas.]
   > Del análisis sintético de la información emergieron tres patrones y ejes temáticos principales
   > que describen la realidad operativa del monitoreo en SIMEM:
   >
