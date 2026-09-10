@@ -183,8 +183,7 @@ _kfhidalgoh@unal.edu.co_
 ## 3. Metodología utilizada
 
 - **Técnicas empleadas:**
-  - [Enumera las técnicas: entrevistas, observación contextual, mapas de empatía, shadowing,
-    diarios, cuestionarios, etc.]
+
   > **Entrevistas cualitativas y actitudinales**: Se acudió directamente al usuario para recoger
   > relatos, emociones, comportamientos y contextos, buscando comprender el porqué y el cómo de sus
   > acciones. Se utilizaron preguntas abiertas para fomentar la elaboración de respuestas y evitar
@@ -192,44 +191,48 @@ _kfhidalgoh@unal.edu.co_
   >
   > - "Cuéntame sobre la última vez que tuviste que investigar un incidente complejo de calidad de
   >   datos en SIMEM. ¿Cómo fue el proceso paso a paso?"
-  > - "¿Cómo te sientes o qué pasa por tu mente cuando la información para resolver un ticket está
-  >   fragmentada en múltiples correos, alertas y archivos?"
+  > - "¿Cómo te sientes o qué pasa por tu mente cuando la información para resolver un incidente de calidad está
+  >   fragmentada en múltiples correos, alertas en el administrador y archivos de csv?"
   > - "Si la plataforma centralizada fuera perfecta y nunca se te pasara por alto un error de
   >   datos, ¿cómo cambiaría tu día a día y tu nivel de estrés?" (Aplicando la técnica de
   >   storytelling inverso).
+  > - "¿Cómo resuelves un error de calidad de datos que llega por el correo electrónico?" (muestra paso a paso)
+  > - "¿Cómo configuras una nueva variable en la herramienta de calidad de datos?" (muestra paso a paso)
+  > - "¿Qué te gustaría que tuviera una herramienta de calidad de datos centralizada?"
+  > - "¿Qué herramientas, aplicaciones o pantallas tienes que abrir y consultar simultáneamente para poder cruzar esa información y entender qué falló?"
+  > - "¿En qué momento exacto de tu jornada sientes que el cansancio mental o la fatiga visual empiezan a pasar factura?"
+  > - "Si pudieras eliminar una sola tarea manual, repetitiva o de 'apagado de incendios' de tu rutina diaria de validación, ¿cuál elegirías y por qué?"
+  > - "Cuando necesitas corregir un dato, ¿cómo es el proceso de interacción con el equipo de soporte y cuánto tiempo suele tardar ese ciclo de retroalimentación?"
   >
   > **Mapeo de Afinidad**: Se utilizó para agrupar las observaciones clave de las entrevistas en
   > temas y patrones consistentes.
   >
   > **Mapas de Empatía y Creación de Personas:** Técnicas de síntesis empleadas para traducir la
   > información dispersa en un retrato emocional que refleja lo que el usuario dice, piensa, hace y
-  > siente.
+  > siente. Se utilizó la herramienta de [Figma](https://www.figma.com/board/pQEPSOq8GjVXWQMWtwcZKo/Sin-t%C3%ADtulo?node-id=0-1&t=UrgCNLsp4K0MFOkz-1)
+  > para este ejercicio.
+
 - **Proceso de aplicación:**
-  - [Explica cómo y cuándo se realizaron, cantidad de participantes, contexto y herramientas
-    utilizadas.]
   > El proceso se estructuró siguiendo las buenas prácticas de la investigación cualitativa
   > (directa), dividido en las siguientes fases:
   >
-  > - **Participantes y Contexto:** Se seleccionó una muestra cualitativa de 5 participantes que
+  > - **Participantes y Contexto:** Se seleccionó una muestra cualitativa de 3 participantes que
   >   representan fielmente al público objetivo: Analistas Expertos, Analistas Novatos y personal
-  >   de Soporte SIMEM. Las sesiones se llevaron a cabo durante 2026-09-07, en un entorno cómodo y
-  >   libre de distracciones como lo es el jardín entre los bloques de las oficinas de ISA para
-  >   asegurar que el participante pudiera expresarse con tranquilidad.
-  > - **Ejecución:** Cada entrevista tuvo una duración aproximada de 20 a minutos. Se inició
+  >   de Soporte SIMEM. Las sesiones se llevaron a cabo entre el 2026-09-07 y el 2026-09-10, en un entorno cómodo y
+  >   libre de distracciones, en una llamada por Teams para asegurar que el participante pudiera expresarse con tranquilidad.
+  > - **Ejecución:** Cada entrevista tuvo una duración aproximada de 20 minutos. Se inició
   >   explicando claramente el propósito del estudio y se solicitó el consentimiento informado para
-  >   grabar la sesión, garantizando la confidencialidad y el anonimato de los datos. El
+  >   transcibir la sesión, garantizando la confidencialidad y el anonimato de los datos. El
   >   facilitador utilizó un guion estructurado, pero flexible, prestando especial atención al
   >   silencio y a las preguntas de seguimiento (indagando con "¿por qué?") para descubrir
   >   fricciones no declaradas superficialmente.
-  > - **Herramientas y Síntesis:** Se emplearon herramientas de grabación de audio/video y software
-  >   de transcripción para capturar con precisión las citas literales de los usuarios. Durante y
+  > - **Herramientas y Síntesis:** Se emplearon herramientas de transcripción para capturar con precisión las citas literales de los usuarios. Durante y
   >   después de las sesiones, se tomaron notas inmediatas que luego fueron procesadas en una
-  >   pizarra digital [Miro](https://miro.com/app/board/uXjVHoljVIU=/?share_link_id=562006030546)
+  >   pizarra digital [Figma](https://www.figma.com/board/pQEPSOq8GjVXWQMWtwcZKo/Sin-t%C3%ADtulo?node-id=0-1&t=UrgCNLsp4K0MFOkz-1)
   >   mediante el Mapeo de Afinidad. Esta organización de datos permitió construir posteriormente
   >   los arquetipos empáticos presentados en la sección anterior.
 
 - **Justificación metodológica:**
-  - [Argumenta por qué se eligieron estos métodos de acuerdo con los objetivos del proyecto.]
   > La entrevista actitudinal fue seleccionada como método principal debido a que el objetivo fue
   > entender cómo los usuarios experimentan actualmente la gestión de incidentes de calidad dentro
   > de SIMEM. Esta técnica permitió profundizar en aspectos como:
@@ -249,7 +252,6 @@ _kfhidalgoh@unal.edu.co_
 ## 4. Análisis y síntesis de la información
 
 - **Procesamiento de datos:**
-  - [Explica cómo se organizaron, interpretaron y sintetizaron los datos recolectados.]
   > Para transformar el volumen de datos recopilados en las entrevistas y observaciones en
   > información procesable, se aplicó la técnica de Mapeo de Afinidad. El proceso se estructuró en
   > tres fases metodológicas:
@@ -267,7 +269,6 @@ _kfhidalgoh@unal.edu.co_
   >    definición de requerimientos
 
 - **Identificación de patrones:**
-  - [Describe los comportamientos comunes, necesidades, motivaciones y frustraciones detectadas.]
   > Del análisis sintético de la información emergieron tres patrones y ejes temáticos principales
   > que describen la realidad operativa del monitoreo en SIMEM:
   >
@@ -285,7 +286,7 @@ _kfhidalgoh@unal.edu.co_
   >   encuentra disperso o no está centralizado en herramientas intuitivas.
 
 - **Representaciones visuales:**
-  - [Inserta aquí tus representaciones: mapas de empatía, journey maps o diagramas de afinidad.]
+
   > Como parte de la síntesis gráfica y conceptual del estudio, se desarrollaron los siguientes
   > artefactos de visualización:
   >
