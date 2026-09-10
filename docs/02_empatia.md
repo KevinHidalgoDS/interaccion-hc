@@ -370,3 +370,8 @@ _kfhidalgoh@unal.edu.co_
     la cual se crea el Sistema de Información del Mercado de Energía Mayorista, SIMEM. Estos tienen
     fechas exactas en las que se debe publicar la información. En caso contrario pueden existir
     sanciones por incumplimiento de la normatividad.
+
+![dracula][img_dracula]
+
+---
+[img_dracula]: docs/img/dracula.png "dracula"
