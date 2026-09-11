@@ -70,8 +70,7 @@ _kfhidalgoh@unal.edu.co_
 ## 1. Claridad del objetivo
 
 - **Propósito del proceso de empatía y contexto general del proyecto:**
-  - [Define con precisión por qué se realizó el estudio y qué se buscaba comprender: ej. mejorar
-    experiencia, detectar problemas de accesibilidad, etc.]
+
   > El proceso de empatía se realizó con el propósito de comprender las necesidades, dificultades,
   > comportamientos y expectativas de los administradores y analistas encargados de la operación de
   > SIMEM, particularmente en las actividades relacionadas con el monitoreo de la calidad,
@@ -123,7 +122,7 @@ _kfhidalgoh@unal.edu.co_
   >    información, entre otros.
 
 - **Segmentación de usuarios:**
-  - [Si aplica, divide a los usuarios en grupos distintos: ej. novatos, expertos, ocasionales.]
+
   > - **Soporte SIMEM**: Personal con conocimiento técnico avanzado sobre la infraestructura,
   >   cargas de datos, procesos de integración, API's y componentes tecnológicos de la plataforma.
   > - **Analista SIMEM Experto**: Usuarios con amplio conocimiento de las reglas de negocio, la
@@ -136,8 +135,7 @@ _kfhidalgoh@unal.edu.co_
   >   funcionamiento del sistema.
 
 - **Personas o Arquetipos:**
-  - [Presenta aquí los perfiles representativos basados en los patrones identificados durante el
-    estudio.]
+
   > A partir de la segmentación y los patrones identificados en el proceso de empatía, se
   > construyeron los siguientes arquetipos enfocados en las dimensiones cognitivas y emocionales de
   > los usuarios frente al monitoreo de SIMEM:
@@ -173,10 +171,10 @@ _kfhidalgoh@unal.edu.co_
   >   independientes de alerta.
   > - **Emociones predominantes:** Inseguridad al tomar decisiones sobre la integridad de un dato,
   >   sensación de estar abrumada por la arquitectura fragmentada del sistema y alivio cuando logra
-  >   validar correctamente una carga o resolver un ticket.
+  >   validar correctamente una carga.
   > - **Comportamientos:** Consulta constantemente los manuales, pregunta con frecuencia a sus
   >   compañeros de mayor experiencia para confirmar si una alerta es real o un falso positivo, y
-  >   revisa de manera cautelosa y secuencial antes de dar respuesta a un requerimiento.
+  >   revisa de manera cautelosa y secuencial antes de dar respuesta a un requerimiento de un usuario.
 
 ---
 
@@ -189,28 +187,27 @@ _kfhidalgoh@unal.edu.co_
   > acciones. Se utilizaron preguntas abiertas para fomentar la elaboración de respuestas y evitar
   > sesgos. En el guion figuraban las siguientes preguntas núcleo:
   >
-  > - "Cuéntame sobre la última vez que tuviste que investigar un incidente complejo de calidad de
-  >   datos en SIMEM. ¿Cómo fue el proceso paso a paso?"
-  > - "¿Cómo te sientes o qué pasa por tu mente cuando la información para resolver un incidente de calidad está
-  >   fragmentada en múltiples correos, alertas en el administrador y archivos de csv?"
-  > - "Si la plataforma centralizada fuera perfecta y nunca se te pasara por alto un error de
-  >   datos, ¿cómo cambiaría tu día a día y tu nivel de estrés?" (Aplicando la técnica de
+  > - Cuéntame sobre la última vez que tuviste que investigar un incidente complejo de calidad de
+  >   datos en SIMEM. ¿Cómo fue el proceso paso a paso?
+  > - ¿Cómo te sientes o qué pasa por tu mente cuando la información para resolver un incidente de calidad está
+  >   fragmentada en múltiples correos, alertas en el administrador y archivos de csv?
+  > - Si la plataforma centralizada fuera perfecta y nunca se te pasara por alto un error de
+  >   datos, ¿cómo cambiaría tu día a día y tu nivel de estrés? (Aplicando la técnica de
   >   storytelling inverso).
-  > - "¿Cómo resuelves un error de calidad de datos que llega por el correo electrónico?" (muestra paso a paso)
-  > - "¿Cómo configuras una nueva variable en la herramienta de calidad de datos?" (muestra paso a paso)
-  > - "¿Qué te gustaría que tuviera una herramienta de calidad de datos centralizada?"
-  > - "¿Qué herramientas, aplicaciones o pantallas tienes que abrir y consultar simultáneamente para poder cruzar esa información y entender qué falló?"
-  > - "¿En qué momento exacto de tu jornada sientes que el cansancio mental o la fatiga visual empiezan a pasar factura?"
-  > - "Si pudieras eliminar una sola tarea manual, repetitiva o de 'apagado de incendios' de tu rutina diaria de validación, ¿cuál elegirías y por qué?"
-  > - "Cuando necesitas corregir un dato, ¿cómo es el proceso de interacción con el equipo de soporte y cuánto tiempo suele tardar ese ciclo de retroalimentación?"
+  > - ¿Cómo resuelves un error de calidad de datos que llega por el correo electrónico? (muestra paso a paso)
+  > - ¿Cómo configuras una nueva variable en la herramienta de calidad de datos? (muestra paso a paso)
+  > - ¿Qué te gustaría que tuviera una herramienta de calidad de datos centralizada?
+  > - ¿Qué herramientas, aplicaciones o pantallas tienes que abrir y consultar simultáneamente para poder cruzar esa información y entender qué falló?
+  > - ¿En qué momento exacto de tu jornada sientes que el cansancio mental o la fatiga visual empiezan a pasar factura?
+  > - Si pudieras eliminar una sola tarea manual, repetitiva o de 'apagado de incendios' de tu rutina diaria de validación, ¿cuál elegirías y por qué?
+  > - Cuando necesitas corregir un dato, ¿cómo es el proceso de interacción con el equipo de soporte y cuánto tiempo suele tardar ese ciclo de retroalimentación?
   >
   > **Mapeo de Afinidad**: Se utilizó para agrupar las observaciones clave de las entrevistas en
   > temas y patrones consistentes.
   >
   > **Mapas de Empatía y Creación de Personas:** Técnicas de síntesis empleadas para traducir la
   > información dispersa en un retrato emocional que refleja lo que el usuario dice, piensa, hace y
-  > siente. Se utilizó la herramienta de [Figma](https://www.figma.com/board/pQEPSOq8GjVXWQMWtwcZKo/Sin-t%C3%ADtulo?node-id=0-1&t=UrgCNLsp4K0MFOkz-1)
-  > para este ejercicio.
+  > siente. Se utilizó la herramienta de Figma para este ejercicio.
 
 - **Proceso de aplicación:**
   > El proceso se estructuró siguiendo las buenas prácticas de la investigación cualitativa
@@ -218,18 +215,18 @@ _kfhidalgoh@unal.edu.co_
   >
   > - **Participantes y Contexto:** Se seleccionó una muestra cualitativa de 3 participantes que
   >   representan fielmente al público objetivo: Analistas Expertos, Analistas Novatos y personal
-  >   de Soporte SIMEM. Las sesiones se llevaron a cabo entre el 2026-09-07 y el 2026-09-10, en un entorno cómodo y
-  >   libre de distracciones, en una llamada por Teams para asegurar que el participante pudiera expresarse con tranquilidad.
-  > - **Ejecución:** Cada entrevista tuvo una duración aproximada de 20 minutos. Se inició
+  >   de Soporte SIMEM. Las sesiones se llevaron a cabo entre el 2026-09-08 y el 2026-09-10, en un entorno cómodo y
+  >   libre de distracciones, en una llamada por Teams.
+  > - **Ejecución:** Cada entrevista tuvo una duración aproximada de 30 minutos. Se inició
   >   explicando claramente el propósito del estudio y se solicitó el consentimiento informado para
   >   transcibir la sesión, garantizando la confidencialidad y el anonimato de los datos. El
   >   facilitador utilizó un guion estructurado, pero flexible, prestando especial atención al
   >   silencio y a las preguntas de seguimiento (indagando con "¿por qué?") para descubrir
   >   fricciones no declaradas superficialmente.
   > - **Herramientas y Síntesis:** Se emplearon herramientas de transcripción para capturar con precisión las citas literales de los usuarios. Durante y
-  >   después de las sesiones, se tomaron notas inmediatas que luego fueron procesadas en una
-  >   pizarra digital [Figma](https://www.figma.com/board/pQEPSOq8GjVXWQMWtwcZKo/Sin-t%C3%ADtulo?node-id=0-1&t=UrgCNLsp4K0MFOkz-1)
-  >   mediante el Mapeo de Afinidad. Esta organización de datos permitió construir posteriormente
+  >   después de las sesiones, se tomaron notas durante las entrevistas en una
+  >   pizarra digital [Figma](https://www.figma.com/board/pQEPSOq8GjVXWQMWtwcZKo/02_entrega?node-id=0-1&t=zNVi0B00uq4236BK-1).
+  >   Esta organización de datos permitió construir posteriormente
   >   los arquetipos empáticos presentados en la sección anterior.
 
 - **Justificación metodológica:**
@@ -343,11 +340,13 @@ _kfhidalgoh@unal.edu.co_
 - **Registro del proceso:**
   - [Adjunta o enlaza extractos de entrevistas, fotografías, capturas, fragmentos de observación o
     citas.]
-  > [Escribe tu respuesta aquí...]
-- **Consideraciones éticas:**
-  - [Garantiza y explica cómo se manejó el anonimato y el consentimiento informado de los
-    participantes.]
-  > [Escribe tu respuesta aquí...]
+  > **Mapa de Empaía y diagrama de afinidad**: [Figma](https://www.figma.com/board/pQEPSOq8GjVXWQMWtwcZKo/02_entrega?node-id=0-1&t=zNVi0B00uq4236BK-1).
+  > **Capturas entrevistas**
+  <a><img src="img/entrevista_1.png" width="100" align="center"></a>
+  <a><img src="img/entrevista_2.png" width="100" align="center"></a>
+
+
+
 
 ---
 
