@@ -343,18 +343,14 @@ _kfhidalgoh@unal.edu.co_
 
 ##### Capturas de entrevistas
 
-<div align="center">
-  img/entrevista_1.png
-  img/entrevista_2.png
-</div>
+<a><img src="img/entrevista_1.png"align="center"></a>
+<a><img src="img/entrevista_2.png"align="center"></a>
 
----
+**Figura 1.** Evidencias de las sesiones de entrevista realizadas con usuarios del proceso.
 
 #### Fragmentos relevantes de las entrevistas
 
 A continuación, se presentan algunas respuestas representativas recopiladas durante las entrevistas realizadas a los usuarios del proceso.
-
----
 
   ### 👤 Entrevistado 1:
 
