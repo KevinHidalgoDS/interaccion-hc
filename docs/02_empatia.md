@@ -337,14 +337,54 @@ _kfhidalgoh@unal.edu.co_
 
 ## 7. Evidencias y documentación
 
-- **Registro del proceso:**
-  - [Adjunta o enlaza extractos de entrevistas, fotografías, capturas, fragmentos de observación o
-    citas.]
-  > **Mapa de Empaía y diagrama de afinidad**: [Figma](https://www.figma.com/board/pQEPSOq8GjVXWQMWtwcZKo/02_entrega?node-id=0-1&t=zNVi0B00uq4236BK-1).
-  > **Capturas entrevistas**
-  <a><img src="img/entrevista_1.png" width="100" align="center"></a>
-  <a><img src="img/entrevista_2.png" width="100" align="center"></a>
+##### Mapa de empatía y diagrama de afinidad
+- Disponible en Figma:
+  - https://www.figma.com/board/pQEPSOq8GjVXWQMWtwcZKo/02_entrega?node-id=0-1&t=zNVi0B00uq4236BK-1
 
+##### Capturas de entrevistas
+
+<div align="center">
+  img/entrevista_1.png
+  img/entrevista_2.png
+</div>
+
+---
+
+#### Fragmentos relevantes de las entrevistas
+
+A continuación, se presentan algunas respuestas representativas recopiladas durante las entrevistas realizadas a los usuarios del proceso.
+
+---
+
+  ### 👤 Entrevistado 1:
+
+  >**¿Cómo te sientes o qué pasa por tu mente cuando la información para resolver un incidente de calidad está fragmentada en múltiples correos, alertas y archivos?**
+  >" Considero que las herramientas actuales son útiles y me ayudan en el proceso de validación, pero todavía tienen algunas limitaciones. Me ha pasado que la herramienta genera alertas de inconsistencias que realmente no corresponden a problemas de calidad de datos. Esto suele ocurrir cuando se modifican consultas (queries) y esos cambios no se actualizan en la herramienta, cuando hay errores durante la configuración de nuevas variables o cuando quedan configuraciones desactualizadas que generan falsas alertas de forma recurrente.
+
+  >"Para analizar los incidentes normalmente me apoyo tanto en los correos electrónicos como en la tabla de alertas. Desde mi perspectiva, ambas herramientas se complementan y me permiten tener una mejor visión de lo que está ocurriendo."
+
+  ### 👤 Entrevistado 2:
+  > **¿Qué te gustaría que tuviera una herramienta de calidad de datos centralizada?**
+
+  > Me gustaría que la herramienta me permitiera diferenciar claramente entre los conjuntos que están atrasados y los conjuntos que realmente tienen errores de calidad. Para mí son problemas distintos: un conjunto atrasado no necesariamente tiene datos incorrectos, mientras que un error de calidad implica que existen diferencias frente a la fuente, datos nulos o información incompleta. Por eso, quisiera poder identificar rápidamente qué tipo de problema tiene cada conjunto.
+
+  > También me gustaría poder visualizar los errores de calidad de forma inmediata, sin tener que revisar múltiples herramientas o fuentes de información. Idealmente, la herramienta debería mostrarme directamente cuál es el valor publicado en SIMEM y cuál es el valor que existe en la fuente, para entender rápidamente si la diferencia corresponde a un error, a un dato faltante o a una inconsistencia menor.
+
+  > Sería muy útil poder consultar el estado de calidad para una fecha específica. Por ejemplo, hacer una búsqueda sobre un conjunto de datos para una fecha determinada y verificar fácilmente si la validación fue exitosa, si presentó errores o si esas inconsistencias ya fueron corregidas posteriormente.
+
+  > Otro aspecto importante es tener visibilidad completa sobre las versiones de los datos. Me gustaría saber si todas las versiones esperadas fueron cargadas, identificar rápidamente versiones faltantes y responder preguntas como: "¿ayer se cargaron todas las versiones de este conjunto?" sin tener que hacer investigaciones manuales
+  
+
+  ### 👤 Entrevistado 3:
+  > **¿Si pudieras eliminar una sola tarea manual, repetitiva o de "apagado de incendios" de tu rutina diaria de validación, cuál elegirías y por qué?**
+
+  > Inicialmente no se me ocurre una única tarea específica que eliminaría, pero sí hay varias actividades que considero muy manuales y que podrían automatizarse para facilitar el trabajo diario.
+
+  > Una de ellas es la configuración de nuevos conjuntos o variables. Actualmente debo registrar manualmente la información en archivos CSV, crear los archivos SQL necesarios para las validaciones y realizar varios ajustes de configuración. Son tareas repetitivas que consumen tiempo y que podrían hacerse de una forma más automatizada.
+
+  > También me genera una carga importante trabajar con conjuntos multifuente. En esos casos termino con muchas ventanas y pestañas abiertas al mismo tiempo, revisando diferentes extracciones relacionadas entre sí. Cuando un conjunto tiene múltiples fuentes y cada una tiene varias extracciones hijas, el seguimiento se vuelve complejo y requiere mucha concentración para no perder el contexto de lo que estoy revisando.
+
+  > Otro aspecto que me gustaría eliminar son las tareas asociadas a los recargues. Frecuentemente debo modificar temporalmente los deltas para ejecutar una recarga específica y después devolver esas configuraciones a su estado original. Como normalmente estoy trabajando en varios conjuntos al mismo tiempo, existe el riesgo de olvidar alguno de esos cambios. De hecho, me ha pasado que después de llegar a casa recuerdo que dejé una configuración modificada y debo volver a conectarme para corregirla, incluso en ocasiones durante la noche o los fines de semana que me acuerdo que la dejé mal configurada.
 
 
 
