@@ -105,8 +105,7 @@ _kfhidalgoh@unal.edu.co_
 ## 2. Descripción del perfil de usuario
 
 - **Caracterización general:**
-  - [Describe a los usuarios estudiados: edad, ocupación, entorno tecnológico, nivel de experiencia
-    y objetivos de uso.]
+
   > Los usuarios involucrados en la operación y monitoreo de SIMEM son profesionales entre 25 y 45
   > años, con formación universitaria o de posgrado en áreas como ingeniería eléctrica, ingeniería
   > física, ingeniería de sistemas, ciencia de datos o disciplinas afines.
@@ -215,8 +214,8 @@ _kfhidalgoh@unal.edu.co_
   >
   > - **Participantes y Contexto:** Se seleccionó una muestra cualitativa de 3 participantes que
   >   representan fielmente al público objetivo: Analistas Expertos, Analistas Novatos y personal
-  >   de Soporte SIMEM. Las sesiones se llevaron a cabo entre el 2026-09-08 y el 2026-09-10, en un entorno cómodo y
-  >   libre de distracciones, en una llamada por Teams.
+  >   de Soporte SIMEM. El equipo actualmente se conforma de 4 personas en total. Las sesiones se llevaron a cabo entre el 2026-09-08 y el 2026-09-10, en una llamada por Teams 
+  >   de manera individual.
   > - **Ejecución:** Cada entrevista tuvo una duración aproximada de 30 minutos. Se inició
   >   explicando claramente el propósito del estudio y se solicitó el consentimiento informado para
   >   transcibir la sesión, garantizando la confidencialidad y el anonimato de los datos. El
@@ -287,12 +286,6 @@ _kfhidalgoh@unal.edu.co_
   > Como parte de la síntesis gráfica y conceptual del estudio, se desarrollaron los siguientes
   > artefactos de visualización:
   >
-  > - **Diagrama de Afinidad:** Permitió estructurar las observaciones en tres grandes racimos
-  >   temáticos (Infraestructura y herramientas actuales, Procesos de validación y control, y
-  >   Colaboración y transferencia de conocimiento), facilitando la visualización clara de dónde
-  >   ocurren las principales fricciones operativas.
-  >   <a href="./diagramaFlujoExcavacionValleReyes.html" target="_blank">Haga clic aquí para abrir
-  >   el diagrama de afinidad</a>
   > - **Mapas de Empatía:** Construidos para contrastar lo que los analistas dicen que hacen frente
   >   a lo que realmente piensan, hacen y sienten (por ejemplo, la dualidad entre la calma aparente
   >   en los reportes diarios y la ansiedad oculta ante la auditoría de los plazos regulatorios).
@@ -341,10 +334,8 @@ _kfhidalgoh@unal.edu.co_
 - Disponible en [Figma](https://www.figma.com/board/pQEPSOq8GjVXWQMWtwcZKo/02_entrega?node-id=0-1&t=zNVi0B00uq4236BK-1).
 
 ##### Capturas de entrevistas
-
-<a><img src="img/entrevista_1.png"align="center"></a>
-<a><img src="img/entrevista_2.png"align="center"></a>
-
+![Entrevista_1](img/entrevista_1.png)
+![Entrevista_2](img/entrevista_2.png)
 **Figura 1.** Evidencias de las sesiones de entrevista realizadas con usuarios del proceso.
 
 #### Fragmentos relevantes de las entrevistas
