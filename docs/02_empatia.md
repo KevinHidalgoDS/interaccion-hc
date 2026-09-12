@@ -338,8 +338,7 @@ _kfhidalgoh@unal.edu.co_
 ## 7. Evidencias y documentación
 
 ##### Mapa de empatía y diagrama de afinidad
-- Disponible en Figma:
-  - https://www.figma.com/board/pQEPSOq8GjVXWQMWtwcZKo/02_entrega?node-id=0-1&t=zNVi0B00uq4236BK-1
+- Disponible en [Figma](https://www.figma.com/board/pQEPSOq8GjVXWQMWtwcZKo/02_entrega?node-id=0-1&t=zNVi0B00uq4236BK-1).
 
 ##### Capturas de entrevistas
 
