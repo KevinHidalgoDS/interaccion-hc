@@ -303,29 +303,37 @@ _kfhidalgoh@unal.edu.co_
 ## 5. Hallazgos clave (Insights)
 
 - **Descubrimientos principales:**
-  - [Enumera los insights obtenidos a partir del análisis.]
-  > [Escribe tu respuesta aquí...]
+  * **Fragmentación operativa como detonante de fatiga:** La resolución de incidentes obliga a los analistas y personas encargadas, a alternar sus tareas entre correos electrónicos, administradores del SIMEM, bases de datos, archivos CSV locales y scripts en Visual Studio Code lo cual fragmenta la atención y genera un desgaste cognitivo que no se relaciona con las tareas propias de los analistas.
+
+  * **Dependencia de la configuración artesanal:** Ajustar las reglas de calidad o dar de alta nuevas variables les exige a los analistas la realización de procesos manuales repetitivos (como por ejemplo redactar sentencias SQL a mano, copiar filas en CSVs y modificar parámetros de delta) lo que introduce un alto riesgo de error humano y olvidos de configuración.
+
+  * **Paradoja del sistema de alertas:** Se observa que aunque los correos electrónicos resultan útiles para captar atención inmediata, la cantidad de correos, la saturación y falta de contextualización directa (por tener un diseño no amigable con el usuario) provocan que los analistas terminen ignorando mensajes completos incluso por semanas o recurriendo a revisiones aleatorias por falta de priorización.
+
+  * **Gestión reactiva ante los vacíos de trazabilidad:** La ausencia de dashboard o panel de control unificada impide a los analistas conocer el estado de salud de las cargas en una sola pantalla, relegando al equipo a un rol pasivo de "apagado de incendios" frente a las inconsistencias del mercado energético.
+
 - **Relación con los objetivos:**
-  - [Explica cómo estos hallazgos aportan a la comprensión de la experiencia del usuario y se
-    alinean al proyecto.]
-  > [Escribe tu respuesta aquí...]
+  * Estos hallazgos evidencian que los problemas de calidad de datos en el proceso de análisis de datos del portal SIMEM no son solo técnicos, sino que se relacionan con la experiencia del usuario y de usabilidad. Estos problemas, demuestran la urgencia de centralizar el monitoreo para mitigar la sobrecarga cognitiva de los analistas expertos y alinear la plataforma hacia una gobernanza de datos preventiva y ágil.
+
 - **Puntos fuertes y de mejora:**
-  - [Destaca aspectos positivos actuales frente a las dificultades detectadas.]
-  > [Escribe tu respuesta aquí...]
+  * **Aspectos positivos:** Se observa un alto dominio técnico del equipo de analistas y un profundo conocimiento de la estructura del mercado energético, asimismo, una sólida capacidad analítica para rastrear y resolver fallas complejas hasta su causa raíz.
+
+  * **Dificultades detectadas:** Procesos manuales y desconectados entre si, ausencia de automatización para la reejecución de procesos (*backfills*) y fatiga por gestión de información en diversas fuentes.
 
 ---
 
 ## 6. Implicaciones para el diseño
 
 - **Criterios y recomendaciones:**
-  - [Traduce los hallazgos en requisitos de usabilidad, criterios de diseño o recomendaciones
-    concretas.]
-  > [Escribe tu respuesta aquí...]
-- **Orientación para futuras fases:**
-  - [Explica cómo esta información guiará la definición del problema, ideación, prototipado o
-    pruebas.]
-  > [Escribe tu respuesta aquí...]
+  * **Centralización de la interfaz (Torre de Control):** Diseño de un panel unificado (tipo dashboard o panel de control) el cual consolide métricas de calidad, alertas priorizadas y el estado de las cargas en tiempo real donde se eliminen los procesos de navegar por múltiples herramientas desconectadas.
 
+  * **Automatización de configuraciones:** Generar asistentes internos o flujos automatizados para el alta y modificación de variables y así evitar la edición manual directa de archivos CSV y scripts SQL aislados.
+
+  * **Optimización ergonómica y visual:** Priorizar la claridad tipográfica en datos numéricos, indicadores visuales de impacto (tipo semáforos) y proveer resúmenes automatizados que reduzcan el esfuerzo de los analistas.
+
+- **Orientación para futuras fases:**
+  * **Definición del problema e ideación:** Priorizar los flujos automatzados que estén orientados a la reducción de tareas repetitivas de configuración y a la visualización centralizada de datos y errores frente a los datos fuente.
+
+  * **Prototipado y pruebas:** Desarrollar prototipos amigables con el usuario centrados en el panel de control único y evaluar su capacidad para reducir los tiempos de diagnóstico. De esta manera, mitigar la fatiga visual de los analistas en sesiones de prueba controladas.
 ---
 
 ## 7. Evidencias y documentación
@@ -379,11 +387,11 @@ A continuación, se presentan algunas respuestas representativas recopiladas dur
 ## 8. Conclusión y reflexión
 
 - **Resumen de aprendizajes:**
-  - [Sintetiza lo aprendido sobre los usuarios y su interacción con el sistema.]
-  > [Escribe tu respuesta aquí...]
+  * Con el análisis de las entrevistas y demás artefactos, se observó que los operadores del SIMEM son usuarios expertos con alta capacidad técnica que están expuestos a un entorno operativo muy manual y que debe cumplir altos estándares regulatorios. La interacción actual basada en procesos manuales, correos masivos y múltiples pantallas influye directamente en el ritmo de trabajo y limita su capacidad para enfocarse en la generación de valor analítico para el negocio.
+
 - **Limitaciones del proceso:**
-  - [Reflexiona sobre posibles sesgos, tamaño de la muestra o limitaciones de las técnicas usadas.]
-  > [Escribe tu respuesta aquí...]
+  * Muestra reducida de entrevistas
+  * Mapas de empatía orientados a un rol muy específico dentro de XM
 
 ## Referencias
 
