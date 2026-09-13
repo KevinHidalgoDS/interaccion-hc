@@ -319,6 +319,10 @@ _kfhidalgoh@unal.edu.co_
 
   * **Dificultades detectadas:** Procesos manuales y desconectados entre si, ausencia de automatización para la reejecución de procesos (*backfills*) y fatiga por gestión de información en diversas fuentes.
 
+  * **Incertidumbre ante las falsas alertas:** El testimonio del entrevistado 1 evidencia que algunas alertas se originan en configuraciones desactualizadas o en cambios de consultas que no se reflejan en la herramienta. Esta situación exige que el analista compruebe si el aviso corresponde a una inconsistencia real en los datos o a un problema de configuración. Por ello, se identifica la necesidad de comprender el origen de las alertas para interpretar su relevancia y decidir qué acciones realizar.
+
+  * **Necesidad de contexto y comparación para el diagnóstico:** El entrevistado 2 señala la importancia de visualizar el valor publicado en SIMEM junto con el valor registrado en la fuente. Este testimonio evidencia que detectar una diferencia no proporciona, por sí solo, información suficiente para comprender el problema. El analista necesita conocer los datos involucrados y su contexto para distinguir entre valores faltantes, diferencias menores y errores que requieren una intervención.
+
 ---
 
 ## 6. Implicaciones para el diseño
@@ -334,6 +338,10 @@ _kfhidalgoh@unal.edu.co_
   * **Definición del problema e ideación:** Priorizar los flujos automatzados que estén orientados a la reducción de tareas repetitivas de configuración y a la visualización centralizada de datos y errores frente a los datos fuente.
 
   * **Prototipado y pruebas:** Desarrollar prototipos amigables con el usuario centrados en el panel de control único y evaluar su capacidad para reducir los tiempos de diagnóstico. De esta manera, mitigar la fatiga visual de los analistas en sesiones de prueba controladas.
+
+  * **Diferenciación de los tipos de problemas:** Presentar de forma separada el estado de actualización de los conjuntos, los resultados de las validaciones de calidad y los errores de configuración de la herramienta. Cada categoría deberá contar con etiquetas e indicadores visuales claros que permitan reconocer el tipo de incidente, considerando que un conjunto atrasado no necesariamente contiene datos incorrectos. Esta distinción busca facilitar la interpretación de las alertas y orientar al analista hacia la acción correspondiente.
+
+  * **Detalle contextual de las inconsistencias:** Incorporar una vista de detalle para cada alerta que incluya el conjunto de datos afectado, la fecha de los datos evaluados, la regla de validación aplicada y una comparación directa entre el valor publicado en SIMEM y el valor registrado en la fuente. Las diferencias y los valores faltantes deberán resaltarse de manera comprensible, con el propósito de facilitar el diagnóstico y reducir la necesidad de consultar múltiples herramientas para entender una misma inconsistencia.
 ---
 
 ## 7. Evidencias y documentación
