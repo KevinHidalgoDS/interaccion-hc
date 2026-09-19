@@ -285,56 +285,46 @@ experiencia.
 
 ## 2. Mapa de experiencia del usuario
 
-### 2.1 Persona y antecedentes del recorrido
 
-- **Persona que protagoniza el recorrido:** [Escribir aquí]
-- **Cita o frase que resume por qué realiza este recorrido:** [Escribir aquí]
+## 2.1 Persona y antecedentes del recorrido
+* **Persona que protagoniza el recorrido:** Analista de Operación y Calidad de Datos del SIMEM (Perfil experto con alta competencia técnica pero sometido a procesos manuales fragmentados).
+* **Cita o frase que resume por qué realiza este recorrido:** "Todo el día estoy enfocado/enfocada en la revisión de la calidad de datos y observando correos en lugar de analizar la información del mercado energético."
 
-### 2.2 Fases
+## 2.2 Fases
 
-Definir las fases o hitos de alto nivel del recorrido. Agregar filas según se necesiten.
+| Fase | Descripción |
+| :--- | :--- |
+| **1. Inicio de jornada** | Revisión inicial del estado general de las cargas y bandejas de entrada de correos electrónicos para detectar novedades o fallas críticas. |
+| **2. Diagnóstico** | Acá se realiza la investigación a nivel detallado de inconsistencias mediante la apertura simultánea de múltiples herramientas, bases de datos y archivos de configuración. |
+| **3. Ejecución** | Correcciones manuales debido a mala calidad de datos, backfills, coordinación de ajustes con los equipos de soporte o agentes. |
+| **4. Cierre** | Verificación final del estado de los datos, archivo de incidencias y cierre de la jornada con alta fatiga operativa. |
 
-<!-- prettier-ignore -->
-| # | Fase | Descripción breve |
-| :--- | :--- | :--- |
-| 1 | [Escribir fase] | [Escribir descripción] |
-| 2 | [Escribir fase] | [Escribir descripción] |
-| 3 | [Escribir fase] | [Escribir descripción] |
+## 2.3 Acciones, problemas y emociones por fase
 
-### 2.3 Acciones, problemas y emociones por fase
-
-Para cada fase, detallar las acciones o decisiones de la persona, los problemas que enfrenta y su
-nivel de satisfacción.
-
-<!-- prettier-ignore -->
-| Fase | Acciones (decisiones) | Problemas encontrados | Satisfacción (Baja/Media/Alta) |
+| Fase | Acciones | Problemas encontrados | Satisfacción del usuario |
 | :--- | :--- | :--- | :--- |
-| [Escribir fase] | [Escribir acciones] | [Escribir problemas] | [Escribir nivel] |
-| [Escribir fase] | [Escribir acciones] | [Escribir problemas] | [Escribir nivel] |
+| **Inicio de jornada** | Revisar correo electrónico y monitor de ejecuciones. Identificar si falló alguna carga crítica o hay alertas regulatorias pendientes. | Alertas dispersas sin jerarquía. Saturación de correos electrónicos que dificulta la priorización de las actividades propias de los analistas. | Baja |
+| **Diagnóstico** | Abrir bases de datos, scripts SQL y archivos CSV locales. Cruzar manualmente datos publicados en SIMEM con las fuentes originales. Investigar si el error es por retraso de la información o por datos corruptos. | Falsas alarmas recurrentes por consultas SQL desactualizadas. Fragmentación de la información en múltiples pantallas y pestañas. Alto desgaste cognitivo y fatiga visual. | Baja |
+| **Ejecución** | Modificar manualmente parámetros de delta para realización de backfills de información. Editar archivos CSV de configuración y redactar sentencias SQL a mano. Reportar anomalías a soporte o agentes externos. | Procesos artesanales altamente propensos al error humano. Riesgo crítico de olvidar configuraciones temporales. | Baja |
+| **Cierre** | Verificar el estado final de los conjuntos corregidos. Archivar correos y dar por terminada la revisión operativa diaria. | Falta de un historial centralizado de incidentes resueltos. Se encuentra con una sensación constante de gestión reactiva o apagado de incendios. | Media |
 
-### 2.4 Pensamientos y sentimientos
+## 2.4 Pensamientos y sentimientos
 
-Incluir citas textuales de usuarios reales como evidencia, o abstracciones a manera de hallazgo. Se
-recomienda priorizar citas directas.
-
-<!-- prettier-ignore -->
-| Fase | Cita o hallazgo |
+| Fase | Hallazgo |
 | :--- | :--- |
-| [Escribir fase] | [Escribir cita] |
-| [Escribir fase] | [Escribir cita] |
+| **Inicio de jornada** | Me frustra que no a hora llegó el correo ni voy a abrir el csv... Me siento abrumada. |
+| **Diagnóstico** | La información está regada en muchas partes; pierdo tiempo buscando y abriendo varias pestañas. |
+| **Ejecución** | El cambio temporal de deltas y archivos de configuración me obliga a recordar que debo revertir configuraciones para que las próximas ejecuciones del proceso no presenten fallos. En ocasiones, me acuerdo de noche o en fines de semana que lo dejé mal. |
+| **Cierre** | Quisiera un panel único donde las métricas, alertas e indicadores de calidad estén juntos sin tener que escribir código SQL para poder revisar. |
 
-### 2.5 Hallazgos y oportunidades (opcional)
+## 2.5 Hallazgos y oportunidades (opcional)
 
-Interpretaciones de los problemas detectados en cada fase, como posibles oportunidades de diseño
-para etapas posteriores.
-
-<!-- prettier-ignore -->
-| Fase | Hallazgo u oportunidad detectada |
+| Fase | Oportunidad |
 | :--- | :--- |
-| [Escribir fase] | [Escribir hallazgo] |
-| [Escribir fase] | [Escribir hallazgo] |
-
----
+| **Inicio de jornada** | Implementar un sistema de notificaciones inteligentes y priorizadas (con resúmenes ejecutivos automatizados) en lugar de saturar las bandejas de correo con alertas sueltas. |
+| **Diagnóstico** | Desarrollar un panel centralizado (Torre de Control o dashboard) con una vista comparativa que cruce automáticamente SIMEM y fuentes de información, eliminando la navegación multifuente. |
+| **Ejecución** | Automatizar la gestión de backfills mediante asistentes transaccionales que manejen los deltas de forma segura y reviertan cambios automáticamente, eliminando el error humano. |
+| **Cierre** | Integrar un repositorio histórico y un sistema de trazabilidad de incidentes que permita auditar el comportamiento pasado sin depender de registros manuales no centralizados. |
 
 ## 3. Declaración del problema
 
