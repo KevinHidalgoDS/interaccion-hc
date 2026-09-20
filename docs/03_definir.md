@@ -49,7 +49,7 @@ _kfhidalgoh@unal.edu.co_
 
 **Fecha de elaboración:** _2026 Septiembre 14_
 
-**Fecha última modificación:** _2026 Septiembre 14_
+**Fecha última modificación:** _2026 Septiembre 20_
 
 ---
 
@@ -424,66 +424,150 @@ ideación, con la forma “¿Cómo podríamos...?”.
 
 ### 4.1 Definir el objetivo de la investigación
 
-- **Objetivo de la investigación competitiva:** 
-
-> _Ejemplo de guía: ¿buscan entender fortalezas y debilidades de la competencia? ¿buscan
-> inspiración para la ideación? ¿buscan auditar características o precios de la competencia?_
+- **Objetivo de la investigación competitiva:** Identificar cómo las plataformas de calidad y
+  observabilidad de datos resuelven la centralización del estado de los conjuntos, la gestión de
+  alertas, la configuración de reglas de validación y el seguimiento de incidentes, con el fin de
+  reconocer buenas prácticas, vacíos y oportunidades de diferenciación para un centro de control
+  de calidad de datos de SIMEM. Los criterios de comparación se derivan directamente de las
+  frustraciones de las tres personas definidas en la sección 1.6.
 
 - **Técnica(s) seleccionada(s):**
-  - [ ] Análisis de fortalezas, oportunidades, debilidades y amenazas
-  - [ ] Demostración relámpago
-  - [ ] Análisis competitivo
+  - [x] Análisis de fortalezas, oportunidades, debilidades y amenazas
+  - [x] Demostración relámpago
+  - [x] Análisis competitivo
+
+> _Justificación: el FODA se aplica a la herramienta actual de validación (desarrollada en Python)
+> frente al mercado; la demostración relámpago busca inspiración para la fase de ideación; y el
+> análisis competitivo audita, con criterios homogéneos, qué tan bien cubren las soluciones
+> existentes las necesidades de nuestras personas._
 
 ### 4.2 Análisis de fortalezas, oportunidades, debilidades y amenazas (si aplica)
+
+El análisis se realiza sobre la **herramienta actual de validación de calidad de SIMEM** (script
+en Python, configurado mediante archivos `.CSV` y con notificaciones por correo), comparándola con
+las soluciones identificadas en el mercado.
 
 <!-- prettier-ignore -->
 | | Factores internos | Factores externos |
 | :--- | :--- | :--- |
-| **Positivos** | **Fortalezas:** [Escribir aquí] | **Oportunidades:** [Escribir aquí] |
-| **Negativos** | **Debilidades:** [Escribir aquí] | **Amenazas:** [Escribir aquí] |
+| **Positivos** | **Fortalezas:** (1) Ya existe un motor que compara la fuente contra el Data Lake, tanto posterior a la carga como a demanda para históricos. (2) Se dispone de metadatos ricos por conjunto: periodicidad, clasificación, última fecha de actualización, fecha indexada máxima y próxima ejecución programada. (3) Equipo con alto dominio del Mercado de Energía Mayorista y de la estructura de los datos. (4) Conocimiento de necesidades propias del dominio (versiones de liquidación TX1/TX2, plazos regulatorios CREG) que las herramientas genéricas no contemplan. | **Oportunidades:** (1) La organización ya trabaja sobre el ecosistema Microsoft (Azure, Teams), lo que facilita notificaciones resumidas por Teams y el uso de agentes de IA. (2) Existen herramientas de código abierto (Great Expectations, Soda Core) cuyos patrones pueden reutilizarse sin costo de licencia. (3) Las dimensiones estándar de calidad (completitud, consistencia, oportunidad, exactitud) permiten construir indicadores comparables. (4) Reducir los requerimientos que hoy llegan por el CRM al detectar errores antes que el usuario final. |
+| **Negativos** | **Debilidades:** (1) Las alertas llegan solo por correo, sin agrupación ni priorización, lo que genera saturación. (2) La configuración de variables es manual (filas en CSV, archivos SQL, parámetros uno a uno). (3) No existe historial consolidado ni indicadores de calidad en el tiempo. (4) No distingue un conjunto **atrasado** de uno **con errores de calidad** ni de un **error de configuración** (falsas alertas). (5) Los recargues requieren modificar deltas a mano y recordar revertirlos. | **Amenazas:** (1) Plataformas comerciales maduras (Monte Carlo, Microsoft Purview) pueden percibirse como alternativa "lista para usar", aunque con costo de licencia y menor ajuste al dominio. (2) Sanciones por incumplimiento de los plazos de publicación definidos por la CREG. (3) Rotación del rol de analista novato, que depende de conocimiento tácito no documentado. (4) Complejidad técnica de los conjuntos multifuente y de las fuentes heterogéneas (Oracle, FTP, Excel, APIs). |
 
 **Ideas de producto derivadas del análisis:**
 
-- **Idea 1:** [Escribir aquí]
-- **Idea 2:** [Escribir aquí]
+- **Idea 1 — Torre de control con tres estados diferenciados:** aprovechar los metadatos ya
+  existentes para mostrar, en una sola vista, si un conjunto está _atrasado_, si tiene _errores de
+  calidad_ o si la alerta proviene de un _error de configuración_ de la herramienta, con indicadores
+  tipo semáforo.
+- **Idea 2 — Asistente de configuración y recargues seguros:** un formulario guiado para dar de
+  alta variables que genere la configuración y el SQL, permita una prueba en seco de una sola
+  variable y revierta automáticamente los deltas temporales al terminar un recargue.
+- **Idea 3 — Resumen inteligente por Teams:** reemplazar los correos individuales por un resumen
+  diario agrupado por conjunto y severidad, con enlace directo al detalle de cada incidente.
 
 ### 4.3 Demostración relámpago (si aplica)
 
 Reunir entre 8 y 10 ejemplos de productos: competidores directos, productos relacionados y
 productos inspiradores sin relación directa.
 
+> **Nota sobre la evidencia visual.** Las plataformas comerciales incluidas (Monte Carlo, Soda,
+> Microsoft Purview, Azure Data Factory y PagerDuty) exigen cuenta corporativa, licencia o un
+> despliegue propio, por lo que no fue posible capturar sus interfaces en un entorno productivo.
+> En esos casos la evidencia es la **documentación oficial del fabricante**, que contiene las
+> capturas de la función descrita y permite verificar la afirmación de forma independiente. En los
+> ejemplos de acceso libre se adjunta captura propia. Todas las fuentes fueron consultadas el
+> **20 de septiembre de 2026**.
+
 <!-- prettier-ignore -->
-| # | Producto o ejemplo | Tipo (competidor/relacionado/inspirador) | Captura de pantalla (adjuntar) | ¿Qué inspira de este ejemplo? |
+| # | Producto o ejemplo | Tipo (competidor/relacionado/inspirador) | Evidencia (captura propia o fuente oficial) | ¿Qué inspira de este ejemplo? |
 | :--- | :--- | :--- | :--- | :--- |
-| 1 | [Escribir producto] | [Escribir tipo] | [Adjuntar captura] | [Escribir inspiración] |
-| 2 | [Escribir producto] | [Escribir tipo] | [Adjuntar captura] | [Escribir inspiración] |
+| 1 | Monte Carlo — vista de incidentes | Competidor | Documentación oficial: <https://docs.getmontecarlo.com/docs/incident-management> | Agrupar varias alertas relacionadas en un solo incidente y mostrar su impacto aguas abajo; aplicable para indicar si el fallo se originó en la fuente, el Data Lake o SIMEM. |
+| 2 | Soda Cloud — creación de _checks_ | Competidor | Documentación oficial: <https://docs.soda.io/soda-documentation/soda-v3/use-case-guides/quick-start-end-user> | Reglas de validación declarativas y legibles, creadas desde la interfaz; inspira un asistente para dar de alta variables sin editar CSV. |
+| 3 | Great Expectations — _Data Docs_ | Competidor | Documentación oficial: <https://docs.greatexpectations.io/docs/0.18/reference/learn/terms/data_docs/> | Reporte de cada validación con el valor esperado frente al observado; inspira la vista de detalle "valor en la fuente vs. valor publicado en SIMEM". |
+| 4 | Microsoft Purview — Data Quality | Competidor | Documentación oficial: <https://learn.microsoft.com/purview/unified-catalog-data-quality> | Puntaje de calidad por activo y por dimensión; inspira el indicador de porcentaje de calidad global y por conjunto de datos. |
+| 5 | Azure Data Factory — monitor de ejecuciones | Relacionado | Documentación oficial: <https://learn.microsoft.com/azure/data-factory/monitor-visually> | Listado de ejecuciones con su estado y opción de reejecutar; inspira el relanzamiento masivo de conjuntos atrasados. |
+| 6 | Grafana — paneles y reglas de alerta | Relacionado | ![grafana][img_grafana] <https://play.grafana.org> | Series de tiempo y silenciamiento de alertas conocidas; inspira la gráfica de evolución de una variable y silenciar falsas alertas ya identificadas. |
+| 7 | Atlassian Statuspage | Inspirador | ![statuspage][img_statuspage] <https://status.atlassian.com> | Estado por componente con una barra histórica de disponibilidad; inspira un semáforo por conjunto con su historial de cumplimiento de publicación. |
+| 8 | PagerDuty — agrupación de alertas | Inspirador | Documentación oficial: <https://support.pagerduty.com/main/docs/alert-grouping> | Deduplicación y agrupación de alertas para reducir ruido; inspira el resumen diario por Teams en lugar de decenas de correos. |
+| 9 | GitHub — vista de diferencias (_diff_) | Inspirador | ![github][img_github] <https://github.com/KevinHidalgoDS/interaccion-hc/pull/18/files> | Resaltado visual de lo que cambió; inspira la comparación resaltada entre el dato de la fuente y el dato publicado. |
 
 ### 4.4 Análisis competitivo (si aplica)
 
-- **Paso 1 — Objetivo del análisis:** [Escribir aquí]
+- **Paso 1 — Objetivo del análisis:** Evaluar qué tan bien cubren las plataformas de calidad y
+  observabilidad de datos las necesidades de las tres personas (Analista de Calidad Operativa,
+  Ingeniero de Configuración y Metadatos, Especialista de Monitoreo Multifuente) para identificar
+  qué prácticas adoptar y en qué aspectos puede diferenciarse la solución para SIMEM.
 - **Paso 2 — Criterios de comparación establecidos:**
-  - Criterio 1: [Escribir aquí]
-  - Criterio 2: [Escribir aquí]
-  - Criterio 3: [Escribir aquí]
+  - **Criterio 1 — Vista centralizada del estado:** existencia de un panel único que diferencie
+    conjuntos atrasados de conjuntos con errores de calidad. _(Origen: fragmentación del Analista
+    de Calidad y testimonio del Entrevistado 2)._
+  - **Criterio 2 — Gestión y contexto de alertas:** agrupación, priorización, detalle del error y
+    notificación por canales como Teams. _(Origen: saturación de correos del Especialista de
+    Monitoreo)._
+  - **Criterio 3 — Configuración de reglas sin edición manual:** alta y modificación de
+    validaciones desde la interfaz o de forma declarativa. _(Origen: proceso "artesanal" del
+    Ingeniero de Configuración)._
+  - **Criterio 4 — Trazabilidad e indicadores:** historial de incidentes y métricas de calidad en
+    el tiempo. _(Origen: Meta 3 del Ingeniero de Configuración)._
+  - **Criterio 5 — Remediación:** posibilidad de reejecutar cargas o hacer _backfills_ desde la
+    misma herramienta. _(Origen: recargues manuales del Especialista de Monitoreo)._
 
 - **Paso 3 — Compañías a analizar (directas e indirectas):**
 
 <!-- prettier-ignore -->
 | Compañía | Tipo (directa/indirecta/comparador) | Enlace / acceso | ¿Requiere inicio de sesión? |
 | :--- | :--- | :--- | :--- |
-| [Escribir compañía] | [Escribir tipo] | [Escribir enlace] | [Sí/No] |
+| Monte Carlo | Directa | <https://www.montecarlodata.com> | Sí (demo bajo solicitud) |
+| Soda | Directa | <https://www.soda.io> | Sí (prueba gratuita) |
+| Great Expectations (GX) | Directa | <https://greatexpectations.io> | No (GX Core es de código abierto) |
+| Microsoft Purview — Data Quality | Directa | <https://learn.microsoft.com/purview/> | Sí (requiere cuenta de Azure) |
+| Azure Data Factory | Indirecta | <https://learn.microsoft.com/azure/data-factory/> | Sí (requiere cuenta de Azure) |
+| Grafana | Comparador | <https://play.grafana.org> | No (demo pública) |
 
 - **Paso 4 — Recolección de datos:**
 
+Cada celda se verificó contra la documentación oficial del fabricante consultada el 20 de
+septiembre de 2026; la última columna registra la fuente exacta. Aplica la misma nota sobre
+evidencia visual de la sección 4.3: solo Grafana ofrece una demo pública que permita captura
+propia.
+
+_Leyenda: **Sí** = lo cubre; **Parcial** = lo cubre con limitaciones o requiere desarrollo
+adicional; **No** = no lo cubre._
+
 <!-- prettier-ignore -->
-| Compañía | Criterio 1 | Criterio 2 | Criterio 3 | Evidencia (captura/video) |
-| :--- | :--- | :--- | :--- | :--- |
-| [Escribir compañía] | [Dato] | [Dato] | [Dato] | [Adjuntar evidencia] |
+| Compañía | C1. Vista centralizada | C2. Alertas con contexto | C3. Configuración sin edición manual | C4. Trazabilidad e indicadores | C5. Remediación | Evidencia (captura/video) |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| Monte Carlo | Sí — monitores de tabla (frescura y volumen) separados de los monitores de validación de calidad | Sí — agrupa alertas relacionadas en incidentes con dueño y severidad; notifica por Slack/Teams | Parcial — monitores automáticos y de métrica desde la interfaz; las validaciones específicas requieren SQL propio | Sí — historial de incidentes y agrupación por linaje | No — la reejecución ocurre en el orquestador | <https://docs.getmontecarlo.com/docs/monitors-overview> y <https://docs.getmontecarlo.com/docs/incident-management> |
+| Soda | Parcial — resultados por conjunto de datos; la frescura es un tipo de _check_ más, no una vista consolidada de atrasos | Sí — notificaciones a Slack/Teams definidas en el acuerdo | Sí — _checks_ declarativos (SodaCL) y creación sin código desde la interfaz | Sí — historial de resultados de los _checks_ | No | <https://docs.soda.io/soda-documentation/soda-v3/use-case-guides/quick-start-end-user> |
+| Great Expectations | Parcial — los _Data Docs_ son un reporte por validación, no un panel operativo | Parcial — acciones de notificación configurables en el _Checkpoint_ | Parcial — expectativas definidas en código; GX Cloud agrega interfaz | Parcial — historial de validaciones en los _Data Docs_ | No | <https://docs.greatexpectations.io/docs/0.18/reference/learn/terms/data_docs/> |
+| Microsoft Purview | Parcial — puntaje de calidad agregado por activo, producto de datos y dominio; la frescura es una de las seis dimensiones, no una vista de atrasos | Parcial — alertas por correo o grupo de distribución al incumplir el umbral de calidad; sin agrupación en incidentes ni envío nativo a Teams | Sí — reglas predefinidas, personalizadas y generadas con IA, sin código o con poco código | Sí — puntajes de calidad en el tiempo e historial de ejecuciones | No — el Centro de acciones sugiere la corrección, pero no reejecuta la carga | <https://learn.microsoft.com/purview/unified-catalog-data-quality> |
+| Azure Data Factory | Parcial — solo estado técnico de la ejecución, no calidad del dato | Parcial — reglas de alerta por métrica con notificación por correo, SMS o notificación automática mediante Azure Monitor | No aplica | Parcial — historial de ejecuciones y vista Gantt, con retención limitada | Sí — reejecución individual o masiva, y reejecución desde la actividad fallida | <https://learn.microsoft.com/azure/data-factory/monitor-visually> |
+| Grafana | Parcial — requiere construir el tablero | Sí — agrupación, silenciamiento y envío a Teams | No | Sí — series de tiempo | No | ![grafana][img_grafana] <https://play.grafana.org> |
 
 - **Paso 5 — Resumen de resultados:** Redactar aquí las conclusiones y hallazgos clave del
   análisis, con referencia a las evidencias visuales recolectadas.
 
-> [Escribir aquí]
+> 1. **Separar "atrasado" de "erróneo" solo está resuelto a medias:** Monte Carlo es la única
+>    plataforma revisada que trata la frescura y el volumen como monitores distintos de las
+>    validaciones de calidad; Soda y Microsoft Purview la incorporan como un _check_ o una
+>    dimensión más dentro del mismo puntaje, de modo que un conjunto que no llegó y uno que llegó
+>    con errores se muestran mezclados. Esto valida la necesidad expresada por el Entrevistado 2 y,
+>    además, ninguna herramienta modela de forma nativa las **versiones de liquidación**
+>    (TX1, TX2, …) ni los **plazos regulatorios de la CREG**, lo que constituye el principal
+>    espacio de diferenciación para SIMEM.
+> 2. **La reducción de ruido es tan importante como la detección:** agrupar alertas en
+>    incidentes, priorizarlas y enviarlas por canales de chat es una práctica común, y responde
+>    directamente a la saturación de correos que lleva al Especialista de Monitoreo a ignorarlos.
+> 3. **La configuración declarativa o sin código es el estándar:** Soda y Purview permiten crear
+>    reglas desde la interfaz, lo que respalda la idea de un asistente que elimine la edición
+>    manual de archivos CSV y SQL del Ingeniero de Configuración.
+> 4. **La remediación está desconectada del monitoreo:** las herramientas de calidad detectan
+>    pero no reejecutan; la reejecución vive en el orquestador (Azure Data Factory). Integrar el
+>    relanzamiento masivo en la misma interfaz cerraría el ciclo de retroalimentación roto
+>    identificado en el entregable 1 (abismo de evaluación).
+> 5. **Costo y ajuste al dominio:** las soluciones comerciales implican licencias y adaptación a
+>    fuentes heterogéneas (Oracle, FTP, Excel). Construir sobre la herramienta Python existente,
+>    adoptando los patrones de interacción observados, resulta una alternativa viable.
 
 ---
 
@@ -500,9 +584,9 @@ a presentar.
 
 ### 5.2 Mapa de experiencia del usuario (resumen)
 
-- **Fases identificadas:** [Escribir aquí]
-- **Punto más bajo de satisfacción:** [Escribir aquí]
-- **Principal oportunidad detectada:** [Escribir aquí]
+- **Fases identificadas:** Inicio de jornada, Diagnóstico, Ejecución, Cierre.
+- **Punto más bajo de satisfacción:** La fase de Diagnóstico y Ejecución, debido a la fragmentación de la información en múltiples pantallas y pestañas, las falsas alarmas recurrentes por consultas SQL desactualizadas, y el alto desgaste cognitivo y fatiga visual al realizar procesos artesanales propensos al error humano.
+- **Principal oportunidad detectada:** Desarrollar un panel centralizado (Torre de Control o dashboard) que cruce automáticamente las fuentes de información, acompañado de un sistema de notificaciones inteligentes y priorizadas, y la automatización de la gestión de backfills para eliminar el error humano.
 
 ### 5.3 Declaración del problema final
 
@@ -523,9 +607,26 @@ a presentar.
 
 ### 5.5 Hallazgos clave de la investigación competitiva
 
-- **Hallazgo 1:** [Escribir aquí]
-- **Hallazgo 2:** [Escribir aquí]
-- **Hallazgo 3:** [Escribir aquí]
+- **Hallazgo 1 — El mercado no distingue con claridad un dato atrasado de un dato erróneo, y
+  ninguna herramienta entiende el dominio regulatorio.** De las seis plataformas comparadas
+  (sección 4.4), solo Monte Carlo trata la frescura y el volumen como monitores distintos de las
+  validaciones de calidad; Soda y Microsoft Purview las agregan como un _check_ o una dimensión
+  más dentro del mismo puntaje. Ninguna modela de forma nativa las versiones de liquidación
+  (TX1, TX2, …) ni los plazos de la CREG. Este es el principal espacio de diferenciación para la
+  solución de SIMEM: un estado que responda "¿llegó?" y "¿llegó bien?" en el vocabulario del
+  negocio eléctrico.
+- **Hallazgo 2 — Reducir el ruido vale tanto como detectar el error.** Agrupar alertas
+  relacionadas en un solo incidente con dueño y severidad, y notificar por canales de chat en
+  lugar de correo, es una práctica común a Monte Carlo, Soda, Grafana y PagerDuty. Responde
+  directamente a la saturación de correos que lleva al Especialista de Monitoreo Multifuente a
+  ignorarlos, por lo que la solución debe entregar un resumen agrupado por Teams antes que
+  notificaciones individuales.
+- **Hallazgo 3 — La detección está desconectada de la corrección.** Ninguna de las herramientas
+  de calidad revisadas permite reejecutar una carga: esa capacidad vive en el orquestador (Azure
+  Data Factory, criterio C5 de la sección 4.4), en una interfaz distinta de la que reporta el
+  fallo. Integrar el relanzamiento masivo en el mismo lugar donde se detecta el problema cierra
+  el ciclo de retroalimentación roto que se identificó en el entregable 1 como abismo de
+  evaluación, y es una ventaja alcanzable construyendo sobre la herramienta en Python existente.
 
 ---
 
@@ -538,3 +639,6 @@ a presentar.
 [img_especialista_de_monitoreo_multifuente]:
   docs/img/especialista_de_monitoreo_multifuente.jpg
   "especialista_de_monitoreo_multifuente"
+[img_grafana]: docs/img/competencia/06_grafana.png "grafana"
+[img_statuspage]: docs/img/competencia/07_statuspage.png "statuspage"
+[img_github]: docs/img/competencia/09_github.png "github"
