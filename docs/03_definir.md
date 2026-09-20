@@ -285,89 +285,138 @@ experiencia.
 
 ## 2. Mapa de experiencia del usuario
 
-### 2.1 Persona y antecedentes del recorrido
 
-- **Persona que protagoniza el recorrido:** [Escribir aquí]
-- **Cita o frase que resume por qué realiza este recorrido:** [Escribir aquí]
+## 2.1 Persona y antecedentes del recorrido
+* **Persona que protagoniza el recorrido:** Analista de Operación y Calidad de Datos del SIMEM (Perfil experto con alta competencia técnica pero sometido a procesos manuales fragmentados).
+* **Cita o frase que resume por qué realiza este recorrido:** "Todo el día estoy enfocado/enfocada en la revisión de la calidad de datos y observando correos en lugar de analizar la información del mercado energético."
 
-### 2.2 Fases
+## 2.2 Fases
 
-Definir las fases o hitos de alto nivel del recorrido. Agregar filas según se necesiten.
+| Fase | Descripción |
+| :--- | :--- |
+| **1. Inicio de jornada** | Revisión inicial del estado general de las cargas y bandejas de entrada de correos electrónicos para detectar novedades o fallas críticas. |
+| **2. Diagnóstico** | Acá se realiza la investigación a nivel detallado de inconsistencias mediante la apertura simultánea de múltiples herramientas, bases de datos y archivos de configuración. |
+| **3. Ejecución** | Correcciones manuales debido a mala calidad de datos, backfills, coordinación de ajustes con los equipos de soporte o agentes. |
+| **4. Cierre** | Verificación final del estado de los datos, archivo de incidencias y cierre de la jornada con alta fatiga operativa. |
 
-<!-- prettier-ignore -->
-| # | Fase | Descripción breve |
-| :--- | :--- | :--- |
-| 1 | [Escribir fase] | [Escribir descripción] |
-| 2 | [Escribir fase] | [Escribir descripción] |
-| 3 | [Escribir fase] | [Escribir descripción] |
+## 2.3 Acciones, problemas y emociones por fase
 
-### 2.3 Acciones, problemas y emociones por fase
-
-Para cada fase, detallar las acciones o decisiones de la persona, los problemas que enfrenta y su
-nivel de satisfacción.
-
-<!-- prettier-ignore -->
-| Fase | Acciones (decisiones) | Problemas encontrados | Satisfacción (Baja/Media/Alta) |
+| Fase | Acciones | Problemas encontrados | Satisfacción del usuario |
 | :--- | :--- | :--- | :--- |
-| [Escribir fase] | [Escribir acciones] | [Escribir problemas] | [Escribir nivel] |
-| [Escribir fase] | [Escribir acciones] | [Escribir problemas] | [Escribir nivel] |
+| **Inicio de jornada** | Revisar correo electrónico y monitor de ejecuciones. Identificar si falló alguna carga crítica o hay alertas regulatorias pendientes. | Alertas dispersas sin jerarquía. Saturación de correos electrónicos que dificulta la priorización de las actividades propias de los analistas. | Baja |
+| **Diagnóstico** | Abrir bases de datos, scripts SQL y archivos CSV locales. Cruzar manualmente datos publicados en SIMEM con las fuentes originales. Investigar si el error es por retraso de la información o por datos corruptos. | Falsas alarmas recurrentes por consultas SQL desactualizadas. Fragmentación de la información en múltiples pantallas y pestañas. Alto desgaste cognitivo y fatiga visual. | Baja |
+| **Ejecución** | Modificar manualmente parámetros de delta para realización de backfills de información. Editar archivos CSV de configuración y redactar sentencias SQL a mano. Reportar anomalías a soporte o agentes externos. | Procesos artesanales altamente propensos al error humano. Riesgo crítico de olvidar configuraciones temporales. | Baja |
+| **Cierre** | Verificar el estado final de los conjuntos corregidos. Archivar correos y dar por terminada la revisión operativa diaria. | Falta de un historial centralizado de incidentes resueltos. Se encuentra con una sensación constante de gestión reactiva o apagado de incendios. | Media |
 
-### 2.4 Pensamientos y sentimientos
+## 2.4 Pensamientos y sentimientos
 
-Incluir citas textuales de usuarios reales como evidencia, o abstracciones a manera de hallazgo. Se
-recomienda priorizar citas directas.
-
-<!-- prettier-ignore -->
-| Fase | Cita o hallazgo |
+| Fase | Hallazgo |
 | :--- | :--- |
-| [Escribir fase] | [Escribir cita] |
-| [Escribir fase] | [Escribir cita] |
+| **Inicio de jornada** | Me frustra que no a hora llegó el correo ni voy a abrir el csv... Me siento abrumada. |
+| **Diagnóstico** | La información está regada en muchas partes; pierdo tiempo buscando y abriendo varias pestañas. |
+| **Ejecución** | El cambio temporal de deltas y archivos de configuración me obliga a recordar que debo revertir configuraciones para que las próximas ejecuciones del proceso no presenten fallos. En ocasiones, me acuerdo de noche o en fines de semana que lo dejé mal. |
+| **Cierre** | Quisiera un panel único donde las métricas, alertas e indicadores de calidad estén juntos sin tener que escribir código SQL para poder revisar. |
 
-### 2.5 Hallazgos y oportunidades (opcional)
+## 2.5 Hallazgos y oportunidades (opcional)
 
-Interpretaciones de los problemas detectados en cada fase, como posibles oportunidades de diseño
-para etapas posteriores.
-
-<!-- prettier-ignore -->
-| Fase | Hallazgo u oportunidad detectada |
+| Fase | Oportunidad |
 | :--- | :--- |
-| [Escribir fase] | [Escribir hallazgo] |
-| [Escribir fase] | [Escribir hallazgo] |
-
----
+| **Inicio de jornada** | Implementar un sistema de notificaciones inteligentes y priorizadas (con resúmenes ejecutivos automatizados) en lugar de saturar las bandejas de correo con alertas sueltas. |
+| **Diagnóstico** | Desarrollar un panel centralizado (Torre de Control o dashboard) con una vista comparativa que cruce automáticamente SIMEM y fuentes de información, eliminando la navegación multifuente. |
+| **Ejecución** | Automatizar la gestión de backfills mediante asistentes transaccionales que manejen los deltas de forma segura y reviertan cambios automáticamente, eliminando el error humano. |
+| **Cierre** | Integrar un repositorio histórico y un sistema de trazabilidad de incidentes que permita auditar el comportamiento pasado sin depender de registros manuales no centralizados. |
 
 ## 3. Declaración del problema
 
 ### 3.1 Primer borrador (fórmula base)
 
-> Como **[usuario]**, necesito/quiero **[necesidad]** para poder **[meta]**.
+> Como **administrador del SIMEM** necesito **monitorear** los errores de calidad de datos antes de que lleguen a los usuarios para poder **garantizar** la integridad de los datos según la ley de transparencia y del derecho de acceso a la información pública nacional.
 
 ### 3.2 Iteraciones
 
 El capítulo señala que escribir una buena declaración del problema es un proceso repetitivo y
 progresivo. Completar al menos tres iteraciones, aplicando en cada una un criterio de mejora.
 
-- **Iteración 1 — Primer intento:** Como **[ ]**, quiero **[ ]** para **[ ]**.
-- **Iteración 2 — Aplicando “ser específico”:** Como **[ ]**, quiero **[ ]** para **[ ]**.
-  - _¿Es demasiado específica? ¿Ya incluye una solución dentro del problema? Justificar:_ [Escribir
-    aquí]
-- **Iteración 3 — Aplicando “dejar espacio para explorar” y “no asumir una solución”:** Como **[
-  ]**, quiero **[ ]** para **[ ]**.
+- **Iteración 1 — Primer intento:** **Como** administrador del SIMEM, **quiero** garantizar la calidad de los datos que se publican en el sitio **para** dar tranquilidad a los usuarios finales de que el portal es confiable para la toma de decisiones.
+
+- **Iteración 2 — Aplicando “ser específico”:** **Como** administrador del SIMEM **quiero**un monitor de datos del sitio **para prevenir requerimientos constantes y prevenir que se expongan datos incorrectos con los cuales los usuarios tomen decisiones, lo cual conlleva a una falta de confianza en la plataforma y un sobreesfuerzo en analizar manualmente los datos con múltiples herramientas.
+
+  - _¿Es demasiado específica? ¿Ya incluye una solución dentro del problema? Justificar:_ 
+  Contiene en sí una posible solución al problema al mencionar el monitor de datos, sin embargo, está enfocada en el problema de negocio detrás. 
+
+- **Iteración 3 — Aplicando “dejar espacio para explorar” y “no asumir una solución”:** **Cómo** administrador del SIMEM, **quiero** garantizar la calidad y oportunidad de los datos que se exponen en el sitio, **para** prevenir que se tomen decisiones en base a datos incorrectos y prevenir el alto flujo de requerimientos de los clientes, lo cual se traduce en una falta de confianza en la plataforma y en un sobreesfuerzo en analizar manualmente los datos. 
+
   - _Verificar: ¿la necesidad está expresada como verbo (necesidad real) o como sustantivo
-    (solución encubierta)?_ [Escribir aquí]
-- **Iteración final — Aplicando “escribir con empatía”:** Como **[ ]**, quiero **[ ]** para **[
-  ]**.
+    (solución encubierta)?_ 
+- **Iteración final — Aplicando “escribir con empatía”**: 
+**Como** administrador de SIMEM, **quiero** contar con una visión centralizada, clara y oportuna del estado de calidad de los datos y de los conjuntos con retrasos en su publicación,
+ **para** detectar y gestionar incidentes de forma proactiva y así evitar requerimientos, reducir el tiempo invertido en investigaciones manuales, prevenir impactos sobre los usuarios y mantener la confianza en la información publicada.
+
 
 ### 3.3 Declaración de posibilidades
 
 A partir de la declaración del problema final, redactar una o más preguntas que orienten la
 ideación, con la forma “¿Cómo podríamos...?”.
 
-- **Pregunta base:** ¿Cómo podríamos **[ayudar a la persona o usuario a lograr algo relacionado con
-  su meta]**?
-- **Variante 1 (usando el nombre de la persona en lugar de “usuarios”):** ¿Cómo podríamos ayudar a
-  **[Nombre de la persona]** a **[ ]**?
+- **Pregunta base:**
+
+•	¿Cómo podríamos mostrar los errores cuando se presentan y que sean accionables, es decir, el cómo solucionarlos?
+
+•	¿Cómo podríamos mostrar qué versiones de la liquidación del mercado se han subido a la plataforma?
+
+•	¿Cómo podemos mostrar los indicadores de calidad del sitio?
+
+•	¿Cómo podemos mostrar un seguimiento a los errores de calidad en el tiempo?
+
+•	¿Cómo podemos reejecutar un conjunto atrasado? ¿Cómo hacerlo masivo?
+
+•	¿Cómo podemos automatizar el registro de nuevas variables?
+
+•	¿Cómo podemos revertir configuraciones de conjuntos de datos que olvidaron de reconfigurar?
+
+•	¿Cómo facilitar el habilitar/deshabilitar conjuntos durante las pruebas de investigación histórica?
+
+•	¿Cómo mantener las alertas inmediatas (por correo) sin entrar a una plataforma?
+
+•	¿Cómo evitar que queden queries desactualizados?
+
+•	¿Cómo ayudar a saber si una persona ya está revisando una inconsistencia?
+
+•	¿Cómo poder consultar el estado de calidad de una fecha específica para una variable?
+
+•	¿Cómo separar los conjuntos atrasados de los que tienen errores de calidad y de los que tienen errores por ejecución de la misma herramienta?
+
+
+- **Variante 1 (usando el nombre de la persona en lugar de “usuarios”):** 
+
+•	¿Cómo podríamos ayudar al analista de Calidad Operativa a que vea los errores de calidad de forma más accionable?
+
+•	¿Cómo podríamos ayudar al analista de Calidad Operativa a que encuentre qué versiones de la liquidación del mercado están cargadas y cuáles faltan?
+
+•	¿Cómo podríamos ayudar al analista de Calidad Operativa a ver el seguimiento de los indicadores de calidad en el tiempo?
+
+•	¿Cómo podríamos ayudar a ingeniero de Configuración y Metadatos a automatizar el registro de nuevas variables?
+
+•	¿Cómo podríamos ayudar al analista de Calidad Operativa a saber si un problema de calidad ya fue resuelto o alguien lo está atendiendo?
+
+•	¿Cómo podríamos ayudar al analista de Calidad Operativa a actualizar masivamente los conjuntos atrasados?
+
+•	¿Cómo podríamos ayudar al analista de Calidad Operativa a realizar calidad histórica sin que interfiera con la ejecución diaria? 
+
+•	¿Cómo podríamos ayudar al ingeniero de Configuración y Metadatos a que no queden queries desactualizados o conjuntos con configuraciones atrasadas? 
+
+
 - **Variante 2 (explorando otro ángulo del mismo problema):** ¿Cómo podríamos **[ ]**?
+
+•	¿Cómo podríamos ayudar a los administradores de SIMEM a identificar rápidamente qué conjuntos presentan errores de calidad o retrasos en la publicación? 
+
+•	¿Cómo podríamos reducir el tiempo y esfuerzo necesario para investigar y resolver incidentes de calidad de datos? 
+
+•	¿Cómo podríamos centralizar la información necesaria para analizar un incidente sin depender de múltiples herramientas y fuentes? 
+
+•	¿Cómo podríamos proporcionar alertas claras y accionables que permitan actuar antes de que los usuarios detecten los problemas? 
+
+•	¿Cómo podríamos mejorar la visibilidad y trazabilidad de los incidentes para evitar esfuerzos duplicados y facilitar su seguimiento?
 
 ---
 
@@ -541,11 +590,20 @@ a presentar.
 
 ### 5.3 Declaración del problema final
 
-> Como **[ ]**, quiero **[ ]** para **[ ]**.
+**Como** administrador de SIMEM, **quiero** contar con una visión centralizada, clara y oportuna del estado de calidad de los datos y de los conjuntos con retrasos en su publicación,
+ **para** detectar y gestionar incidentes de forma proactiva y así evitar requerimientos, reducir el tiempo invertido en investigaciones manuales, prevenir impactos sobre los usuarios y mantener la confianza en la información publicada.
 
 ### 5.4 Declaración de posibilidades, final
 
-> ¿Cómo podríamos **[ ]**?
+•	¿Cómo podríamos ayudar a los administradores de SIMEM a identificar rápidamente qué conjuntos presentan errores de calidad o retrasos en la publicación? 
+
+•	¿Cómo podríamos reducir el tiempo y esfuerzo necesario para investigar y resolver incidentes de calidad de datos? 
+
+•	¿Cómo podríamos centralizar la información necesaria para analizar un incidente sin depender de múltiples herramientas y fuentes? 
+
+•	¿Cómo podríamos proporcionar alertas claras y accionables que permitan actuar antes de que los usuarios detecten los problemas? 
+
+•	¿Cómo podríamos mejorar la visibilidad y trazabilidad de los incidentes para evitar esfuerzos duplicados y facilitar su seguimiento?
 
 ### 5.5 Hallazgos clave de la investigación competitiva
 
