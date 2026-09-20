@@ -387,21 +387,21 @@ ideación, con la forma “¿Cómo podríamos...?”.
 
 
 - **Variante 1 (usando el nombre de la persona en lugar de “usuarios”):** 
-•	¿Cómo podríamos ayudar a sebas a que vea los errores de calidad de forma más accionable?
+•	¿Cómo podríamos ayudar al analista de Calidad Operativa a que vea los errores de calidad de forma más accionable?
 
-•	¿Cómo podríamos ayudar a sebas a que encuentre qué versiones de la liquidación del mercado están cargadas y cuáles faltan?
+•	¿Cómo podríamos ayudar al analista de Calidad Operativa a que encuentre qué versiones de la liquidación del mercado están cargadas y cuáles faltan?
 
-•	¿Cómo podríamos ayudar a sebas a ver el seguimiento de los indicadores de calidad en el tiempo?
+•	¿Cómo podríamos ayudar al analista de Calidad Operativa a ver el seguimiento de los indicadores de calidad en el tiempo?
 
-•	¿Cómo podríamos ayudar a sebas a automatizar el registro de nuevas variables?
+•	¿Cómo podríamos ayudar a ingeniero de Configuración y Metadatos a automatizar el registro de nuevas variables?
 
-•	¿Cómo podríamos ayudar a sebas a saber si un problema de calidad ya fue resuelto o alguien lo está atendiendo?
+•	¿Cómo podríamos ayudar al analista de Calidad Operativa a saber si un problema de calidad ya fue resuelto o alguien lo está atendiendo?
 
-•	¿Cómo podríamos ayudar a sebas a actualizar masivamente los conjuntos atrasados?
+•	¿Cómo podríamos ayudar al analista de Calidad Operativa a actualizar masivamente los conjuntos atrasados?
 
-•	¿Cómo podríamos ayudar a sebas a realizar calidad histórica sin que interfiera con la ejecución diaria? 
+•	¿Cómo podríamos ayudar al analista de Calidad Operativa a realizar calidad histórica sin que interfiera con la ejecución diaria? 
 
-•	¿Cómo podríamos ayudar a sebas a que no queden queries desactualizados o conjuntos con configuraciones atrasadas? 
+•	¿Cómo podríamos ayudar al ingeniero de Configuración y Metadatos a que no queden queries desactualizados o conjuntos con configuraciones atrasadas? 
 
 
 - **Variante 2 (explorando otro ángulo del mismo problema):** ¿Cómo podríamos **[ ]**?
@@ -416,18 +416,13 @@ ideación, con la forma “¿Cómo podríamos...?”.
 
 •	¿Cómo podríamos mejorar la visibilidad y trazabilidad de los incidentes para evitar esfuerzos duplicados y facilitar su seguimiento?
 
-
-
-
-
-
 ---
 
 ## 4. Investigación competitiva
 
 ### 4.1 Definir el objetivo de la investigación
 
-- **Objetivo de la investigación competitiva:** [Escribir aquí]
+- **Objetivo de la investigación competitiva:** 
 
 > _Ejemplo de guía: ¿buscan entender fortalezas y debilidades de la competencia? ¿buscan
 > inspiración para la ideación? ¿buscan auditar características o precios de la competencia?_
