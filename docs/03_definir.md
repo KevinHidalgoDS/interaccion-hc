@@ -348,7 +348,7 @@ progresivo. Completar al menos tres iteraciones, aplicando en cada una un criter
 
   - _Verificar: ¿la necesidad está expresada como verbo (necesidad real) o como sustantivo
     (solución encubierta)?_ 
-- **Iteración final — Aplicando “escribir con empatía”: 
+- **Iteración final — Aplicando “escribir con empatía”**: 
 **Como** administrador de SIMEM, **quiero** contar con una visión centralizada, clara y oportuna del estado de calidad de los datos y de los conjuntos con retrasos en su publicación,
  **para** detectar y gestionar incidentes de forma proactiva y así evitar requerimientos, reducir el tiempo invertido en investigaciones manuales, prevenir impactos sobre los usuarios y mantener la confianza en la información publicada.
 
@@ -359,6 +359,7 @@ A partir de la declaración del problema final, redactar una o más preguntas qu
 ideación, con la forma “¿Cómo podríamos...?”.
 
 - **Pregunta base:**
+
 •	¿Cómo podríamos mostrar los errores cuando se presentan y que sean accionables, es decir, el cómo solucionarlos?
 
 •	¿Cómo podríamos mostrar qué versiones de la liquidación del mercado se han subido a la plataforma?
@@ -387,6 +388,7 @@ ideación, con la forma “¿Cómo podríamos...?”.
 
 
 - **Variante 1 (usando el nombre de la persona en lugar de “usuarios”):** 
+
 •	¿Cómo podríamos ayudar al analista de Calidad Operativa a que vea los errores de calidad de forma más accionable?
 
 •	¿Cómo podríamos ayudar al analista de Calidad Operativa a que encuentre qué versiones de la liquidación del mercado están cargadas y cuáles faltan?
