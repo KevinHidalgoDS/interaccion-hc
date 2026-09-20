@@ -340,34 +340,96 @@ para etapas posteriores.
 
 ### 3.1 Primer borrador (fórmula base)
 
-> Como **[usuario]**, necesito/quiero **[necesidad]** para poder **[meta]**.
+> Como **administrador del SIMEM** necesito **monitorear** los errores de calidad de datos antes de que lleguen a los usuarios para poder **garantizar** la integridad de los datos según la ley de transparencia y del derecho de acceso a la información pública nacional.
 
 ### 3.2 Iteraciones
 
 El capítulo señala que escribir una buena declaración del problema es un proceso repetitivo y
 progresivo. Completar al menos tres iteraciones, aplicando en cada una un criterio de mejora.
 
-- **Iteración 1 — Primer intento:** Como **[ ]**, quiero **[ ]** para **[ ]**.
-- **Iteración 2 — Aplicando “ser específico”:** Como **[ ]**, quiero **[ ]** para **[ ]**.
-  - _¿Es demasiado específica? ¿Ya incluye una solución dentro del problema? Justificar:_ [Escribir
-    aquí]
-- **Iteración 3 — Aplicando “dejar espacio para explorar” y “no asumir una solución”:** Como **[
-  ]**, quiero **[ ]** para **[ ]**.
+- **Iteración 1 — Primer intento:** **Como** administrador del SIMEM, **quiero** garantizar la calidad de los datos que se publican en el sitio **para** dar tranquilidad a los usuarios finales de que el portal es confiable para la toma de decisiones.
+
+- **Iteración 2 — Aplicando “ser específico”:** **Como** administrador del SIMEM **quiero**un monitor de datos del sitio **para prevenir requerimientos constantes y prevenir que se expongan datos incorrectos con los cuales los usuarios tomen decisiones, lo cual conlleva a una falta de confianza en la plataforma y un sobreesfuerzo en analizar manualmente los datos con múltiples herramientas.
+
+  - _¿Es demasiado específica? ¿Ya incluye una solución dentro del problema? Justificar:_ 
+  Contiene en sí una posible solución al problema al mencionar el monitor de datos, sin embargo, está enfocada en el problema de negocio detrás. 
+
+- **Iteración 3 — Aplicando “dejar espacio para explorar” y “no asumir una solución”:** **Cómo** administrador del SIMEM, **quiero** garantizar la calidad y oportunidad de los datos que se exponen en el sitio, **para** prevenir que se tomen decisiones en base a datos incorrectos y prevenir el alto flujo de requerimientos de los clientes, lo cual se traduce en una falta de confianza en la plataforma y en un sobreesfuerzo en analizar manualmente los datos. 
+
   - _Verificar: ¿la necesidad está expresada como verbo (necesidad real) o como sustantivo
-    (solución encubierta)?_ [Escribir aquí]
-- **Iteración final — Aplicando “escribir con empatía”:** Como **[ ]**, quiero **[ ]** para **[
-  ]**.
+    (solución encubierta)?_ 
+- **Iteración final — Aplicando “escribir con empatía”: 
+**Como** administrador de SIMEM, **quiero** contar con una visión centralizada, clara y oportuna del estado de calidad de los datos y de los conjuntos con retrasos en su publicación,
+ **para** detectar y gestionar incidentes de forma proactiva y así evitar requerimientos, reducir el tiempo invertido en investigaciones manuales, prevenir impactos sobre los usuarios y mantener la confianza en la información publicada.
+
 
 ### 3.3 Declaración de posibilidades
 
 A partir de la declaración del problema final, redactar una o más preguntas que orienten la
 ideación, con la forma “¿Cómo podríamos...?”.
 
-- **Pregunta base:** ¿Cómo podríamos **[ayudar a la persona o usuario a lograr algo relacionado con
-  su meta]**?
-- **Variante 1 (usando el nombre de la persona en lugar de “usuarios”):** ¿Cómo podríamos ayudar a
-  **[Nombre de la persona]** a **[ ]**?
+- **Pregunta base:**
+•	¿Cómo podríamos mostrar los errores cuando se presentan y que sean accionables, es decir, el cómo solucionarlos?
+
+•	¿Cómo podríamos mostrar qué versiones de la liquidación del mercado se han subido a la plataforma?
+
+•	¿Cómo podemos mostrar los indicadores de calidad del sitio?
+
+•	¿Cómo podemos mostrar un seguimiento a los errores de calidad en el tiempo?
+
+•	¿Cómo podemos reejecutar un conjunto atrasado? ¿Cómo hacerlo masivo?
+
+•	¿Cómo podemos automatizar el registro de nuevas variables?
+
+•	¿Cómo podemos revertir configuraciones de conjuntos de datos que olvidaron de reconfigurar?
+
+•	¿Cómo facilitar el habilitar/deshabilitar conjuntos durante las pruebas de investigación histórica?
+
+•	¿Cómo mantener las alertas inmediatas (por correo) sin entrar a una plataforma?
+
+•	¿Cómo evitar que queden queries desactualizados?
+
+•	¿Cómo ayudar a saber si una persona ya está revisando una inconsistencia?
+
+•	¿Cómo poder consultar el estado de calidad de una fecha específica para una variable?
+
+•	¿Cómo separar los conjuntos atrasados de los que tienen errores de calidad y de los que tienen errores por ejecución de la misma herramienta?
+
+
+- **Variante 1 (usando el nombre de la persona en lugar de “usuarios”):** 
+•	¿Cómo podríamos ayudar a sebas a que vea los errores de calidad de forma más accionable?
+
+•	¿Cómo podríamos ayudar a sebas a que encuentre qué versiones de la liquidación del mercado están cargadas y cuáles faltan?
+
+•	¿Cómo podríamos ayudar a sebas a ver el seguimiento de los indicadores de calidad en el tiempo?
+
+•	¿Cómo podríamos ayudar a sebas a automatizar el registro de nuevas variables?
+
+•	¿Cómo podríamos ayudar a sebas a saber si un problema de calidad ya fue resuelto o alguien lo está atendiendo?
+
+•	¿Cómo podríamos ayudar a sebas a actualizar masivamente los conjuntos atrasados?
+
+•	¿Cómo podríamos ayudar a sebas a realizar calidad histórica sin que interfiera con la ejecución diaria? 
+
+•	¿Cómo podríamos ayudar a sebas a que no queden queries desactualizados o conjuntos con configuraciones atrasadas? 
+
+
 - **Variante 2 (explorando otro ángulo del mismo problema):** ¿Cómo podríamos **[ ]**?
+
+•	¿Cómo podríamos ayudar a los administradores de SIMEM a identificar rápidamente qué conjuntos presentan errores de calidad o retrasos en la publicación? 
+
+•	¿Cómo podríamos reducir el tiempo y esfuerzo necesario para investigar y resolver incidentes de calidad de datos? 
+
+•	¿Cómo podríamos centralizar la información necesaria para analizar un incidente sin depender de múltiples herramientas y fuentes? 
+
+•	¿Cómo podríamos proporcionar alertas claras y accionables que permitan actuar antes de que los usuarios detecten los problemas? 
+
+•	¿Cómo podríamos mejorar la visibilidad y trazabilidad de los incidentes para evitar esfuerzos duplicados y facilitar su seguimiento?
+
+
+
+
+
 
 ---
 
@@ -457,11 +519,20 @@ a presentar.
 
 ### 5.3 Declaración del problema final
 
-> Como **[ ]**, quiero **[ ]** para **[ ]**.
+**Como** administrador de SIMEM, **quiero** contar con una visión centralizada, clara y oportuna del estado de calidad de los datos y de los conjuntos con retrasos en su publicación,
+ **para** detectar y gestionar incidentes de forma proactiva y así evitar requerimientos, reducir el tiempo invertido en investigaciones manuales, prevenir impactos sobre los usuarios y mantener la confianza en la información publicada.
 
 ### 5.4 Declaración de posibilidades, final
 
-> ¿Cómo podríamos **[ ]**?
+•	¿Cómo podríamos ayudar a los administradores de SIMEM a identificar rápidamente qué conjuntos presentan errores de calidad o retrasos en la publicación? 
+
+•	¿Cómo podríamos reducir el tiempo y esfuerzo necesario para investigar y resolver incidentes de calidad de datos? 
+
+•	¿Cómo podríamos centralizar la información necesaria para analizar un incidente sin depender de múltiples herramientas y fuentes? 
+
+•	¿Cómo podríamos proporcionar alertas claras y accionables que permitan actuar antes de que los usuarios detecten los problemas? 
+
+•	¿Cómo podríamos mejorar la visibilidad y trazabilidad de los incidentes para evitar esfuerzos duplicados y facilitar su seguimiento?
 
 ### 5.5 Hallazgos clave de la investigación competitiva
 

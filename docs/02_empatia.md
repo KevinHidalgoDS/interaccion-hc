@@ -335,7 +335,7 @@ _kfhidalgoh@unal.edu.co_
   * **Optimización ergonómica y visual:** Priorizar la claridad tipográfica en datos numéricos, indicadores visuales de impacto (tipo semáforos) y proveer resúmenes automatizados que reduzcan el esfuerzo de los analistas.
 
 - **Orientación para futuras fases:**
-  * **Definición del problema e ideación:** Priorizar los flujos automatzados que estén orientados a la reducción de tareas repetitivas de configuración y a la visualización centralizada de datos y errores frente a los datos fuente.
+  * **Definición del problema e ideación:** Priorizar los flujos automatizados que estén orientados a la reducción de tareas repetitivas de configuración y a la visualización centralizada de datos y errores frente a los datos fuente.
 
   * **Prototipado y pruebas:** Desarrollar prototipos amigables con el usuario centrados en el panel de control único y evaluar su capacidad para reducir los tiempos de diagnóstico. De esta manera, mitigar la fatiga visual de los analistas en sesiones de prueba controladas.
 
@@ -413,7 +413,3 @@ A continuación, se presentan algunas respuestas representativas recopiladas dur
     fechas exactas en las que se debe publicar la información. En caso contrario pueden existir
     sanciones por incumplimiento de la normatividad.
 
-![dracula][img_dracula]
-
----
-[img_dracula]: docs/img/dracula.png "dracula"
