@@ -285,13 +285,17 @@ experiencia.
 
 ## 2. Mapa de experiencia del usuario
 
-
 ## 2.1 Persona y antecedentes del recorrido
-* **Persona que protagoniza el recorrido:** Analista de Operación y Calidad de Datos del SIMEM (Perfil experto con alta competencia técnica pero sometido a procesos manuales fragmentados).
-* **Cita o frase que resume por qué realiza este recorrido:** "Todo el día estoy enfocado/enfocada en la revisión de la calidad de datos y observando correos en lugar de analizar la información del mercado energético."
+
+- **Persona que protagoniza el recorrido:** Analista de Operación y Calidad de Datos del SIMEM
+  (Perfil experto con alta competencia técnica pero sometido a procesos manuales fragmentados).
+- **Cita o frase que resume por qué realiza este recorrido:** "Todo el día estoy enfocado/enfocada
+  en la revisión de la calidad de datos y observando correos en lugar de analizar la información
+  del mercado energético."
 
 ## 2.2 Fases
 
+<!-- prettier-ignore -->
 | Fase | Descripción |
 | :--- | :--- |
 | **1. Inicio de jornada** | Revisión inicial del estado general de las cargas y bandejas de entrada de correos electrónicos para detectar novedades o fallas críticas. |
@@ -301,6 +305,7 @@ experiencia.
 
 ## 2.3 Acciones, problemas y emociones por fase
 
+<!-- prettier-ignore -->
 | Fase | Acciones | Problemas encontrados | Satisfacción del usuario |
 | :--- | :--- | :--- | :--- |
 | **Inicio de jornada** | Revisar correo electrónico y monitor de ejecuciones. Identificar si falló alguna carga crítica o hay alertas regulatorias pendientes. | Alertas dispersas sin jerarquía. Saturación de correos electrónicos que dificulta la priorización de las actividades propias de los analistas. | Baja |
@@ -310,6 +315,7 @@ experiencia.
 
 ## 2.4 Pensamientos y sentimientos
 
+<!-- prettier-ignore -->
 | Fase | Hallazgo |
 | :--- | :--- |
 | **Inicio de jornada** | Me frustra que no a hora llegó el correo ni voy a abrir el csv... Me siento abrumada. |
@@ -319,6 +325,7 @@ experiencia.
 
 ## 2.5 Hallazgos y oportunidades (opcional)
 
+<!-- prettier-ignore -->
 | Fase | Oportunidad |
 | :--- | :--- |
 | **Inicio de jornada** | Implementar un sistema de notificaciones inteligentes y priorizadas (con resúmenes ejecutivos automatizados) en lugar de saturar las bandejas de correo con alertas sueltas. |
@@ -330,28 +337,44 @@ experiencia.
 
 ### 3.1 Primer borrador (fórmula base)
 
-> Como **administrador del SIMEM** necesito **monitorear** los errores de calidad de datos antes de que lleguen a los usuarios para poder **garantizar** la integridad de los datos según la ley de transparencia y del derecho de acceso a la información pública nacional.
+> Como **administrador del SIMEM** necesito **monitorear** los errores de calidad de datos antes de
+> que lleguen a los usuarios para poder **garantizar** la integridad de los datos según la ley de
+> transparencia y del derecho de acceso a la información pública nacional.
 
 ### 3.2 Iteraciones
 
 El capítulo señala que escribir una buena declaración del problema es un proceso repetitivo y
 progresivo. Completar al menos tres iteraciones, aplicando en cada una un criterio de mejora.
 
-- **Iteración 1 — Primer intento:** **Como** administrador del SIMEM, **quiero** garantizar la calidad de los datos que se publican en el sitio **para** dar tranquilidad a los usuarios finales de que el portal es confiable para la toma de decisiones.
+- **Iteración 1 — Primer intento:** **Como** administrador del SIMEM, **quiero** garantizar la
+  calidad de los datos que se publican en el sitio **para** dar tranquilidad a los usuarios finales
+  de que el portal es confiable para la toma de decisiones.
 
-- **Iteración 2 — Aplicando “ser específico”:** **Como** administrador del SIMEM **quiero**un monitor de datos del sitio **para prevenir requerimientos constantes y prevenir que se expongan datos incorrectos con los cuales los usuarios tomen decisiones, lo cual conlleva a una falta de confianza en la plataforma y un sobreesfuerzo en analizar manualmente los datos con múltiples herramientas.
+- **Iteración 2 — Aplicando “ser específico”:** **Como** administrador del SIMEM **quiero**un
+  monitor de datos del sitio **para prevenir requerimientos constantes y prevenir que se expongan
+  datos incorrectos con los cuales los usuarios tomen decisiones, lo cual conlleva a una falta de
+  confianza en la plataforma y un sobreesfuerzo en analizar manualmente los datos con múltiples
+  herramientas.
 
-  - _¿Es demasiado específica? ¿Ya incluye una solución dentro del problema? Justificar:_ 
-  Contiene en sí una posible solución al problema al mencionar el monitor de datos, sin embargo, está enfocada en el problema de negocio detrás. 
+  - _¿Es demasiado específica? ¿Ya incluye una solución dentro del problema? Justificar:_ Contiene
+    en sí una posible solución al problema al mencionar el monitor de datos, sin embargo, está
+    enfocada en el problema de negocio detrás.
 
-- **Iteración 3 — Aplicando “dejar espacio para explorar” y “no asumir una solución”:** **Cómo** administrador del SIMEM, **quiero** garantizar la calidad y oportunidad de los datos que se exponen en el sitio, **para** prevenir que se tomen decisiones en base a datos incorrectos y prevenir el alto flujo de requerimientos de los clientes, lo cual se traduce en una falta de confianza en la plataforma y en un sobreesfuerzo en analizar manualmente los datos. 
+- **Iteración 3 — Aplicando “dejar espacio para explorar” y “no asumir una solución”:** **Cómo**
+  administrador del SIMEM, **quiero** garantizar la calidad y oportunidad de los datos que se
+  exponen en el sitio, **para** prevenir que se tomen decisiones en base a datos incorrectos y
+  prevenir el alto flujo de requerimientos de los clientes, lo cual se traduce en una falta de
+  confianza en la plataforma y en un sobreesfuerzo en analizar manualmente los datos.
 
   - _Verificar: ¿la necesidad está expresada como verbo (necesidad real) o como sustantivo
-    (solución encubierta)?_ 
-- **Iteración final — Aplicando “escribir con empatía”**: 
-**Como** administrador de SIMEM, **quiero** contar con una visión centralizada, clara y oportuna del estado de calidad de los datos y de los conjuntos con retrasos en su publicación,
- **para** detectar y gestionar incidentes de forma proactiva y así evitar requerimientos, reducir el tiempo invertido en investigaciones manuales, prevenir impactos sobre los usuarios y mantener la confianza en la información publicada.
+    (solución encubierta)?_
 
+- **Iteración final — Aplicando “escribir con empatía”**: **Como** administrador de SIMEM,
+  **quiero** contar con una visión centralizada, clara y oportuna del estado de calidad de los
+  datos y de los conjuntos con retrasos en su publicación, **para** detectar y gestionar incidentes
+  de forma proactiva y así evitar requerimientos, reducir el tiempo invertido en investigaciones
+  manuales, prevenir impactos sobre los usuarios y mantener la confianza en la información
+  publicada.
 
 ### 3.3 Declaración de posibilidades
 
@@ -360,63 +383,78 @@ ideación, con la forma “¿Cómo podríamos...?”.
 
 - **Pregunta base:**
 
-•	¿Cómo podríamos mostrar los errores cuando se presentan y que sean accionables, es decir, el cómo solucionarlos?
+• ¿Cómo podríamos mostrar los errores cuando se presentan y que sean accionables, es decir, el cómo
+solucionarlos?
 
-•	¿Cómo podríamos mostrar qué versiones de la liquidación del mercado se han subido a la plataforma?
+• ¿Cómo podríamos mostrar qué versiones de la liquidación del mercado se han subido a la
+plataforma?
 
-•	¿Cómo podemos mostrar los indicadores de calidad del sitio?
+• ¿Cómo podemos mostrar los indicadores de calidad del sitio?
 
-•	¿Cómo podemos mostrar un seguimiento a los errores de calidad en el tiempo?
+• ¿Cómo podemos mostrar un seguimiento a los errores de calidad en el tiempo?
 
-•	¿Cómo podemos reejecutar un conjunto atrasado? ¿Cómo hacerlo masivo?
+• ¿Cómo podemos reejecutar un conjunto atrasado? ¿Cómo hacerlo masivo?
 
-•	¿Cómo podemos automatizar el registro de nuevas variables?
+• ¿Cómo podemos automatizar el registro de nuevas variables?
 
-•	¿Cómo podemos revertir configuraciones de conjuntos de datos que olvidaron de reconfigurar?
+• ¿Cómo podemos revertir configuraciones de conjuntos de datos que olvidaron de reconfigurar?
 
-•	¿Cómo facilitar el habilitar/deshabilitar conjuntos durante las pruebas de investigación histórica?
+• ¿Cómo facilitar el habilitar/deshabilitar conjuntos durante las pruebas de investigación
+histórica?
 
-•	¿Cómo mantener las alertas inmediatas (por correo) sin entrar a una plataforma?
+• ¿Cómo mantener las alertas inmediatas (por correo) sin entrar a una plataforma?
 
-•	¿Cómo evitar que queden queries desactualizados?
+• ¿Cómo evitar que queden queries desactualizados?
 
-•	¿Cómo ayudar a saber si una persona ya está revisando una inconsistencia?
+• ¿Cómo ayudar a saber si una persona ya está revisando una inconsistencia?
 
-•	¿Cómo poder consultar el estado de calidad de una fecha específica para una variable?
+• ¿Cómo poder consultar el estado de calidad de una fecha específica para una variable?
 
-•	¿Cómo separar los conjuntos atrasados de los que tienen errores de calidad y de los que tienen errores por ejecución de la misma herramienta?
+• ¿Cómo separar los conjuntos atrasados de los que tienen errores de calidad y de los que tienen
+errores por ejecución de la misma herramienta?
 
+- **Variante 1 (usando el nombre de la persona en lugar de “usuarios”):**
 
-- **Variante 1 (usando el nombre de la persona en lugar de “usuarios”):** 
+• ¿Cómo podríamos ayudar al analista de Calidad Operativa a que vea los errores de calidad de forma
+más accionable?
 
-•	¿Cómo podríamos ayudar al analista de Calidad Operativa a que vea los errores de calidad de forma más accionable?
+• ¿Cómo podríamos ayudar al analista de Calidad Operativa a que encuentre qué versiones de la
+liquidación del mercado están cargadas y cuáles faltan?
 
-•	¿Cómo podríamos ayudar al analista de Calidad Operativa a que encuentre qué versiones de la liquidación del mercado están cargadas y cuáles faltan?
+• ¿Cómo podríamos ayudar al analista de Calidad Operativa a ver el seguimiento de los indicadores
+de calidad en el tiempo?
 
-•	¿Cómo podríamos ayudar al analista de Calidad Operativa a ver el seguimiento de los indicadores de calidad en el tiempo?
+• ¿Cómo podríamos ayudar a ingeniero de Configuración y Metadatos a automatizar el registro de
+nuevas variables?
 
-•	¿Cómo podríamos ayudar a ingeniero de Configuración y Metadatos a automatizar el registro de nuevas variables?
+• ¿Cómo podríamos ayudar al analista de Calidad Operativa a saber si un problema de calidad ya fue
+resuelto o alguien lo está atendiendo?
 
-•	¿Cómo podríamos ayudar al analista de Calidad Operativa a saber si un problema de calidad ya fue resuelto o alguien lo está atendiendo?
+• ¿Cómo podríamos ayudar al analista de Calidad Operativa a actualizar masivamente los conjuntos
+atrasados?
 
-•	¿Cómo podríamos ayudar al analista de Calidad Operativa a actualizar masivamente los conjuntos atrasados?
+• ¿Cómo podríamos ayudar al analista de Calidad Operativa a realizar calidad histórica sin que
+interfiera con la ejecución diaria?
 
-•	¿Cómo podríamos ayudar al analista de Calidad Operativa a realizar calidad histórica sin que interfiera con la ejecución diaria? 
-
-•	¿Cómo podríamos ayudar al ingeniero de Configuración y Metadatos a que no queden queries desactualizados o conjuntos con configuraciones atrasadas? 
-
+• ¿Cómo podríamos ayudar al ingeniero de Configuración y Metadatos a que no queden queries
+desactualizados o conjuntos con configuraciones atrasadas?
 
 - **Variante 2 (explorando otro ángulo del mismo problema):** ¿Cómo podríamos **[ ]**?
 
-•	¿Cómo podríamos ayudar a los administradores de SIMEM a identificar rápidamente qué conjuntos presentan errores de calidad o retrasos en la publicación? 
+• ¿Cómo podríamos ayudar a los administradores de SIMEM a identificar rápidamente qué conjuntos
+presentan errores de calidad o retrasos en la publicación?
 
-•	¿Cómo podríamos reducir el tiempo y esfuerzo necesario para investigar y resolver incidentes de calidad de datos? 
+• ¿Cómo podríamos reducir el tiempo y esfuerzo necesario para investigar y resolver incidentes de
+calidad de datos?
 
-•	¿Cómo podríamos centralizar la información necesaria para analizar un incidente sin depender de múltiples herramientas y fuentes? 
+• ¿Cómo podríamos centralizar la información necesaria para analizar un incidente sin depender de
+múltiples herramientas y fuentes?
 
-•	¿Cómo podríamos proporcionar alertas claras y accionables que permitan actuar antes de que los usuarios detecten los problemas? 
+• ¿Cómo podríamos proporcionar alertas claras y accionables que permitan actuar antes de que los
+usuarios detecten los problemas?
 
-•	¿Cómo podríamos mejorar la visibilidad y trazabilidad de los incidentes para evitar esfuerzos duplicados y facilitar su seguimiento?
+• ¿Cómo podríamos mejorar la visibilidad y trazabilidad de los incidentes para evitar esfuerzos
+duplicados y facilitar su seguimiento?
 
 ---
 
@@ -427,8 +465,8 @@ ideación, con la forma “¿Cómo podríamos...?”.
 - **Objetivo de la investigación competitiva:** Identificar cómo las plataformas de calidad y
   observabilidad de datos resuelven la centralización del estado de los conjuntos, la gestión de
   alertas, la configuración de reglas de validación y el seguimiento de incidentes, con el fin de
-  reconocer buenas prácticas, vacíos y oportunidades de diferenciación para un centro de control
-  de calidad de datos de SIMEM. Los criterios de comparación se derivan directamente de las
+  reconocer buenas prácticas, vacíos y oportunidades de diferenciación para un centro de control de
+  calidad de datos de SIMEM. Los criterios de comparación se derivan directamente de las
   frustraciones de las tres personas definidas en la sección 1.6.
 
 - **Técnica(s) seleccionada(s):**
@@ -443,9 +481,9 @@ ideación, con la forma “¿Cómo podríamos...?”.
 
 ### 4.2 Análisis de fortalezas, oportunidades, debilidades y amenazas (si aplica)
 
-El análisis se realiza sobre la **herramienta actual de validación de calidad de SIMEM** (script
-en Python, configurado mediante archivos `.CSV` y con notificaciones por correo), comparándola con
-las soluciones identificadas en el mercado.
+El análisis se realiza sobre la **herramienta actual de validación de calidad de SIMEM** (script en
+Python, configurado mediante archivos `.CSV` y con notificaciones por correo), comparándola con las
+soluciones identificadas en el mercado.
 
 <!-- prettier-ignore -->
 | | Factores internos | Factores externos |
@@ -457,8 +495,8 @@ las soluciones identificadas en el mercado.
 
 - **Idea 1 — Torre de control con tres estados diferenciados:** aprovechar los metadatos ya
   existentes para mostrar, en una sola vista, si un conjunto está _atrasado_, si tiene _errores de
-  calidad_ o si la alerta proviene de un _error de configuración_ de la herramienta, con indicadores
-  tipo semáforo.
+  calidad_ o si la alerta proviene de un _error de configuración_ de la herramienta, con
+  indicadores tipo semáforo.
 - **Idea 2 — Asistente de configuración y recargues seguros:** un formulario guiado para dar de
   alta variables que genere la configuración y el SQL, permita una prueba en seco de una sola
   variable y revierta automáticamente los deltas temporales al terminar un recargue.
@@ -472,11 +510,11 @@ productos inspiradores sin relación directa.
 
 > **Nota sobre la evidencia visual.** Las plataformas comerciales incluidas (Monte Carlo, Soda,
 > Microsoft Purview, Azure Data Factory y PagerDuty) exigen cuenta corporativa, licencia o un
-> despliegue propio, por lo que no fue posible capturar sus interfaces en un entorno productivo.
-> En esos casos la evidencia es la **documentación oficial del fabricante**, que contiene las
-> capturas de la función descrita y permite verificar la afirmación de forma independiente. En los
-> ejemplos de acceso libre se adjunta captura propia. Todas las fuentes fueron consultadas el
-> **20 de septiembre de 2026**.
+> despliegue propio, por lo que no fue posible capturar sus interfaces en un entorno productivo. En
+> esos casos la evidencia es la **documentación oficial del fabricante**, que contiene las capturas
+> de la función descrita y permite verificar la afirmación de forma independiente. En los ejemplos
+> de acceso libre se adjunta captura propia. Todas las fuentes fueron consultadas el **20 de
+> septiembre de 2026**.
 
 <!-- prettier-ignore -->
 | # | Producto o ejemplo | Tipo (competidor/relacionado/inspirador) | Evidencia (captura propia o fuente oficial) | ¿Qué inspira de este ejemplo? |
@@ -552,17 +590,17 @@ adicional; **No** = no lo cubre._
 >    validaciones de calidad; Soda y Microsoft Purview la incorporan como un _check_ o una
 >    dimensión más dentro del mismo puntaje, de modo que un conjunto que no llegó y uno que llegó
 >    con errores se muestran mezclados. Esto valida la necesidad expresada por el Entrevistado 2 y,
->    además, ninguna herramienta modela de forma nativa las **versiones de liquidación**
->    (TX1, TX2, …) ni los **plazos regulatorios de la CREG**, lo que constituye el principal
->    espacio de diferenciación para SIMEM.
-> 2. **La reducción de ruido es tan importante como la detección:** agrupar alertas en
->    incidentes, priorizarlas y enviarlas por canales de chat es una práctica común, y responde
->    directamente a la saturación de correos que lleva al Especialista de Monitoreo a ignorarlos.
+>    además, ninguna herramienta modela de forma nativa las **versiones de liquidación** (TX1, TX2,
+>    …) ni los **plazos regulatorios de la CREG**, lo que constituye el principal espacio de
+>    diferenciación para SIMEM.
+> 2. **La reducción de ruido es tan importante como la detección:** agrupar alertas en incidentes,
+>    priorizarlas y enviarlas por canales de chat es una práctica común, y responde directamente a
+>    la saturación de correos que lleva al Especialista de Monitoreo a ignorarlos.
 > 3. **La configuración declarativa o sin código es el estándar:** Soda y Purview permiten crear
 >    reglas desde la interfaz, lo que respalda la idea de un asistente que elimine la edición
 >    manual de archivos CSV y SQL del Ingeniero de Configuración.
-> 4. **La remediación está desconectada del monitoreo:** las herramientas de calidad detectan
->    pero no reejecutan; la reejecución vive en el orquestador (Azure Data Factory). Integrar el
+> 4. **La remediación está desconectada del monitoreo:** las herramientas de calidad detectan pero
+>    no reejecutan; la reejecución vive en el orquestador (Azure Data Factory). Integrar el
 >    relanzamiento masivo en la misma interfaz cerraría el ciclo de retroalimentación roto
 >    identificado en el entregable 1 (abismo de evaluación).
 > 5. **Costo y ajuste al dominio:** las soluciones comerciales implican licencias y adaptación a
@@ -578,55 +616,84 @@ a presentar.
 
 ### 5.1 Persona (resumen)
 
-- **Nombre:** [Escribir aquí]
-- **Meta principal:** [Escribir aquí]
-- **Frustración principal:** [Escribir aquí]
+- **Nombre:** El Especialista de Calidad de Datos
+- **Meta principal:** Consolidar el monitoreo de recargues en una interfaz unificada y recibir
+  notificaciones resumidas mediante agentes inteligentes (ej. en Teams) en lugar de correos
+  aislados.
+- **Frustración principal:** La extrema sobrecarga cognitiva de tener que mantener abiertas decenas
+  de pestañas simultáneamente y el estrés de olvidar revertir configuraciones temporales después de
+  un recargue manual.
+
+- **Nombre:** El Analista de Calidad Operativa
+- **Meta principal:** Centralizar la recepción de alertas y visualizar el origen exacto del fallo
+  en un solo lugar, para reducir el tiempo de resolución y enfocarse en tareas de análisis
+  estratégico.
+- **Frustración principal:** El desgaste visual y mental de perder horas saltando entre múltiples
+  correos, el administrador SIMEM y archivos CSV para validar datos y descartar falsas alertas.
+
+- **Nombre:** El Ingeniero de Configuración y Metadatos
+- **Meta principal:** Automatizar la creación de nuevas variables de calidad y estandarizar los
+  procesos para eliminar por completo la necesidad de modificar queries o archivos manualmente.
+- **Frustración principal:** Lo "artesanal" y propenso a errores que resulta tener que copiar,
+  pegar y ajustar parámetros fila por fila en archivos Excel/CSV y modificar código SQL a mano.
 
 ### 5.2 Mapa de experiencia del usuario (resumen)
 
 - **Fases identificadas:** Inicio de jornada, Diagnóstico, Ejecución, Cierre.
-- **Punto más bajo de satisfacción:** La fase de Diagnóstico y Ejecución, debido a la fragmentación de la información en múltiples pantallas y pestañas, las falsas alarmas recurrentes por consultas SQL desactualizadas, y el alto desgaste cognitivo y fatiga visual al realizar procesos artesanales propensos al error humano.
-- **Principal oportunidad detectada:** Desarrollar un panel centralizado (Torre de Control o dashboard) que cruce automáticamente las fuentes de información, acompañado de un sistema de notificaciones inteligentes y priorizadas, y la automatización de la gestión de backfills para eliminar el error humano.
+- **Punto más bajo de satisfacción:** La fase de Diagnóstico y Ejecución, debido a la fragmentación
+  de la información en múltiples pantallas y pestañas, las falsas alarmas recurrentes por consultas
+  SQL desactualizadas, y el alto desgaste cognitivo y fatiga visual al realizar procesos
+  artesanales propensos al error humano.
+- **Principal oportunidad detectada:** Desarrollar un panel centralizado (Torre de Control o
+  dashboard) que cruce automáticamente las fuentes de información, acompañado de un sistema de
+  notificaciones inteligentes y priorizadas, y la automatización de la gestión de backfills para
+  eliminar el error humano.
 
 ### 5.3 Declaración del problema final
 
-**Como** administrador de SIMEM, **quiero** contar con una visión centralizada, clara y oportuna del estado de calidad de los datos y de los conjuntos con retrasos en su publicación,
- **para** detectar y gestionar incidentes de forma proactiva y así evitar requerimientos, reducir el tiempo invertido en investigaciones manuales, prevenir impactos sobre los usuarios y mantener la confianza en la información publicada.
+**Como** administrador de SIMEM, **quiero** contar con una visión centralizada, clara y oportuna
+del estado de calidad de los datos y de los conjuntos con retrasos en su publicación, **para**
+detectar y gestionar incidentes de forma proactiva y así evitar requerimientos, reducir el tiempo
+invertido en investigaciones manuales, prevenir impactos sobre los usuarios y mantener la confianza
+en la información publicada.
 
 ### 5.4 Declaración de posibilidades, final
 
-•	¿Cómo podríamos ayudar a los administradores de SIMEM a identificar rápidamente qué conjuntos presentan errores de calidad o retrasos en la publicación? 
+• ¿Cómo podríamos ayudar a los administradores de SIMEM a identificar rápidamente qué conjuntos
+presentan errores de calidad o retrasos en la publicación?
 
-•	¿Cómo podríamos reducir el tiempo y esfuerzo necesario para investigar y resolver incidentes de calidad de datos? 
+• ¿Cómo podríamos reducir el tiempo y esfuerzo necesario para investigar y resolver incidentes de
+calidad de datos?
 
-•	¿Cómo podríamos centralizar la información necesaria para analizar un incidente sin depender de múltiples herramientas y fuentes? 
+• ¿Cómo podríamos centralizar la información necesaria para analizar un incidente sin depender de
+múltiples herramientas y fuentes?
 
-•	¿Cómo podríamos proporcionar alertas claras y accionables que permitan actuar antes de que los usuarios detecten los problemas? 
+• ¿Cómo podríamos proporcionar alertas claras y accionables que permitan actuar antes de que los
+usuarios detecten los problemas?
 
-•	¿Cómo podríamos mejorar la visibilidad y trazabilidad de los incidentes para evitar esfuerzos duplicados y facilitar su seguimiento?
+• ¿Cómo podríamos mejorar la visibilidad y trazabilidad de los incidentes para evitar esfuerzos
+duplicados y facilitar su seguimiento?
 
 ### 5.5 Hallazgos clave de la investigación competitiva
 
 - **Hallazgo 1 — El mercado no distingue con claridad un dato atrasado de un dato erróneo, y
   ninguna herramienta entiende el dominio regulatorio.** De las seis plataformas comparadas
   (sección 4.4), solo Monte Carlo trata la frescura y el volumen como monitores distintos de las
-  validaciones de calidad; Soda y Microsoft Purview las agregan como un _check_ o una dimensión
-  más dentro del mismo puntaje. Ninguna modela de forma nativa las versiones de liquidación
-  (TX1, TX2, …) ni los plazos de la CREG. Este es el principal espacio de diferenciación para la
-  solución de SIMEM: un estado que responda "¿llegó?" y "¿llegó bien?" en el vocabulario del
-  negocio eléctrico.
-- **Hallazgo 2 — Reducir el ruido vale tanto como detectar el error.** Agrupar alertas
-  relacionadas en un solo incidente con dueño y severidad, y notificar por canales de chat en
-  lugar de correo, es una práctica común a Monte Carlo, Soda, Grafana y PagerDuty. Responde
-  directamente a la saturación de correos que lleva al Especialista de Monitoreo Multifuente a
-  ignorarlos, por lo que la solución debe entregar un resumen agrupado por Teams antes que
-  notificaciones individuales.
-- **Hallazgo 3 — La detección está desconectada de la corrección.** Ninguna de las herramientas
-  de calidad revisadas permite reejecutar una carga: esa capacidad vive en el orquestador (Azure
-  Data Factory, criterio C5 de la sección 4.4), en una interfaz distinta de la que reporta el
-  fallo. Integrar el relanzamiento masivo en el mismo lugar donde se detecta el problema cierra
-  el ciclo de retroalimentación roto que se identificó en el entregable 1 como abismo de
-  evaluación, y es una ventaja alcanzable construyendo sobre la herramienta en Python existente.
+  validaciones de calidad; Soda y Microsoft Purview las agregan como un _check_ o una dimensión más
+  dentro del mismo puntaje. Ninguna modela de forma nativa las versiones de liquidación (TX1, TX2,
+  …) ni los plazos de la CREG. Este es el principal espacio de diferenciación para la solución de
+  SIMEM: un estado que responda "¿llegó?" y "¿llegó bien?" en el vocabulario del negocio eléctrico.
+- **Hallazgo 2 — Reducir el ruido vale tanto como detectar el error.** Agrupar alertas relacionadas
+  en un solo incidente con dueño y severidad, y notificar por canales de chat en lugar de correo,
+  es una práctica común a Monte Carlo, Soda, Grafana y PagerDuty. Responde directamente a la
+  saturación de correos que lleva al Especialista de Monitoreo Multifuente a ignorarlos, por lo que
+  la solución debe entregar un resumen agrupado por Teams antes que notificaciones individuales.
+- **Hallazgo 3 — La detección está desconectada de la corrección.** Ninguna de las herramientas de
+  calidad revisadas permite reejecutar una carga: esa capacidad vive en el orquestador (Azure Data
+  Factory, criterio C5 de la sección 4.4), en una interfaz distinta de la que reporta el fallo.
+  Integrar el relanzamiento masivo en el mismo lugar donde se detecta el problema cierra el ciclo
+  de retroalimentación roto que se identificó en el entregable 1 como abismo de evaluación, y es
+  una ventaja alcanzable construyendo sobre la herramienta en Python existente.
 
 ---
 
