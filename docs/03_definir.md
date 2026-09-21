@@ -63,11 +63,11 @@ _kfhidalgoh@unal.edu.co_
   - [1.5 Gustos y metas](#15-gustos-y-metas)
   - [1.6 Disgustos y frustraciones](#16-disgustos-y-frustraciones)
 - [2. Mapa de experiencia del usuario](#2-mapa-de-experiencia-del-usuario)
-  - [2.1 Persona y antecedentes del recorrido](#21-persona-y-antecedentes-del-recorrido)
-  - [2.2 Fases](#22-fases)
-  - [2.3 Acciones, problemas y emociones por fase](#23-acciones-problemas-y-emociones-por-fase)
-  - [2.4 Pensamientos y sentimientos](#24-pensamientos-y-sentimientos)
-  - [2.5 Hallazgos y oportunidades (opcional)](#25-hallazgos-y-oportunidades-opcional)
+- [2.1 Persona y antecedentes del recorrido](#21-persona-y-antecedentes-del-recorrido)
+- [2.2 Fases](#22-fases)
+- [2.3 Acciones, problemas y emociones por fase](#23-acciones-problemas-y-emociones-por-fase)
+- [2.4 Pensamientos y sentimientos](#24-pensamientos-y-sentimientos)
+- [2.5 Hallazgos y oportunidades (opcional)](#25-hallazgos-y-oportunidades-opcional)
 - [3. Declaración del problema](#3-declaración-del-problema)
   - [3.1 Primer borrador (fórmula base)](#31-primer-borrador-fórmula-base)
   - [3.2 Iteraciones](#32-iteraciones)
@@ -113,17 +113,17 @@ entregable consolidado del paso Definir.
 
 - **Nombre de la persona:** El Analista de Calidad Operativa
 - **Foto o ícono representativo (adjuntar o describir):** Foco en verificación diaria de alertas,
-  correos y cruce de datos ![analista_de_calidad_operativa][img_analista_de_calidad_operativa]
+  correos y cruce de datos ![analista_de_calidad_operativa](img/analista_de_calidad_operativa.jpg)
 
 - **Nombre de la persona:** El Ingeniero de Configuración y Metadatos
 - **Foto o ícono representativo (adjuntar o describir):** Foco en la gestión manual de archivos
   CSV, parámetros y ajustes de queries SQL
-  ![ingeniero_de_configuración_y_metadatos][img_ingeniero_de_configuración_y_metadatos]
+  ![ingeniero_de_configuración_y_metadatos](img/ingeniero_de_configuración_y_metadatos.jpg)
 
 - **Nombre de la persona:** Especialista de Monitoreo Multifuente
 - **Foto o ícono representativo (adjuntar o describir):** Foco en la supervisión de ejecuciones,
   Data Lakes, recargues y resolución de cuellos de botella
-  ![especialista_de_monitoreo_multifuente][img_especialista_de_monitoreo_multifuente]
+  ![especialista_de_monitoreo_multifuente](img/especialista_de_monitoreo_multifuente.jpg)
 
 > _Nota: si el equipo considera que un nombre o foto reales pueden introducir sesgos de identidad
 > (por ejemplo, de género), pueden optar por un nombre abstracto (por ejemplo, “el inversionista
@@ -524,10 +524,10 @@ productos inspiradores sin relación directa.
 | 3 | Great Expectations — _Data Docs_ | Competidor | Documentación oficial: <https://docs.greatexpectations.io/docs/0.18/reference/learn/terms/data_docs/> | Reporte de cada validación con el valor esperado frente al observado; inspira la vista de detalle "valor en la fuente vs. valor publicado en SIMEM". |
 | 4 | Microsoft Purview — Data Quality | Competidor | Documentación oficial: <https://learn.microsoft.com/purview/unified-catalog-data-quality> | Puntaje de calidad por activo y por dimensión; inspira el indicador de porcentaje de calidad global y por conjunto de datos. |
 | 5 | Azure Data Factory — monitor de ejecuciones | Relacionado | Documentación oficial: <https://learn.microsoft.com/azure/data-factory/monitor-visually> | Listado de ejecuciones con su estado y opción de reejecutar; inspira el relanzamiento masivo de conjuntos atrasados. |
-| 6 | Grafana — paneles y reglas de alerta | Relacionado | ![grafana][img_grafana] <https://play.grafana.org> | Series de tiempo y silenciamiento de alertas conocidas; inspira la gráfica de evolución de una variable y silenciar falsas alertas ya identificadas. |
-| 7 | Atlassian Statuspage | Inspirador | ![statuspage][img_statuspage] <https://status.atlassian.com> | Estado por componente con una barra histórica de disponibilidad; inspira un semáforo por conjunto con su historial de cumplimiento de publicación. |
+| 6 | Grafana — paneles y reglas de alerta | Relacionado | ![grafana](img/competencia/06_grafana.png) <https://play.grafana.org> | Series de tiempo y silenciamiento de alertas conocidas; inspira la gráfica de evolución de una variable y silenciar falsas alertas ya identificadas. |
+| 7 | Atlassian Statuspage | Inspirador | ![statuspage](img/competencia/07_statuspage.png) <https://status.atlassian.com> | Estado por componente con una barra histórica de disponibilidad; inspira un semáforo por conjunto con su historial de cumplimiento de publicación. |
 | 8 | PagerDuty — agrupación de alertas | Inspirador | Documentación oficial: <https://support.pagerduty.com/main/docs/alert-grouping> | Deduplicación y agrupación de alertas para reducir ruido; inspira el resumen diario por Teams en lugar de decenas de correos. |
-| 9 | GitHub — vista de diferencias (_diff_) | Inspirador | ![github][img_github] <https://github.com/KevinHidalgoDS/interaccion-hc/pull/18/files> | Resaltado visual de lo que cambió; inspira la comparación resaltada entre el dato de la fuente y el dato publicado. |
+| 9 | GitHub — vista de diferencias (_diff_) | Inspirador | ![github](img/competencia/09_github.png) <https://github.com/KevinHidalgoDS/interaccion-hc/pull/18/files> | Resaltado visual de lo que cambió; inspira la comparación resaltada entre el dato de la fuente y el dato publicado. |
 
 ### 4.4 Análisis competitivo (si aplica)
 
@@ -580,7 +580,7 @@ adicional; **No** = no lo cubre._
 | Great Expectations | Parcial — los _Data Docs_ son un reporte por validación, no un panel operativo | Parcial — acciones de notificación configurables en el _Checkpoint_ | Parcial — expectativas definidas en código; GX Cloud agrega interfaz | Parcial — historial de validaciones en los _Data Docs_ | No | <https://docs.greatexpectations.io/docs/0.18/reference/learn/terms/data_docs/> |
 | Microsoft Purview | Parcial — puntaje de calidad agregado por activo, producto de datos y dominio; la frescura es una de las seis dimensiones, no una vista de atrasos | Parcial — alertas por correo o grupo de distribución al incumplir el umbral de calidad; sin agrupación en incidentes ni envío nativo a Teams | Sí — reglas predefinidas, personalizadas y generadas con IA, sin código o con poco código | Sí — puntajes de calidad en el tiempo e historial de ejecuciones | No — el Centro de acciones sugiere la corrección, pero no reejecuta la carga | <https://learn.microsoft.com/purview/unified-catalog-data-quality> |
 | Azure Data Factory | Parcial — solo estado técnico de la ejecución, no calidad del dato | Parcial — reglas de alerta por métrica con notificación por correo, SMS o notificación automática mediante Azure Monitor | No aplica | Parcial — historial de ejecuciones y vista Gantt, con retención limitada | Sí — reejecución individual o masiva, y reejecución desde la actividad fallida | <https://learn.microsoft.com/azure/data-factory/monitor-visually> |
-| Grafana | Parcial — requiere construir el tablero | Sí — agrupación, silenciamiento y envío a Teams | No | Sí — series de tiempo | No | ![grafana][img_grafana] <https://play.grafana.org> |
+| Grafana | Parcial — requiere construir el tablero | Sí — agrupación, silenciamiento y envío a Teams | No | Sí — series de tiempo | No | ![grafana](img/competencia/06_grafana.png) <https://play.grafana.org> |
 
 - **Paso 5 — Resumen de resultados:** Redactar aquí las conclusiones y hallazgos clave del
   análisis, con referencia a las evidencias visuales recolectadas.
