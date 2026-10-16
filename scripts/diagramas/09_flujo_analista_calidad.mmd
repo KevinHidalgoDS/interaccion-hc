@@ -1,0 +1,25 @@
+flowchart TD
+    A(["Resumen de Teams o Torre de Control"]) --> B["Revisar indicadores y pestañas"]
+    B --> C{"¿Hay alertas abiertas?"}
+    C -->|No| Z(["Fin de la revisión"])
+    C -->|Sí| D["Abrir el incidente más crítico"]
+    D --> E{"¿Tiene responsable?"}
+    E -->|No| F["Tomar o asignar incidente"]
+    E -->|Sí| G["Revisar evidencia y bitácora"]
+    F --> G
+    G --> H{"¿Tipo de alerta?"}
+    H -->|Error de calidad| I["Comparar fuente vs SIMEM"]
+    H -->|Atraso| J["Ir a Oportunidad de publicación"]
+    H -->|Configuración| K["Escalar al Ingeniero de Configuración"]
+    I --> L{"¿Es un error real?"}
+    L -->|No| M["Marcar como falsa alerta"]
+    L -->|Sí| N["Reejecutar carga o crear requerimiento"]
+    N --> O["Re-ejecutar validación"]
+    O --> P{"¿Coincide con la fuente?"}
+    P -->|Sí| Q["Pasar a Verificado y Cerrado"]
+    P -->|No| N
+    M --> R["Registro en Trazabilidad"]
+    Q --> R
+    J --> R
+    K --> R
+    R --> C

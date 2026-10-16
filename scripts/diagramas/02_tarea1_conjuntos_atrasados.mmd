@@ -1,0 +1,5 @@
+flowchart LR
+    A["Torre de Control"] --> B["Relanzar atrasados"] --> C["Oportunidad de publicación"]
+    C --> D["Periodicidad: Semanal<br/>Estado: Atrasados"] --> E["Revisar atraso,<br/>última y próxima ejecución"]
+    E --> F["Seleccionar los conjuntos"] --> G["Relanzar masivamente"]
+    G --> H["Revisar rango desde · hasta<br/>y reversión automática"] --> I["Confirmar"] --> J(["Conjuntos al día"])

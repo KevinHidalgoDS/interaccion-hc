@@ -1,0 +1,20 @@
+flowchart TD
+    A(["Alerta de configuración o solicitud nueva"]) --> B{"¿Conjunto nuevo?"}
+    B -->|Sí| C["Nueva variable: datos generales"]
+    C --> D{"¿Fechas de validación válidas?"}
+    D -->|No| C
+    D -->|Sí| E["Consulta y prueba de conexión"]
+    E --> F{"¿Conexión exitosa?"}
+    F -->|No| G["Revisar credenciales"] --> E
+    F -->|Sí| H["Reglas de calidad y ejecución"]
+    H --> I["Prueba en seco"]
+    I --> J{"¿Sin hallazgos inesperados?"}
+    J -->|No| H
+    J -->|Sí| K["Guardar y activar"]
+    B -->|No| L["Abrir configuración con advertencia"]
+    L --> M{"¿Tipo de advertencia?"}
+    M -->|Delta sin revertir| N["Revertir delta"]
+    M -->|Consulta o ruta desactualizada| O["Aplicar corrección o editar"]
+    N --> P["Cambio registrado en Trazabilidad"]
+    O --> P
+    K --> P
