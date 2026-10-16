@@ -2265,12 +2265,6 @@ Las capturas se guardan en `docs/img/prototipo_final/` con los nombres indicados
 **Torre de Control**
 
 ![PF – Torre de Control (1)](img/prototipo_final/pf_torre_de_control_1.png)
-![PF – Torre de Control (2)](img/prototipo_final/pf_torre_de_control_2.png)
-
-**Detalle del incidente**
-
-![PF – Detalle del incidente desde la Torre de Control](img/prototipo_final/pf_incidente_detalle.png)
-![PF – Detalle del incidente desde Trazabilidad](img/prototipo_final/pf_incidente_trazabilidad.png)
 
 **Oportunidad de publicación**
 
@@ -2285,21 +2279,28 @@ Las capturas se guardan en `docs/img/prototipo_final/` con los nombres indicados
 **Validación Fuente vs SIMEM**
 
 ![PF – Validación Fuente vs SIMEM](img/prototipo_final/pf_validacion_fuente_simem.png)
+![PF – Validación Fuente vs SIMEM](img/prototipo_final/pf_validacion_fuente_simem_2.png)
 ![PF – Validación histórica personalizada](img/prototipo_final/pf_validacion_historica.png)
 
 **Indicadores y tendencias**
 
 ![PF – Indicadores y tendencias (1)](img/prototipo_final/pf_indicadores_1.png)
 ![PF – Indicadores y tendencias (2)](img/prototipo_final/pf_indicadores_2.png)
+![PF – Indicadores y tendencias (2)](img/prototipo_final/pf_indicadores_3.png)
 
 **Configuración de conjuntos**
 
 ![PF – Configuración de conjuntos](img/prototipo_final/pf_configuracion.png)
 ![PF – Asistente de nueva variable](img/prototipo_final/pf_asistente_variable.png)
+![PF – Asistente de nueva variable](img/prototipo_final/pf_asistente_variable_2.png)
+
 
 **Trazabilidad**
 
 ![PF – Trazabilidad](img/prototipo_final/pf_trazabilidad.png)
+![PF – Trazabilidad](img/prototipo_final/pf_trazabilidad_detalle_calidad.png)
+![PF – Trazabilidad](img/prototipo_final/pf_trazabilidad_detalle_atraso.png)
+![PF – Trazabilidad](img/prototipo_final/pf_trazabilidad_detalle_configuracion.png)
 
 **Credenciales**
 
