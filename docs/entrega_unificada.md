@@ -2217,7 +2217,7 @@ conectan a ninguna fuente real.
 
 | # | Prototipo | Herramienta | Alcance | Enlace |
 | :--- | :--- | :--- | :--- | :--- |
-| PF | Monitor de Calidad SIMEM | Artefacto web (HTML) | 8 vistas y detalle de incidente | _Pendiente_ |
+| PF | Monitor de Calidad SIMEM | Artefacto web (HTML) | 8 vistas y detalle de incidente | [Abrir](https://claude.ai/artifact/CgggZKKNjMGqqLkMws78RB) |
 
 **Vistas del prototipo final**
 
@@ -2256,7 +2256,7 @@ El diagrama muestra la estructura del PF y los caminos principales entre vistas.
 son accesibles desde el menú lateral y con los atajos de teclado 1 a 8; las flechas representan los
 recorridos que el prototipo propone dentro de la operación diaria.
 
-![PF – Diagrama de flujo](img/entregable_final/01_diagrama_de_flujo_pf.png)
+![PF – Diagrama de flujo](img/prototipo_final/01_diagrama_de_flujo_pf.png)
 
 ## 2. Capturas de pantalla del prototipo final
 
@@ -2318,36 +2318,36 @@ usuario, no incluye decisiones: muestra el camino esperado cuando todo sale bien
 
 ### 3.1 Tarea 1: identificar y recuperar conjuntos atrasados
 
-![Flujo de tareas – Tarea 1](img/entregable_final/02_tarea1_conjuntos_atrasados.png)
+![Flujo de tareas – Tarea 1](img/prototipo_final/02_tarea1_conjuntos_atrasados.png)
 
 La disponibilidad del dato en el Data Lake se consulta en el detalle del incidente abierto desde
 Trazabilidad (panel «Disponibilidad del dato»).
 
 ### 3.2 Tarea 2: verificar una versión de la liquidación
 
-![Flujo de tareas – Tarea 2](img/entregable_final/03_tarea2_version_liquidacion.png)
+![Flujo de tareas – Tarea 2](img/prototipo_final/03_tarea2_version_liquidacion.png)
 
 ### 3.3 Tarea 3: revisar la calidad de un conjunto de datos
 
-![Flujo de tareas – Tarea 3](img/entregable_final/04_tarea3_calidad_conjunto.png)
+![Flujo de tareas – Tarea 3](img/prototipo_final/04_tarea3_calidad_conjunto.png)
 
 ### 3.4 Tarea 4: identificar los conjuntos que más fallan
 
-![Flujo de tareas – Tarea 4](img/entregable_final/05_tarea4_conjuntos_que_mas_fallan.png)
+![Flujo de tareas – Tarea 4](img/prototipo_final/05_tarea4_conjuntos_que_mas_fallan.png)
 
 ### 3.5 Tarea 5: asignar un error
 
-![Flujo de tareas – Tarea 5](img/entregable_final/06_tarea5_asignar_error.png)
+![Flujo de tareas – Tarea 5](img/prototipo_final/06_tarea5_asignar_error.png)
 
 Desde la Torre de Control, el botón «Tomar incidente» permite la autoasignación.
 
 ### 3.6 Tarea 6: crear una conexión a una API
 
-![Flujo de tareas – Tarea 6](img/entregable_final/07_tarea6_conexion_api.png)
+![Flujo de tareas – Tarea 6](img/prototipo_final/07_tarea6_conexion_api.png)
 
 ### 3.7 Tarea 7: configurar un conjunto de datos
 
-![Flujo de tareas – Tarea 7](img/entregable_final/08_tarea7_configurar_conjunto.png)
+![Flujo de tareas – Tarea 7](img/prototipo_final/08_tarea7_configurar_conjunto.png)
 
 ## 4. Flujo de usuario
 
@@ -2359,21 +2359,21 @@ entrada, incluyendo las decisiones que toma según lo que encuentra.
 Entra por el resumen diario de Teams o por la Torre de Control, y su objetivo es que ninguna alerta
 quede sin dueño ni sin diagnóstico.
 
-![Flujo de usuario – Analista de Calidad Operativa](img/entregable_final/09_flujo_analista_calidad.png)
+![Flujo de usuario – Analista de Calidad Operativa](img/prototipo_final/09_flujo_analista_calidad.png)
 
 ### 4.2 Ingeniero de Configuración y Metadatos
 
 Su punto de entrada es una alerta de configuración o la solicitud de un conjunto nuevo. Su objetivo
 es que la configuración no genere falsas alertas y que cada cambio quede registrado.
 
-![Flujo de usuario – Ingeniero de Configuración y Metadatos](img/entregable_final/10_flujo_ingeniero_configuracion.png)
+![Flujo de usuario – Ingeniero de Configuración y Metadatos](img/prototipo_final/10_flujo_ingeniero_configuracion.png)
 
 ### 4.3 Especialista de Monitoreo Multifuente
 
 Supervisa las ejecuciones, los atrasos y las versiones de la liquidación. Su objetivo es que los
 datos y las versiones obligatorias queden publicados dentro del plazo.
 
-![Flujo de usuario – Especialista de Monitoreo Multifuente](img/entregable_final/11_flujo_especialista_monitoreo.png)
+![Flujo de usuario – Especialista de Monitoreo Multifuente](img/prototipo_final/11_flujo_especialista_monitoreo.png)
 
 ## 5. Historias de usuario para la implementación
 
