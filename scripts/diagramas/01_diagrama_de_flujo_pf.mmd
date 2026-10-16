@@ -1,0 +1,39 @@
+flowchart TD
+    INI([Inicio de jornada]) --> TC["Torre de Control<br/>indicadores y resumen del día"]
+    TEAMS(["Resumen diario en Teams · 07:30"]) --> TC
+    CAMP(["Campana de notificaciones"]) --> INC
+    TC --> TAB{"¿Qué tipo de alerta?"}
+    TAB -->|Atrasados| INC["Detalle del incidente"]
+    TAB -->|Errores de calidad| INC
+    TAB -->|Errores de configuración| INC
+    TC -->|Relanzar atrasados| OP["Oportunidad de publicación"]
+
+    INC --> ASG["Tomar o asignar responsable"]
+    ASG --> EST["Avanzar estado<br/>Nuevo · En revisión · Corregido · Verificado · Cerrado"]
+    INC --> ACC{"Acción sugerida"}
+    ACC -->|Relanzar o reejecutar carga| OP
+    ACC -->|Abrir configuración o aplicar cambio| CFG["Configuración de conjuntos"]
+    ACC -->|Falsa alerta, silenciar o requerimiento| BIT["Bitácora del incidente"]
+    EST --> BIT
+
+    OP --> SEL["Filtrar y seleccionar atrasados"] --> RL["Relanzar masivamente<br/>revertir configuración temporal"]
+    RL --> TRZ
+
+    VER["Versiones de liquidación"] --> CEL["Seleccionar celda fecha · conjunto"] --> FAL{"¿Falta una versión vencida?"}
+    FAL -->|No| OKV([Sin acción])
+    FAL -->|Sí| FTP{"¿Archivo en la fuente alterna FTP?"}
+    FTP -->|Sí| REC["Confirmar, recuperar y cargar"] --> TRZ
+    FTP -->|No| ERR["Error: cargar manualmente o crear requerimiento"]
+
+    VAL["Validación Fuente vs SIMEM"] --> REV["Revisar inconsistencias"] --> REJ["Re-ejecutar validación"] --> SOL["Marcar como solucionada"]
+    VAL --> HIS["Validación histórica personalizada"]
+
+    CFG --> WZ["Asistente de nueva variable<br/>datos · conexión · reglas · ejecución"] --> DRY{"¿Prueba en seco exitosa?"}
+    DRY -->|No| WZ
+    DRY -->|Sí| ACT["Guardar y activar"] --> TRZ
+    CFG --> FIX["Revertir delta o aplicar corrección"] --> TRZ
+    CRED["Credenciales"] -.->|acceso a las fuentes| WZ
+
+    IND["Indicadores y tendencias"] -->|Ver incidente| INC
+    TRZ["Trazabilidad"] -->|Abrir incidente| INC
+    BIT --> TRZ

@@ -33,7 +33,7 @@ toc-depth: 2
 <h2><center>Plataforma de monitoreo y gestión de la calidad de datos del SIMEM</center></h2>
 <h3><center>Entrega unificada — Entregables #1 a #6</center></h3>
 
-<a name="conte"></a>
+<a id="conte"></a>
 
 <hr style="border:2px solid #CC00FF"> </hr>
 
@@ -46,24 +46,25 @@ _kfhidalgoh@unal.edu.co_
 
 **Fecha de elaboración:** _2026 Septiembre 02_
 
-**Fecha última modificación:** _2026 Octubre 14_
+**Fecha última modificación:** _2026 Octubre 15_
 
 ---
 
 <h2><center>Tabla de contenido</center></h2>
 
-- [Parte I. Caracterización del problema (Entregable #1)](#parte-1)
-- [Parte II. Empatía (Entregable #2)](#parte-2)
-- [Parte III. Definición del problema (Entregable #3)](#parte-3)
-- [Parte IV. Ideación, prototipado y evaluación MoSCoW (Entregables #4 y #5)](#parte-4)
-- [Parte V. Evaluación de usabilidad (Entregable #6)](#parte-5)
+- [Parte I. Caracterización del problema](#parte-1)
+- [Parte II. Empatía](#parte-2)
+- [Parte III. Definición del problema](#parte-3)
+- [Parte IV. Ideación, prototipado y evaluación MoSCoW](#parte-4)
+- [Parte V. Evaluación de usabilidad](#parte-5)
+- [Parte VI. Prototipo final](#parte-6)
 - [Referencias bibliográficas](#referencias)
 
 ---
 
-<a name="parte-1"></a>
+<a id="parte-1"></a>
 
-# Parte I. Caracterización del problema (Entregable #1)
+# Parte I. Caracterización del problema
 
 ## 1. Descripción del Problema
 
@@ -71,121 +72,121 @@ _kfhidalgoh@unal.edu.co_
 
 **¿Dónde y cuándo ocurre el problema?**
 
-> El problema se presenta en el _Sistema de información para el Mercado de Energía Mayorista_
-> [SIMEM](https://www.simem.co), una plataforma web de datos abiertos que pone a disposición de
-> usuarios internos y externos información relacionada con el Mercado de Energía Mayorista (_MEM_)
-> y la operación del Sistema Interconectado Nacional (_SIN_).
->
-> La plataforma ofrece acceso a los datos mediante consultas web y una Interfaz de Programación de
-> Aplicaciones (_API_) pública, la cual es utilizada por diferentes tipos de usuarios para realizar
-> análisis, desarrollos tecnológicos y procesos de toma de decisiones. La información publicada se
-> alimenta desde un lago de datos (_dataLake_), que recibe aproximadamente un millón de registros
-> diarios provenientes de múltiples fuentes de información, incluyendo bases de datos
-> transaccionales, archivos _Excel_, _API's_ y otros sistemas de la organización. Actualmente, existen
-> mecanismos para monitorear la ejecución de los procesos de carga hacia el _dataLake_ y hacia
-> _SIMEM_. Sin embargo, estos controles se enfocan principalmente en verificar la finalización
-> técnica de los procesos y no en validar integralmente la calidad, completitud, oportunidad,
-> consistencia y confiabilidad de los datos publicados.
->
-> Como consecuencia, pueden presentarse situaciones en las que los datos son cargados exitosamente
-> desde el punto de vista técnico, pero contienen errores o inconsistencias que pasan
-> desapercibidos para los administradores de la plataforma. Entre los problemas más frecuentes se
-> encuentran registros erróneos, valores atípicos, retrasos en las publicaciones y pérdida de
-> información histórica. En numerosos casos, estas situaciones son identificadas únicamente cuando
-> los usuarios consumen la información y reportan novedades a través de los canales de atención _CRM_
-> (Customer Relationship Management o Gestión de Relaciones con el Cliente), generando un aumento
-> en los requerimientos gestionados por el equipo administrador y afectando la confianza de los
-> usuarios en la plataforma. Uno de los escenarios más críticos corresponde a la ausencia de
-> versiones específicas de información que deben publicarse de manera secuencial. Por ejemplo,
-> algunas variables asociadas a los procesos de liquidación del mercado cuentan con distintas
-> versiones publicadas en momentos diferentes. Puede ocurrir que la primera versión de una
-> liquidación (TX1 versión preliminar) sea cargada correctamente, mientras que la versión que sale
-> 2 días después (TX2) no sea incorporada al Data Lake. La recuperación de estas versiones
-> faltantes representa un reto operativo significativo, ya que en muchos casos las versiones
-> históricas dejan de estar disponibles en las bases de datos fuente.
->
-> Para reconstruirlas es necesario acudir a repositorios alternos, como servidores FTP (File
-> Transfer Protocol o Protocolo de Transferencia de Archivos), y ejecutar procesos manuales de
-> búsqueda, validación y cargue, los cuales consumen tiempo, requieren conocimiento especializado y
-> aumentan el riesgo de errores operativos. Otro problema recurrente está relacionado con la
-> pérdida de sincronización entre la fecha de publicación esperada y la fecha real de los datos
-> disponibles. Por ejemplo, existen variables que deben publicar diariamente la información
-> correspondiente al día inmediatamente anterior, por ejemplo, el precio de bolsa del mercado. Si
-> por una intermitencia una ejecución no incorpora los datos esperados, el proceso puede continuar
-> ejecutándose sin errores aparentes, pero publicando información desactualizada. En este
-> escenario, los administradores observan que las cargas continúan ejecutándose correctamente,
-> cuando en realidad los usuarios están consultando datos con uno o varios días de retraso. Esta
-> situación puede mantenerse durante largos períodos sin ser detectada. Esta limitación es aún más
-> evidente en los conjuntos de datos con actualizaciones esporádicas, ya que actualmente no existe
-> una vista consolidada que permita conocer la frecuencia esperada de publicación, la última
-> actualización realizada o la existencia de posibles retrasos e incumplimientos.
->
-> Adicionalmente, la plataforma carece de una capa de analítica y visualización _BI_ (Business
-> Intelligence) que permita monitorear el comportamiento de los datos de forma gráfica e intuitiva.
-> La información disponible se encuentra principalmente en formatos estructurados, lo que dificulta
-> la identificación temprana de tendencias inusuales. Como resultado, los responsables de la
-> plataforma carecen de una visión centralizada y proactiva sobre la calidad y el estado de los
-> datos publicados, lo que limita su capacidad para detectar problemas antes de que impacten a los
-> usuarios finales.
+El problema se presenta en el _Sistema de información para el Mercado de Energía Mayorista_
+[SIMEM](https://www.simem.co), una plataforma web de datos abiertos que pone a disposición de
+usuarios internos y externos información relacionada con el Mercado de Energía Mayorista (_MEM_)
+y la operación del Sistema Interconectado Nacional (_SIN_).
+
+La plataforma ofrece acceso a los datos mediante consultas web y una Interfaz de Programación de
+Aplicaciones (_API_) pública, la cual es utilizada por diferentes tipos de usuarios para realizar
+análisis, desarrollos tecnológicos y procesos de toma de decisiones. La información publicada se
+alimenta desde un lago de datos (_dataLake_), que recibe aproximadamente un millón de registros
+diarios provenientes de múltiples fuentes de información, incluyendo bases de datos
+transaccionales, archivos _Excel_, _API's_ y otros sistemas de la organización. Actualmente, existen
+mecanismos para monitorear la ejecución de los procesos de carga hacia el _dataLake_ y hacia
+_SIMEM_. Sin embargo, estos controles se enfocan principalmente en verificar la finalización
+técnica de los procesos y no en validar integralmente la calidad, completitud, oportunidad,
+consistencia y confiabilidad de los datos publicados.
+
+Como consecuencia, pueden presentarse situaciones en las que los datos son cargados exitosamente
+desde el punto de vista técnico, pero contienen errores o inconsistencias que pasan
+desapercibidos para los administradores de la plataforma. Entre los problemas más frecuentes se
+encuentran registros erróneos, valores atípicos, retrasos en las publicaciones y pérdida de
+información histórica. En numerosos casos, estas situaciones son identificadas únicamente cuando
+los usuarios consumen la información y reportan novedades a través de los canales de atención _CRM_
+(Customer Relationship Management o Gestión de Relaciones con el Cliente), generando un aumento
+en los requerimientos gestionados por el equipo administrador y afectando la confianza de los
+usuarios en la plataforma. Uno de los escenarios más críticos corresponde a la ausencia de
+versiones específicas de información que deben publicarse de manera secuencial. Por ejemplo,
+algunas variables asociadas a los procesos de liquidación del mercado cuentan con distintas
+versiones publicadas en momentos diferentes. Puede ocurrir que la primera versión de una
+liquidación (TX1 versión preliminar) sea cargada correctamente, mientras que la versión que sale
+2 días después (TX2) no sea incorporada al Data Lake. La recuperación de estas versiones
+faltantes representa un reto operativo significativo, ya que en muchos casos las versiones
+históricas dejan de estar disponibles en las bases de datos fuente.
+
+Para reconstruirlas es necesario acudir a repositorios alternos, como servidores FTP (File
+Transfer Protocol o Protocolo de Transferencia de Archivos), y ejecutar procesos manuales de
+búsqueda, validación y cargue, los cuales consumen tiempo, requieren conocimiento especializado y
+aumentan el riesgo de errores operativos. Otro problema recurrente está relacionado con la
+pérdida de sincronización entre la fecha de publicación esperada y la fecha real de los datos
+disponibles. Por ejemplo, existen variables que deben publicar diariamente la información
+correspondiente al día inmediatamente anterior, por ejemplo, el precio de bolsa del mercado. Si
+por una intermitencia una ejecución no incorpora los datos esperados, el proceso puede continuar
+ejecutándose sin errores aparentes, pero publicando información desactualizada. En este
+escenario, los administradores observan que las cargas continúan ejecutándose correctamente,
+cuando en realidad los usuarios están consultando datos con uno o varios días de retraso. Esta
+situación puede mantenerse durante largos períodos sin ser detectada. Esta limitación es aún más
+evidente en los conjuntos de datos con actualizaciones esporádicas, ya que actualmente no existe
+una vista consolidada que permita conocer la frecuencia esperada de publicación, la última
+actualización realizada o la existencia de posibles retrasos e incumplimientos.
+
+Adicionalmente, la plataforma carece de una capa de analítica y visualización _BI_ (Business
+Intelligence) que permita monitorear el comportamiento de los datos de forma gráfica e intuitiva.
+La información disponible se encuentra principalmente en formatos estructurados, lo que dificulta
+la identificación temprana de tendencias inusuales. Como resultado, los responsables de la
+plataforma carecen de una visión centralizada y proactiva sobre la calidad y el estado de los
+datos publicados, lo que limita su capacidad para detectar problemas antes de que impacten a los
+usuarios finales.
 
 **Antecedentes:**
 
-> Actualmente, los administradores de la plataforma cuentan con una herramienta desarrollada en
-> Python para realizar validaciones de consistencia entre los datos de las fuentes originales y los
-> datos almacenados en el Data Lake de SIMEM. La validación se hace posterior a la carga de
-> información del sistema, aunque también se puede ejecutar para validar datos históricos a
-> demanda. La configuración de los conjuntos de datos a evaluar se hace a través de un archivo
-> `.CSV`. Cuando la herramienta identifica diferencias o inconsistencias durante las validaciones
-> ejecutadas, genera automáticamente una notificación por correo electrónico dirigida a los
-> administradores de la plataforma. Adicionalmente, los hallazgos detectados son almacenados en
-> archivos `.CSV` para su posterior revisión.
->
-> Además, el sistema cuenta con metadatos de cada uno de los conjuntos como son: última fecha de
-> actualización, si la última ejecución fue exitosa o no, qué fechas indexadas se cargaron con cada
-> ejecución, la fecha indexada máxima disponible, periodicidad (diario, semanal, mensual,
-> trimestral, semestral, anual), la clasificación (si carga datos del día anterior, de la semana
-> siguiente, del mes en curso, etc) y la próxima fecha de ejecución programada. Sin embargo, a día
-> de hoy no existe una plataforma centralizada que permita consolidar los hallazgos, visualizar
-> tendencias, generar indicadores o medir la evolución de la calidad de los datos a lo largo del
-> tiempo. Adicionalmente, no se dispone de un catálogo o repositorio estructurado de
-> inconsistencias que permita clasificarlas según su tipología, impacto, criticidad o causa raíz.
-> Esto limita la capacidad de identificar patrones recurrentes, priorizar acciones de mejora y
-> construir una visión global de la calidad de los datos publicados.
->
-> **Artículos Académicos:** Como parte del análisis de antecedentes y soluciones existentes en el
-> ámbito de la calidad de datos, se revisaron los siguientes artículos: **An Intelligent Linked
-> Data Quality Dashboard** **[1]**. En este trabajo los autores plantean la siguiente pregunta de
-> investigación: ¿En qué medida un dashboard inteligente, basado en grafos de conocimiento y
-> análisis de causa raíz, puede ayudar a los usuarios a comprender los problemas de calidad de los
-> datos, identificar las correcciones necesarias y priorizar las acciones de mejora? Para abordar
-> esta problemática, en el artículo proponen un dashboard enfocado en facilitar la comprensión y
-> gestión de los problemas de calidad de datos mediante mecanismos visuales. Las funcionalidades
-> más relevantes son:
->
-> 1. Visualización de problemas por métrica: Mecanismos que les permitan evaluar el estado de
->    calidad de los datos de forma periódica y sistemática.
-> 2. Indicadores visuales y tableros de control: Necesarios para que los usuarios pueden conocer
->    rápidamente el estado de salud de la información.
-> 3. Priorización de hallazgos: El sistema organiza automáticamente los problemas según su impacto
->    sobre la calidad del conjunto de datos.
-> 4. Múltiples vistas de análisis: Incluye vistas por recurso y por tipo de problema.
-> 5. Análisis de causa raíz: Servicios que relacionan las métricas, los datos afectados y los
->    reportes de errores. A partir de estas relaciones se aplican técnicas de análisis de causa
->    raíz para identificar conexiones entre diferentes problemas y determinar su origen común.
-> 6. Caracterización del impacto global de una anomalía: Los defectos encontrados no se muestran de
->    forma aislada, sino dentro del contexto de otros problemas relacionados.
->
-> **DataLens: ML-Oriented Interactive Tabular Data Quality Dashboard** **[2]**. Este artículo
-> presenta **DataLens**, una plataforma orientada a la administración de la calidad de datos
-> mediante un dashboard interactivo. Tiene dos módulos que destacan y que son diferentes al
-> propuesto por el artículo de Vaidyambath:
->
-> 1. Módulo de limpieza iterativa con ML: La plataforma incluye un mecanismo de limpieza iterativa,
->    capaz de seleccionar automáticamente las herramientas o técnicas de limpieza más apropiadas
->    para mejorar la calidad de los datos.
-> 2. Visualización gráfica de inconsistencias: Generación automática de visualizaciones que
->    muestran la distribución de errores detectados en el conjunto de datos. Con esto se facilita
->    identificar visualmente dónde se concentran los errores y priorizar su corrección.
+Actualmente, los administradores de la plataforma cuentan con una herramienta desarrollada en
+Python para realizar validaciones de consistencia entre los datos de las fuentes originales y los
+datos almacenados en el Data Lake de SIMEM. La validación se hace posterior a la carga de
+información del sistema, aunque también se puede ejecutar para validar datos históricos a
+demanda. La configuración de los conjuntos de datos a evaluar se hace a través de un archivo
+`.CSV`. Cuando la herramienta identifica diferencias o inconsistencias durante las validaciones
+ejecutadas, genera automáticamente una notificación por correo electrónico dirigida a los
+administradores de la plataforma. Adicionalmente, los hallazgos detectados son almacenados en
+archivos `.CSV` para su posterior revisión.
+
+Además, el sistema cuenta con metadatos de cada uno de los conjuntos como son: última fecha de
+actualización, si la última ejecución fue exitosa o no, qué fechas indexadas se cargaron con cada
+ejecución, la fecha indexada máxima disponible, periodicidad (diario, semanal, mensual,
+trimestral, semestral, anual), la clasificación (si carga datos del día anterior, de la semana
+siguiente, del mes en curso, etc) y la próxima fecha de ejecución programada. Sin embargo, a día
+de hoy no existe una plataforma centralizada que permita consolidar los hallazgos, visualizar
+tendencias, generar indicadores o medir la evolución de la calidad de los datos a lo largo del
+tiempo. Adicionalmente, no se dispone de un catálogo o repositorio estructurado de
+inconsistencias que permita clasificarlas según su tipología, impacto, criticidad o causa raíz.
+Esto limita la capacidad de identificar patrones recurrentes, priorizar acciones de mejora y
+construir una visión global de la calidad de los datos publicados.
+
+**Artículos Académicos:** Como parte del análisis de antecedentes y soluciones existentes en el
+ámbito de la calidad de datos, se revisaron los siguientes artículos: **An Intelligent Linked
+Data Quality Dashboard** **[1]**. En este trabajo los autores plantean la siguiente pregunta de
+investigación: ¿En qué medida un dashboard inteligente, basado en grafos de conocimiento y
+análisis de causa raíz, puede ayudar a los usuarios a comprender los problemas de calidad de los
+datos, identificar las correcciones necesarias y priorizar las acciones de mejora? Para abordar
+esta problemática, en el artículo proponen un dashboard enfocado en facilitar la comprensión y
+gestión de los problemas de calidad de datos mediante mecanismos visuales. Las funcionalidades
+más relevantes son:
+
+1. Visualización de problemas por métrica: Mecanismos que les permitan evaluar el estado de
+   calidad de los datos de forma periódica y sistemática.
+2. Indicadores visuales y tableros de control: Necesarios para que los usuarios pueden conocer
+   rápidamente el estado de salud de la información.
+3. Priorización de hallazgos: El sistema organiza automáticamente los problemas según su impacto
+   sobre la calidad del conjunto de datos.
+4. Múltiples vistas de análisis: Incluye vistas por recurso y por tipo de problema.
+5. Análisis de causa raíz: Servicios que relacionan las métricas, los datos afectados y los
+   reportes de errores. A partir de estas relaciones se aplican técnicas de análisis de causa
+   raíz para identificar conexiones entre diferentes problemas y determinar su origen común.
+6. Caracterización del impacto global de una anomalía: Los defectos encontrados no se muestran de
+   forma aislada, sino dentro del contexto de otros problemas relacionados.
+
+**DataLens: ML-Oriented Interactive Tabular Data Quality Dashboard** **[2]**. Este artículo
+presenta **DataLens**, una plataforma orientada a la administración de la calidad de datos
+mediante un dashboard interactivo. Tiene dos módulos que destacan y que son diferentes al
+propuesto por el artículo de Vaidyambath:
+
+1. Módulo de limpieza iterativa con ML: La plataforma incluye un mecanismo de limpieza iterativa,
+   capaz de seleccionar automáticamente las herramientas o técnicas de limpieza más apropiadas
+   para mejorar la calidad de los datos.
+2. Visualización gráfica de inconsistencias: Generación automática de visualizaciones que
+   muestran la distribución de errores detectados en el conjunto de datos. Con esto se facilita
+   identificar visualmente dónde se concentran los errores y priorizar su corrección.
 
 ---
 
@@ -193,64 +194,64 @@ _kfhidalgoh@unal.edu.co_
 
 **¿Quiénes son los usuarios principales?**
 
-> Los usuarios principales son el personal interno de XM (analistas de datos, ingenieros y
-> operadores del mercado) encargados de monitorear y velar por la calidad de los datos publicados
-> en el portal del [SIMEM](https://www.simem.co) (_Sistema de información para el Mercado de Energía
-> Mayorista_).
->
-> **Perfil del usuario:**
->
-> - **Conocimiento y experiencia:** Son **usuarios expertos en el dominio** (poseen un alto
->   conocimiento técnico del mercado energético y la estructura de los datos) y tienen una alta
->   literacidad digital[^literacidad]. Sin embargo, no necesariamente son expertos en la adopción
->   de nuevas herramientas de software, por lo que la curva de aprendizaje de la interfaz debe ser
->   baja.
-> - **Frecuencia y contexto de uso:** Son usuarios **intensivos/frecuentes**. Su interacción con el
->   sistema es diaria y prolongada. Operan principalmente en entornos de oficina (a menudo con
->   configuraciones de múltiples monitores) para poder cruzar e inspeccionar grandes volúmenes de
->   información simultáneamente.
-> - **Carga cognitiva:** Manejan una **alta carga cognitiva**. Su tarea de asegurar la calidad de
->   los datos requiere concentración extrema para identificar anomalías, patrones o valores
->   atípicos, a menudo bajo restricciones de tiempo crítico antes de la publicación oficial.
-> - **Accesibilidad y ergonomía:** Debido a las largas jornadas frente a pantallas analizando
->   tablas y tableros de control (dashboards), son altamente susceptibles a la fatiga visual y
->   motora. Requieren interfaces que prioricen la claridad tipográfica en datos numéricos, alto
->   contraste, y atajos de teclado o flujos de trabajo optimizados que minimicen la dependencia de
->   clics repetitivos con el ratón.
+Los usuarios principales son el personal interno de XM (analistas de datos, ingenieros y
+operadores del mercado) encargados de monitorear y velar por la calidad de los datos publicados
+en el portal del [SIMEM](https://www.simem.co) (_Sistema de información para el Mercado de Energía
+Mayorista_).
+
+**Perfil del usuario:**
+
+- **Conocimiento y experiencia:** Son **usuarios expertos en el dominio** (poseen un alto
+  conocimiento técnico del mercado energético y la estructura de los datos) y tienen una alta
+  literacidad digital[^literacidad]. Sin embargo, no necesariamente son expertos en la adopción
+  de nuevas herramientas de software, por lo que la curva de aprendizaje de la interfaz debe ser
+  baja.
+- **Frecuencia y contexto de uso:** Son usuarios **intensivos/frecuentes**. Su interacción con el
+  sistema es diaria y prolongada. Operan principalmente en entornos de oficina (a menudo con
+  configuraciones de múltiples monitores) para poder cruzar e inspeccionar grandes volúmenes de
+  información simultáneamente.
+- **Carga cognitiva:** Manejan una **alta carga cognitiva**. Su tarea de asegurar la calidad de
+  los datos requiere concentración extrema para identificar anomalías, patrones o valores
+  atípicos, a menudo bajo restricciones de tiempo crítico antes de la publicación oficial.
+- **Accesibilidad y ergonomía:** Debido a las largas jornadas frente a pantallas analizando
+  tablas y tableros de control (dashboards), son altamente susceptibles a la fatiga visual y
+  motora. Requieren interfaces que prioricen la claridad tipográfica en datos numéricos, alto
+  contraste, y atajos de teclado o flujos de trabajo optimizados que minimicen la dependencia de
+  clics repetitivos con el ratón.
 
 **¿Cómo interactúan estos usuarios con el sistema?**
 
-> Actualmente, la interacción no ocurre en una plataforma centralizada, sino a través de un
-> ecosistema fragmentado (correo electrónico, hojas de cálculo locales, portal web). El flujo de
-> tareas principal consiste en la validación y corrección de datos suministrados por los agentes
-> generadores, enfrentando severas deficiencias de usabilidad: **Flujo de interacción actual y sus
-> puntos de fricción:**
->
-> 1. **Notificación pasiva y descontextualizada:** El sistema ETL notifica los errores mediante
->    correos electrónicos.
->    - Fricción (IHC): **Baja visibilidad del estado del sistema**. El usuario recibe una alerta
->      fuera de contexto, sin un enlace directo o interfaz que lo lleve inmediatamente al entorno
->      del error para su evaluación.
-> 2. **Comparación manual de datos (Búsqueda a ciegas):** Al carecer de una interfaz de
->    contrastación (tipo data diffing), el usuario debe buscar manualmente el dato erróneo cruzando
->    la información entregada por el agente con el resultado fallido de la ETL.
->    - Fricción (IHC): **Sobrecarga cognitiva y de la memoria de trabajo**. Obligar al usuario a
->      recordar o cruzar visualmente datos entre múltiples ventanas o archivos genera fatiga visual
->      severa y alta probabilidad de error humano (slips y mistakes).
-> 3. **Corrección mediante "Workarounds" (Soluciones informales):** Para corregir el error, el
->    usuario debe extraer el dato, estructurar un archivo CSV de forma manual y redactar un correo
->    al equipo de soporte.
->    - Fricción (IHC): **Alto Abismo de Ejecución (Gulf of Execution)**[^abismo-ejecucion]. Falta
->      de manipulación directa. El usuario sabe qué quiere corregir, pero el sistema no le da la
->      herramienta para hacerlo por sí mismo, obligándolo a abandonar su flujo de trabajo y usar
->      herramientas de terceros (_Excel/Notepad, Outlook_).
-> 4. **Dependencia de terceros y Feedback Asíncrono:** El equipo de soporte actualiza la base de
->    datos y re-ejecuta la ETL. El usuario debe esperar y posteriormente entrar de nuevo al portal
->    _SIMEM_ para validar.
->    - Fricción (IHC): **Abismo de Evaluación (Gulf of Evaluation)[^abismo-evaluacion] y cuellos
->      de botella**. El ciclo de retroalimentación (feedback loop) está roto. El usuario no recibe
->      confirmación en tiempo real de su acción, generando tiempos muertos, ansiedad y rompiendo
->      por completo la continuidad de la tarea (ruptura del estado de flujo).
+Actualmente, la interacción no ocurre en una plataforma centralizada, sino a través de un
+ecosistema fragmentado (correo electrónico, hojas de cálculo locales, portal web). El flujo de
+tareas principal consiste en la validación y corrección de datos suministrados por los agentes
+generadores, enfrentando severas deficiencias de usabilidad: **Flujo de interacción actual y sus
+puntos de fricción:**
+
+1. **Notificación pasiva y descontextualizada:** El sistema ETL notifica los errores mediante
+   correos electrónicos.
+   - Fricción (IHC): **Baja visibilidad del estado del sistema**. El usuario recibe una alerta
+     fuera de contexto, sin un enlace directo o interfaz que lo lleve inmediatamente al entorno
+     del error para su evaluación.
+2. **Comparación manual de datos (Búsqueda a ciegas):** Al carecer de una interfaz de
+   contrastación (tipo data diffing), el usuario debe buscar manualmente el dato erróneo cruzando
+   la información entregada por el agente con el resultado fallido de la ETL.
+   - Fricción (IHC): **Sobrecarga cognitiva y de la memoria de trabajo**. Obligar al usuario a
+     recordar o cruzar visualmente datos entre múltiples ventanas o archivos genera fatiga visual
+     severa y alta probabilidad de error humano (slips y mistakes).
+3. **Corrección mediante "Workarounds" (Soluciones informales):** Para corregir el error, el
+   usuario debe extraer el dato, estructurar un archivo CSV de forma manual y redactar un correo
+   al equipo de soporte.
+   - Fricción (IHC): **Alto Abismo de Ejecución (Gulf of Execution)**[^abismo-ejecucion]. Falta
+     de manipulación directa. El usuario sabe qué quiere corregir, pero el sistema no le da la
+     herramienta para hacerlo por sí mismo, obligándolo a abandonar su flujo de trabajo y usar
+     herramientas de terceros (_Excel/Notepad, Outlook_).
+4. **Dependencia de terceros y Feedback Asíncrono:** El equipo de soporte actualiza la base de
+   datos y re-ejecuta la ETL. El usuario debe esperar y posteriormente entrar de nuevo al portal
+   _SIMEM_ para validar.
+   - Fricción (IHC): **Abismo de Evaluación (Gulf of Evaluation)[^abismo-evaluacion] y cuellos
+     de botella**. El ciclo de retroalimentación (feedback loop) está roto. El usuario no recibe
+     confirmación en tiempo real de su acción, generando tiempos muertos, ansiedad y rompiendo
+     por completo la continuidad de la tarea (ruptura del estado de flujo).
 
 ---
 
@@ -258,35 +259,35 @@ _kfhidalgoh@unal.edu.co_
 
 **¿Qué necesitan los usuarios?**
 
-> - **Visibilidad del estado de los datos:** Saber si los datos consultados están correctos,
->   completos y cumplen con los estándares de calidad definidos por la organización. [3]
-> - **Agilidad:** No tener que realizar tareas manuales de validación de datos, lo cual permite a
->   los usuarios dedicar el tiempo a la extracción del conocimiento que hay en los datos, el valor
->   del negocio y la interpretación y generación de _insights_.
-> - **Alertas proactivas:** Ser notificados de manera automática sobre los errores en los datos,
->   permitiendo así saber con seguridad qué usar y qué no.
-> - **Canales eficientes de comunicación y gestión de errores en el _datalake_:** Al tener la
->   calidad de datos centralizada, será más fácil la gestión de _backfills_ para datos faltantes o
->   la implementación de controles o flujos automatizados para la carga de información faltante.
-> - **Fuentes de confianza:** El usuario necesita conocer de primera mano la calidad que tienen los
->   datos que está usando, así como la calidad de los procesos de carga de datos desde las fuentes.
+- **Visibilidad del estado de los datos:** Saber si los datos consultados están correctos,
+  completos y cumplen con los estándares de calidad definidos por la organización. [3]
+- **Agilidad:** No tener que realizar tareas manuales de validación de datos, lo cual permite a
+  los usuarios dedicar el tiempo a la extracción del conocimiento que hay en los datos, el valor
+  del negocio y la interpretación y generación de _insights_.
+- **Alertas proactivas:** Ser notificados de manera automática sobre los errores en los datos,
+  permitiendo así saber con seguridad qué usar y qué no.
+- **Canales eficientes de comunicación y gestión de errores en el _datalake_:** Al tener la
+  calidad de datos centralizada, será más fácil la gestión de _backfills_ para datos faltantes o
+  la implementación de controles o flujos automatizados para la carga de información faltante.
+- **Fuentes de confianza:** El usuario necesita conocer de primera mano la calidad que tienen los
+  datos que está usando, así como la calidad de los procesos de carga de datos desde las fuentes.
 
 **Problemas actuales:**
 
-> - **Inexistencia de un centro de control de calidad de datos unificado:** Al no tener una
->   herramienta unificada de control de calidad de datos y cargas de información, los usuarios no
->   pueden conocer el estado real de la información del _datalake_, lo que genera pérdida de
->   confianza en los datos, gestión reactiva en lugar de preventiva, y adicionalmente no hay
->   gobernanza de datos o trazabilidad clara de los mismos. [4]
-> - **Sobrecarga cognitiva por revisión manual:** La inspección de errores de cargas o revisión de
->   calidad de datos se convierte en un problema al ser ejecutado de forma manual, ya que se pueden
->   presentar problemas de errores por omisión, desgaste de los analistas, falta de enfoque en el
->   rol de análisis de información del mercado energético y dependencia de intermediarios. [5]
-> - **Procesamiento y análisis lento:** En ocasiones, no se pueden analizar los datos completamente
->   por la falta de personal operativo que revise la calidad de los datos.
-> - **Incertidumbre y falta de confianza en los datos:** Al no tener un repositorio centralizado
->   que mida la completitud, consistencia, precisión e integridad de la información, se vuelve
->   difícil confiar plenamente en la información presentada.
+- **Inexistencia de un centro de control de calidad de datos unificado:** Al no tener una
+  herramienta unificada de control de calidad de datos y cargas de información, los usuarios no
+  pueden conocer el estado real de la información del _datalake_, lo que genera pérdida de
+  confianza en los datos, gestión reactiva en lugar de preventiva, y adicionalmente no hay
+  gobernanza de datos o trazabilidad clara de los mismos. [4]
+- **Sobrecarga cognitiva por revisión manual:** La inspección de errores de cargas o revisión de
+  calidad de datos se convierte en un problema al ser ejecutado de forma manual, ya que se pueden
+  presentar problemas de errores por omisión, desgaste de los analistas, falta de enfoque en el
+  rol de análisis de información del mercado energético y dependencia de intermediarios. [5]
+- **Procesamiento y análisis lento:** En ocasiones, no se pueden analizar los datos completamente
+  por la falta de personal operativo que revise la calidad de los datos.
+- **Incertidumbre y falta de confianza en los datos:** Al no tener un repositorio centralizado
+  que mida la completitud, consistencia, precisión e integridad de la información, se vuelve
+  difícil confiar plenamente en la información presentada.
 
 ---
 
@@ -294,102 +295,102 @@ _kfhidalgoh@unal.edu.co_
 
 **Consecuencias para los usuarios:**
 
-> La ausencia de una interfaz centralizada para monitorear la calidad, disponibilidad y estado de
-> los datos del _datalake_ genera consecuencias directas sobre las actividades realizadas por los
-> analistas, ingenieros y operadores de _XM_. El impacto no se limita únicamente a aspectos técnicos
-> relacionados con los datos, sino que también afecta la experiencia de interacción, la eficiencia
-> operativa y la capacidad de los usuarios para tomar decisiones oportunas.
->
-> - Incremento de la carga cognitiva: Los usuarios deben revisar diferentes fuentes de información,
->   correos electrónicos, archivos CSV, tablas y resultados de procesos de carga para determinar si
->   existe algún problema con los datos. Esta fragmentación obliga al usuario a mantener
->   información en su memoria de trabajo y realizar comparaciones manuales, aumentando el esfuerzo
->   mental requerido para completar una tarea que podría ser soportada directamente por una
->   interfaz.
-> - Mayor probabilidad de error humano: La revisión manual de grandes cantidades de información
->   aumenta la posibilidad de omitir inconsistencias, interpretar incorrectamente un dato o no
->   identificar oportunamente un conjunto que no fue actualizado. Esto resulta especialmente
->   relevante cuando existen múltiples conjuntos de datos que deben ser supervisados diariamente.
-> - Reducción de la productividad: Una parte del tiempo de los usuarios debe destinarse a
->   localizar, verificar, reportar y hacer seguimiento a errores de calidad o fallos en las cargas.
->   En consecuencia, disminuye el tiempo disponible para actividades de mayor valor, como el
->   análisis del comportamiento del mercado energético, la identificación de tendencias y la
->   generación de conocimiento a partir de los datos.
-> - Aumento del tiempo para diagnosticar y resolver errores: La ausencia de un monitor que indique
->   de manera visual qué conjunto presenta problemas, cuál es la causa, desde cuándo ocurre y cuál
->   es su estado de gestión obliga al usuario a investigar manualmente el incidente. Además, cuando
->   la solución depende de comunicaciones por correo electrónico y de la intervención de otros
->   equipos, el ciclo de resolución se prolonga.
-> - Pérdida de continuidad en la interacción: El usuario debe cambiar constantemente entre
->   herramientas y contextos —por ejemplo, _SIMEM_, archivos locales, correo electrónico y sistemas
->   internos— para completar una misma tarea. Desde la perspectiva de Interacción
->   Humano-Computador, esta fragmentación interrumpe el flujo de trabajo, aumenta el número de
->   acciones necesarias y dificulta mantener el contexto de la actividad.
-> - Incertidumbre sobre la confiabilidad de los datos: Si el usuario no dispone de indicadores
->   visibles sobre completitud, consistencia, precisión, vigencia o estado de carga de un conjunto
->   de datos, no puede determinar rápidamente si la información disponible es suficientemente
->   confiable para utilizarla. Esto puede provocar que los analistas recurran a fuentes
->   alternativas, como archivos `.txt` obtenidos directamente de otros procesos, aunque los datos
->   también se encuentren publicados posteriormente en _SIMEM_.
-> - Frustración y disminución de la confianza en el sistema: Cuando los usuarios detectan
->   repetidamente datos faltantes, cargas atrasadas o inconsistencias sin contar con mecanismos
->   claros para identificar su causa y seguimiento, se deteriora la percepción de confiabilidad del
->   sistema. Como resultado, pueden desarrollarse mecanismos de trabajo alternativos o workarounds
->   que reducen aún más la utilización de la plataforma como fuente principal de información.
-> - Dificultad para priorizar incidentes: Actualmente, la falta de clasificación visual de los
->   errores y de indicadores de severidad dificulta distinguir rápidamente entre un problema menor
->   y uno que puede afectar de forma importante la disponibilidad o confiabilidad de la
->   información. Esto obliga a los usuarios a evaluar manualmente cada situación antes de
->   determinar su prioridad.
+La ausencia de una interfaz centralizada para monitorear la calidad, disponibilidad y estado de
+los datos del _datalake_ genera consecuencias directas sobre las actividades realizadas por los
+analistas, ingenieros y operadores de _XM_. El impacto no se limita únicamente a aspectos técnicos
+relacionados con los datos, sino que también afecta la experiencia de interacción, la eficiencia
+operativa y la capacidad de los usuarios para tomar decisiones oportunas.
+
+- Incremento de la carga cognitiva: Los usuarios deben revisar diferentes fuentes de información,
+  correos electrónicos, archivos CSV, tablas y resultados de procesos de carga para determinar si
+  existe algún problema con los datos. Esta fragmentación obliga al usuario a mantener
+  información en su memoria de trabajo y realizar comparaciones manuales, aumentando el esfuerzo
+  mental requerido para completar una tarea que podría ser soportada directamente por una
+  interfaz.
+- Mayor probabilidad de error humano: La revisión manual de grandes cantidades de información
+  aumenta la posibilidad de omitir inconsistencias, interpretar incorrectamente un dato o no
+  identificar oportunamente un conjunto que no fue actualizado. Esto resulta especialmente
+  relevante cuando existen múltiples conjuntos de datos que deben ser supervisados diariamente.
+- Reducción de la productividad: Una parte del tiempo de los usuarios debe destinarse a
+  localizar, verificar, reportar y hacer seguimiento a errores de calidad o fallos en las cargas.
+  En consecuencia, disminuye el tiempo disponible para actividades de mayor valor, como el
+  análisis del comportamiento del mercado energético, la identificación de tendencias y la
+  generación de conocimiento a partir de los datos.
+- Aumento del tiempo para diagnosticar y resolver errores: La ausencia de un monitor que indique
+  de manera visual qué conjunto presenta problemas, cuál es la causa, desde cuándo ocurre y cuál
+  es su estado de gestión obliga al usuario a investigar manualmente el incidente. Además, cuando
+  la solución depende de comunicaciones por correo electrónico y de la intervención de otros
+  equipos, el ciclo de resolución se prolonga.
+- Pérdida de continuidad en la interacción: El usuario debe cambiar constantemente entre
+  herramientas y contextos —por ejemplo, _SIMEM_, archivos locales, correo electrónico y sistemas
+  internos— para completar una misma tarea. Desde la perspectiva de Interacción
+  Humano-Computador, esta fragmentación interrumpe el flujo de trabajo, aumenta el número de
+  acciones necesarias y dificulta mantener el contexto de la actividad.
+- Incertidumbre sobre la confiabilidad de los datos: Si el usuario no dispone de indicadores
+  visibles sobre completitud, consistencia, precisión, vigencia o estado de carga de un conjunto
+  de datos, no puede determinar rápidamente si la información disponible es suficientemente
+  confiable para utilizarla. Esto puede provocar que los analistas recurran a fuentes
+  alternativas, como archivos `.txt` obtenidos directamente de otros procesos, aunque los datos
+  también se encuentren publicados posteriormente en _SIMEM_.
+- Frustración y disminución de la confianza en el sistema: Cuando los usuarios detectan
+  repetidamente datos faltantes, cargas atrasadas o inconsistencias sin contar con mecanismos
+  claros para identificar su causa y seguimiento, se deteriora la percepción de confiabilidad del
+  sistema. Como resultado, pueden desarrollarse mecanismos de trabajo alternativos o workarounds
+  que reducen aún más la utilización de la plataforma como fuente principal de información.
+- Dificultad para priorizar incidentes: Actualmente, la falta de clasificación visual de los
+  errores y de indicadores de severidad dificulta distinguir rápidamente entre un problema menor
+  y uno que puede afectar de forma importante la disponibilidad o confiabilidad de la
+  información. Esto obliga a los usuarios a evaluar manualmente cada situación antes de
+  determinar su prioridad.
 
 **Impacto en la organización o contexto**
 
-> El problema también tiene repercusiones organizacionales para _XM_, considerando su responsabilidad
-> en la administración del Mercado de Energía Mayorista y en la disponibilidad de información
-> utilizada por diferentes actores del sector energético.
->
-> - Gestión reactiva de la calidad de datos: Al no existir un centro de monitoreo unificado con
->   indicadores, alertas y mecanismos de seguimiento, muchos problemas se gestionan después de ser
->   detectados por un usuario. Esto limita la posibilidad de anticiparse a fallos de carga,
->   conjuntos atrasados o degradaciones progresivas de la calidad.
-> - Incremento de los costos operativos: Las actividades manuales de identificación, comunicación,
->   corrección, seguimiento y re-ejecución de procesos consumen tiempo de analistas, ingenieros y
->   equipos de soporte. Tareas que podrían ser detectadas, clasificadas o incluso corregidas
->   automáticamente requieren actualmente intervención humana.
-> - Dependencia de personas y conocimiento tácito: Parte del procedimiento para identificar y
->   solucionar problemas puede depender de la experiencia individual de determinados analistas o
->   integrantes del equipo. Esto representa un riesgo operativo debido a que el conocimiento sobre
->   qué revisar, cómo interpretar un error o cómo solicitar una corrección puede no encontrarse
->   centralizado en el sistema.
-> - Dificultades de trazabilidad y gobernanza: Sin una plataforma que mantenga el historial de
->   errores, versiones, reglas de calidad, acciones realizadas y responsables de cada incidente,
->   resulta más difícil reconstruir lo ocurrido con un conjunto de datos y determinar cuándo
->   apareció el problema, cómo fue corregido y si volvió a presentarse.
-> - Riesgo de publicación o utilización de información incompleta: Una carga tardía, incompleta o
->   incorrecta puede hacer que determinados conjuntos de datos no estén disponibles en el momento
->   esperado. Esto puede afectar los análisis realizados por los equipos internos y por los
->   diferentes agentes del sector que dependen de información confiable y oportuna.
-> - Uso de fuentes alternativas y duplicación de esfuerzos: Cuando los datos disponibles en el
->   _datalake_ o en _SIMEM_ no se actualizan oportunamente, algunos usuarios pueden preferir consultar
->   archivos `txt` u otras fuentes que se encuentren disponibles con mayor anticipación. Esto genera
->   duplicidad de procesos, dificulta establecer una única fuente de verdad y reduce el
->   aprovechamiento de la infraestructura de datos existente.
-> - Menor capacidad para evaluar el desempeño de la calidad de los datos: La inexistencia de
->   métricas consolidadas impide responder fácilmente preguntas como qué porcentaje de los
->   conjuntos presenta problemas, cuáles son los errores más frecuentes, cuánto tarda su
->   resolución, qué fuentes presentan mayores incidencias o cuál ha sido la evolución de la calidad
->   de los datos a lo largo del tiempo.
->
-> En consecuencia, el problema identificado no consiste únicamente en la existencia de errores
-> dentro del _datalake_, sino en la dificultad que tienen los usuarios para percibir, comprender,
-> diagnosticar y gestionar el estado de calidad de los datos mediante las interfaces y herramientas
-> actuales. Desde la perspectiva de la Interacción Humano-Computador, existe una brecha entre la
-> información que el sistema posee sobre sus procesos de carga y calidad y la información que
-> presenta de manera comprensible y accionable al usuario. Por esta razón, una interfaz de
-> monitoreo de calidad de datos permitiría transformar un proceso actualmente fragmentado y
-> reactivo en un flujo de trabajo más visible, centralizado y orientado a la toma de decisiones,
-> facilitando que los usuarios identifiquen anomalías, comprendan su impacto, prioricen incidentes
-> y hagan seguimiento a su resolución desde un único entorno.
+El problema también tiene repercusiones organizacionales para _XM_, considerando su responsabilidad
+en la administración del Mercado de Energía Mayorista y en la disponibilidad de información
+utilizada por diferentes actores del sector energético.
+
+- Gestión reactiva de la calidad de datos: Al no existir un centro de monitoreo unificado con
+  indicadores, alertas y mecanismos de seguimiento, muchos problemas se gestionan después de ser
+  detectados por un usuario. Esto limita la posibilidad de anticiparse a fallos de carga,
+  conjuntos atrasados o degradaciones progresivas de la calidad.
+- Incremento de los costos operativos: Las actividades manuales de identificación, comunicación,
+  corrección, seguimiento y re-ejecución de procesos consumen tiempo de analistas, ingenieros y
+  equipos de soporte. Tareas que podrían ser detectadas, clasificadas o incluso corregidas
+  automáticamente requieren actualmente intervención humana.
+- Dependencia de personas y conocimiento tácito: Parte del procedimiento para identificar y
+  solucionar problemas puede depender de la experiencia individual de determinados analistas o
+  integrantes del equipo. Esto representa un riesgo operativo debido a que el conocimiento sobre
+  qué revisar, cómo interpretar un error o cómo solicitar una corrección puede no encontrarse
+  centralizado en el sistema.
+- Dificultades de trazabilidad y gobernanza: Sin una plataforma que mantenga el historial de
+  errores, versiones, reglas de calidad, acciones realizadas y responsables de cada incidente,
+  resulta más difícil reconstruir lo ocurrido con un conjunto de datos y determinar cuándo
+  apareció el problema, cómo fue corregido y si volvió a presentarse.
+- Riesgo de publicación o utilización de información incompleta: Una carga tardía, incompleta o
+  incorrecta puede hacer que determinados conjuntos de datos no estén disponibles en el momento
+  esperado. Esto puede afectar los análisis realizados por los equipos internos y por los
+  diferentes agentes del sector que dependen de información confiable y oportuna.
+- Uso de fuentes alternativas y duplicación de esfuerzos: Cuando los datos disponibles en el
+  _datalake_ o en _SIMEM_ no se actualizan oportunamente, algunos usuarios pueden preferir consultar
+  archivos `txt` u otras fuentes que se encuentren disponibles con mayor anticipación. Esto genera
+  duplicidad de procesos, dificulta establecer una única fuente de verdad y reduce el
+  aprovechamiento de la infraestructura de datos existente.
+- Menor capacidad para evaluar el desempeño de la calidad de los datos: La inexistencia de
+  métricas consolidadas impide responder fácilmente preguntas como qué porcentaje de los
+  conjuntos presenta problemas, cuáles son los errores más frecuentes, cuánto tarda su
+  resolución, qué fuentes presentan mayores incidencias o cuál ha sido la evolución de la calidad
+  de los datos a lo largo del tiempo.
+
+En consecuencia, el problema identificado no consiste únicamente en la existencia de errores
+dentro del _datalake_, sino en la dificultad que tienen los usuarios para percibir, comprender,
+diagnosticar y gestionar el estado de calidad de los datos mediante las interfaces y herramientas
+actuales. Desde la perspectiva de la Interacción Humano-Computador, existe una brecha entre la
+información que el sistema posee sobre sus procesos de carga y calidad y la información que
+presenta de manera comprensible y accionable al usuario. Por esta razón, una interfaz de
+monitoreo de calidad de datos permitiría transformar un proceso actualmente fragmentado y
+reactivo en un flujo de trabajo más visible, centralizado y orientado a la toma de decisiones,
+facilitando que los usuarios identifiquen anomalías, comprendan su impacto, prioricen incidentes
+y hagan seguimiento a su resolución desde un único entorno.
 
 ---
 
@@ -397,286 +398,286 @@ _kfhidalgoh@unal.edu.co_
 
 **¿Qué se quiere lograr?**
 
-> El aplicativo debe ser capaz de responder preguntas como:
->
-> - ¿Cuántas inconsistencias se presentan por período?
-> - ¿Cuáles son las fuentes de datos con mayor cantidad de errores?
-> - ¿Qué tipos de inconsistencias ocurren con mayor frecuencia y cuándo?
-> - ¿Cuánto tiempo tarda la resolución de una inconsistencia?
-> - ¿Cuáles hallazgos ya fueron gestionados y cuáles permanecen pendientes?
-> - ¿Qué conjuntos están atrasados en las cargas y por cuanto tiempo han estado así?
-> - ¿Los conjuntos versionados disponen de todas las versiones disponibles?
-> - ¿Cuál es el porcentaje global de calidad de datos del sitio y por conjunto de datos?
-> - ¿Cómo puedo ver gráficamente una variable para identificar tendencias?
-> - Ejemplo: ¿Los vertimientos del embalse ESMERALDA están correctos para el día 2026-09-01 o hay
->   errores de calidad?
->
-> **Objetivos:**
->
-> Diseñar e implementar una plataforma de monitoreo, observabilidad y gestión de calidad de datos
-> para el **Sistema de Información del Mercado de Energía Mayorista (SIMEM)** que permita detectar
-> oportunamente anomalías e inconsistencias, facilitar su análisis y seguimiento, y mejorar la
-> confiabilidad de la información publicada a los usuarios internos y externos. La plataforma debe
-> contar con las siguientes características:
->
-> 1. Centralizar la gestión de inconsistencias de calidad de datos
-> 2. Módulo de configuración de nuevos conjuntos de datos a ser evaluados por la herramienta
-> 3. Monitoreo de la oportunidad de publicación de los conjuntos de datos y con posibilidad de
->    relanzar masivamente los que estén atrasados.
-> 4. Verificador de la completitud de los conjuntos de datos de la liquidación del mercado de
->    energía y si cuentan con todas sus versiones.
-> 5. Implementar indicadores y métricas de calidad de sistema, tanto global como por conjunto de
->    datos.
-> 6. Visualizar la evolución de la calidad de los datos en el tiempo, facilitando la identificación
->    de tendencias.
-> 7. Caracterizar y clasificar las inconsistencias detectadas, identificando su tipología,
->    frecuencia, criticidad, origen e impacto.
-> 8. Proporcionar trazabilidad de los hallazgos.
+El aplicativo debe ser capaz de responder preguntas como:
+
+- ¿Cuántas inconsistencias se presentan por período?
+- ¿Cuáles son las fuentes de datos con mayor cantidad de errores?
+- ¿Qué tipos de inconsistencias ocurren con mayor frecuencia y cuándo?
+- ¿Cuánto tiempo tarda la resolución de una inconsistencia?
+- ¿Cuáles hallazgos ya fueron gestionados y cuáles permanecen pendientes?
+- ¿Qué conjuntos están atrasados en las cargas y por cuanto tiempo han estado así?
+- ¿Los conjuntos versionados disponen de todas las versiones disponibles?
+- ¿Cuál es el porcentaje global de calidad de datos del sitio y por conjunto de datos?
+- ¿Cómo puedo ver gráficamente una variable para identificar tendencias?
+- Ejemplo: ¿Los vertimientos del embalse ESMERALDA están correctos para el día 2026-09-01 o hay
+  errores de calidad?
+
+**Objetivos:**
+
+Diseñar e implementar una plataforma de monitoreo, observabilidad y gestión de calidad de datos
+para el **Sistema de Información del Mercado de Energía Mayorista (SIMEM)** que permita detectar
+oportunamente anomalías e inconsistencias, facilitar su análisis y seguimiento, y mejorar la
+confiabilidad de la información publicada a los usuarios internos y externos. La plataforma debe
+contar con las siguientes características:
+
+1. Centralizar la gestión de inconsistencias de calidad de datos
+2. Módulo de configuración de nuevos conjuntos de datos a ser evaluados por la herramienta
+3. Monitoreo de la oportunidad de publicación de los conjuntos de datos y con posibilidad de
+   relanzar masivamente los que estén atrasados.
+4. Verificador de la completitud de los conjuntos de datos de la liquidación del mercado de
+   energía y si cuentan con todas sus versiones.
+5. Implementar indicadores y métricas de calidad de sistema, tanto global como por conjunto de
+   datos.
+6. Visualizar la evolución de la calidad de los datos en el tiempo, facilitando la identificación
+   de tendencias.
+7. Caracterizar y clasificar las inconsistencias detectadas, identificando su tipología,
+   frecuencia, criticidad, origen e impacto.
+8. Proporcionar trazabilidad de los hallazgos.
 
 ---
 
-<a name="parte-2"></a>
+<a id="parte-2"></a>
 
-# Parte II. Empatía (Entregable #2)
+# Parte II. Empatía
 
 ## 1. Claridad del objetivo
 
-- **Propósito del proceso de empatía y contexto general del proyecto:**
+**Propósito del proceso de empatía y contexto general del proyecto:**
 
-  > El proceso de empatía se realizó con el propósito de comprender las necesidades, dificultades,
-  > comportamientos y expectativas de los administradores y analistas encargados de la operación de
-  > SIMEM, particularmente en las actividades relacionadas con el monitoreo de la calidad,
-  > disponibilidad y actualización de los datos publicados en la plataforma.
-  >
-  > Actualmente, la información asociada al estado de los datos y a las validaciones de calidad se
-  > encuentra distribuida en múltiples mecanismos independientes: correos electrónicos, archivos
-  > CSV, consultas manuales a las bases de datos de SIMEM, monitor de carga de datos diario y una
-  > alerta de conjuntos de datos con publicaciones definidas en plazos regulatorios[^creg]. Esta
-  > situación genera una experiencia fragmentada que dificulta la identificación temprana de
-  > incidentes, el seguimiento de problemas y la priorización de acciones correctivas.
-  >
-  > A través de este estudio se busca comprender: Cómo identifican actualmente los usuarios los
-  > problemas de calidad de datos. Qué información necesitan para investigar y resolver un
-  > incidente de calidad. Cuáles son las principales dificultades para monitorear la integridad,
-  > completitud y oportunidad de los datos publicados. Qué factores generan retrasos en la
-  > detección y resolución de problemas. Cómo debería ser una herramienta centralizada que facilite
-  > la supervisión operativa y reduzca la dependencia de procesos manuales.
-  >
-  > El objetivo final es generar los insumos necesarios para diseñar una aplicación web con enfoque
-  > centrado en el usuario, que permita consolidar métricas, alertas, hallazgos e indicadores de
-  > calidad de datos en un único punto de consulta, facilitando una gestión más proactiva,
-  > eficiente que permita un análisis más concreto y la toma rápida de decisiones frente a los
-  > incidentes de calidad, antes de que estos impacten a los consumidores de información de SIMEM.
-  > Además, busca reducir la carga operativa que conlleva la atención de requerimientos por parte
-  > de los usuarios finales.
+El proceso de empatía se realizó con el propósito de comprender las necesidades, dificultades,
+comportamientos y expectativas de los administradores y analistas encargados de la operación de
+SIMEM, particularmente en las actividades relacionadas con el monitoreo de la calidad,
+disponibilidad y actualización de los datos publicados en la plataforma.
+
+Actualmente, la información asociada al estado de los datos y a las validaciones de calidad se
+encuentra distribuida en múltiples mecanismos independientes: correos electrónicos, archivos
+CSV, consultas manuales a las bases de datos de SIMEM, monitor de carga de datos diario y una
+alerta de conjuntos de datos con publicaciones definidas en plazos regulatorios[^creg]. Esta
+situación genera una experiencia fragmentada que dificulta la identificación temprana de
+incidentes, el seguimiento de problemas y la priorización de acciones correctivas.
+
+A través de este estudio se busca comprender: Cómo identifican actualmente los usuarios los
+problemas de calidad de datos. Qué información necesitan para investigar y resolver un
+incidente de calidad. Cuáles son las principales dificultades para monitorear la integridad,
+completitud y oportunidad de los datos publicados. Qué factores generan retrasos en la
+detección y resolución de problemas. Cómo debería ser una herramienta centralizada que facilite
+la supervisión operativa y reduzca la dependencia de procesos manuales.
+
+El objetivo final es generar los insumos necesarios para diseñar una aplicación web con enfoque
+centrado en el usuario, que permita consolidar métricas, alertas, hallazgos e indicadores de
+calidad de datos en un único punto de consulta, facilitando una gestión más proactiva,
+eficiente que permita un análisis más concreto y la toma rápida de decisiones frente a los
+incidentes de calidad, antes de que estos impacten a los consumidores de información de SIMEM.
+Además, busca reducir la carga operativa que conlleva la atención de requerimientos por parte
+de los usuarios finales.
 
 ---
 
 ## 2. Descripción del perfil de usuario
 
-- **Caracterización general:**
+**Caracterización general:**
 
-  > Los usuarios involucrados en la operación y monitoreo de SIMEM son profesionales entre 25 y 45
-  > años, con formación universitaria o de posgrado en áreas como ingeniería eléctrica, ingeniería
-  > física, ingeniería de sistemas, ciencia de datos o disciplinas afines.
-  >
-  > Sus principales objetivos son:
-  >
-  > 1. Garantizar la disponibilidad y confiabilidad de los datos publicados.
-  > 2. Detectar oportunamente errores e inconsistencias.
-  > 3. Investigar causas raíz de incidentes.
-  > 4. Realizar seguimiento al estado de las cargas de información.
-  > 5. Atención de requerimientos de los usuarios finales.
-  > 6. Cumplir con los tiempos regulatorios y operativos establecidos para la publicación de
-  >    información, entre otros.
+Los usuarios involucrados en la operación y monitoreo de SIMEM son profesionales entre 25 y 45
+años, con formación universitaria o de posgrado en áreas como ingeniería eléctrica, ingeniería
+física, ingeniería de sistemas, ciencia de datos o disciplinas afines.
 
-- **Segmentación de usuarios:**
+Sus principales objetivos son:
 
-  > - **Soporte SIMEM**: Personal con conocimiento técnico avanzado sobre la infraestructura,
-  >   cargas de datos, procesos de integración, API's y componentes tecnológicos de la plataforma.
-  > - **Analista SIMEM Experto**: Usuarios con amplio conocimiento de las reglas de negocio, la
-  >   operación del Mercado de Energía Mayorista y los diferentes conjuntos de datos publicados en
-  >   SIMEM.
-  > - **Analista SIMEM Novato**: Personal recientemente vinculado al equipo o con experiencia
-  >   limitada en la plataforma, que participa en actividades operativas específicas y requiere un
-  >   proceso rápido de aprendizaje. Debido a la rotación frecuente de este rol, los usuarios
-  >   suelen depender de documentación, acompañamiento y procesos manuales para comprender el
-  >   funcionamiento del sistema.
+1. Garantizar la disponibilidad y confiabilidad de los datos publicados.
+2. Detectar oportunamente errores e inconsistencias.
+3. Investigar causas raíz de incidentes.
+4. Realizar seguimiento al estado de las cargas de información.
+5. Atención de requerimientos de los usuarios finales.
+6. Cumplir con los tiempos regulatorios y operativos establecidos para la publicación de
+   información, entre otros.
 
-- **Personas o Arquetipos:**
+**Segmentación de usuarios:**
 
-  > A partir de la segmentación y los patrones identificados en el proceso de empatía, se
-  > construyeron los siguientes arquetipos enfocados en las dimensiones cognitivas y emocionales de
-  > los usuarios frente al monitoreo de SIMEM:
-  >
-  > **Arquetipo 1: El Analista Experto (Ej. Camilo, 38 años)**
-  >
-  > - **Contexto:** Ingeniero con amplio conocimiento de las reglas de negocio del Mercado de
-  >   Energía Mayorista y la arquitectura de los conjuntos de datos en SIMEM. Lidera la
-  >   investigación de incidentes complejos.
-  > - **Metas:** Garantizar la total confiabilidad de los datos publicados, cumplir estrictamente
-  >   con los plazos regulatorios y resolver incidentes antes de que impacten a los consumidores
-  >   finales.
-  > - **Frustraciones:** Lidiar con información fragmentada distribuida en correos electrónicos,
-  >   archivos CSV y alertas independientes. Siente que la falta de una herramienta centralizada le
-  >   hace perder tiempo valioso en tareas operativas manuales.
-  > - **Emociones predominantes:** Estrés ante la presión de los plazos regulatorios, frustración
-  >   por la carga operativa que requiere cruzar datos manualmente, pero orgullo y satisfacción
-  >   cuando logra identificar la causa raíz de un problema complejo.
-  > - **Comportamientos:** Revisa múltiples pantallas y fuentes de información de forma simultánea,
-  >   realiza consultas manuales a las bases de datos para validar discrepancias y prioriza la
-  >   revisión del monitor de carga a primera hora del día.
-  >
-  > **Arquetipo 2: El Analista Novato / Soporte Operativo (Ej. Manuela, 26 años)**
-  >
-  > - **Contexto:** Recién vinculada al equipo de operaciones. Al pertenecer a un rol con rotación
-  >   frecuente, se encuentra en una curva de aprendizaje acelerada respecto a la infraestructura y
-  >   componentes tecnológicos de la plataforma.
-  > - **Metas:** Comprender rápidamente el flujo de los datos, realizar el seguimiento diario al
-  >   estado de las cargas y atender de manera eficaz los requerimientos y tickets de los usuarios
-  >   finales.
-  > - **Frustraciones:** Depender excesivamente de la documentación existente o del acompañamiento
-  >   de los analistas expertos. Se confunde fácilmente al tener que revisar múltiples mecanismos
-  >   independientes de alerta.
-  > - **Emociones predominantes:** Inseguridad al tomar decisiones sobre la integridad de un dato,
-  >   sensación de estar abrumada por la arquitectura fragmentada del sistema y alivio cuando logra
-  >   validar correctamente una carga.
-  > - **Comportamientos:** Consulta constantemente los manuales, pregunta con frecuencia a sus
-  >   compañeros de mayor experiencia para confirmar si una alerta es real o un falso positivo, y
-  >   revisa de manera cautelosa y secuencial antes de dar respuesta a un requerimiento de un usuario.
+- **Soporte SIMEM**: Personal con conocimiento técnico avanzado sobre la infraestructura,
+  cargas de datos, procesos de integración, API's y componentes tecnológicos de la plataforma.
+- **Analista SIMEM Experto**: Usuarios con amplio conocimiento de las reglas de negocio, la
+  operación del Mercado de Energía Mayorista y los diferentes conjuntos de datos publicados en
+  SIMEM.
+- **Analista SIMEM Novato**: Personal recientemente vinculado al equipo o con experiencia
+  limitada en la plataforma, que participa en actividades operativas específicas y requiere un
+  proceso rápido de aprendizaje. Debido a la rotación frecuente de este rol, los usuarios
+  suelen depender de documentación, acompañamiento y procesos manuales para comprender el
+  funcionamiento del sistema.
+
+**Personas o Arquetipos:**
+
+A partir de la segmentación y los patrones identificados en el proceso de empatía, se
+construyeron los siguientes arquetipos enfocados en las dimensiones cognitivas y emocionales de
+los usuarios frente al monitoreo de SIMEM:
+
+**Arquetipo 1: El Analista Experto (Ej. Camilo, 38 años)**
+
+- **Contexto:** Ingeniero con amplio conocimiento de las reglas de negocio del Mercado de
+  Energía Mayorista y la arquitectura de los conjuntos de datos en SIMEM. Lidera la
+  investigación de incidentes complejos.
+- **Metas:** Garantizar la total confiabilidad de los datos publicados, cumplir estrictamente
+  con los plazos regulatorios y resolver incidentes antes de que impacten a los consumidores
+  finales.
+- **Frustraciones:** Lidiar con información fragmentada distribuida en correos electrónicos,
+  archivos CSV y alertas independientes. Siente que la falta de una herramienta centralizada le
+  hace perder tiempo valioso en tareas operativas manuales.
+- **Emociones predominantes:** Estrés ante la presión de los plazos regulatorios, frustración
+  por la carga operativa que requiere cruzar datos manualmente, pero orgullo y satisfacción
+  cuando logra identificar la causa raíz de un problema complejo.
+- **Comportamientos:** Revisa múltiples pantallas y fuentes de información de forma simultánea,
+  realiza consultas manuales a las bases de datos para validar discrepancias y prioriza la
+  revisión del monitor de carga a primera hora del día.
+
+**Arquetipo 2: El Analista Novato / Soporte Operativo (Ej. Manuela, 26 años)**
+
+- **Contexto:** Recién vinculada al equipo de operaciones. Al pertenecer a un rol con rotación
+  frecuente, se encuentra en una curva de aprendizaje acelerada respecto a la infraestructura y
+  componentes tecnológicos de la plataforma.
+- **Metas:** Comprender rápidamente el flujo de los datos, realizar el seguimiento diario al
+  estado de las cargas y atender de manera eficaz los requerimientos y tickets de los usuarios
+  finales.
+- **Frustraciones:** Depender excesivamente de la documentación existente o del acompañamiento
+  de los analistas expertos. Se confunde fácilmente al tener que revisar múltiples mecanismos
+  independientes de alerta.
+- **Emociones predominantes:** Inseguridad al tomar decisiones sobre la integridad de un dato,
+  sensación de estar abrumada por la arquitectura fragmentada del sistema y alivio cuando logra
+  validar correctamente una carga.
+- **Comportamientos:** Consulta constantemente los manuales, pregunta con frecuencia a sus
+  compañeros de mayor experiencia para confirmar si una alerta es real o un falso positivo, y
+  revisa de manera cautelosa y secuencial antes de dar respuesta a un requerimiento de un usuario.
 
 ---
 
 ## 3. Metodología utilizada
 
-- **Técnicas empleadas:**
+**Técnicas empleadas:**
 
-  > **Entrevistas cualitativas y actitudinales**: Se acudió directamente al usuario para recoger
-  > relatos, emociones, comportamientos y contextos, buscando comprender el porqué y el cómo de sus
-  > acciones. Se utilizaron preguntas abiertas para fomentar la elaboración de respuestas y evitar
-  > sesgos. En el guion figuraban las siguientes preguntas núcleo:
-  >
-  > - Cuéntame sobre la última vez que tuviste que investigar un incidente complejo de calidad de
-  >   datos en SIMEM. ¿Cómo fue el proceso paso a paso?
-  > - ¿Cómo te sientes o qué pasa por tu mente cuando la información para resolver un incidente de
-  >   calidad está fragmentada en múltiples correos, alertas en el administrador y archivos de csv?
-  > - Si la plataforma centralizada fuera perfecta y nunca se te pasara por alto un error de
-  >   datos, ¿cómo cambiaría tu día a día y tu nivel de estrés? (Aplicando la técnica de
-  >   storytelling inverso).
-  > - ¿Cómo resuelves un error de calidad de datos que llega por el correo electrónico? (muestra
-  >   paso a paso)
-  > - ¿Cómo configuras una nueva variable en la herramienta de calidad de datos? (muestra paso a
-  >   paso)
-  > - ¿Qué te gustaría que tuviera una herramienta de calidad de datos centralizada?
-  > - ¿Qué herramientas, aplicaciones o pantallas tienes que abrir y consultar simultáneamente para
-  >   poder cruzar esa información y entender qué falló?
-  > - ¿En qué momento exacto de tu jornada sientes que el cansancio mental o la fatiga visual
-  >   empiezan a pasar factura?
-  > - Si pudieras eliminar una sola tarea manual, repetitiva o de 'apagado de incendios' de tu
-  >   rutina diaria de validación, ¿cuál elegirías y por qué?
-  > - Cuando necesitas corregir un dato, ¿cómo es el proceso de interacción con el equipo de
-  >   soporte y cuánto tiempo suele tardar ese ciclo de retroalimentación?
-  >
-  > **Mapeo de Afinidad**: Se utilizó para agrupar las observaciones clave de las entrevistas en
-  > temas y patrones consistentes.
-  >
-  > **Mapas de Empatía y Creación de Personas:** Técnicas de síntesis empleadas para traducir la
-  > información dispersa en un retrato emocional que refleja lo que el usuario dice, piensa, hace y
-  > siente. Se utilizó la herramienta de Figma para este ejercicio.
+**Entrevistas cualitativas y actitudinales**: Se acudió directamente al usuario para recoger
+relatos, emociones, comportamientos y contextos, buscando comprender el porqué y el cómo de sus
+acciones. Se utilizaron preguntas abiertas para fomentar la elaboración de respuestas y evitar
+sesgos. En el guion figuraban las siguientes preguntas núcleo:
 
-- **Proceso de aplicación:**
+- Cuéntame sobre la última vez que tuviste que investigar un incidente complejo de calidad de
+  datos en SIMEM. ¿Cómo fue el proceso paso a paso?
+- ¿Cómo te sientes o qué pasa por tu mente cuando la información para resolver un incidente de
+  calidad está fragmentada en múltiples correos, alertas en el administrador y archivos de csv?
+- Si la plataforma centralizada fuera perfecta y nunca se te pasara por alto un error de
+  datos, ¿cómo cambiaría tu día a día y tu nivel de estrés? (Aplicando la técnica de
+  storytelling inverso).
+- ¿Cómo resuelves un error de calidad de datos que llega por el correo electrónico? (muestra
+  paso a paso)
+- ¿Cómo configuras una nueva variable en la herramienta de calidad de datos? (muestra paso a
+  paso)
+- ¿Qué te gustaría que tuviera una herramienta de calidad de datos centralizada?
+- ¿Qué herramientas, aplicaciones o pantallas tienes que abrir y consultar simultáneamente para
+  poder cruzar esa información y entender qué falló?
+- ¿En qué momento exacto de tu jornada sientes que el cansancio mental o la fatiga visual
+  empiezan a pasar factura?
+- Si pudieras eliminar una sola tarea manual, repetitiva o de 'apagado de incendios' de tu
+  rutina diaria de validación, ¿cuál elegirías y por qué?
+- Cuando necesitas corregir un dato, ¿cómo es el proceso de interacción con el equipo de
+  soporte y cuánto tiempo suele tardar ese ciclo de retroalimentación?
 
-  > El proceso se estructuró siguiendo las buenas prácticas de la investigación cualitativa
-  > (directa), dividido en las siguientes fases:
-  >
-  > - **Participantes y Contexto:** Se seleccionó una muestra cualitativa de 3 participantes que
-  >   representan fielmente al público objetivo: Analistas Expertos, Analistas Novatos y personal
-  >   de Soporte SIMEM. El equipo actualmente se conforma de 4 personas en total. Las sesiones se
-  >   llevaron a cabo entre el 2026-09-08 y el 2026-09-10, en una llamada por Teams de manera
-  >   individual.
-  > - **Ejecución:** Cada entrevista tuvo una duración aproximada de 30 minutos. Se inició
-  >   explicando claramente el propósito del estudio y se solicitó el consentimiento informado para
-  >   transcribir la sesión, garantizando la confidencialidad y el anonimato de los datos. El
-  >   facilitador utilizó un guion estructurado, pero flexible, prestando especial atención al
-  >   silencio y a las preguntas de seguimiento (indagando con "¿por qué?") para descubrir
-  >   fricciones no declaradas superficialmente.
-  > - **Herramientas y Síntesis:** Se emplearon herramientas de transcripción para capturar con
-  >   precisión las citas literales de los usuarios. Durante y después de las sesiones, se tomaron
-  >   notas en una pizarra digital
-  >   [Figma](https://www.figma.com/board/pQEPSOq8GjVXWQMWtwcZKo/02_entrega?node-id=0-1&t=zNVi0B00uq4236BK-1).
-  >   Esta organización de datos permitió construir posteriormente los arquetipos empáticos
-  >   presentados en la sección anterior.
+**Mapeo de Afinidad**: Se utilizó para agrupar las observaciones clave de las entrevistas en
+temas y patrones consistentes.
 
-- **Justificación metodológica:**
+**Mapas de Empatía y Creación de Personas:** Técnicas de síntesis empleadas para traducir la
+información dispersa en un retrato emocional que refleja lo que el usuario dice, piensa, hace y
+siente. Se utilizó la herramienta de Figma para este ejercicio.
 
-  > La entrevista actitudinal fue seleccionada como método principal debido a que el objetivo fue
-  > entender cómo los usuarios experimentan actualmente la gestión de incidentes de calidad dentro
-  > de SIMEM. Esta técnica permitió profundizar en aspectos como:
-  >
-  > Frustraciones durante la búsqueda de información. Dificultades para identificar incidentes
-  > críticos y priorizarlos. Necesidades de seguimiento y trazabilidad. Percepciones sobre la
-  > efectividad de las herramientas actuales de monitoreo. Expectativas frente a una plataforma
-  > centralizada de gestión de calidad de datos.
-  >
-  > La elección de una metodología también estuvo motivada por las características del equipo de
-  > trabajo: un grupo reducido de analistas con amplio conocimiento del proceso. Además, la
-  > existencia de una herramienta preliminar de calidad permitió enfocar las conversaciones en la
-  > experiencia de uso actual.
+**Proceso de aplicación:**
+
+El proceso se estructuró siguiendo las buenas prácticas de la investigación cualitativa
+(directa), dividido en las siguientes fases:
+
+- **Participantes y Contexto:** Se seleccionó una muestra cualitativa de 3 participantes que
+  representan fielmente al público objetivo: Analistas Expertos, Analistas Novatos y personal
+  de Soporte SIMEM. El equipo actualmente se conforma de 4 personas en total. Las sesiones se
+  llevaron a cabo entre el 2026-09-08 y el 2026-09-10, en una llamada por Teams de manera
+  individual.
+- **Ejecución:** Cada entrevista tuvo una duración aproximada de 30 minutos. Se inició
+  explicando claramente el propósito del estudio y se solicitó el consentimiento informado para
+  transcribir la sesión, garantizando la confidencialidad y el anonimato de los datos. El
+  facilitador utilizó un guion estructurado, pero flexible, prestando especial atención al
+  silencio y a las preguntas de seguimiento (indagando con "¿por qué?") para descubrir
+  fricciones no declaradas superficialmente.
+- **Herramientas y Síntesis:** Se emplearon herramientas de transcripción para capturar con
+  precisión las citas literales de los usuarios. Durante y después de las sesiones, se tomaron
+  notas en una pizarra digital
+  [Figma](https://www.figma.com/board/pQEPSOq8GjVXWQMWtwcZKo/02_entrega?node-id=0-1&t=zNVi0B00uq4236BK-1).
+  Esta organización de datos permitió construir posteriormente los arquetipos empáticos
+  presentados en la sección anterior.
+
+**Justificación metodológica:**
+
+La entrevista actitudinal fue seleccionada como método principal debido a que el objetivo fue
+entender cómo los usuarios experimentan actualmente la gestión de incidentes de calidad dentro
+de SIMEM. Esta técnica permitió profundizar en aspectos como:
+
+Frustraciones durante la búsqueda de información. Dificultades para identificar incidentes
+críticos y priorizarlos. Necesidades de seguimiento y trazabilidad. Percepciones sobre la
+efectividad de las herramientas actuales de monitoreo. Expectativas frente a una plataforma
+centralizada de gestión de calidad de datos.
+
+La elección de una metodología también estuvo motivada por las características del equipo de
+trabajo: un grupo reducido de analistas con amplio conocimiento del proceso. Además, la
+existencia de una herramienta preliminar de calidad permitió enfocar las conversaciones en la
+experiencia de uso actual.
 
 ---
 
 ## 4. Análisis y síntesis de la información
 
-- **Procesamiento de datos:**
+**Procesamiento de datos:**
 
-  > Para transformar el volumen de datos recopilados en las entrevistas y observaciones en
-  > información procesable, se aplicó la técnica de Mapeo de Afinidad. El proceso se estructuró en
-  > tres fases metodológicas:
-  >
-  > 1. **Extracción de observaciones:** Cada intervención y respuesta clave de las entrevistas se
-  >    desglosó en notas individuales que contenían hechos, citas literales y comportamientos
-  >    observados.
-  > 2. **Agrupación temática:** Las notas fueron agrupadas de manera colaborativa buscando
-  >    similitudes conceptuales y relacionales, permitiendo aislar temas recurrentes sobre la
-  >    operación diaria de SIMEM (tales como fuentes de información, fricciones técnicas, tiempos
-  >    de respuesta y dependencia de procesos manuales).
-  > 3. **Formulación de declaraciones ("Declaraciones Yo"):** A partir de cada categoría
-  >    consolidada, se redactaron premisas en primera persona que reflejan la perspectiva vivencial
-  >    de los analistas, sirviendo como puente directo para la construcción de los arquetipos y la
-  >    definición de requerimientos.
+Para transformar el volumen de datos recopilados en las entrevistas y observaciones en
+información procesable, se aplicó la técnica de Mapeo de Afinidad. El proceso se estructuró en
+tres fases metodológicas:
 
-- **Identificación de patrones:**
+1. **Extracción de observaciones:** Cada intervención y respuesta clave de las entrevistas se
+   desglosó en notas individuales que contenían hechos, citas literales y comportamientos
+   observados.
+2. **Agrupación temática:** Las notas fueron agrupadas de manera colaborativa buscando
+   similitudes conceptuales y relacionales, permitiendo aislar temas recurrentes sobre la
+   operación diaria de SIMEM (tales como fuentes de información, fricciones técnicas, tiempos
+   de respuesta y dependencia de procesos manuales).
+3. **Formulación de declaraciones ("Declaraciones Yo"):** A partir de cada categoría
+   consolidada, se redactaron premisas en primera persona que reflejan la perspectiva vivencial
+   de los analistas, sirviendo como puente directo para la construcción de los arquetipos y la
+   definición de requerimientos.
 
-  > Del análisis sintético de la información emergieron tres patrones y ejes temáticos principales
-  > que describen la realidad operativa del monitoreo en SIMEM:
-  >
-  > - **Fragmentación y sobrecarga cognitiva:** Se identificó como un patrón constante que los
-  >   analistas deben alternar entre múltiples canales desconectados (correos, reportes en CSV,
-  >   consultas SQL directas y alertas aisladas). Esto genera un esfuerzo cognitivo elevado y un
-  >   riesgo latente de pasar por alto incidentes críticos en los plazos establecidos.
-  > - **Reactividad frente a proactividad:** Debido a la ausencia de una vista centralizada, la
-  >   detección de errores de calidad de datos suele ser reactiva (impulsada por reportes de los
-  >   usuarios finales o por la inminencia de un vencimiento regulatorio), limitando la capacidad
-  >   de anticipación del equipo.
-  > - **Brecha de conocimiento y dependencia de soporte:** Los analistas novatos experimentan una
-  >   curva de aprendizaje pronunciada y demandan un alto acompañamiento por parte del personal
-  >   experto, debido a que el conocimiento crítico del negocio y de las reglas de validación se
-  >   encuentra disperso o no está centralizado en herramientas intuitivas.
+**Identificación de patrones:**
 
-- **Representaciones visuales:**
+Del análisis sintético de la información emergieron tres patrones y ejes temáticos principales
+que describen la realidad operativa del monitoreo en SIMEM:
 
-  > Como parte de la síntesis gráfica y conceptual del estudio, se desarrollaron los siguientes
-  > artefactos de visualización, disponibles en la pizarra de
-  > [Figma](https://www.figma.com/board/pQEPSOq8GjVXWQMWtwcZKo/02_entrega?node-id=0-1&t=zNVi0B00uq4236BK-1):
-  >
-  > - **Mapas de Empatía:** Construidos para contrastar lo que los analistas dicen que hacen frente
-  >   a lo que realmente piensan, hacen y sienten (por ejemplo, la dualidad entre la calma aparente
-  >   en los reportes diarios y la ansiedad oculta ante la auditoría de los plazos regulatorios).
-  > - **Mapa del Viaje del Usuario (Journey Map - Monitoreo de Datos):** Trazó cronológicamente la
-  >   experiencia del analista desde el inicio de su jornada (revisión de alertas matutinas) hasta
-  >   la resolución de un incidente, evidenciando los "picos de frustración" asociados a la
-  >   búsqueda manual de información y los "valles de alivio" al momento de certificar una carga
-  >   exitosa.
+- **Fragmentación y sobrecarga cognitiva:** Se identificó como un patrón constante que los
+  analistas deben alternar entre múltiples canales desconectados (correos, reportes en CSV,
+  consultas SQL directas y alertas aisladas). Esto genera un esfuerzo cognitivo elevado y un
+  riesgo latente de pasar por alto incidentes críticos en los plazos establecidos.
+- **Reactividad frente a proactividad:** Debido a la ausencia de una vista centralizada, la
+  detección de errores de calidad de datos suele ser reactiva (impulsada por reportes de los
+  usuarios finales o por la inminencia de un vencimiento regulatorio), limitando la capacidad
+  de anticipación del equipo.
+- **Brecha de conocimiento y dependencia de soporte:** Los analistas novatos experimentan una
+  curva de aprendizaje pronunciada y demandan un alto acompañamiento por parte del personal
+  experto, debido a que el conocimiento crítico del negocio y de las reglas de validación se
+  encuentra disperso o no está centralizado en herramientas intuitivas.
+
+**Representaciones visuales:**
+
+Como parte de la síntesis gráfica y conceptual del estudio, se desarrollaron los siguientes
+artefactos de visualización, disponibles en la pizarra de
+[Figma](https://www.figma.com/board/pQEPSOq8GjVXWQMWtwcZKo/02_entrega?node-id=0-1&t=zNVi0B00uq4236BK-1):
+
+- **Mapas de Empatía:** Construidos para contrastar lo que los analistas dicen que hacen frente
+  a lo que realmente piensan, hacen y sienten (por ejemplo, la dualidad entre la calma aparente
+  en los reportes diarios y la ansiedad oculta ante la auditoría de los plazos regulatorios).
+- **Mapa del Viaje del Usuario (Journey Map - Monitoreo de Datos):** Trazó cronológicamente la
+  experiencia del analista desde el inicio de su jornada (revisión de alertas matutinas) hasta
+  la resolución de un incidente, evidenciando los "picos de frustración" asociados a la
+  búsqueda manual de información y los "valles de alivio" al momento de certificar una carga
+  exitosa.
 
 ---
 
@@ -788,74 +789,74 @@ entrevistas realizadas a los usuarios del proceso.
 
 **👤 Entrevistado 1:**
 
-> **¿Cómo te sientes o qué pasa por tu mente cuando la información para resolver un incidente de
-> calidad está fragmentada en múltiples correos, alertas y archivos?**
->
-> "Considero que las herramientas actuales son útiles y me ayudan en el proceso de validación, pero
-> todavía tienen algunas limitaciones. Me ha pasado que la herramienta genera alertas de
-> inconsistencias que realmente no corresponden a problemas de calidad de datos. Esto suele ocurrir
-> cuando se modifican consultas (queries) y esos cambios no se actualizan en la herramienta, cuando
-> hay errores durante la configuración de nuevas variables o cuando quedan configuraciones
-> desactualizadas que generan falsas alertas de forma recurrente."
->
-> "Para analizar los incidentes normalmente me apoyo tanto en los correos electrónicos como en la
-> tabla de alertas. Desde mi perspectiva, ambas herramientas se complementan y me permiten tener
-> una mejor visión de lo que está ocurriendo."
+**¿Cómo te sientes o qué pasa por tu mente cuando la información para resolver un incidente de
+calidad está fragmentada en múltiples correos, alertas y archivos?**
+
+"Considero que las herramientas actuales son útiles y me ayudan en el proceso de validación, pero
+todavía tienen algunas limitaciones. Me ha pasado que la herramienta genera alertas de
+inconsistencias que realmente no corresponden a problemas de calidad de datos. Esto suele ocurrir
+cuando se modifican consultas (queries) y esos cambios no se actualizan en la herramienta, cuando
+hay errores durante la configuración de nuevas variables o cuando quedan configuraciones
+desactualizadas que generan falsas alertas de forma recurrente."
+
+"Para analizar los incidentes normalmente me apoyo tanto en los correos electrónicos como en la
+tabla de alertas. Desde mi perspectiva, ambas herramientas se complementan y me permiten tener
+una mejor visión de lo que está ocurriendo."
 
 **👤 Entrevistado 2:**
 
-> **¿Qué te gustaría que tuviera una herramienta de calidad de datos centralizada?**
->
-> Me gustaría que la herramienta me permitiera diferenciar claramente entre los conjuntos que están
-> atrasados y los conjuntos que realmente tienen errores de calidad. Para mí son problemas
-> distintos: un conjunto atrasado no necesariamente tiene datos incorrectos, mientras que un error
-> de calidad implica que existen diferencias frente a la fuente, datos nulos o información
-> incompleta. Por eso, quisiera poder identificar rápidamente qué tipo de problema tiene cada
-> conjunto.
->
-> También me gustaría poder visualizar los errores de calidad de forma inmediata, sin tener que
-> revisar múltiples herramientas o fuentes de información. Idealmente, la herramienta debería
-> mostrarme directamente cuál es el valor publicado en SIMEM y cuál es el valor que existe en la
-> fuente, para entender rápidamente si la diferencia corresponde a un error, a un dato faltante o a
-> una inconsistencia menor.
->
-> Sería muy útil poder consultar el estado de calidad para una fecha específica. Por ejemplo, hacer
-> una búsqueda sobre un conjunto de datos para una fecha determinada y verificar fácilmente si la
-> validación fue exitosa, si presentó errores o si esas inconsistencias ya fueron corregidas
-> posteriormente.
->
-> Otro aspecto importante es tener visibilidad completa sobre las versiones de los datos. Me
-> gustaría saber si todas las versiones esperadas fueron cargadas, identificar rápidamente
-> versiones faltantes y responder preguntas como: "¿ayer se cargaron todas las versiones de este
-> conjunto?" sin tener que hacer investigaciones manuales.
+**¿Qué te gustaría que tuviera una herramienta de calidad de datos centralizada?**
+
+Me gustaría que la herramienta me permitiera diferenciar claramente entre los conjuntos que están
+atrasados y los conjuntos que realmente tienen errores de calidad. Para mí son problemas
+distintos: un conjunto atrasado no necesariamente tiene datos incorrectos, mientras que un error
+de calidad implica que existen diferencias frente a la fuente, datos nulos o información
+incompleta. Por eso, quisiera poder identificar rápidamente qué tipo de problema tiene cada
+conjunto.
+
+También me gustaría poder visualizar los errores de calidad de forma inmediata, sin tener que
+revisar múltiples herramientas o fuentes de información. Idealmente, la herramienta debería
+mostrarme directamente cuál es el valor publicado en SIMEM y cuál es el valor que existe en la
+fuente, para entender rápidamente si la diferencia corresponde a un error, a un dato faltante o a
+una inconsistencia menor.
+
+Sería muy útil poder consultar el estado de calidad para una fecha específica. Por ejemplo, hacer
+una búsqueda sobre un conjunto de datos para una fecha determinada y verificar fácilmente si la
+validación fue exitosa, si presentó errores o si esas inconsistencias ya fueron corregidas
+posteriormente.
+
+Otro aspecto importante es tener visibilidad completa sobre las versiones de los datos. Me
+gustaría saber si todas las versiones esperadas fueron cargadas, identificar rápidamente
+versiones faltantes y responder preguntas como: "¿ayer se cargaron todas las versiones de este
+conjunto?" sin tener que hacer investigaciones manuales.
 
 **👤 Entrevistado 3:**
 
-> **¿Si pudieras eliminar una sola tarea manual, repetitiva o de "apagado de incendios" de tu
-> rutina diaria de validación, cuál elegirías y por qué?**
->
-> Inicialmente no se me ocurre una única tarea específica que eliminaría, pero sí hay varias
-> actividades que considero muy manuales y que podrían automatizarse para facilitar el trabajo
-> diario.
->
-> Una de ellas es la configuración de nuevos conjuntos o variables. Actualmente debo registrar
-> manualmente la información en archivos CSV, crear los archivos SQL necesarios para las
-> validaciones y realizar varios ajustes de configuración. Son tareas repetitivas que consumen
-> tiempo y que podrían hacerse de una forma más automatizada.
->
-> También me genera una carga importante trabajar con conjuntos multifuente. En esos casos termino
-> con muchas ventanas y pestañas abiertas al mismo tiempo, revisando diferentes extracciones
-> relacionadas entre sí. Cuando un conjunto tiene múltiples fuentes y cada una tiene varias
-> extracciones hijas, el seguimiento se vuelve complejo y requiere mucha concentración para no
-> perder el contexto de lo que estoy revisando.
->
-> Otro aspecto que me gustaría eliminar son las tareas asociadas a los recargues. Frecuentemente
-> debo modificar temporalmente los deltas para ejecutar una recarga específica y después devolver
-> esas configuraciones a su estado original. Como normalmente estoy trabajando en varios conjuntos
-> al mismo tiempo, existe el riesgo de olvidar alguno de esos cambios. De hecho, me ha pasado que
-> después de llegar a casa recuerdo que dejé una configuración modificada y debo volver a
-> conectarme para corregirla, incluso en ocasiones durante la noche o los fines de semana que me
-> acuerdo que la dejé mal configurada.
+**¿Si pudieras eliminar una sola tarea manual, repetitiva o de "apagado de incendios" de tu
+rutina diaria de validación, cuál elegirías y por qué?**
+
+Inicialmente no se me ocurre una única tarea específica que eliminaría, pero sí hay varias
+actividades que considero muy manuales y que podrían automatizarse para facilitar el trabajo
+diario.
+
+Una de ellas es la configuración de nuevos conjuntos o variables. Actualmente debo registrar
+manualmente la información en archivos CSV, crear los archivos SQL necesarios para las
+validaciones y realizar varios ajustes de configuración. Son tareas repetitivas que consumen
+tiempo y que podrían hacerse de una forma más automatizada.
+
+También me genera una carga importante trabajar con conjuntos multifuente. En esos casos termino
+con muchas ventanas y pestañas abiertas al mismo tiempo, revisando diferentes extracciones
+relacionadas entre sí. Cuando un conjunto tiene múltiples fuentes y cada una tiene varias
+extracciones hijas, el seguimiento se vuelve complejo y requiere mucha concentración para no
+perder el contexto de lo que estoy revisando.
+
+Otro aspecto que me gustaría eliminar son las tareas asociadas a los recargues. Frecuentemente
+debo modificar temporalmente los deltas para ejecutar una recarga específica y después devolver
+esas configuraciones a su estado original. Como normalmente estoy trabajando en varios conjuntos
+al mismo tiempo, existe el riesgo de olvidar alguno de esos cambios. De hecho, me ha pasado que
+después de llegar a casa recuerdo que dejé una configuración modificada y debo volver a
+conectarme para corregirla, incluso en ocasiones durante la noche o los fines de semana que me
+acuerdo que la dejé mal configurada.
 
 ---
 
@@ -875,9 +876,9 @@ entrevistas realizadas a los usuarios del proceso.
 
 ---
 
-<a name="parte-3"></a>
+<a id="parte-3"></a>
 
-# Parte III. Definición del problema (Entregable #3)
+# Parte III. Definición del problema
 
 Esta fase documenta el paso Definir del proceso de pensamiento de diseño (Design Thinking). A
 partir de la investigación de usuarios y la fase de empatía, se consolidan cuatro actividades
@@ -886,17 +887,17 @@ la Declaración del problema y de posibilidades, y el desarrollo de la Investiga
 
 ## 1. Persona
 
-> **De los arquetipos a las personas.** Los arquetipos de la Parte II (Analista Experto y Analista
-> Novato) agrupaban a los usuarios por nivel de experiencia. En la fase Definir, el mapa de
-> afinidad se reorganizó según las tareas que más fricción generan, lo que dio origen a tres
-> personas: el **Analista de Calidad Operativa** reúne la revisión diaria de alertas que comparten
-> el Analista Experto y el Novato; el **Ingeniero de Configuración y Metadatos** representa la
-> configuración de variables y reglas que realiza el equipo de Soporte SIMEM; y el **Especialista
-> de Monitoreo Multifuente** concentra el seguimiento de recargues y conjuntos multifuente. Las
-> necesidades del perfil novato (curva de aprendizaje baja y menor dependencia de los expertos) se
-> mantienen como criterio transversal de diseño. En la declaración del problema (sección 3) se usa
-> el término **administrador de SIMEM** para referirse en conjunto a las tres personas, que son
-> quienes administran la calidad de los datos publicados.
+**De los arquetipos a las personas.** Los arquetipos de la Parte II (Analista Experto y Analista
+Novato) agrupaban a los usuarios por nivel de experiencia. En la fase Definir, el mapa de
+afinidad se reorganizó según las tareas que más fricción generan, lo que dio origen a tres
+personas: el **Analista de Calidad Operativa** reúne la revisión diaria de alertas que comparten
+el Analista Experto y el Novato; el **Ingeniero de Configuración y Metadatos** representa la
+configuración de variables y reglas que realiza el equipo de Soporte SIMEM; y el **Especialista
+de Monitoreo Multifuente** concentra el seguimiento de recargues y conjuntos multifuente. Las
+necesidades del perfil novato (curva de aprendizaje baja y menor dependencia de los expertos) se
+mantienen como criterio transversal de diseño. En la declaración del problema (sección 3) se usa
+el término **administrador de SIMEM** para referirse en conjunto a las tres personas, que son
+quienes administran la calidad de los datos publicados.
 
 ### 1.1 Insumos previos
 
@@ -954,123 +955,123 @@ la Declaración del problema y de posibilidades, y el desarrollo de la Investiga
 
 ### 1.4 Antecedentes y biografía
 
-> - **Analista de Calidad Operativa:** Disfruta desconectarse acampando o asistiendo a conciertos,
->   pero en su día a día sufre de fatiga visual al tener que cruzar manualmente decenas de correos
->   con el administrador SIMEM. Su hábito de pedir comida a domicilio refleja su necesidad de
->   soluciones rápidas y convenientes, algo de lo que carece su flujo de trabajo actual, donde un
->   solo dato erróneo le consume toda la mañana. Busca alertas claras y centralizadas que le eviten
->   el desgaste repetitivo de buscar problemas dispersos y le dejen tiempo para tareas de mayor
->   valor.
-> - **Ingeniero de Configuración y Metadatos:** Es un apasionado de las rutas largas en motocicleta
->   y la preparación metódica del café de especialidad, actividades que exigen precisión y
->   paciencia. En su trabajo, aplica esa misma meticulosidad para configurar manualmente variables
->   en archivos Excel/CSV y ajustar queries SQL, pero le frustra profundamente lo "artesanal" y
->   propenso a errores que es este proceso. El tener que "apagar incendios" por configuraciones
->   desactualizadas le roba energía que preferiría invertir en automatizar procesos y diseñar
->   arquitecturas más robustas.
-> - **Especialista de Monitoreo Multifuente:** Acostumbrado a explorar extensos senderos en la
->   naturaleza y a coordinar estrategias complejas en juegos MMO, tiene gran capacidad para manejar
->   múltiples frentes a la vez. Sin embargo, en el trabajo, abrir simultáneamente el administrador
->   SIMEM, el Data Lake, Visual Studio Code y múltiples pestañas para monitorear recargues le
->   genera una sobrecarga cognitiva insostenible. Sueña con agentes inteligentes que sinteticen las
->   alertas por Teams, para que el miedo a olvidar una configuración temporal no le quite la
->   tranquilidad durante sus fines de semana.
+- **Analista de Calidad Operativa:** Disfruta desconectarse acampando o asistiendo a conciertos,
+  pero en su día a día sufre de fatiga visual al tener que cruzar manualmente decenas de correos
+  con el administrador SIMEM. Su hábito de pedir comida a domicilio refleja su necesidad de
+  soluciones rápidas y convenientes, algo de lo que carece su flujo de trabajo actual, donde un
+  solo dato erróneo le consume toda la mañana. Busca alertas claras y centralizadas que le eviten
+  el desgaste repetitivo de buscar problemas dispersos y le dejen tiempo para tareas de mayor
+  valor.
+- **Ingeniero de Configuración y Metadatos:** Es un apasionado de las rutas largas en motocicleta
+  y la preparación metódica del café de especialidad, actividades que exigen precisión y
+  paciencia. En su trabajo, aplica esa misma meticulosidad para configurar manualmente variables
+  en archivos Excel/CSV y ajustar queries SQL, pero le frustra profundamente lo "artesanal" y
+  propenso a errores que es este proceso. El tener que "apagar incendios" por configuraciones
+  desactualizadas le roba energía que preferiría invertir en automatizar procesos y diseñar
+  arquitecturas más robustas.
+- **Especialista de Monitoreo Multifuente:** Acostumbrado a explorar extensos senderos en la
+  naturaleza y a coordinar estrategias complejas en juegos MMO, tiene gran capacidad para manejar
+  múltiples frentes a la vez. Sin embargo, en el trabajo, abrir simultáneamente el administrador
+  SIMEM, el Data Lake, Visual Studio Code y múltiples pestañas para monitorear recargues le
+  genera una sobrecarga cognitiva insostenible. Sueña con agentes inteligentes que sinteticen las
+  alertas por Teams, para que el miedo a olvidar una configuración temporal no le quite la
+  tranquilidad durante sus fines de semana.
 
 ### 1.5 Gustos y metas
 
-> **Analista de Calidad Operativa:**
->
-> - **Meta 1:** Centralizar la recepción y visualización de alertas en un solo lugar.
->   - Motivación interna: Reducir la fatiga visual y el desgaste mental de saltar entre el correo
->     electrónico, archivos CSV y el administrador SIMEM.
->   - Motivación externa: Disminuir el tiempo de resolución de incidentes y evitar que una alerta
->     crítica pase desapercibida por la saturación de correos.
-> - **Meta 2:** Identificar de un vistazo el origen exacto del fallo (SIMEM, Data Lake o fuente
->   original).
->   - Motivación interna: Sentir seguridad y control sobre el flujo de trabajo, eliminando la
->     incertidumbre de no saber por dónde empezar a buscar.
->   - Motivación externa: Reducir las horas de la mañana dedicadas al "apagado de incendios" y
->     delegar el problema rápidamente al área responsable.
-> - **Meta 3:** Transicionar hacia un rol más estratégico y menos operativo.
->   - Motivación interna: Satisfacción intelectual al dejar atrás tareas repetitivas y monótonas.
->   - Motivación externa: Obtener reconocimiento por generar análisis de mayor valor para el
->     negocio, dashboards e informes en lugar de solo auditar datos.
+**Analista de Calidad Operativa:**
 
-> **Ingeniero de Configuración y Metadatos:**
->
-> - **Meta 1:** Automatizar el registro y creación de nuevas variables de calidad.
->   - Motivación interna: Sentir orgullo por mantener un proceso técnico limpio, estandarizado y
->     libre del trabajo "artesanal".
->   - Motivación externa: Reducir los errores humanos derivados de copiar, pegar y modificar
->     filas en múltiples archivos de Excel y CSV.
-> - **Meta 2:** Eliminar las modificaciones manuales de consultas (queries) y configuraciones
->   temporales.
->   - Motivación interna: Tranquilidad al no depender de configuraciones "quemadas" o ajustes
->     complejos que aumentan el riesgo de equivocarse.
->   - Motivación externa: Disminuir la tasa de alertas falsas generadas en SIMEM causadas por
->     queries desactualizados.
-> - **Meta 3:** Contar con visibilidad completa del historial de incidentes y métricas de
->   calidad.
->   - Motivación interna: Sentir respaldo y confianza en sus decisiones técnicas basadas en datos
->     empíricos de evolución de inconsistencias.
->   - Motivación externa: Demostrar con indicadores claros (porcentaje de calidad, tiempos de
->     resolución) la mejora continua de la plataforma ante los directivos.
+- **Meta 1:** Centralizar la recepción y visualización de alertas en un solo lugar.
+  - Motivación interna: Reducir la fatiga visual y el desgaste mental de saltar entre el correo
+    electrónico, archivos CSV y el administrador SIMEM.
+  - Motivación externa: Disminuir el tiempo de resolución de incidentes y evitar que una alerta
+    crítica pase desapercibida por la saturación de correos.
+- **Meta 2:** Identificar de un vistazo el origen exacto del fallo (SIMEM, Data Lake o fuente
+  original).
+  - Motivación interna: Sentir seguridad y control sobre el flujo de trabajo, eliminando la
+    incertidumbre de no saber por dónde empezar a buscar.
+  - Motivación externa: Reducir las horas de la mañana dedicadas al "apagado de incendios" y
+    delegar el problema rápidamente al área responsable.
+- **Meta 3:** Transicionar hacia un rol más estratégico y menos operativo.
+  - Motivación interna: Satisfacción intelectual al dejar atrás tareas repetitivas y monótonas.
+  - Motivación externa: Obtener reconocimiento por generar análisis de mayor valor para el
+    negocio, dashboards e informes en lugar de solo auditar datos.
 
-> **Especialista de Monitoreo Multifuente:**
->
-> - **Meta 1:** Consolidar el monitoreo de recargues y ejecuciones en una interfaz única.
->   - Motivación interna: Reducir drásticamente la sobrecarga cognitiva generada por tener
->     demasiadas pestañas, archivos y administradores abiertos simultáneamente.
->   - Motivación externa: Prevenir fallas en la entrega de información, garantizando que no
->     queden configuraciones temporales olvidadas tras un recargue.
-> - **Meta 2:** Implementar notificaciones inteligentes y resumidas (ej. vía Teams con agentes
->   IA).
->   - Motivación interna: Recuperar la capacidad de concentración al no ser interrumpido por
->     decenas de correos electrónicos aislados que ya ni siquiera revisa completos.
->   - Motivación externa: Agilizar la comunicación con el equipo de soporte mediante información
->     sintetizada y lista para generar incidentes accionables.
-> - **Meta 3:** Reejecutar procesos fallidos automáticamente tras intermitencias de la fuente.
->   - Motivación interna: Proteger su tiempo de descanso (noches y fines de semana) y evitar la
->     ansiedad de dejar actividades pendientes.
->   - Motivación externa: Mantener la continuidad y confiabilidad del Data Lake y SIMEM sin
->     requerir intervención manual constante.
+**Ingeniero de Configuración y Metadatos:**
+
+- **Meta 1:** Automatizar el registro y creación de nuevas variables de calidad.
+  - Motivación interna: Sentir orgullo por mantener un proceso técnico limpio, estandarizado y
+    libre del trabajo "artesanal".
+  - Motivación externa: Reducir los errores humanos derivados de copiar, pegar y modificar
+    filas en múltiples archivos de Excel y CSV.
+- **Meta 2:** Eliminar las modificaciones manuales de consultas (queries) y configuraciones
+  temporales.
+  - Motivación interna: Tranquilidad al no depender de configuraciones "quemadas" o ajustes
+    complejos que aumentan el riesgo de equivocarse.
+  - Motivación externa: Disminuir la tasa de alertas falsas generadas en SIMEM causadas por
+    queries desactualizados.
+- **Meta 3:** Contar con visibilidad completa del historial de incidentes y métricas de
+  calidad.
+  - Motivación interna: Sentir respaldo y confianza en sus decisiones técnicas basadas en datos
+    empíricos de evolución de inconsistencias.
+  - Motivación externa: Demostrar con indicadores claros (porcentaje de calidad, tiempos de
+    resolución) la mejora continua de la plataforma ante los directivos.
+
+**Especialista de Monitoreo Multifuente:**
+
+- **Meta 1:** Consolidar el monitoreo de recargues y ejecuciones en una interfaz única.
+  - Motivación interna: Reducir drásticamente la sobrecarga cognitiva generada por tener
+    demasiadas pestañas, archivos y administradores abiertos simultáneamente.
+  - Motivación externa: Prevenir fallas en la entrega de información, garantizando que no
+    queden configuraciones temporales olvidadas tras un recargue.
+- **Meta 2:** Implementar notificaciones inteligentes y resumidas (ej. vía Teams con agentes
+  IA).
+  - Motivación interna: Recuperar la capacidad de concentración al no ser interrumpido por
+    decenas de correos electrónicos aislados que ya ni siquiera revisa completos.
+  - Motivación externa: Agilizar la comunicación con el equipo de soporte mediante información
+    sintetizada y lista para generar incidentes accionables.
+- **Meta 3:** Reejecutar procesos fallidos automáticamente tras intermitencias de la fuente.
+  - Motivación interna: Proteger su tiempo de descanso (noches y fines de semana) y evitar la
+    ansiedad de dejar actividades pendientes.
+  - Motivación externa: Mantener la continuidad y confiabilidad del Data Lake y SIMEM sin
+    requerir intervención manual constante.
 
 ### 1.6 Disgustos y frustraciones
 
-> **Analista de Calidad Operativa:**
->
-> - **Frustración 1:** La información necesaria para resolver un solo incidente está severamente
->   fragmentada; debe saltar constantemente entre correos, tablas de alertas, el administrador
->   SIMEM, bases de datos y archivos Excel/CSV.
-> - **Frustración 2:** Perder gran parte de la mañana (de 8:00 a.m. a 11:00 a.m.) lidiando con
->   tareas repetitivas y revisando falsas alertas provocadas por configuraciones desactualizadas
->   o queries "quemados".
-> - **Frustración 3:** El proceso manual de investigación es tan demandante que un solo dato
->   erróneo le consume horas de revisión, impidiéndole dedicar tiempo a tareas de mayor valor
->   como la creación de informes y visualizaciones.
+**Analista de Calidad Operativa:**
 
-> **Ingeniero de Configuración y Metadatos:**
->
-> - **Frustración 1:** El proceso de agregar o modificar una variable es completamente
->   "artesanal"; requiere copiar y pegar filas en un archivo CSV, buscar rutas en el FTP a mano y
->   configurar parámetros uno a uno.
-> - **Frustración 2:** La necesidad de realizar ajustes manuales frecuentes directamente sobre
->   los queries SQL (por ejemplo, en Oracle o para históricos), lo cual es complejo, rompe la
->   estandarización y aumenta el riesgo de cometer errores.
-> - **Frustración 3:** Tener que manipular manualmente los archivos de configuración para
->   desactivar temporalmente otras variables cuando necesita probar o validar únicamente una.
+- **Frustración 1:** La información necesaria para resolver un solo incidente está severamente
+  fragmentada; debe saltar constantemente entre correos, tablas de alertas, el administrador
+  SIMEM, bases de datos y archivos Excel/CSV.
+- **Frustración 2:** Perder gran parte de la mañana (de 8:00 a.m. a 11:00 a.m.) lidiando con
+  tareas repetitivas y revisando falsas alertas provocadas por configuraciones desactualizadas
+  o queries "quemados".
+- **Frustración 3:** El proceso manual de investigación es tan demandante que un solo dato
+  erróneo le consume horas de revisión, impidiéndole dedicar tiempo a tareas de mayor valor
+  como la creación de informes y visualizaciones.
 
-> **Especialista de Monitoreo Multifuente:**
->
-> - **Frustración 1:** La saturación excesiva de notificaciones por correo electrónico; el
->   sistema envía tantos mensajes que resulta imposible revisarlos todos, lo que lo lleva a
->   ignorarlos o leerlos solo de manera aleatoria.
-> - **Frustración 2:** El alto riesgo de error humano al realizar recargues manuales, ya que es
->   muy fácil olvidar devolver las configuraciones temporales (como los deltas) a su estado
->   original, obligándolo a conectarse en noches o fines de semana para corregirlo.
-> - **Frustración 3:** El severo agotamiento cognitivo y mental que le produce gestionar
->   conjuntos de datos multifuente, pues lo obliga a mantener abiertas múltiples ventanas,
->   pestañas y extracciones hijas simultáneamente sin perder el hilo de lo que está haciendo.
+**Ingeniero de Configuración y Metadatos:**
+
+- **Frustración 1:** El proceso de agregar o modificar una variable es completamente
+  "artesanal"; requiere copiar y pegar filas en un archivo CSV, buscar rutas en el FTP a mano y
+  configurar parámetros uno a uno.
+- **Frustración 2:** La necesidad de realizar ajustes manuales frecuentes directamente sobre
+  los queries SQL (por ejemplo, en Oracle o para históricos), lo cual es complejo, rompe la
+  estandarización y aumenta el riesgo de cometer errores.
+- **Frustración 3:** Tener que manipular manualmente los archivos de configuración para
+  desactivar temporalmente otras variables cuando necesita probar o validar únicamente una.
+
+**Especialista de Monitoreo Multifuente:**
+
+- **Frustración 1:** La saturación excesiva de notificaciones por correo electrónico; el
+  sistema envía tantos mensajes que resulta imposible revisarlos todos, lo que lo lleva a
+  ignorarlos o leerlos solo de manera aleatoria.
+- **Frustración 2:** El alto riesgo de error humano al realizar recargues manuales, ya que es
+  muy fácil olvidar devolver las configuraciones temporales (como los deltas) a su estado
+  original, obligándolo a conectarse en noches o fines de semana para corregirlo.
+- **Frustración 3:** El severo agotamiento cognitivo y mental que le produce gestionar
+  conjuntos de datos multifuente, pues lo obliga a mantener abiertas múltiples ventanas,
+  pestañas y extracciones hijas simultáneamente sin perder el hilo de lo que está haciendo.
 
 ---
 
@@ -1126,9 +1127,9 @@ la Declaración del problema y de posibilidades, y el desarrollo de la Investiga
 
 ### 3.1 Primer borrador (fórmula base)
 
-> Como **administrador del SIMEM** necesito **monitorear** los errores de calidad de datos antes de
-> que lleguen a los usuarios para poder **garantizar** la integridad de los datos según la ley de
-> transparencia y del derecho de acceso a la información pública nacional.
+Como **administrador del SIMEM** necesito **monitorear** los errores de calidad de datos antes de
+que lleguen a los usuarios para poder **garantizar** la integridad de los datos según la ley de
+transparencia y del derecho de acceso a la información pública nacional.
 
 ### 3.2 Iteraciones
 
@@ -1230,10 +1231,10 @@ la Declaración del problema y de posibilidades, y el desarrollo de la Investiga
   - [x] Demostración relámpago
   - [x] Análisis competitivo
 
-> _Justificación: el FODA se aplica a la herramienta actual de validación (desarrollada en Python)
-> frente al mercado; la demostración relámpago busca inspiración para la fase de ideación; y el
-> análisis competitivo audita, con criterios homogéneos, qué tan bien cubren las soluciones
-> existentes las necesidades de nuestras personas._
+_Justificación: el FODA se aplica a la herramienta actual de validación (desarrollada en Python)
+frente al mercado; la demostración relámpago busca inspiración para la fase de ideación; y el
+análisis competitivo audita, con criterios homogéneos, qué tan bien cubren las soluciones
+existentes las necesidades de nuestras personas._
 
 ### 4.2 Análisis de fortalezas, oportunidades, debilidades y amenazas
 
@@ -1261,13 +1262,13 @@ las soluciones identificadas en el mercado.
 
 ### 4.3 Demostración relámpago
 
-> **Nota sobre la evidencia visual.** Las plataformas comerciales incluidas (Monte Carlo, Soda,
-> Microsoft Purview, Azure Data Factory y PagerDuty) exigen cuenta corporativa, licencia o un
-> despliegue propio, por lo que no fue posible capturar sus interfaces en un entorno productivo.
-> En esos casos la evidencia es la **documentación oficial del fabricante**, que contiene las
-> capturas de la función descrita y permite verificar la afirmación de forma independiente. En los
-> ejemplos de acceso libre se adjunta captura propia. Todas las fuentes fueron consultadas el
-> **20 de septiembre de 2026**.
+**Nota sobre la evidencia visual.** Las plataformas comerciales incluidas (Monte Carlo, Soda,
+Microsoft Purview, Azure Data Factory y PagerDuty) exigen cuenta corporativa, licencia o un
+despliegue propio, por lo que no fue posible capturar sus interfaces en un entorno productivo.
+En esos casos la evidencia es la **documentación oficial del fabricante**, que contiene las
+capturas de la función descrita y permite verificar la afirmación de forma independiente. En los
+ejemplos de acceso libre se adjunta captura propia. Todas las fuentes fueron consultadas el
+**20 de septiembre de 2026**.
 
 <!-- prettier-ignore -->
 | # | Producto o ejemplo | Tipo (competidor/relacionado/inspirador) | Evidencia (captura propia o fuente oficial) | ¿Qué inspira de este ejemplo? |
@@ -1337,31 +1338,31 @@ adicional; **No** = no lo cubre._
 
 - **Paso 5 — Resumen de resultados:**
 
-> 1. **Separar "atrasado" de "erróneo" solo está resuelto a medias:** Monte Carlo es la única
->    plataforma revisada que trata la frescura y el volumen como monitores distintos de las
->    validaciones de calidad; Soda y Microsoft Purview la incorporan como un _check_ o una
->    dimensión más dentro del mismo puntaje, de modo que un conjunto que no llegó y uno que llegó
->    con errores se muestran mezclados. Esto valida la necesidad expresada por el Entrevistado 2 y,
->    además, ninguna herramienta modela de forma nativa las **versiones de liquidación**
->    (TX1, TX2, …) ni los **plazos regulatorios de la CREG**, lo que constituye el principal
->    espacio de diferenciación para SIMEM.
-> 2. **La reducción de ruido es tan importante como la detección:** agrupar alertas en
->    incidentes, priorizarlas y enviarlas por canales de chat es una práctica común, y responde
->    directamente a la saturación de correos que lleva al Especialista de Monitoreo a ignorarlos.
-> 3. **La configuración declarativa o sin código es el estándar:** Soda y Purview permiten crear
->    reglas desde la interfaz, lo que respalda la idea de un asistente que elimine la edición
->    manual de archivos CSV y SQL del Ingeniero de Configuración.
-> 4. **La remediación está desconectada del monitoreo:** las herramientas de calidad detectan
->    pero no reejecutan; la reejecución vive en el orquestador (Azure Data Factory). Integrar el
->    relanzamiento masivo en la misma interfaz cerraría el ciclo de retroalimentación roto
->    identificado en el entregable 1 (abismo de evaluación).
-> 5. **Costo y ajuste al dominio:** las soluciones comerciales implican licencias y adaptación a
->    fuentes heterogéneas (Oracle, FTP, Excel). Construir sobre la herramienta Python existente,
->    adoptando los patrones de interacción observados, resulta una alternativa viable.
+1. **Separar "atrasado" de "erróneo" solo está resuelto a medias:** Monte Carlo es la única
+   plataforma revisada que trata la frescura y el volumen como monitores distintos de las
+   validaciones de calidad; Soda y Microsoft Purview la incorporan como un _check_ o una
+   dimensión más dentro del mismo puntaje, de modo que un conjunto que no llegó y uno que llegó
+   con errores se muestran mezclados. Esto valida la necesidad expresada por el Entrevistado 2 y,
+   además, ninguna herramienta modela de forma nativa las **versiones de liquidación**
+   (TX1, TX2, …) ni los **plazos regulatorios de la CREG**, lo que constituye el principal
+   espacio de diferenciación para SIMEM.
+2. **La reducción de ruido es tan importante como la detección:** agrupar alertas en
+   incidentes, priorizarlas y enviarlas por canales de chat es una práctica común, y responde
+   directamente a la saturación de correos que lleva al Especialista de Monitoreo a ignorarlos.
+3. **La configuración declarativa o sin código es el estándar:** Soda y Purview permiten crear
+   reglas desde la interfaz, lo que respalda la idea de un asistente que elimine la edición
+   manual de archivos CSV y SQL del Ingeniero de Configuración.
+4. **La remediación está desconectada del monitoreo:** las herramientas de calidad detectan
+   pero no reejecutan; la reejecución vive en el orquestador (Azure Data Factory). Integrar el
+   relanzamiento masivo en la misma interfaz cerraría el ciclo de retroalimentación roto
+   identificado (abismo de evaluación).
+5. **Costo y ajuste al dominio:** las soluciones comerciales implican licencias y adaptación a
+   fuentes heterogéneas (Oracle, FTP, Excel). Construir sobre la herramienta Python existente,
+   adoptando los patrones de interacción observados, resulta una alternativa viable.
 
 ---
 
-## 5. Consolidación del entregable — Paso Definir
+## 5. Consolidación — Paso Definir
 
 ### 5.1 Persona (resumen)
 
@@ -1425,14 +1426,14 @@ confianza en la información publicada.
   de calidad revisadas permite reejecutar una carga: esa capacidad vive en el orquestador (Azure
   Data Factory, criterio C5 de la sección 4.4), en una interfaz distinta de la que reporta el
   fallo. Integrar el relanzamiento masivo en el mismo lugar donde se detecta el problema cierra
-  el ciclo de retroalimentación roto que se identificó en el entregable 1 como abismo de
+  el ciclo de retroalimentación roto que se identificó como abismo de
   evaluación, y es una ventaja alcanzable construyendo sobre la herramienta en Python existente.
 
 ---
 
-<a name="parte-4"></a>
+<a id="parte-4"></a>
 
-# Parte IV. Ideación, prototipado y evaluación MoSCoW (Entregables #4 y #5)
+# Parte IV. Ideación, prototipado y evaluación MoSCoW
 
 Esta fase tiene como objetivo desarrollar la ideación y el prototipado de la herramienta de
 monitoreo de la calidad de datos del SIMEM. Durante el proceso se aplicaron las técnicas de
@@ -1445,8 +1446,7 @@ continuación:
 | P2 | Torre de Control SIMEM | Artefacto web (Claude) | 7 vistas | [Abrir](https://claude.ai/artifact/NXogD8U3Xhq1nyDqkngWpn) |
 | P3 | Monitor de Calidad Datalake SIMEM | Figma Make | 10 pantallas | [Abrir](https://www.figma.com/make/7juxDjDFwWXH6TbzPp9v9J/Monitor-de-Calidad-Datalake-SIMEM?p=f&t=F7gER4RC5Pjejmvl-0) |
 
-Para la generación de los prototipos se tomaron como base los objetivos ya planteados en el
-entregable 1 (Parte I, Paso 5), que se presentan a continuación:
+Para la generación de los prototipos se tomaron como base los objetivos ya planteados (Parte I, Paso 5), que se presentan a continuación:
 
 | Código | Objetivo |
 | :--- | :--- |
@@ -1683,8 +1683,8 @@ pregunta de la declaración de posibilidades final (Parte III, sección 5.4).
 
 | Categoría | Funcionalidad | Justificación |
 | :--- | :--- | :--- |
-| Must | Torre de Control con estado de pipelines y anomalías priorizadas | Panel centralizado, implicación de diseño principal del entregable 2 (O1, O5) |
-| Must | Monitor de alertas con 3 causas raíz (calidad, atraso, configuración) | Un conjunto atrasado no es un dato erróneo (hallazgo 1 y entregable 2) (O7) |
+| Must | Torre de Control con estado de pipelines y anomalías priorizadas | Panel centralizado, implicación de diseño principal (O1, O5) |
+| Must | Monitor de alertas con 3 causas raíz (calidad, atraso, configuración) | Un conjunto atrasado no es un dato erróneo (O7) |
 | Must | Diff SIMEM vs fuente hora a hora con la regla quebrantada | Insight del entrevistado 2: ver valor publicado junto al de la fuente (O1) |
 | Must | Panel de remediación (relanzar o recuperar) | Cierra la brecha entre detectar y corregir (hallazgo 3) (O3) |
 | Must | Asistente de ingesta de 4 pasos | Elimina CSV y SQL a mano, frustración del Ingeniero de Configuración (O2) |
@@ -1695,8 +1695,8 @@ pregunta de la declaración de posibilidades final (Parte III, sección 5.4).
 | Should | Mapeo visual de esquema y reglas de calidad en el asistente | Estandariza la creación de variables (O2) |
 | Should | Sondeo automático o manual | Evita revisiones aleatorias |
 | Could | Curva de completitud horaria | Ayuda a ver tendencias, con alcance limitado (O6) |
-| Could | Búsqueda global Ctrl + K y atajos | El perfil del entregable 1 pide atajos de teclado para reducir clics repetitivos; no surgió en las entrevistas |
-| Could | Modo multi-monitor | El entregable 1 documenta el uso de varios monitores, pero no es crítico para los objetivos |
+| Could | Búsqueda global Ctrl + K y atajos | El perfil pide atajos de teclado para reducir clics repetitivos; no surgió en las entrevistas |
+| Could | Modo multi-monitor | Se documenta el uso de varios monitores, pero no es crítico para los objetivos |
 | Won't | Verificación de certificado y hash en los logs | Sobreingeniería respecto a los objetivos (O8 se cubre sin ella) |
 | Won't | Perfil de usuario | No responde a necesidades documentadas |
 
@@ -1716,11 +1716,11 @@ comunicación.
 
 | Categoría | Funcionalidad | Justificación |
 | :--- | :--- | :--- |
-| Must | Torre con resumen del día y separación atrasados, calidad y configuración | Panel unificado y diferenciación de tipos (entregable 2) (O1, O7) |
+| Must | Torre con resumen del día y separación atrasados, calidad y configuración | Panel unificado y diferenciación de tipos (O1, O7) |
 | Must | Incidentes con responsable visible | Evita esfuerzos duplicados y casos sin dueño (pregunta de posibilidades 5) (O1, O8) |
-| Must | Comparación fuente vs publicado dentro del incidente | Detalle contextual, implicación de diseño del entregable 2 |
+| Must | Comparación fuente vs publicado dentro del incidente | Detalle contextual, implicación de diseño |
 | Must | Relanzar en bloque y próxima ejecución | Objetivo 3 y hallazgo 3 (O3) |
-| Must | Matriz de versiones TX1/TX2/TXF y recuperar versión faltante | Escenario más crítico del entregable 1 (O4) |
+| Must | Matriz de versiones TX1/TX2/TXF y recuperar versión faltante | Escenario más crítico (O4) |
 | Must | Configuración con prueba en seco y revertir | Mitiga falsas alertas y el olvido de revertir deltas (O2) |
 | Must | Trazabilidad: línea de tiempo e historial de cambios | O8 |
 | Should | Indicadores: tiempo medio de resolución y % de falsas alertas | Responde a O5 y a las preguntas del objetivo |
@@ -1728,8 +1728,8 @@ comunicación.
 | Should | Calendario de 30 días y mapa de calor horario | Tendencias y horas críticas (O6) |
 | Should | Acciones sugeridas por tipo de incidente | Reduce el tiempo de diagnóstico |
 | Should | Explorador de variable con gráfica de 30 días | Responde a la pregunta del objetivo "¿cómo puedo ver gráficamente una variable?" (O6) |
-| Could | Atajos 1 a 7 y búsqueda Ctrl + K | El perfil del entregable 1 pide atajos de teclado; no surgió en las entrevistas |
-| Could | Tema claro y oscuro | Fatiga visual, mencionada en el entregable 2 |
+| Could | Atajos 1 a 7 y búsqueda Ctrl + K | El perfil pide atajos de teclado; no surgió en las entrevistas |
+| Could | Tema claro y oscuro | Fatiga visual |
 | Could | Silenciar o posponer alertas con caducidad | Útil con mantenimientos, no es crítico |
 | Won't | Predicción de incidentes | Requiere histórico que aún no se tiene |
 | Won't | Página pública de estado e integración con tickets | Fuera del alcance del equipo administrador |
@@ -1751,7 +1751,7 @@ Es el prototipo con mejor cobertura del flujo completo.
 
 | Categoría | Funcionalidad | Justificación |
 | :--- | :--- | :--- |
-| Must | Centro de Situación con KPI de calidad, errores y atrasos | Panel unificado (entregable 2) (O1, O5) |
+| Must | Centro de Situación con KPI de calidad, errores y atrasos | Panel unificado (O1, O5) |
 | Must | Validación Fuente vs SIMEM con diferencia, faltantes y exportar evidencia | Contexto para distinguir faltante, diferencia menor o error (entrevistado 2) |
 | Must | Conjuntos Atrasados con pestañas por periodicidad | Usa los metadatos que ya existen (periodicidad, próxima ejecución) (O3) |
 | Must | Versiones de la liquidación en matriz | O4 |
@@ -1802,9 +1802,9 @@ una versión faltante.
 
 ---
 
-<a name="parte-5"></a>
+<a id="parte-5"></a>
 
-# Parte V. Evaluación de usabilidad (Entregable #6)
+# Parte V. Evaluación de usabilidad
 
 ## 1. Introducción
 
@@ -2201,7 +2201,636 @@ que su cobertura real de O2 es parcial.
 
 ---
 
-<a name="referencias"></a>
+<a id="parte-6"></a>
+
+# Parte VI. Prototipo final
+
+El prototipo final (PF), Monitor de Calidad SIMEM, consolida las decisiones de la Parte IV y los
+resultados de la evaluación de usabilidad de la Parte V. Toma como base P2, Torre de Control SIMEM
+(SUS 80), e incorpora la vista general y la lectura de atrasos y versiones de P3, y el asistente
+guiado de configuración de P1, tal como se recomendó en la sección 8 de la Parte V.
+
+El PF es una aplicación web navegable de una sola página (HTML, CSS y JavaScript) con datos de
+ejemplo. Las acciones de relanzamiento, recuperación de versiones, validación, prueba de conexión,
+envío a Teams y gestión de credenciales son simuladas: muestran el resultado esperado, pero no se
+conectan a ninguna fuente real.
+
+| # | Prototipo | Herramienta | Alcance | Enlace |
+| :--- | :--- | :--- | :--- | :--- |
+| PF | Monitor de Calidad SIMEM | Artefacto web (HTML) | 8 vistas y detalle de incidente | _Pendiente_ |
+
+**Vistas del prototipo final**
+
+| Vista | Propósito | Objetivos |
+| :--- | :--- | :--- |
+| Torre de Control | Indicadores del sitio, alertas separadas en pestañas (atrasados, errores de calidad, errores de configuración) y resumen del día para Teams | O1, O5, O7 |
+| Detalle del incidente | Recorrido Fuente → Data Lake → SIMEM, evidencia según el tipo de alerta, estado de gestión, responsable, acciones sugeridas y bitácora | O1, O8 |
+| Oportunidad de publicación | Fecha indexada esperada frente a la publicada, atraso en días, última y próxima ejecución, y relanzamiento masivo | O3 |
+| Versiones de liquidación | Matriz de versiones por día (TX1, TX2, TXR, TXF, TX3), indicador de completitud y recuperación desde la fuente alterna FTP | O4 |
+| Validación Fuente vs SIMEM | Inconsistencias entre la fuente oficial y SIMEM, tasa de inconsistencias, marca de solucionado y validación histórica | O1, O5, O7 |
+| Indicadores y tendencias | Cantidad y tasa de inconsistencias por conjunto, fuentes con más errores, calendario de ejecución, tipos por semana, ranking y explorador de variable | O5, O6 |
+| Configuración de conjuntos | Catálogo de variables, activación y pausa, advertencias de configuración y asistente de cuatro pasos con prueba en seco | O2 |
+| Trazabilidad | Historial de hallazgos con tipo, origen, causa raíz, responsable, estado y recurrencia | O7, O8 |
+| Credenciales | Accesos a las fuentes con contraseña enmascarada, validación y renovación | O2 |
+
+**Origen de las decisiones de diseño**
+
+| Elemento del PF | Origen | Hallazgo o tarea que atiende |
+| :--- | :--- | :--- |
+| Pestañas por tipo de alerta y resumen del día para Teams | P2 | Separar atraso de error (hallazgo 1) y reducir correos (hallazgo 2) |
+| Fila de indicadores en la Torre de Control | P3 (Centro de Situación) | Vista general clara (Parte V, sección 8) |
+| Filtro por periodicidad, atraso en días, selección de atrasados y relanzamiento masivo con rango de fechas | P2 y P3 | Tarea 1 |
+| Reversión automática de la configuración temporal al relanzar | P2 | Olvido de revertir deltas (O2) |
+| Matriz de versiones con filtros, completitud del mes, plazo por versión y recuperación desde FTP con confirmación | P2 y P3 | Tarea 2 |
+| Tabla de validación que muestra solo inconsistencias, con su estado y la marca de solucionado | P3, ajustado | Tarea 3: los datos correctos dificultaban concentrarse en los errores |
+| Reejecución de la validación separada de la recarga de datos | Nuevo | Tarea 3: diferenciar recargar datos de volver a validar |
+| Gráfica de cantidad y tasa por conjunto, ranking de conjuntos y fuentes | P2 y P3 | Tarea 4 |
+| Selector «Asignar a», botón «Tomar incidente» y responsable visible en las tablas | P2 | Tarea 5 |
+| Asistente de cuatro pasos con prueba de conexión, fuente alterna opcional, reglas, ejecución y prueba en seco | P1 y P2 | Tareas 6 y 7 |
+| Credenciales con validación y renovación | P3 | Tarea 6 |
+| Tipo, origen, causa raíz y recurrencia en Trazabilidad | P2, ampliado | O7 y O8 |
+
+## 1. Diagrama de flujo
+
+El diagrama muestra la estructura del PF y los caminos principales entre vistas. Todas las vistas
+son accesibles desde el menú lateral y con los atajos de teclado 1 a 8; las flechas representan los
+recorridos que el prototipo propone dentro de la operación diaria.
+
+![PF – Diagrama de flujo](img/entregable_final/01_diagrama_de_flujo_pf.png)
+
+## 2. Capturas de pantalla del prototipo final
+
+Las capturas se guardan en `docs/img/prototipo_final/` con los nombres indicados en cada imagen.
+
+**Torre de Control**
+
+![PF – Torre de Control (1)](img/prototipo_final/pf_torre_de_control_1.png)
+![PF – Torre de Control (2)](img/prototipo_final/pf_torre_de_control_2.png)
+
+**Detalle del incidente**
+
+![PF – Detalle del incidente desde la Torre de Control](img/prototipo_final/pf_incidente_detalle.png)
+![PF – Detalle del incidente desde Trazabilidad](img/prototipo_final/pf_incidente_trazabilidad.png)
+
+**Oportunidad de publicación**
+
+![PF – Oportunidad de publicación](img/prototipo_final/pf_oportunidad_publicacion.png)
+![PF – Relanzamiento masivo](img/prototipo_final/pf_relanzamiento_masivo.png)
+
+**Versiones de liquidación**
+
+![PF – Versiones de liquidación](img/prototipo_final/pf_versiones_liquidacion.png)
+![PF – Detalle y recuperación de versión](img/prototipo_final/pf_versiones_detalle.png)
+
+**Validación Fuente vs SIMEM**
+
+![PF – Validación Fuente vs SIMEM](img/prototipo_final/pf_validacion_fuente_simem.png)
+![PF – Validación histórica personalizada](img/prototipo_final/pf_validacion_historica.png)
+
+**Indicadores y tendencias**
+
+![PF – Indicadores y tendencias (1)](img/prototipo_final/pf_indicadores_1.png)
+![PF – Indicadores y tendencias (2)](img/prototipo_final/pf_indicadores_2.png)
+
+**Configuración de conjuntos**
+
+![PF – Configuración de conjuntos](img/prototipo_final/pf_configuracion.png)
+![PF – Asistente de nueva variable](img/prototipo_final/pf_asistente_variable.png)
+
+**Trazabilidad**
+
+![PF – Trazabilidad](img/prototipo_final/pf_trazabilidad.png)
+
+**Credenciales**
+
+![PF – Credenciales](img/prototipo_final/pf_credenciales.png)
+
+**Notificaciones**
+
+![PF – Notificaciones](img/prototipo_final/pf_notificaciones.png)
+
+## 3. Flujo de tareas
+
+El flujo de tareas describe la ruta lineal que sigue un usuario en el PF para completar cada una de
+las siete tareas de la evaluación de usabilidad (Parte V, sección 6.1). A diferencia del flujo de
+usuario, no incluye decisiones: muestra el camino esperado cuando todo sale bien.
+
+### 3.1 Tarea 1: identificar y recuperar conjuntos atrasados
+
+![Flujo de tareas – Tarea 1](img/entregable_final/02_tarea1_conjuntos_atrasados.png)
+
+La disponibilidad del dato en el Data Lake se consulta en el detalle del incidente abierto desde
+Trazabilidad (panel «Disponibilidad del dato»).
+
+### 3.2 Tarea 2: verificar una versión de la liquidación
+
+![Flujo de tareas – Tarea 2](img/entregable_final/03_tarea2_version_liquidacion.png)
+
+### 3.3 Tarea 3: revisar la calidad de un conjunto de datos
+
+![Flujo de tareas – Tarea 3](img/entregable_final/04_tarea3_calidad_conjunto.png)
+
+### 3.4 Tarea 4: identificar los conjuntos que más fallan
+
+![Flujo de tareas – Tarea 4](img/entregable_final/05_tarea4_conjuntos_que_mas_fallan.png)
+
+### 3.5 Tarea 5: asignar un error
+
+![Flujo de tareas – Tarea 5](img/entregable_final/06_tarea5_asignar_error.png)
+
+Desde la Torre de Control, el botón «Tomar incidente» permite la autoasignación.
+
+### 3.6 Tarea 6: crear una conexión a una API
+
+![Flujo de tareas – Tarea 6](img/entregable_final/07_tarea6_conexion_api.png)
+
+### 3.7 Tarea 7: configurar un conjunto de datos
+
+![Flujo de tareas – Tarea 7](img/entregable_final/08_tarea7_configurar_conjunto.png)
+
+## 4. Flujo de usuario
+
+El flujo de usuario muestra cómo cada persona de la Parte III recorre el PF desde su punto de
+entrada, incluyendo las decisiones que toma según lo que encuentra.
+
+### 4.1 Analista de Calidad Operativa
+
+Entra por el resumen diario de Teams o por la Torre de Control, y su objetivo es que ninguna alerta
+quede sin dueño ni sin diagnóstico.
+
+![Flujo de usuario – Analista de Calidad Operativa](img/entregable_final/09_flujo_analista_calidad.png)
+
+### 4.2 Ingeniero de Configuración y Metadatos
+
+Su punto de entrada es una alerta de configuración o la solicitud de un conjunto nuevo. Su objetivo
+es que la configuración no genere falsas alertas y que cada cambio quede registrado.
+
+![Flujo de usuario – Ingeniero de Configuración y Metadatos](img/entregable_final/10_flujo_ingeniero_configuracion.png)
+
+### 4.3 Especialista de Monitoreo Multifuente
+
+Supervisa las ejecuciones, los atrasos y las versiones de la liquidación. Su objetivo es que los
+datos y las versiones obligatorias queden publicados dentro del plazo.
+
+![Flujo de usuario – Especialista de Monitoreo Multifuente](img/entregable_final/11_flujo_especialista_monitoreo.png)
+
+## 5. Historias de usuario para la implementación
+
+Las historias de usuario traducen el PF en requisitos para la implementación real. Siguen el
+formato «Como [persona], quiero [acción], para [beneficio]», se asocian a los objetivos O1 a O8 y
+se priorizan con MoSCoW. Los criterios de aceptación usan la forma «Dado / Cuando / Entonces».
+
+Las personas son las definidas en la Parte III: Analista de Calidad Operativa (AC), Ingeniero de
+Configuración y Metadatos (IC) y Especialista de Monitoreo Multifuente (EM). Las historias marcadas
+como _mejora_ no están en el PF y responden a brechas detectadas en la Parte V.
+
+### 5.1 Resumen del backlog
+
+| ID | Épica | Historia | Persona | Prioridad | Objetivo |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| HU-01 | Torre de Control | Ver el estado general del sitio | AC | Must | O1, O5 |
+| HU-02 | Torre de Control | Ver las alertas separadas por tipo | AC | Must | O1, O7 |
+| HU-03 | Torre de Control | Recibir el resumen diario en Teams | AC | Should | O1 |
+| HU-04 | Incidentes | Ver la evidencia del incidente según su tipo | AC | Must | O1 |
+| HU-05 | Incidentes | Tomar o asignar un incidente | AC | Must | O1, O8 |
+| HU-06 | Incidentes | Avanzar el estado de gestión | AC | Must | O8 |
+| HU-07 | Incidentes | Ejecutar acciones sugeridas | AC | Should | O1 |
+| HU-08 | Incidentes | Ver mis incidentes y los de cada responsable (_mejora_) | AC | Should | O1 |
+| HU-09 | Oportunidad | Ver el atraso real de cada conjunto | EM | Must | O3 |
+| HU-10 | Oportunidad | Relanzar varios conjuntos a la vez | EM | Must | O3 |
+| HU-11 | Oportunidad | Revertir la configuración temporal al terminar | IC | Must | O2, O3 |
+| HU-12 | Versiones | Ver la matriz de versiones del mes | EM | Must | O4 |
+| HU-13 | Versiones | Recuperar una versión faltante desde FTP | EM | Must | O4 |
+| HU-14 | Validación | Comparar la fuente con SIMEM | AC | Must | O1, O7 |
+| HU-15 | Validación | Re-ejecutar la validación de calidad | AC | Must | O1 |
+| HU-16 | Validación | Marcar una inconsistencia como solucionada | AC | Should | O1, O8 |
+| HU-17 | Validación | Ejecutar una validación histórica | AC | Should | O6 |
+| HU-18 | Indicadores | Ver la tendencia de inconsistencias por conjunto | AC | Must | O5, O6 |
+| HU-19 | Indicadores | Ver los conjuntos y fuentes con más fallos | AC | Should | O5, O7 |
+| HU-20 | Indicadores | Ver el calendario de ejecución de la herramienta | EM | Should | O6 |
+| HU-21 | Indicadores | Explorar una variable en un rango de fechas | AC | Should | O6 |
+| HU-22 | Configuración | Consultar y pausar conjuntos configurados | IC | Must | O2 |
+| HU-23 | Configuración | Crear una variable con el asistente | IC | Must | O2 |
+| HU-24 | Configuración | Editar una variable y conservar el historial | IC | Must | O2, O8 |
+| HU-25 | Configuración | Corregir configuraciones con advertencia | IC | Should | O2 |
+| HU-26 | Configuración | Gestionar las credenciales de las fuentes | IC | Must | O2 |
+| HU-27 | Trazabilidad | Consultar el historial de hallazgos | AC | Must | O8 |
+| HU-28 | Trazabilidad | Administrar el catálogo de inconsistencias (_mejora_) | IC | Should | O7 |
+| HU-29 | Trazabilidad | Exportar un reporte de evidencia | AC | Should | O8 |
+| HU-30 | Transversal | Recibir notificaciones en la aplicación | AC | Should | O1 |
+| HU-31 | Transversal | Ingresar con mi usuario corporativo y mi rol | Todas | Must | — |
+| HU-32 | Transversal | Usar la herramienta con teclado y en tema claro u oscuro | Todas | Could | — |
+
+### 5.2 Épica 1: Torre de Control
+
+**HU-01 · Ver el estado general del sitio** (Must · O1, O5)
+
+Como Analista de Calidad Operativa, quiero ver al iniciar la jornada la calidad global, los
+conjuntos monitoreados, los atrasados y los errores de calidad y de configuración, para saber en
+segundos si hay algo que atender.
+
+- Dado que ingreso a la herramienta, cuando se carga la Torre de Control, entonces veo los cinco
+  indicadores con la fecha y hora de corte de la última validación.
+- Dado un indicador, cuando lo comparo con el listado de su pestaña, entonces el número coincide.
+- Dado que la calidad global cambió frente a la semana anterior, entonces se muestra la variación.
+
+**HU-02 · Ver las alertas separadas por tipo** (Must · O1, O7)
+
+Como Analista de Calidad Operativa, quiero ver las alertas separadas en atrasados, errores de
+calidad y errores de configuración, para no confundir un dato atrasado con uno erróneo.
+
+- Dado que hay alertas abiertas, cuando reviso la Torre, entonces cada pestaña muestra su conteo y
+  una tabla con conjunto, criticidad, fuente, antigüedad, responsable e identificador.
+- Dada una fila, cuando la selecciono con el ratón o con Enter, entonces se abre el detalle del
+  incidente.
+- Dado un incidente sin responsable, entonces se muestra «Sin asignar».
+
+**HU-03 · Recibir el resumen diario en Teams** (Should · O1)
+
+Como Analista de Calidad Operativa, quiero recibir un único resumen diario en el canal de Teams,
+para dejar de revisar correos individuales por cada alerta.
+
+- Dada la hora configurada (07:30 por defecto), entonces el sistema publica en el canal un resumen
+  con los incidentes críticos nuevos, los atrasos, las alertas de configuración y los cierres del
+  día anterior.
+- Cuando uso «Enviar resumen a Teams», entonces el resumen se publica de inmediato.
+- Si el envío falla, entonces veo el error y puedo reintentar.
+
+### 5.3 Épica 2: Gestión de incidentes
+
+**HU-04 · Ver la evidencia del incidente según su tipo** (Must · O1)
+
+Como Analista de Calidad Operativa, quiero ver la evidencia adecuada a cada tipo de alerta, para
+diagnosticar sin consultar otras herramientas.
+
+- Dado un error de calidad, entonces veo la comparación hora a hora entre la fuente y SIMEM, con las
+  diferencias y los faltantes resaltados.
+- Dado un atraso, entonces veo la fecha indexada esperada frente a la publicada y el resultado de
+  cada ejecución.
+- Dado un error de configuración, entonces veo el cambio sugerido con el valor anterior y el nuevo.
+- En todos los casos veo el recorrido Fuente → Data Lake → SIMEM con el punto donde se originó el
+  fallo y la serie de los últimos 30 días.
+
+**HU-05 · Tomar o asignar un incidente** (Must · O1, O8)
+
+Como Analista de Calidad Operativa, quiero tomar un incidente o asignarlo a un compañero, para que
+ningún problema quede sin dueño ni se atienda dos veces.
+
+- Cuando uso «Tomar incidente», entonces quedo como responsable y el estado pasa a «En revisión».
+- Cuando elijo una persona en «Asignar a», entonces la asignación se guarda, se notifica a esa
+  persona y queda en la bitácora con usuario, fecha y hora.
+- La lista de «Asignar a» muestra solo usuarios activos con permiso para gestionar incidentes.
+- El responsable se actualiza en la Torre de Control y en Trazabilidad.
+
+**HU-06 · Avanzar el estado de gestión** (Must · O8)
+
+Como Analista de Calidad Operativa, quiero mover el incidente por los estados Nuevo, En revisión,
+Corregido, Verificado y Cerrado, para que el equipo sepa en qué punto está cada caso.
+
+- Solo el responsable puede avanzar el estado.
+- Un incidente no puede pasar a «Cerrado» sin responsable ni sin haber estado en «Verificado».
+- Cuando la siguiente ejecución de la herramienta de calidad confirma la corrección, entonces el
+  incidente pasa a «Verificado» automáticamente.
+
+**HU-07 · Ejecutar acciones sugeridas** (Should · O1)
+
+Como Analista de Calidad Operativa, quiero acciones sugeridas según el tipo de incidente, para
+pasar del diagnóstico a la corrección sin buscar en otro lugar.
+
+- Dado un error de calidad, entonces puedo reejecutar la carga de la fecha, marcar falsa alerta,
+  silenciar la regla 7 días o crear un requerimiento a soporte.
+- Cuando marco una falsa alerta, entonces debo escribir el motivo y la regla queda en revisión.
+- Cuando silencio una regla, entonces se muestra la fecha en que se reactiva.
+- Cuando creo un requerimiento, entonces se genera en la mesa de ayuda con la evidencia adjunta y
+  su número queda en la bitácora.
+
+**HU-08 · Ver mis incidentes y los de cada responsable** (Should · O1 · _mejora_)
+
+Como Analista de Calidad Operativa, quiero una vista consolidada por responsable, estado y
+conjunto, para saber quién atiende cada error.
+
+- Cuando filtro por responsable, entonces veo sus incidentes abiertos con estado y antigüedad.
+- Existe un acceso directo «Mis incidentes».
+
+### 5.4 Épica 3: Oportunidad de publicación
+
+**HU-09 · Ver el atraso real de cada conjunto** (Must · O3)
+
+Como Especialista de Monitoreo Multifuente, quiero comparar la fecha indexada esperada con la
+publicada, para detectar atrasos aunque la ejecución reporte éxito.
+
+- La fecha esperada se calcula a partir de la periodicidad y la clasificación del conjunto.
+- La tabla muestra periodicidad, clasificación, última actualización, fecha indexada máxima, fecha
+  esperada, atraso en días, resultado de la última ejecución y próxima ejecución.
+- Dado un conjunto con ejecución exitosa y datos desactualizados, entonces se resalta con una nota.
+- Puedo filtrar por periodicidad, estado y nombre.
+
+**HU-10 · Relanzar varios conjuntos a la vez** (Must · O3)
+
+Como Especialista de Monitoreo Multifuente, quiero seleccionar varios conjuntos atrasados y
+relanzarlos en una sola acción, para recuperar la publicación sin hacerlo uno por uno.
+
+- Cuando uso «Seleccionar los atrasados», entonces quedan marcados todos los conjuntos con atraso.
+- Antes de confirmar, veo y puedo ajustar el rango desde y hasta de cada conjunto.
+- Durante la ejecución veo el avance de cada conjunto y, al terminar, el resultado de cada uno.
+- Cada relanzamiento queda registrado en Trazabilidad.
+- Puedo programar la reejecución para una hora posterior (Could).
+
+**HU-11 · Revertir la configuración temporal al terminar** (Must · O2, O3)
+
+Como Ingeniero de Configuración y Metadatos, quiero que el delta temporal usado en un recargue se
+revierta solo al terminar, para no dejar configuraciones olvidadas que generen falsas alertas.
+
+- La opción de reversión automática está marcada por defecto.
+- Al terminar el relanzamiento, el delta vuelve a su valor estándar y el cambio queda en
+  Trazabilidad con el valor anterior y el nuevo.
+
+### 5.5 Épica 4: Versiones de liquidación
+
+**HU-12 · Ver la matriz de versiones del mes** (Must · O4)
+
+Como Especialista de Monitoreo Multifuente, quiero una matriz por conjunto y día con el estado de
+las versiones obligatorias, para saber qué versiones faltan sin revisar conjunto por conjunto.
+
+- Puedo filtrar por mes, conjunto de liquidación y tema, y limpiar los filtros.
+- Cada celda indica si la fecha está completa, si falta la última versión y venció su plazo, si
+  faltan versiones anteriores o si hay versiones pendientes dentro del plazo.
+- Los plazos de cada versión (TX1, TX2, TXR, TXF, TX3) se toman de la regulación vigente y son
+  parametrizables.
+- Se muestra la completitud del mes como versiones publicadas sobre publicadas más faltantes.
+- Al seleccionar una celda, veo cada versión con su plazo, su fecha de publicación y su estado.
+
+**HU-13 · Recuperar una versión faltante desde FTP** (Must · O4)
+
+Como Especialista de Monitoreo Multifuente, quiero recuperar una versión faltante desde la fuente
+alterna FTP, para completar la liquidación cuando la fuente principal ya no la tiene.
+
+- Dada una versión faltante, entonces veo si el archivo existe en la ruta alterna configurada.
+- La recuperación pide confirmación antes de descargar y cargar.
+- El archivo se valida antes de cargarlo a SIMEM; si no existe o no es válido, veo el error y la
+  opción de cargarlo manualmente.
+- Al terminar, el estado de la celda se actualiza y la acción queda en Trazabilidad.
+
+### 5.6 Épica 5: Validación Fuente vs SIMEM
+
+**HU-14 · Comparar la fuente con SIMEM** (Must · O1, O7)
+
+Como Analista de Calidad Operativa, quiero ver solo los registros en los que la fuente y SIMEM no
+coinciden, para concentrarme en los errores.
+
+- Puedo filtrar por fuente de origen, conjunto y rango de fechas; un rango inválido muestra un
+  mensaje y no ejecuta la consulta.
+- Veo la configuración del conjunto: fuente oficial, réplica, fecha de indexación, campos
+  identificadores y campo comparado.
+- Cada inconsistencia muestra fecha, identificadores, valor en la fuente, valor en SIMEM, diferencia
+  y estado (diferente, faltante en SIMEM o faltante en la fuente).
+- Veo la cantidad de registros, la cantidad de inconsistencias y la tasa de inconsistencias.
+
+**HU-15 · Re-ejecutar la validación de calidad** (Must · O1)
+
+Como Analista de Calidad Operativa, quiero volver a ejecutar la validación sin recargar los datos,
+para comprobar si una corrección resolvió la inconsistencia.
+
+- La acción es distinta de la recarga de datos y así se nombra en la interfaz.
+- Mientras se ejecuta, el botón queda deshabilitado y se muestra el progreso.
+- Al terminar, se actualiza la hora de la última validación; si falla, veo el error y puedo
+  reintentar.
+
+**HU-16 · Marcar una inconsistencia como solucionada** (Should · O1, O8)
+
+Como Analista de Calidad Operativa, quiero marcar una inconsistencia como solucionada, para llevar
+la cuenta de lo pendiente.
+
+- El indicador muestra cuántas están solucionadas y cuántas por solucionar.
+- El cambio registra usuario, fecha y hora.
+
+**HU-17 · Ejecutar una validación histórica** (Should · O6)
+
+Como Analista de Calidad Operativa, quiero validar un conjunto en un rango de fechas pasado, sin
+afectar la validación principal, para revisar periodos anteriores.
+
+- El rango no puede ser futuro, la fecha inicial no puede ser posterior a la final y el máximo es de
+  366 días.
+- Se muestran los estados de ejecución, error, sin inconsistencias y con resultados.
+
+### 5.7 Épica 6: Indicadores y tendencias
+
+**HU-18 · Ver la tendencia de inconsistencias por conjunto** (Must · O5, O6)
+
+Como Analista de Calidad Operativa, quiero comparar la cantidad y la tasa de inconsistencias de
+varios conjuntos en el tiempo, para saber cuáles empeoran.
+
+- Puedo seleccionar uno o varios conjuntos; siempre queda al menos uno seleccionado.
+- La gráfica muestra la cantidad y la tasa por semana, con dos ejes identificados.
+- Puedo cambiar el periodo entre 30 días, 90 días y 6 meses.
+- Cada punto muestra su valor con el cursor y con el teclado.
+
+**HU-19 · Ver los conjuntos y fuentes con más fallos** (Should · O5, O7)
+
+Como Analista de Calidad Operativa, quiero ver qué conjuntos tienen menor calidad, qué fuentes
+generan más incidentes y qué tipos de inconsistencia predominan, para priorizar mejoras.
+
+- Veo el ranking de conjuntos con su calidad, el cambio y la tendencia de 12 semanas.
+- Veo las fuentes con más incidentes de los últimos 90 días y los tipos de inconsistencia por
+  semana.
+
+**HU-20 · Ver el calendario de ejecución de la herramienta** (Should · O6)
+
+Como Especialista de Monitoreo Multifuente, quiero ver en un calendario qué días se ejecutó la
+herramienta de calidad, para detectar días sin validación.
+
+- Cada día indica si se ejecutó, si no se ejecutó o si es una fecha futura.
+- Al seleccionar un día veo cuántas ejecuciones tuvo.
+
+**HU-21 · Explorar una variable en un rango de fechas** (Should · O6)
+
+Como Analista de Calidad Operativa, quiero consultar si una variable es correcta en un rango de
+fechas, para responder rápido a quien pregunte por un dato.
+
+- La respuesta indica «Correcto», «Con errores de calidad» o «Sin publicar», con una explicación y
+  un enlace al incidente cuando existe.
+- La gráfica marca el punto con error.
+
+### 5.8 Épica 7: Configuración de conjuntos y conexiones
+
+**HU-22 · Consultar y pausar conjuntos configurados** (Must · O2)
+
+Como Ingeniero de Configuración y Metadatos, quiero ver el catálogo de conjuntos con su tema,
+fuentes, periodicidad, fechas de validación, última modificación y advertencias, para saber si un
+conjunto ya existe antes de crearlo.
+
+- Puedo activar o pausar un conjunto sin afectar la ejecución de los demás.
+- La pausa registra quién la hizo y cuándo.
+
+**HU-23 · Crear una variable con el asistente** (Must · O2)
+
+Como Ingeniero de Configuración y Metadatos, quiero un asistente de cuatro pasos (datos generales,
+conexión, reglas de calidad y ejecución), para dejar de editar CSV y consultas SQL a mano.
+
+- La fecha inicial de validación no puede ser posterior a la final.
+- La consulta usa el parámetro `:fecha_indexada`, de modo que no hay que editarla para recargar
+  históricos.
+- La prueba de conexión se ejecuta contra la fuente real y muestra el número de filas o el error.
+- La fuente alterna FTP es opcional.
+- No se puede guardar una variable nueva sin una prueba en seco exitosa.
+- Al guardar, la variable aparece activa en el catálogo y se valida en la siguiente ejecución.
+
+**HU-24 · Editar una variable y conservar el historial** (Must · O2, O8)
+
+Como Ingeniero de Configuración y Metadatos, quiero editar una variable existente sin perder los
+datos que no cambio, para ajustar la configuración con seguridad.
+
+- El asistente se abre con los valores actuales.
+- Al guardar, se registra el valor anterior y el nuevo de cada campo modificado, con usuario y
+  fecha.
+- Puedo volver a una versión anterior de la configuración.
+
+**HU-25 · Corregir configuraciones con advertencia** (Should · O2)
+
+Como Ingeniero de Configuración y Metadatos, quiero que la herramienta detecte configuraciones
+desactualizadas, para evitar falsas alertas.
+
+- Se detectan al menos: tabla renombrada en la consulta, delta temporal sin revertir y ruta FTP
+  inexistente.
+- Cada advertencia ofrece la acción correspondiente (revertir delta o aplicar corrección) y su
+  resultado queda en Trazabilidad.
+
+**HU-26 · Gestionar las credenciales de las fuentes** (Must · O2)
+
+Como Ingeniero de Configuración y Metadatos, quiero administrar los accesos a Oracle, API, Data Lake,
+FTP y archivos compartidos, para que las conexiones no fallen por credenciales vencidas.
+
+- Las contraseñas se guardan en un gestor de secretos y nunca se muestran ni se registran en claro.
+- Una contraseña nueva debe tener al menos 8 caracteres.
+- Puedo validar el acceso a la fuente y renovar la credencial.
+- Solo los usuarios con rol de configuración pueden ver y editar esta vista.
+
+### 5.9 Épica 8: Trazabilidad
+
+**HU-27 · Consultar el historial de hallazgos** (Must · O8)
+
+Como Analista de Calidad Operativa, quiero consultar todos los hallazgos con su tipo, origen, fecha
+de indexación, detección, resolución, responsable y estado, para saber cómo se atendió cada uno.
+
+- Puedo buscar por identificador, conjunto o causa y filtrar por tipo, criticidad y estado.
+- Los filtros activos se muestran y se pueden quitar uno por uno.
+- Al abrir un hallazgo, veo su detalle, puedo asignarlo y vuelvo a Trazabilidad con un botón.
+- Un conjunto con hallazgos repetidos en el mes muestra cuántas veces ocurrió.
+
+**HU-28 · Administrar el catálogo de inconsistencias** (Should · O7 · _mejora_)
+
+Como Ingeniero de Configuración y Metadatos, quiero un catálogo de tipos de inconsistencia con su
+causa raíz, criticidad e impacto, para clasificar los hallazgos de forma uniforme.
+
+- Cada hallazgo se clasifica con un tipo del catálogo.
+- Puedo crear, editar y desactivar tipos sin perder la clasificación de los hallazgos anteriores.
+
+**HU-29 · Exportar un reporte de evidencia** (Should · O8)
+
+Como Analista de Calidad Operativa, quiero exportar los hallazgos filtrados, para entregar evidencia
+a otras áreas.
+
+- El reporte incluye los mismos filtros que la tabla y se descarga en CSV o Excel.
+
+### 5.10 Épica 9: Requisitos transversales
+
+**HU-30 · Recibir notificaciones en la aplicación** (Should · O1)
+
+Como Analista de Calidad Operativa, quiero ver las alertas recientes en la campana de
+notificaciones, para enterarme sin salir de la vista en la que trabajo.
+
+- La campana indica cuando hay notificaciones nuevas.
+- Cada notificación abre el incidente correspondiente.
+
+**HU-31 · Ingresar con mi usuario corporativo y mi rol** (Must)
+
+Como usuario de la herramienta, quiero ingresar con mi cuenta corporativa, para que mis acciones
+queden registradas a mi nombre y solo vea lo que me corresponde.
+
+- El ingreso usa el inicio de sesión único de la organización.
+- Existen al menos los roles de consulta, gestión de incidentes y configuración.
+- Toda acción que modifica datos o configuración registra usuario, fecha y hora.
+
+**HU-32 · Usar la herramienta con teclado y en tema claro u oscuro** (Could)
+
+Como usuario de la herramienta, quiero navegar con el teclado y elegir el tema, para trabajar con
+menos clics y menos fatiga visual.
+
+- Los atajos 1 a 8 abren las vistas y Esc cierra paneles y menús.
+- El tema elegido se conserva entre sesiones.
+- La interfaz cumple el nivel AA de las pautas de accesibilidad WCAG 2.1.
+
+### 5.11 Consideraciones para la implementación real
+
+- **Integraciones:** las acciones simuladas en el PF requieren conexión real con Oracle, la API de
+  XM, el Data Lake, el FTP alterno, Microsoft Teams y la mesa de ayuda.
+- **Datos:** los indicadores, la matriz de versiones y la validación deben calcularse con datos
+  reales; los valores del PF son de ejemplo.
+- **Regulación:** los plazos de las versiones de liquidación del PF son de ejemplo y deben tomarse
+  de la regulación vigente.
+- **Definición de terminado:** cada historia se considera terminada cuando cumple sus criterios de
+  aceptación, registra sus acciones en Trazabilidad y supera una prueba con al menos un usuario de
+  la persona correspondiente.
+
+## 6. Conclusión final y trabajo futuro
+
+### 6.1 Conclusión final
+
+El proyecto partió de un problema concreto: el equipo que administra la calidad de los datos del
+SIMEM detecta y corrige las inconsistencias revisando correos, archivos CSV, consultas SQL y varias
+herramientas a la vez, sin distinguir con claridad un dato atrasado de uno erróneo ni saber quién
+atiende cada caso. A lo largo de las cinco partes anteriores, ese problema se caracterizó, se
+investigó con los usuarios, se sintetizó en tres personas y una declaración del problema, se
+exploró con tres prototipos y se evaluó con pruebas de usabilidad.
+
+El prototipo final reúne lo que mejor funcionó en cada etapa. Conserva de P2 el ciclo completo de
+detectar, asignar, corregir y verificar, que obtuvo el mejor resultado SUS (80 puntos). Incorpora de
+P3 la vista general y la lectura clara de atrasos y versiones, y de P1 el asistente guiado que fue
+el único en permitir crear una conexión nueva. Además, responde a las oportunidades de mejora de la
+Parte V: muestra solo las inconsistencias en la validación, separa la reejecución de la validación
+de la recarga de datos, hace visible la asignación de responsables y cubre la creación de
+conexiones y conjuntos de punta a punta.
+
+| Objetivo | P2 | PF |
+| :--- | :---: | :---: |
+| O1 Centralizar inconsistencias | ● | ● |
+| O2 Configurar conjuntos | ◐ | ● |
+| O3 Oportunidad y relanzamiento masivo | ● | ● |
+| O4 Versiones de la liquidación | ● | ● |
+| O5 Indicadores de calidad | ● | ● |
+| O6 Evolución en el tiempo | ◐ | ◐ |
+| O7 Clasificar inconsistencias | ◐ | ◐ |
+| O8 Trazabilidad | ● | ● |
+
+_Leyenda: ● cubre, ◐ cubre parcialmente. La cobertura de P2 en O2 es la ajustada en la Parte V,
+sección 8. La cobertura del PF es una estimación de diseño que aún no se ha validado con usuarios._
+
+O6 y O7 siguen siendo parciales: el PF amplía la historia disponible (validación histórica de hasta
+366 días y explorador de variable) y clasifica los hallazgos por tipo, origen, causa raíz y
+recurrencia, pero no permite comparar periodos ni administrar un catálogo de inconsistencias.
+
+### 6.2 Trabajo futuro
+
+1. **Evaluar el PF con usuarios.** Repetir las siete tareas de la Parte V con los tres
+   participantes y aplicar SUS, registrando esta vez de forma sistemática el tiempo por tarea, la
+   tasa de éxito, los errores y las solicitudes de ayuda (limitación de la sección 7.4 de la
+   Parte V).
+2. **Implementar las historias Must.** Construir primero las historias Must del backlog, con
+   integraciones reales a Oracle, la API de XM, el Data Lake, el FTP alterno y Teams.
+3. **Completar O7.** Diseñar el catálogo de inconsistencias con causa raíz, criticidad e impacto
+   (HU-28).
+4. **Completar O6.** Agregar la comparación entre periodos y tendencias de largo plazo.
+5. **Gestión por responsable.** Agregar la vista «Mis incidentes» (HU-08), acuerdos de tiempo de
+   respuesta por criticidad y escalamiento de incidentes sin dueño.
+6. **Seguridad y roles.** Definir los roles, el inicio de sesión único y el gestor de secretos para
+   las credenciales (HU-26 y HU-31).
+7. **Accesibilidad.** Auditar la interfaz frente a WCAG 2.1 nivel AA.
+8. **Predicción de incidentes.** Cuando exista suficiente histórico, explorar la anticipación de
+   atrasos y errores recurrentes, funcionalidad que se dejó como Won't en la Parte IV.
+
+---
+
+<a id="referencias"></a>
 
 # Referencias bibliográficas
 

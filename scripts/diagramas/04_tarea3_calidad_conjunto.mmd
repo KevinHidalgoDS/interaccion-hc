@@ -1,0 +1,4 @@
+flowchart LR
+    A["Validación Fuente vs SIMEM"] --> B["Conjunto: Aportes Hídricos"] --> C["Fecha inicial y final"]
+    C --> D["Ubicar el registro<br/>del embalse TOMINE"] --> E["Leer valor fuente, valor SIMEM,<br/>diferencia y estado"]
+    E --> F["Re-ejecutar validación<br/>de calidad"] --> G["Marcar como solucionada"] --> H(["Corrección verificada"])

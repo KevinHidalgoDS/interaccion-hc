@@ -1,0 +1,17 @@
+flowchart TD
+    A(["Torre de Control: pestaña Atrasados"]) --> B["Oportunidad de publicación"]
+    B --> C{"¿La ejecución fue exitosa<br/>pero el dato está desactualizado?"}
+    C -->|Sí| D["Revisar disponibilidad en el Data Lake"]
+    C -->|No| E["Revisar el fallo de la ejecución"]
+    D --> F{"¿El dato está en la fuente?"}
+    E --> F
+    F -->|Sí| G["Seleccionar y relanzar masivamente"]
+    F -->|No| H["Crear requerimiento a soporte"]
+    G --> I["Revisar Versiones de liquidación"]
+    H --> I
+    I --> J{"¿Faltan versiones vencidas?"}
+    J -->|No| Z(["Publicación al día"])
+    J -->|Sí| K["Abrir la celda y buscar en FTP alterno"]
+    K --> L{"¿Archivo encontrado?"}
+    L -->|Sí| M["Confirmar, recuperar y cargar"] --> Z
+    L -->|No| N["Cargar manualmente o escalar"]
