@@ -203,7 +203,7 @@ Mayorista_).
 
 - **Conocimiento y experiencia:** Son **usuarios expertos en el dominio** (poseen un alto
   conocimiento técnico del mercado energético y la estructura de los datos) y tienen una alta
-  literacidad digital[^literacidad]. Sin embargo, no necesariamente son expertos en la adopción
+  literacidad digital. Sin embargo, no necesariamente son expertos en la adopción
   de nuevas herramientas de software, por lo que la curva de aprendizaje de la interfaz debe ser
   baja.
 - **Frecuencia y contexto de uso:** Son usuarios **intensivos/frecuentes**. Su interacción con el
@@ -241,14 +241,14 @@ puntos de fricción:**
 3. **Corrección mediante "Workarounds" (Soluciones informales):** Para corregir el error, el
    usuario debe extraer el dato, estructurar un archivo CSV de forma manual y redactar un correo
    al equipo de soporte.
-   - Fricción (IHC): **Alto Abismo de Ejecución (Gulf of Execution)**[^abismo-ejecucion]. Falta
+   - Fricción (IHC): **Alto Abismo de Ejecución (Gulf of Execution)** Falta
      de manipulación directa. El usuario sabe qué quiere corregir, pero el sistema no le da la
      herramienta para hacerlo por sí mismo, obligándolo a abandonar su flujo de trabajo y usar
      herramientas de terceros (_Excel/Notepad, Outlook_).
 4. **Dependencia de terceros y Feedback Asíncrono:** El equipo de soporte actualiza la base de
    datos y re-ejecuta la ETL. El usuario debe esperar y posteriormente entrar de nuevo al portal
    _SIMEM_ para validar.
-   - Fricción (IHC): **Abismo de Evaluación (Gulf of Evaluation)[^abismo-evaluacion] y cuellos
+   - Fricción (IHC): **Abismo de Evaluación (Gulf of Evaluation) y cuellos
      de botella**. El ciclo de retroalimentación (feedback loop) está roto. El usuario no recibe
      confirmación en tiempo real de su acción, generando tiempos muertos, ansiedad y rompiendo
      por completo la continuidad de la tarea (ruptura del estado de flujo).
@@ -452,7 +452,7 @@ disponibilidad y actualización de los datos publicados en la plataforma.
 Actualmente, la información asociada al estado de los datos y a las validaciones de calidad se
 encuentra distribuida en múltiples mecanismos independientes: correos electrónicos, archivos
 CSV, consultas manuales a las bases de datos de SIMEM, monitor de carga de datos diario y una
-alerta de conjuntos de datos con publicaciones definidas en plazos regulatorios[^creg]. Esta
+alerta de conjuntos de datos con publicaciones definidas en plazos regulatorios. Esta
 situación genera una experiencia fragmentada que dificulta la identificación temprana de
 incidentes, el seguimiento de problemas y la priorización de acciones correctivas.
 
@@ -2266,6 +2266,7 @@ Las capturas se guardan en `docs/img/prototipo_final/` con los nombres indicados
 
 ![PF – Torre de Control (1)](img/prototipo_final/pf_torre_de_control_1.png)
 
+
 **Oportunidad de publicación**
 
 ![PF – Oportunidad de publicación](img/prototipo_final/pf_oportunidad_publicacion.png)
@@ -2275,11 +2276,11 @@ Las capturas se guardan en `docs/img/prototipo_final/` con los nombres indicados
 
 ![PF – Versiones de liquidación](img/prototipo_final/pf_versiones_liquidacion.png)
 ![PF – Detalle y recuperación de versión](img/prototipo_final/pf_versiones_detalle.png)
+![PF – Detalle y recuperación de versión](img/prototipo_final/pf_versiones_detalle_2.png)
 
 **Validación Fuente vs SIMEM**
 
 ![PF – Validación Fuente vs SIMEM](img/prototipo_final/pf_validacion_fuente_simem.png)
-![PF – Validación Fuente vs SIMEM](img/prototipo_final/pf_validacion_fuente_simem_2.png)
 ![PF – Validación histórica personalizada](img/prototipo_final/pf_validacion_historica.png)
 
 **Indicadores y tendencias**
@@ -2308,7 +2309,7 @@ Las capturas se guardan en `docs/img/prototipo_final/` con los nombres indicados
 
 **Notificaciones**
 
-![PF – Notificaciones](img/prototipo_final/pf_notificaciones.png)
+![PF – Torre de Control (1)](img/prototipo_final/pf_torre_de_control_2.png)
 
 ## 3. Flujo de tareas
 
@@ -2864,16 +2865,3 @@ Expectations, Microsoft Purview, Azure Data Factory, Grafana, Atlassian Statuspa
 GitHub) se citan en línea en las secciones 4.3 y 4.4 de la Parte III, consultadas el 20 de
 septiembre de 2026.
 
-[^literacidad]: Es la capacidad de una persona para buscar, comprender, evaluar, crear y utilizar
-    información mediante tecnologías digitales de manera crítica, segura y responsable.
-
-[^abismo-ejecucion]: Abismo de Ejecución: la dificultad de hacer que el sistema haga lo que
-    quiero. Don Norman.
-
-[^abismo-evaluacion]: Abismo de Evaluación: la dificultad de saber si el sistema hizo lo que le
-    pedí. Don Norman.
-
-[^creg]: Los conjuntos de datos regulatorios están definidos en la resolución CREG 101 018 del
-    2022, por la cual se crea el Sistema de Información del Mercado de Energía Mayorista, SIMEM.
-    Estos tienen fechas exactas en las que se debe publicar la información. En caso contrario
-    pueden existir sanciones por incumplimiento de la normatividad.
