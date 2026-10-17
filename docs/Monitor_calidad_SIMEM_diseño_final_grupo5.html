@@ -1,0 +1,1721 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Monitor_calidad_SIMEM</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Nunito:wght@400;600;700;800&family=Open+Sans:wght@400;600;700&display=swap">
+<style>
+:root{
+  --bg:#F4F3FA;--surface:#FFFFFF;--surface-2:#EEF1F3;--surface-3:#E6E6E6;--border:#E6E6E6;--border-strong:#BABEC3;
+  --text:#373737;--muted:#777778;--faint:#A2A2A2;
+  --accent:#440099;--accent-ink:#FFFFFF;--sec:#FF6A13;
+  --ok:#00966C;--warn:#FFC600;--warn-t:#8A6700;--err:#F12828;--cfg:#AC145A;--idle:#777778;
+  --c1:#440099;--c2:#FF6A13;--c3:#AC145A;--c4:#2AD2C9;--c5:#00966C;
+  --shadow:0 16px 40px rgba(55,55,55,.16);
+  /* UI kit SIMEM */
+  --primary-dark:#2F126A;--primary-100:#571D92;--primary-200:#672F9C;--primary-400:#8765B2;--primary-700:#CFC3DE;--primary-800:#F7F0FF;--primary-900:#F4F3FA;
+  --secondary-700:#FEDCCB;--gray-300:#BABEC3;--gray-400:#D9D9D9;--gray-600:#EEF1F3;
+  --title:#46049A;--head:"Nunito",system-ui,sans-serif;
+  --ok-bg:#E8FCF7;--ok-ink:#007554;--warn-bg:#FEF6D7;--warn-ink:#8A6700;--err-bg:#FEE9E9;--err-ink:#B70000;--cfg-bg:#FFF0F7;--cfg-ink:#AC145A;--idle-bg:#EEF1F3;--idle-ink:#5F5F60;--info-bg:#F7F0FF;--info-ink:#440099;--blue-bg:#DBEFF5;--blue-ink:#006E8F;
+  --sans:"Open Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,"Cascadia Mono",Consolas,monospace;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#14101B;--surface:#1D1727;--surface-2:#251E31;--surface-3:#30283E;--border:#342C43;--border-strong:#4A4059;
+  --text:#F2F0F5;--muted:#A9A3B3;--faint:#7C7589;
+  --accent:#A57BFF;--accent-ink:#17082E;--sec:#FF8A47;
+  --ok:#2FCB9B;--warn:#FFC600;--warn-t:#FFC600;--err:#FF6B6B;--cfg:#E0568F;--idle:#A2A2A2;
+  --c1:#A57BFF;--c2:#FF8A47;--c3:#E0568F;--c4:#2AD2C9;--c5:#2FCB9B;
+  --shadow:0 16px 40px rgba(0,0,0,.5);
+  --title:#CDB6FF;--head:"Nunito",system-ui,sans-serif;--primary-800:#2B2040;--primary-900:#251E31;--primary-100:#B795FF;--gray-600:#251E31;--gray-300:#4A4059;
+  --ok-bg:rgba(47,203,155,.16);--ok-ink:#2FCB9B;--warn-bg:rgba(255,198,0,.16);--warn-ink:#FFC600;--err-bg:rgba(255,107,107,.16);--err-ink:#FF8A8A;--cfg-bg:rgba(224,86,143,.18);--cfg-ink:#F07BAA;--idle-bg:rgba(162,162,162,.16);--idle-ink:#BDB8C6;--info-bg:rgba(165,123,255,.18);--info-ink:#C9B3FF;--blue-bg:rgba(75,184,217,.16);--blue-ink:#7FD3EC;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#14101B;--surface:#1D1727;--surface-2:#251E31;--surface-3:#30283E;--border:#342C43;--border-strong:#4A4059;
+  --text:#F2F0F5;--muted:#A9A3B3;--faint:#7C7589;
+  --accent:#A57BFF;--accent-ink:#17082E;--sec:#FF8A47;
+  --ok:#2FCB9B;--warn:#FFC600;--warn-t:#FFC600;--err:#FF6B6B;--cfg:#E0568F;--idle:#A2A2A2;
+  --c1:#A57BFF;--c2:#FF8A47;--c3:#E0568F;--c4:#2AD2C9;--c5:#2FCB9B;
+  --shadow:0 16px 40px rgba(0,0,0,.5);
+  --title:#CDB6FF;--head:"Nunito",system-ui,sans-serif;--primary-800:#2B2040;--primary-900:#251E31;--primary-100:#B795FF;--gray-600:#251E31;--gray-300:#4A4059;
+  --ok-bg:rgba(47,203,155,.16);--ok-ink:#2FCB9B;--warn-bg:rgba(255,198,0,.16);--warn-ink:#FFC600;--err-bg:rgba(255,107,107,.16);--err-ink:#FF8A8A;--cfg-bg:rgba(224,86,143,.18);--cfg-ink:#F07BAA;--idle-bg:rgba(162,162,162,.16);--idle-ink:#BDB8C6;--info-bg:rgba(165,123,255,.18);--info-ink:#C9B3FF;--blue-bg:rgba(75,184,217,.16);--blue-ink:#7FD3EC;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;background:var(--bg);color:var(--text);font:14px/1.45 var(--sans)}
+button,input,select,textarea{font:inherit;color:inherit}
+h1,h2,h3{text-wrap:balance}
+.i{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
+.muted{color:var(--muted)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+@media (prefers-reduced-motion: reduce){*{transition:none!important;animation:none!important}}
+
+/* Shell */
+.app{display:grid;grid-template-columns:236px minmax(0,1fr);min-height:100%}
+.side{position:sticky;top:0;height:100vh;height:100dvh;background:var(--surface);border-right:1px solid var(--border);display:flex;flex-direction:column;gap:2px;padding:16px 10px;overflow-y:auto}
+.brand{display:flex;align-items:center;gap:10px;padding:4px 8px 18px}
+.brand-mark{width:30px;height:30px;border-radius:7px;background:var(--accent);color:var(--accent-ink);display:grid;place-items:center}
+.brand-mark .i{width:18px;height:18px}
+.brand b{display:block;font-size:14px;line-height:1.2}
+.brand span{font-size:11px;color:var(--muted);letter-spacing:.04em;text-transform:uppercase}
+.nav a{display:flex;align-items:center;gap:10px;padding:8px 10px;border-radius:6px;color:var(--muted);text-decoration:none;font-weight:500}
+.nav a:hover{background:var(--surface-2);color:var(--text)}
+.nav a.on{background:color-mix(in srgb,var(--accent) 16%,transparent);color:var(--text)}
+.nav a.on .i{color:var(--accent)}
+.nav a kbd{margin-left:auto}
+.nav a .badge{margin-left:auto;font:500 11px var(--mono);padding:1px 6px;border-radius:999px;background:color-mix(in srgb,var(--err) 20%,transparent);color:var(--err)}
+.nav a .badge + kbd{margin-left:6px}
+.side-foot{margin-top:auto;padding:12px 8px 0;border-top:1px solid var(--border);font-size:11.5px;color:var(--faint);line-height:1.5}
+.main{min-width:0;display:flex;flex-direction:column}
+.top{position:sticky;top:0;z-index:20;display:flex;align-items:center;gap:12px;padding:10px 24px;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--border)}
+.search{flex:1;max-width:460px;display:flex;align-items:center;gap:8px;height:36px;padding:0 10px;border:1px solid var(--border-strong);border-radius:7px;background:var(--surface);color:var(--muted);cursor:pointer;text-align:left}
+.search span{flex:1;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.proto{font-size:11.5px;color:var(--warn-t);border:1px dashed color-mix(in srgb,var(--warn) 60%,transparent);border-radius:999px;padding:2px 10px;white-space:nowrap}
+.top-r{margin-left:auto;display:flex;align-items:center;gap:8px}
+.icon-btn{width:36px;height:36px;display:grid;place-items:center;border-radius:7px;border:1px solid transparent;background:transparent;cursor:pointer;color:var(--muted);position:relative}
+.icon-btn:hover{background:var(--surface-2);color:var(--text)}
+.icon-btn .dot{position:absolute;top:7px;right:8px;width:8px;height:8px;border-radius:50%;background:var(--err);border:2px solid var(--bg)}
+.date-in{height:36px;border:1px solid var(--border-strong);border-radius:7px;background:var(--surface);padding:0 8px;font-family:var(--mono);font-size:13px}
+.avatar{width:32px;height:32px;border-radius:50%;display:grid;place-items:center;font:600 12px var(--sans);background:var(--surface-3);color:var(--text);flex:none}
+.avatar.sm{width:22px;height:22px;font-size:10px}
+.view{padding:24px;display:flex;flex-direction:column;gap:20px}
+
+/* Common */
+kbd{font:500 11px var(--mono);padding:0 5px;border:1px solid var(--border-strong);border-bottom-width:2px;border-radius:4px;color:var(--muted);background:var(--surface-2);line-height:17px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:34px;padding:0 14px;border-radius:6px;border:1px solid var(--border-strong);background:var(--surface-2);cursor:pointer;font-weight:500;white-space:nowrap;text-decoration:none}
+.btn:hover{background:var(--surface-3)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.btn.primary:hover{filter:brightness(1.08)}
+.btn.danger{color:var(--err)}
+.btn.ghost{background:transparent;border-color:transparent;color:var(--muted)}
+.btn.ghost:hover{background:var(--surface-2);color:var(--text)}
+.btn.sm{height:28px;padding:0 10px;font-size:13px}
+.btn:disabled{opacity:.5;cursor:not-allowed}
+.btn kbd{margin-left:2px}
+.chip{display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:500;padding:2px 9px 2px 7px;border-radius:999px;white-space:nowrap;line-height:18px}
+.chip .i{width:13px;height:13px}
+.chip.ok{color:var(--ok);background:color-mix(in srgb,var(--ok) 15%,transparent)}
+.chip.warn{color:var(--warn-t);background:color-mix(in srgb,var(--warn) 16%,transparent)}
+.chip.err{color:var(--err);background:color-mix(in srgb,var(--err) 15%,transparent)}
+.chip.cfg{color:var(--cfg);background:color-mix(in srgb,var(--cfg) 16%,transparent)}
+.chip.idle{color:var(--idle);background:color-mix(in srgb,var(--idle) 16%,transparent)}
+.chip.info{color:var(--accent);background:color-mix(in srgb,var(--accent) 15%,transparent)}
+.sev{display:inline-flex;align-items:center;gap:6px;font-size:12px;white-space:nowrap}
+.sev::before{content:"";width:8px;height:8px;border-radius:2px;background:currentColor}
+.sev.crit{color:var(--err);font-weight:600}.sev.alta{color:var(--warn-t);font-weight:500}.sev.media{color:var(--muted)}.sev.baja{color:var(--faint)}
+.tag{font:500 11.5px var(--mono);color:var(--muted);border:1px solid var(--border-strong);padding:0 6px;border-radius:4px;white-space:nowrap}
+.panel{background:var(--surface);border:1px solid var(--border);border-radius:8px;min-width:0}
+.panel-h{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px 12px;padding:12px 16px;border-bottom:1px solid var(--border)}
+.panel-h h3{margin:0;font-size:14px;font-weight:600;display:flex;align-items:center;gap:8px}
+.panel-h small{color:var(--muted);font-size:12px}
+.panel-b{padding:16px}
+.vh{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px}
+.vh h1{margin:0;font-size:22px;font-weight:600;letter-spacing:-.01em}
+.vh p{margin:4px 0 0;color:var(--muted);max-width:70ch}
+.vh-act{display:flex;gap:8px;flex-wrap:wrap}
+.tbl-wrap{overflow-x:auto}
+table.tbl{width:100%;border-collapse:collapse;font-size:13px}
+.tbl th{text-align:left;font-weight:500;color:var(--muted);font-size:12px;padding:9px 12px;border-bottom:1px solid var(--border);white-space:nowrap;background:var(--surface)}
+.tbl td{padding:9px 12px;border-bottom:1px solid var(--border);white-space:nowrap;vertical-align:middle}
+.tbl tbody tr:hover td{background:var(--surface-2)}
+.tbl tr.hl td{background:color-mix(in srgb,var(--warn) 7%,transparent)}
+.tbl tr.sel td{background:color-mix(in srgb,var(--accent) 10%,transparent)}
+.tbl tr.click{cursor:pointer}
+.tbl .num{text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums}
+.tbl tr:last-child td{border-bottom:0}
+.sub-note{display:flex;align-items:center;gap:5px;color:var(--warn-t);font-size:12px;margin-top:2px}
+.sub-note .i{width:13px;height:13px}
+input[type=checkbox]{width:16px;height:16px;accent-color:var(--accent);cursor:pointer}
+.field{display:flex;flex-direction:column;gap:6px}
+.field label{font-size:12px;color:var(--muted);font-weight:500}
+.in{height:36px;border:1px solid var(--border-strong);border-radius:6px;background:var(--surface-2);padding:0 10px;min-width:0;width:100%}
+textarea.in{height:auto;padding:10px;font-family:var(--mono);font-size:12.5px;line-height:1.6;resize:vertical}
+.filters{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.seg{display:inline-flex;flex-wrap:wrap;gap:4px;padding:3px;border:1px solid var(--border);border-radius:8px;background:var(--surface)}
+.seg button{border:0;background:transparent;padding:4px 10px;border-radius:5px;cursor:pointer;color:var(--muted);font-size:13px}
+.seg button.on{background:var(--surface-3);color:var(--text);font-weight:500}
+.chart{width:100%;height:auto;display:block}
+.chart .grid{stroke:var(--border);stroke-width:1}
+.chart .ax{fill:var(--muted);font:11px var(--mono)}
+.legend{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:12px;color:var(--muted)}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.legend i{width:10px;height:10px;border-radius:2px;display:inline-block}
+
+/* KPIs */
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px}
+.kpi{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:14px 16px;display:flex;flex-direction:column;gap:4px;min-width:0}
+.kpi-l{display:flex;align-items:center;gap:6px;font-size:12.5px;color:var(--muted)}
+.kpi-v{font:500 28px/1.15 var(--mono);letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.kpi-s{font-size:12px;color:var(--muted)}
+.kpi-s.up{color:var(--ok)}
+.kpi.warn .kpi-l .i{color:var(--warn-t)}.kpi.err .kpi-l .i{color:var(--err)}.kpi.cfg .kpi-l .i{color:var(--cfg)}.kpi.ok .kpi-l .i{color:var(--ok)}
+.kpi.warn .kpi-v{color:var(--warn-t)}.kpi.err .kpi-v{color:var(--err)}.kpi.cfg .kpi-v{color:var(--cfg)}
+
+/* Torre */
+.torre{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:20px;align-items:start}
+.torre-main{display:flex;flex-direction:column;gap:20px;min-width:0}
+.cols{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.col{background:var(--surface);border:1px solid var(--border);border-radius:8px;display:flex;flex-direction:column;min-width:0}
+.col-h{padding:12px 14px;border-bottom:1px solid var(--border)}
+.col-h h3{margin:0;display:flex;align-items:center;gap:8px;font-size:14px}
+.col-h h3 .n{margin-left:auto;font:500 13px var(--mono);color:var(--muted)}
+.col-h p{margin:2px 0 0;font-size:12px;color:var(--muted)}
+.col.warn h3 .i{color:var(--warn-t)}.col.err h3 .i{color:var(--err)}.col.cfg h3 .i{color:var(--cfg)}
+.col-b{padding:8px;display:flex;flex-direction:column;gap:6px;max-height:430px;overflow-y:auto}
+.icard{display:flex;flex-direction:column;gap:6px;text-align:left;width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:6px;background:var(--surface-2);cursor:pointer}
+.icard:hover{border-color:var(--border-strong);background:var(--surface-3)}
+.icard b{font-weight:500;font-size:13.5px;line-height:1.3}
+.icard .row{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;font-size:12px;color:var(--muted)}
+.icard .who{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--muted)}
+.icard .who.free{color:var(--faint);font-style:italic}
+.strip-row{display:grid;grid-template-columns:minmax(120px,220px) minmax(0,1fr) 64px;gap:12px;align-items:center;padding:6px 0}
+.strip-row + .strip-row{border-top:1px solid var(--border)}
+.strip-name{font-size:13px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.strip{display:grid;grid-template-columns:repeat(30,minmax(0,1fr));gap:2px}
+.strip i{height:22px;border-radius:2px;display:block}
+.strip i.ok{background:color-mix(in srgb,var(--ok) 70%,var(--surface))}
+.strip i.warn{background:var(--warn)}
+.strip i.err{background:var(--err)}
+.strip-pct{text-align:right;font:500 13px var(--mono)}
+.strip-axis{display:grid;grid-template-columns:minmax(120px,220px) minmax(0,1fr) 64px;gap:12px;font:11px var(--mono);color:var(--faint)}
+.strip-axis div:nth-child(2){display:flex;justify-content:space-between}
+.aside{display:flex;flex-direction:column;gap:16px;position:sticky;top:76px}
+.digest ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px}
+.digest li{display:flex;gap:10px;font-size:13px;line-height:1.45}
+.digest li .i{margin-top:2px}
+.digest li.err .i{color:var(--err)}.digest li.warn .i{color:var(--warn-t)}.digest li.cfg .i{color:var(--cfg)}.digest li.ok .i{color:var(--ok)}
+.digest-meta{font-size:12px;color:var(--muted);margin-bottom:12px}
+.next-list{display:flex;flex-direction:column;gap:8px;font-size:13px}
+.next-list div{display:flex;justify-content:space-between;gap:10px}
+.next-list span:last-child{font-family:var(--mono);color:var(--muted);font-size:12px}
+
+/* Torre: KPIs en fila y tabs */
+.kpis-row{grid-template-columns:repeat(5,minmax(0,1fr))}
+.tabs{display:flex;flex-wrap:wrap;gap:4px;padding:0 12px;border-bottom:1px solid var(--border)}
+.tab{display:inline-flex;align-items:center;gap:8px;height:44px;padding:0 14px;border:0;border-bottom:3px solid transparent;margin-bottom:-1px;background:transparent;cursor:pointer;color:var(--muted);font-weight:700;font-size:13.5px}
+.tab:hover{color:var(--text)}
+.tab.on{color:var(--text);border-bottom-color:var(--accent)}
+.tab[data-tab="warn"] .i{color:var(--warn-t)}.tab[data-tab="err"] .i{color:var(--err)}.tab[data-tab="cfg"] .i{color:var(--cfg)}
+.tab .n{font:600 12px var(--mono);padding:0 7px;border-radius:999px;background:var(--surface-3);color:var(--text)}
+@media (max-width:1180px){.kpis-row{grid-template-columns:repeat(auto-fit,minmax(180px,1fr))}}
+
+.filters.trz .in{background:var(--surface)}
+.inc.solo{grid-template-columns:minmax(0,1fr)}
+.inc-hdr{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:16px 20px;display:flex;flex-direction:column;gap:14px}
+.ih-top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 20px;align-items:flex-start}
+.ih-title{display:flex;flex-direction:column;gap:8px;min-width:0;align-items:flex-start}
+.ih-title h1{margin:0;font-size:21px;font-weight:700}
+.ih-act{display:flex;align-items:flex-end;gap:10px}
+.ih-act .in{width:210px;background:var(--surface)}
+.ih-meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px 24px;margin:0;padding-top:14px;border-top:1px solid var(--border)}
+.ih-meta dt{font-size:12px;color:var(--muted);font-weight:600;margin-bottom:2px}
+.ih-meta dd{margin:0;font-size:13.5px;font-weight:600;overflow-wrap:anywhere}
+.kebab-wrap{position:relative}
+.kebab{border:1px solid var(--border-strong);background:var(--surface)}
+.kmenu{position:absolute;right:0;top:calc(100% + 6px);z-index:40;min-width:270px;background:var(--surface);border:1px solid var(--border-strong);border-radius:8px;box-shadow:var(--shadow);padding:6px;display:flex;flex-direction:column}
+.kmenu button{display:flex;align-items:center;gap:10px;padding:9px 10px;border:0;background:transparent;border-radius:6px;text-align:left;cursor:pointer;font-size:13.5px}
+.kmenu button:hover{background:var(--surface-2)}
+.tbl th.num{font-family:var(--sans)}
+/* Incidentes */
+.inc{display:grid;grid-template-columns:270px minmax(0,1fr);gap:20px;align-items:start}
+.inc-list{display:flex;flex-direction:column;gap:6px;position:sticky;top:76px}
+.inc-list h3{margin:0 0 4px;font-size:12px;font-weight:500;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}
+.inc-item{display:flex;flex-direction:column;gap:4px;text-align:left;padding:9px 11px;border:1px solid var(--border);border-radius:6px;background:var(--surface);cursor:pointer}
+.inc-item:hover{background:var(--surface-2)}
+.inc-item.on{border-color:var(--accent);background:color-mix(in srgb,var(--accent) 8%,var(--surface))}
+.inc-item b{font-weight:500;font-size:13px}
+.inc-item .row{display:flex;gap:8px;align-items:center;font-size:12px;color:var(--muted)}
+.inc-detail{display:flex;flex-direction:column;gap:16px;min-width:0}
+.inc-head{display:flex;flex-direction:column;gap:10px}
+.inc-head h1{margin:0;font-size:21px;font-weight:600}
+.inc-meta{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;font-size:12.5px;color:var(--muted)}
+.flow{display:flex;align-items:stretch;gap:0;flex-wrap:wrap}
+.flow-node{flex:1;min-width:150px;padding:12px 14px;border:1px solid var(--border-strong);border-radius:8px;background:var(--surface-2);display:flex;flex-direction:column;gap:2px}
+.flow-node b{font-size:13px;display:flex;align-items:center;gap:6px}
+.flow-node span{font:12px var(--mono);color:var(--muted)}
+.flow-node.bad{border-color:var(--err);background:color-mix(in srgb,var(--err) 10%,var(--surface))}
+.flow-node.bad b{color:var(--err)}
+.flow-node.good b .i{color:var(--ok)}
+.flow-arrow{display:grid;place-items:center;width:36px;color:var(--faint)}
+.steps{display:flex;flex-wrap:wrap;gap:4px;align-items:center}
+.step{display:flex;align-items:center;gap:6px;font-size:12.5px;color:var(--faint);padding:4px 10px 4px 6px;border-radius:999px;border:1px solid var(--border)}
+.step i{width:18px;height:18px;border-radius:50%;display:grid;place-items:center;font:600 10px var(--mono);font-style:normal;background:var(--surface-3);color:var(--muted)}
+.step.done{color:var(--muted)}
+.step.done i{background:color-mix(in srgb,var(--ok) 25%,transparent);color:var(--ok)}
+.step.cur{color:var(--text);border-color:var(--accent);font-weight:500}
+.step.cur i{background:var(--accent);color:var(--accent-ink)}
+.assign{display:flex;flex-wrap:wrap;align-items:center;gap:12px;justify-content:space-between}
+.assign-who{display:flex;align-items:center;gap:8px;font-size:13px}
+.inc-grid{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:16px;align-items:start}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.inc-col{display:flex;flex-direction:column;gap:16px;min-width:0}
+.diff td.bad{background:color-mix(in srgb,var(--err) 13%,transparent)!important}
+.diff td.bad.src{background:color-mix(in srgb,var(--ok) 11%,transparent)!important}
+.diff .delta.bad{color:var(--err);font-weight:500}
+.diff-sum{display:flex;flex-wrap:wrap;gap:8px 16px;font-size:12.5px;color:var(--muted)}
+.actions{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.actions .btn{justify-content:flex-start;height:auto;min-height:38px;padding:8px 12px;white-space:normal;text-align:left}
+.tl{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
+.tl li{display:grid;grid-template-columns:14px minmax(0,1fr);gap:10px;position:relative;padding-bottom:14px}
+.tl li::before{content:"";position:absolute;left:6px;top:14px;bottom:0;width:1px;background:var(--border-strong)}
+.tl li:last-child::before{display:none}
+.tl li>i{width:13px;height:13px;border-radius:50%;border:2px solid var(--accent);background:var(--surface);margin-top:3px}
+.tl li.sys>i{border-color:var(--faint)}
+.tl li.bad>i{border-color:var(--err)}
+.tl li.good>i{border-color:var(--ok)}
+.tl .t{font-size:13px}
+.tl .m{font-size:11.5px;color:var(--muted);font-family:var(--mono)}
+.comment{display:flex;gap:8px;margin-top:4px}
+.comment .in{flex:1}
+.code{font:12.5px/1.65 var(--mono);background:var(--surface-2);border:1px solid var(--border);border-radius:6px;padding:12px;overflow-x:auto;white-space:pre;margin:0}
+.code .del{background:color-mix(in srgb,var(--err) 16%,transparent);color:var(--err);display:inline-block;min-width:100%}
+.code .add{background:color-mix(in srgb,var(--ok) 16%,transparent);color:var(--ok);display:inline-block;min-width:100%}
+
+/* Oportunidad */
+.floatbar{position:fixed;left:50%;bottom:20px;transform:translateX(-50%);z-index:30;display:flex;flex-wrap:wrap;align-items:center;gap:10px;padding:10px 12px 10px 16px;border-radius:10px;background:var(--surface-3);border:1px solid var(--border-strong);box-shadow:var(--shadow);max-width:calc(100% - 32px)}
+.floatbar b{font-weight:600;margin-right:6px}
+.prog{height:6px;border-radius:3px;background:var(--surface-3);overflow:hidden}
+.prog i{display:block;height:100%;background:var(--accent);width:0;transition:width .25s linear}
+.prog.done i{background:var(--ok)}
+.prog-row{display:grid;grid-template-columns:minmax(0,1fr) 110px;gap:6px 12px;align-items:center;padding:8px 0;border-bottom:1px solid var(--border);font-size:13px}
+.prog-row .prog{grid-column:1/-1}
+.prog-row span:nth-child(2){text-align:right;font:12px var(--mono);color:var(--muted)}
+.check-line{display:flex;gap:10px;align-items:flex-start;padding:12px;border:1px solid var(--border);border-radius:8px;background:var(--surface-2);font-size:13px}
+.check-line input{margin-top:2px}
+.check-line small{display:block;color:var(--muted);font-size:12px}
+
+/* Versiones */
+.vfilters{display:flex;flex-wrap:wrap;gap:12px;align-items:flex-end}
+.vfilters .field{min-width:200px;flex:1 1 200px;max-width:280px}
+.vcount{font-size:12.5px;margin-left:auto;align-self:center}
+.vsum{display:flex;flex-wrap:wrap;gap:10px 20px;align-items:center;justify-content:space-between;padding:14px 18px;border-radius:8px;border:1px solid var(--border);border-left-width:4px;background:var(--surface)}
+.vsum.bad{border-left-color:var(--err)}.vsum.good{border-left-color:var(--ok)}
+.vsum-main{display:flex;align-items:center;gap:10px;font-size:17px;font-weight:600}
+.vsum.bad .vsum-main .i{color:var(--err)}.vsum.good .vsum-main .i{color:var(--ok)}
+.vsum-main .i{width:22px;height:22px}
+.vsum-sub{display:flex;flex-wrap:wrap;gap:6px}
+.vm-wrap{overflow:auto;max-height:min(620px,70vh)}
+table.vm{border-collapse:separate;border-spacing:0;font-size:12px}
+.vm th,.vm td{padding:2px}
+.vm thead th{position:sticky;top:0;z-index:3;background:var(--surface);font:600 11px var(--mono);color:var(--muted);text-align:center;padding:6px 0 6px;border-bottom:1px solid var(--border)}
+.vm thead th.we{color:var(--faint)}
+.vm th .wd{display:block;font-weight:400;color:var(--faint)}
+.vm th.rh{position:sticky;left:0;z-index:2;background:var(--surface);text-align:left;padding:4px 14px 4px 12px;min-width:290px;max-width:290px;border-right:1px solid var(--border);font:600 13px var(--sans);color:var(--text);white-space:nowrap}
+.vm thead th.rh{z-index:4;font-size:12px;color:var(--muted);font-weight:600}
+.vm th.rh .rn{display:block;overflow:hidden;text-overflow:ellipsis}
+.vm th.rh small{display:block;font:400 11px var(--sans);color:var(--muted)}
+.vm th.rh .mf{color:var(--err);font-weight:700}
+.vm tbody tr:hover th.rh{background:var(--surface-2)}
+.vcell{width:30px;height:30px;border-radius:5px;border:0;display:grid;place-items:center;padding:0;cursor:pointer;margin:0 auto}
+.vcell .i{width:14px;height:14px;stroke-width:2.5}
+.vcell.ok{background:color-mix(in srgb,var(--ok) 22%,transparent);color:var(--ok)}
+.vcell.miss{background:var(--err);color:#fff}
+.vcell.late{background:color-mix(in srgb,var(--warn) 70%,transparent);color:#4A3600}
+.vcell.pend{background:var(--surface-3);color:var(--muted);border:1px dashed var(--faint)}
+.vcell.none{background:transparent;color:var(--faint);cursor:default;font-size:14px;line-height:1}
+button.vcell:hover{outline:2px solid var(--text);outline-offset:1px}
+button.vcell.pick{outline:3px solid var(--accent);outline-offset:1px}
+.vleg{gap:8px 18px}
+.lgi{display:inline-flex;align-items:center;gap:7px;font-size:12px;color:var(--muted)}
+.lgi .vcell{width:20px;height:20px;border-radius:4px;margin:0;cursor:default}
+.lgi .vcell .i{width:12px;height:12px}
+.vtip{position:fixed;z-index:70;max-width:300px;padding:8px 10px;border-radius:6px;background:var(--text);color:var(--bg);font-size:12px;line-height:1.4;display:flex;flex-direction:column;gap:2px;pointer-events:none;box-shadow:var(--shadow)}
+.vtip[hidden]{display:none}
+.vtip .t-err{font-weight:700;text-decoration:underline}
+.lg-cell{width:14px;height:14px;border-radius:3px;display:inline-block}
+
+/* Validación */
+.cfgband{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:14px 24px}
+.cfgi{display:flex;flex-direction:column;gap:3px;min-width:0}
+.cfgi span{font-size:12px;color:var(--muted);font-weight:600}
+.cfgi b{font-weight:600;font-size:13.5px;overflow-wrap:anywhere}
+.vkpis{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+.vkpis .kpi{padding:10px 16px}.vkpis .kpi-v{font-size:24px}
+.valtbl th small{display:block;font-weight:400;color:var(--faint);font-size:11px}
+.idp{display:inline-block;margin-right:8px;font-size:12.5px}
+.na{color:var(--muted);font-style:italic;font-family:var(--sans);font-size:12px}
+.tbl td.dfv{color:var(--err);font-weight:700}
+.solbtn{display:inline-flex;align-items:center;gap:6px;height:28px;padding:0 10px;border-radius:999px;border:1px solid transparent;cursor:pointer;font-size:12px;font-weight:600}
+.solbtn.yes{color:var(--ok);background:color-mix(in srgb,var(--ok) 14%,transparent)}
+.solbtn.no{color:var(--err);background:color-mix(in srgb,var(--err) 12%,transparent)}
+.solbtn:hover{border-color:currentColor}
+.vstate{display:flex;gap:10px;align-items:center;padding:14px 16px;border:1px dashed var(--border-strong);border-radius:8px;color:var(--muted);font-size:13px}
+.vstate b{color:var(--text)}
+.vstate.err{border-style:solid;border-color:color-mix(in srgb,var(--err) 55%,transparent);background:color-mix(in srgb,var(--err) 8%,transparent);color:var(--text)}
+.vstate.err .i{color:var(--err)}
+.spin{width:18px;height:18px;border-radius:50%;border:2px solid var(--border-strong);border-top-color:var(--accent);animation:sp .8s linear infinite;flex:none}
+@keyframes sp{to{transform:rotate(360deg)}}
+input[aria-invalid="true"]{border-color:var(--err)}
+
+/* Detalle de versión (panel derecho) */
+.drawer.ver{width:min(540px,100%)}
+.drawer.ver .modal-b{gap:10px;padding:14px 18px}
+.vd-top{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap}
+.vd-meta{display:grid;grid-template-columns:1fr 1fr;gap:8px 16px;margin:0}
+.vd-meta dt{font-size:12px;color:var(--muted);font-weight:600}
+.vd-meta dd{margin:0;font-size:13px;font-weight:600;overflow-wrap:anywhere}
+.vd-sum{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:8px}
+.vd-sum>div{border:1px solid var(--border);border-radius:8px;padding:8px 10px;display:flex;flex-direction:column;gap:1px;min-width:0}
+.vd-sum b{font:600 20px/1.1 var(--mono)}
+.vd-sum .ok b{color:var(--ok)}.vd-sum .bad{border-color:color-mix(in srgb,var(--err) 50%,transparent)}.vd-sum .bad b{color:var(--err)}
+.vd-sum span{font-size:12px;color:var(--muted);font-weight:600}
+.vd-sum em{font-style:normal;font-size:12px;overflow-wrap:anywhere}
+.vd-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px}
+.vd-list li{border:1px solid var(--border);border-radius:8px;padding:8px 10px;display:flex;flex-direction:column;gap:3px}
+.vd-list li.miss{border-color:color-mix(in srgb,var(--err) 50%,transparent)}
+.vl-h{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.vl-h .chip{margin-left:auto}
+.vl-d{font-size:12px}
+.vl-s{display:flex;gap:8px;font-size:12px;align-items:flex-start;margin-top:2px}
+.vl-s.found .i{color:var(--ok)}.vl-s.gone .i{color:var(--err)}
+.vd-note{display:flex;gap:8px;align-items:flex-start;padding:8px 10px;border-radius:8px;background:var(--info-bg);color:var(--text);font-size:12.5px;line-height:17px}.vd-note .i{color:var(--accent);margin-top:1px}
+.drawer.ver .vd-sum>div{display:grid;grid-template-columns:auto 1fr;column-gap:8px;align-items:baseline;padding:6px 10px}.drawer.ver .vd-sum b{font-size:17px}.drawer.ver .vd-sum em{grid-column:1/-1}
+.drawer.ver .vd-list li{padding:7px 10px}.drawer.ver .modal-b{gap:8px}
+.vl-opt{display:flex;gap:6px;align-items:center;margin-top:6px;font-size:12.5px;cursor:pointer;color:var(--text)}.vl-opt i{font-style:normal;color:var(--muted)}
+.vl-s code{display:block;font:11px var(--mono);color:var(--muted);overflow-wrap:anywhere}
+/* Indicadores */
+.igrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.igrid .wide{grid-column:1/-1}
+.hbar{display:grid;grid-template-columns:70px minmax(0,1fr) 40px;gap:10px;align-items:center;font-size:13px;padding:5px 0}
+.hbar .track{height:14px;background:var(--surface-2);border-radius:3px;overflow:hidden}
+.hbar .track i{display:block;height:100%;background:var(--c1);border-radius:3px}
+.hbar span:last-child{text-align:right;font-family:var(--mono)}
+.heat{display:grid;grid-template-columns:34px repeat(24,minmax(0,1fr));gap:2px;font:10.5px var(--mono);color:var(--faint);align-items:center}
+.heat i{height:18px;border-radius:2px;display:block}
+.heat .hx{text-align:center}
+.explorer{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.6fr);gap:16px;align-items:start}
+.answer{border:1px solid var(--border);border-radius:8px;padding:14px;display:flex;flex-direction:column;gap:8px;background:var(--surface-2)}
+.answer.err{border-color:color-mix(in srgb,var(--err) 60%,transparent)}
+.answer.ok{border-color:color-mix(in srgb,var(--ok) 60%,transparent)}
+.answer.warn{border-color:color-mix(in srgb,var(--warn) 60%,transparent)}
+.answer b{font-size:15px}
+.answer p{margin:0;font-size:13px;color:var(--muted)}
+.spark{width:90px;height:24px;display:block}
+
+/* Indicadores nuevos */
+.dsel-row{display:flex;flex-wrap:wrap;gap:8px}
+.dsel{display:inline-flex;align-items:center;gap:8px;height:32px;padding:0 12px;border-radius:999px;border:1px solid var(--border-strong);background:var(--surface);cursor:pointer;font-size:13px;color:var(--muted);font-weight:600}
+.dsel i{width:10px;height:10px;border-radius:50%;display:inline-block;flex:none}
+.dsel[aria-pressed="true"]{color:var(--text);background:color-mix(in srgb,var(--accent) 12%,var(--surface));border-color:var(--accent)}
+.dsel[aria-pressed="true"]::after{content:"✓";font-size:12px;color:var(--accent)}
+.lgk{display:inline-flex;align-items:center;gap:6px}
+.axlab{display:flex;justify-content:space-between;font-size:12px;color:var(--muted);font-weight:600}
+.chartbox{overflow-x:auto}
+.chartbox .chart{min-width:560px}
+.pt{fill:transparent;stroke:none;cursor:pointer}
+.pt:hover,.pt:focus{stroke:var(--text);stroke-width:2;outline:none}
+.calgrid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:4px}
+.calgrid .ch{font-size:11.5px;font-weight:700;color:var(--muted);text-align:center;padding-bottom:2px}
+.ccell{position:relative;min-height:50px;border-radius:6px;border:1px solid transparent;display:flex;align-items:center;justify-content:center;cursor:pointer;padding:0}
+.ccell b{position:absolute;top:3px;left:5px;font-size:10.5px;font-weight:700}
+.ccell .i{width:16px;height:16px;stroke-width:2.5}
+.ccell.ok{background:color-mix(in srgb,var(--ok) 22%,transparent);color:var(--ok)}
+.ccell.ok b{color:var(--text)}
+.ccell.miss{background:var(--err);color:#fff}
+.ccell.fut{background:var(--surface-3);color:var(--muted);border:1px dashed var(--faint)}
+.ccell.pick{outline:3px solid var(--accent);outline-offset:1px}
+.ccell:hover{outline:2px solid var(--text);outline-offset:1px}
+.ccell.mini{display:inline-flex;width:20px;height:20px;min-height:0;cursor:default;position:static}
+.ccell.mini .i{width:12px;height:12px}
+.ccell.mini:hover{outline:none}
+.calsel{display:flex;flex-wrap:wrap;gap:6px 12px;align-items:center;padding:10px 12px;border-radius:6px;background:var(--surface-2);font-size:13px}
+
+.rangebar{position:sticky;top:57px;z-index:15;display:flex;flex-wrap:wrap;align-items:flex-end;gap:10px 14px;padding:10px 16px;background:var(--surface);border:1px solid var(--border);border-radius:8px;box-shadow:0 2px 8px rgba(55,55,55,.08)}
+.rangebar>b{align-self:center;font-size:13px}
+.rb{flex-direction:row;align-items:center}
+.rb .in{width:160px;background:var(--surface)}
+.rb-note{font-size:12.5px;align-self:center;margin-left:auto}
+.chart-ctl{display:flex;flex-wrap:wrap;gap:10px 24px;align-items:flex-end;justify-content:space-between}
+.ddwrap{position:relative;display:flex;flex-direction:column;gap:6px}
+.ddlab{font-size:12px;color:var(--muted);font-weight:600}
+.ddbtn{display:flex;align-items:center;justify-content:space-between;gap:10px;width:280px;max-width:100%;text-align:left;cursor:pointer;background:var(--surface)}
+.ddbtn span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ddmenu{position:absolute;top:100%;left:0;z-index:30;margin-top:4px;width:320px;max-width:calc(100vw - 32px);background:var(--surface);border:1px solid var(--border-strong);border-radius:8px;box-shadow:var(--shadow);padding:6px;display:flex;flex-direction:column}
+.ddmenu{gap:8px;width:360px}.ddmenu .in{width:100%}.dd-act{display:flex;gap:6px;flex-wrap:wrap}.dd-list{max-height:260px;overflow-y:auto;border:1px solid var(--border);border-radius:6px;padding:4px}.dd-foot{font-size:12px;padding:0 2px}.ddn{display:flex;flex-direction:column;line-height:1.25}.ddn small{color:var(--muted);font-size:11.5px}
+.ddchips{display:flex;gap:6px;flex-wrap:wrap;align-items:center}.ddchips:empty{display:none}.ddchips .chip button{border:0;background:transparent;cursor:pointer;color:inherit;font-size:15px;line-height:1;padding:0 0 0 4px}
+.ddi{display:flex;align-items:center;gap:10px;padding:8px 10px;border-radius:6px;cursor:pointer;font-size:13.5px}
+.ddi:hover{background:var(--surface-2)}
+.ddi i{width:10px;height:10px;border-radius:50%;flex:none}
+.ddi.all{border-bottom:1px solid var(--border);border-radius:6px 6px 0 0;font-weight:700;margin-bottom:4px}
+.ind-row2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px;align-items:stretch}
+.stack{display:flex;flex-direction:column;gap:16px;min-width:0}
+.stack>.panel:last-child{flex:1}
+.calpanel .ccell{min-height:42px}
+.calpanel .calgrid{gap:3px}
+.explorer{grid-template-columns:minmax(0,1fr) minmax(0,1.8fr);gap:24px;align-items:start}
+.exp-l,.exp-r{display:flex;flex-direction:column;gap:14px;min-width:0}
+@media (max-width:980px){.ind-row2{grid-template-columns:minmax(0,1fr)}.rb-note{margin-left:0}}
+@media (max-width:760px){.rangebar{top:0;position:static}}
+.tipo{display:inline-flex;align-items:center;gap:7px}
+.tipo.warn .i{color:var(--warn-t)}.tipo.err .i{color:var(--err)}.tipo.cfg .i{color:var(--cfg)}
+/* Config */
+.switch{position:relative;display:inline-block;width:34px;height:20px;flex:none}
+.switch input{opacity:0;width:0;height:0;position:absolute}
+.switch span{position:absolute;inset:0;border-radius:999px;background:var(--surface-3);border:1px solid var(--border-strong);cursor:pointer;transition:background .15s}
+.switch span::after{content:"";position:absolute;top:2px;left:2px;width:14px;height:14px;border-radius:50%;background:var(--muted);transition:transform .15s,background .15s}
+.switch input:checked + span{background:var(--accent);border-color:var(--accent)}
+.switch input:checked + span::after{transform:translateX(14px);background:var(--accent-ink)}
+.switch input:focus-visible + span{outline:2px solid var(--accent);outline-offset:2px}
+.wz-steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px;margin-bottom:18px}
+.wz-steps div{display:flex;flex-direction:column;gap:6px;font-size:12px;color:var(--faint)}
+.wz-steps div::before{content:"";height:4px;border-radius:2px;background:var(--surface-3)}
+.wz-steps div.done{color:var(--muted)}
+.wz-steps div.done::before{background:color-mix(in srgb,var(--accent) 50%,transparent)}
+.wz-steps div.cur{color:var(--text);font-weight:500}
+.wz-steps div.cur::before{background:var(--accent)}
+.form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.form-grid .full{grid-column:1/-1}
+.rules{display:flex;flex-direction:column;gap:6px}
+.rule{display:flex;align-items:center;gap:10px;padding:9px 12px;border:1px solid var(--border);border-radius:6px;background:var(--surface-2);font-size:13px}
+.rule .tag{margin-left:auto}
+.result-box{display:flex;align-items:center;gap:8px;padding:10px 12px;border-radius:6px;font-size:13px}
+.result-box.ok{background:color-mix(in srgb,var(--ok) 12%,transparent);color:var(--ok)}
+
+/* Overlays */
+.scrim{position:fixed;inset:0;z-index:50;background:rgba(5,10,15,.55);display:flex;align-items:flex-start;justify-content:center;padding:8vh 16px 16px}
+.modal{width:min(640px,100%);max-height:84vh;overflow:auto;background:var(--surface);border:1px solid var(--border-strong);border-radius:10px;box-shadow:var(--shadow)}
+.modal.wide{width:min(760px,100%)}
+.modal-h{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 18px;border-bottom:1px solid var(--border);position:sticky;top:0;background:var(--surface);z-index:1}
+.modal-h h2{margin:0;font-size:16px;font-weight:600}
+.modal-b{padding:18px;display:flex;flex-direction:column;gap:14px}
+.modal-f{display:flex;justify-content:flex-end;gap:8px;padding:12px 18px;border-top:1px solid var(--border);position:sticky;bottom:0;background:var(--surface)}
+.drawer-scrim{position:fixed;inset:0;z-index:45;background:rgba(5,10,15,.4)}
+.drawer{position:fixed;top:0;right:0;bottom:0;z-index:46;width:min(440px,100%);background:var(--surface);border-left:1px solid var(--border-strong);box-shadow:var(--shadow);display:flex;flex-direction:column}
+.drawer .modal-b{overflow-y:auto;flex:1}
+.kv{display:grid;grid-template-columns:auto minmax(0,1fr);gap:8px 16px;font-size:13px;margin:0}
+.kv dt{color:var(--muted)}
+.kv dd{margin:0;overflow-wrap:anywhere}
+.src-list{display:flex;flex-direction:column;gap:8px}
+.src-item{display:flex;gap:10px;padding:10px 12px;border:1px solid var(--border);border-radius:6px;font-size:13px}
+.src-item small{display:block;color:var(--muted);font:12px var(--mono);overflow-wrap:anywhere}
+.src-item.found{border-color:color-mix(in srgb,var(--ok) 55%,transparent)}
+.src-item.found>.i{color:var(--ok)}
+.src-item.gone>.i{color:var(--err)}
+.palette{width:min(560px,100%);background:var(--surface);border:1px solid var(--border-strong);border-radius:10px;box-shadow:var(--shadow);overflow:hidden}
+.palette-in{display:flex;align-items:center;gap:10px;padding:0 14px;border-bottom:1px solid var(--border)}
+.palette-in input{flex:1;height:48px;border:0;background:transparent;outline:none;font-size:15px}
+.palette ul{list-style:none;margin:0;padding:6px;max-height:340px;overflow-y:auto}
+.palette li{display:flex;align-items:center;gap:10px;padding:8px 10px;border-radius:6px;cursor:pointer;font-size:13.5px}
+.palette li small{margin-left:auto;color:var(--faint);font-size:12px}
+.palette li.on{background:var(--surface-3)}
+.toasts{position:fixed;right:16px;bottom:16px;z-index:60;display:flex;flex-direction:column;gap:8px;align-items:flex-end;max-width:calc(100% - 32px)}
+.toast{display:flex;align-items:center;gap:10px;padding:10px 14px;border-radius:8px;background:var(--surface-3);border:1px solid var(--border-strong);box-shadow:var(--shadow);font-size:13px;animation:tin .2s ease-out}
+.toast .i{color:var(--ok)}.toast.bad .i{color:var(--err)}
+@keyframes tin{from{transform:translateY(8px);opacity:.3}to{transform:none;opacity:1}}
+.notif{display:flex;gap:10px;padding:10px 0;border-bottom:1px solid var(--border);font-size:13px}
+.notif small{display:block;color:var(--muted);font:11.5px var(--mono);margin-top:2px}
+
+/* Responsive */
+@media (max-width:1180px){
+  .torre{grid-template-columns:minmax(0,1fr)}
+  .aside{position:static;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+  .inc-grid{grid-template-columns:minmax(0,1fr)}
+}
+@media (max-width:980px){
+  .cols{grid-template-columns:minmax(0,1fr)}
+  .inc{grid-template-columns:minmax(0,1fr)}
+  .inc-list{position:static;flex-direction:row;overflow-x:auto;padding-bottom:4px}
+  .inc-list h3{display:none}
+  .inc-item{min-width:220px}
+  .igrid,.explorer{grid-template-columns:minmax(0,1fr)}
+}
+@media (max-width:760px){
+  .app{grid-template-columns:minmax(0,1fr)}
+  .side{position:static;height:auto;flex-direction:row;align-items:center;overflow-x:auto;padding:8px 16px;border-right:0;border-bottom:1px solid var(--border)}
+  .brand{padding:0 8px 0 0}
+  .brand div{display:none}
+  .nav{display:flex;gap:2px}
+  .nav a{white-space:nowrap}
+  .nav a kbd,.side-foot{display:none}
+  .top{padding:10px 16px}
+  .view{padding:16px}
+  .proto,.date-in,.search kbd{display:none}
+  .strip-row,.strip-axis{grid-template-columns:minmax(0,1fr) 56px}
+  .strip-row .strip{grid-column:1/-1;grid-row:2}
+  .strip-axis div:first-child{display:none}
+  .strip-axis div:nth-child(2){grid-column:1/-1}
+  .strip-axis div:last-child{display:none}
+  .actions,.form-grid{grid-template-columns:minmax(0,1fr)}
+  .flow-arrow{transform:rotate(90deg);width:100%;height:24px}
+  .flow{flex-direction:column}
+}
+
+/* ===== UI kit SIMEM: tipografía (Nunito títulos · Open Sans base) y componentes ===== */
+body{font:14px/19px var(--sans);color:var(--text)}
+h1,h2,h3,.brand b,.btn,.tab,.nav a,.kpi-l,.modal-h h2,.drawer h3{font-family:var(--head)}
+.vh h1{font-size:26px;line-height:35px;font-weight:700;letter-spacing:0;color:var(--title)}
+.vh p{font-size:14px;line-height:19px;margin-top:6px}
+.panel-h h3,.modal-h h2{font-size:16px;line-height:22px;font-weight:700;color:var(--title)}
+.panel-h{padding:14px 16px}
+.modal-h h2{font-size:18px;line-height:24px}
+.drawer h3,.modal-b h3{font-size:14px;line-height:19px;font-weight:700;color:var(--title)}
+.brand b{font-weight:800;color:var(--title);font-size:15px}
+.kpi-l{font-size:13px;font-weight:700;line-height:18px;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.kpi-l .i{flex:none}
+.kpi-v{font-family:var(--head);font-weight:800;font-size:30px;color:var(--title)}
+.kpi.warn .kpi-v{color:var(--warn-ink)}.kpi.err .kpi-v{color:var(--err-ink)}.kpi.cfg .kpi-v{color:var(--cfg-ink)}
+.kpi.ok .kpi-v{color:var(--ok-ink)}
+.kpi-s,.field label{font-size:12px;line-height:17px}
+.field label{font-weight:700;color:var(--text)}
+.nav a{font-weight:700;font-size:14px}
+.nav a:hover{background:var(--primary-900);color:var(--title)}
+.nav a.on{background:var(--primary-800);color:var(--title)}
+.nav a.on .i{color:var(--accent)}
+.btn{font-weight:700;font-size:14px;background:var(--surface);border-color:var(--primary-700);color:var(--title)}
+:root[data-theme="dark"] .btn{border-color:var(--border-strong)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .btn{border-color:var(--border-strong)}}
+.btn:hover{background:var(--primary-800)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.btn.primary:hover{background:var(--primary-100);border-color:var(--primary-100);filter:none}
+.btn.ghost{color:var(--title);border-color:transparent;background:transparent}
+.btn.ghost:hover{background:var(--primary-800)}
+.btn.danger{color:var(--err-ink)}
+.chip{font-weight:600}
+.chip.ok{color:var(--ok-ink);background:var(--ok-bg)}
+.chip.warn{color:var(--warn-ink);background:var(--warn-bg)}
+.chip.err{color:var(--err-ink);background:var(--err-bg)}
+.chip.cfg{color:var(--cfg-ink);background:var(--cfg-bg)}
+.chip.idle{color:var(--idle-ink);background:var(--idle-bg)}
+.chip.info{color:var(--info-ink);background:var(--info-bg)}
+.tbl th{font-weight:700;color:var(--text);background:var(--primary-900);font-size:12px;line-height:17px}
+.tbl td{font-size:14px}
+.tbl tbody tr:hover td{background:var(--primary-900)}
+.tbl tr.sel td{background:var(--primary-800)}
+.in{background:var(--surface);border-color:var(--gray-300);font-family:var(--sans)}
+.in:focus{border-color:var(--primary-400)}
+:focus-visible{outline-color:var(--primary-400)}
+.tab{font-size:14px;color:var(--idle-ink)}
+.tab:hover{color:var(--title)}
+.tab.on{color:var(--title);border-bottom-color:var(--sec)}
+.tab .n{background:var(--primary-800);color:var(--title)}
+.tag{color:var(--text);border-color:var(--gray-300);font-size:11.5px}
+.panel,.kpi{border-color:var(--border)}
+.side{border-right-color:var(--border)}
+</style>
+
+<div class="app">
+  <nav class="side" aria-label="Navegación principal">
+    <div class="brand">
+      <div class="brand-mark"><svg class="i" viewBox="0 0 24 24"><path d="M13 2 4 14h7l-1 8 9-12h-7Z"/></svg></div>
+      <div><b>SIMEM Calidad</b><span>Torre de Control</span></div>
+    </div>
+    <div class="nav" id="nav"></div>
+    <div class="side-foot">Prototipo académico · IHC Grupo 5<br>Universidad Nacional, sede Medellín<br>Todos los datos son de ejemplo.</div>
+  </nav>
+  <div class="main">
+    <header class="top">
+      <div class="top-r">
+        <button class="icon-btn" id="themeBtn" type="button" aria-label="Cambiar tema"></button>
+        <button class="icon-btn" id="bellBtn" type="button" aria-label="Notificaciones"><svg class="i" viewBox="0 0 24 24"><path d="M6 8a6 6 0 1 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.9 1.9 0 0 0 3.4 0"/></svg><span class="dot"></span></button>
+        <div class="avatar" title="Sebastián S. · Analista de Calidad Operativa">SS</div>
+      </div>
+    </header>
+    <main class="view" id="view"></main>
+  </div>
+</div>
+<div id="overlay"></div>
+<div class="toasts" id="toasts" aria-live="polite"></div>
+
+<script>
+/* ---------- Utilidades ---------- */
+const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
+function rng(a){return function(){a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
+const fmt=(n,d=1)=>Number(n).toLocaleString('es-CO',{minimumFractionDigits:d,maximumFractionDigits:d});
+const MES=['ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic'];
+const DIA=['D','L','M','M','J','V','S'];
+const addDays=(iso,n)=>{const d=new Date(iso+'T12:00:00');d.setDate(d.getDate()+n);return d.toISOString().slice(0,10)};
+const dLabel=iso=>{const d=new Date(iso+'T12:00:00');return d.getDate()+' '+MES[d.getMonth()]};
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const TODAY='2026-09-25', ME='Sebastián S.';
+
+const IC={
+ ok:'<path d="M20 6 9 17l-5-5"/>',
+ clock:'<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
+ err:'<path d="M8.5 3h7L21 8.5v7L15.5 21h-7L3 15.5v-7Z"/><path d="M12 8v4.5M12 16v.5"/>',
+ cfg:'<path d="M4 21v-7M4 10V3M12 21v-9M12 8V3M20 21v-5M20 12V3M1 14h6M9 8h6M17 16h6"/>',
+ idle:'<circle cx="12" cy="12" r="9"/><path d="M8 12h8"/>',
+ x:'<path d="M18 6 6 18M6 6l12 12"/>',
+ tower:'<rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/>',
+ alert:'<path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/><path d="M12 9v4M12 17h.01"/>',
+ layers:'<path d="m12 2 10 5-10 5L2 7Z"/><path d="m2 17 10 5 10-5M2 12l10 5 10-5"/>',
+ chart:'<path d="M3 3v18h18"/><path d="m7 15 4-4 3 3 6-7"/>',
+ history:'<path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5M12 7v5l4 2"/>',
+ repeat:'<path d="m17 2 4 4-4 4"/><path d="M3 11v-1a4 4 0 0 1 4-4h14M7 22l-4-4 4-4"/><path d="M21 13v1a4 4 0 0 1-4 4H3"/>',
+ play:'<path d="M6 4v16l14-8Z"/>',
+ send:'<path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/>',
+ plus:'<path d="M12 5v14M5 12h14"/>',
+ arrow:'<path d="M5 12h14M13 6l6 6-6 6"/>',
+ sun:'<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>',
+ moon:'<path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/>',
+ db:'<ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/>',
+ lake:'<path d="M2 12c2-2 4-2 6 0s4 2 6 0 4-2 6 0M2 17c2-2 4-2 6 0s4 2 6 0 4-2 6 0M12 3v5"/>',
+ globe:'<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/>',
+ user:'<circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/>',
+ download:'<path d="M12 3v12M7 10l5 5 5-5M5 21h14"/>',
+ mute:'<path d="M11 5 6 9H2v6h4l5 4Z"/><path d="m23 9-6 6M17 9l6 6"/>',
+ ticket:'<path d="M3 7a2 2 0 0 0 2-2h14a2 2 0 0 0 2 2v3a2 2 0 0 0 0 4v3a2 2 0 0 0-2 2H5a2 2 0 0 0-2-2v-3a2 2 0 0 0 0-4Z"/><path d="M13 5v2M13 17v2M13 11v2"/>',
+ flag:'<path d="M4 22V4a1 1 0 0 1 1-1h13l-3 5 3 5H5"/>',
+ search:'<circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/>',
+ undo:'<path d="M9 14 4 9l5-5"/><path d="M4 9h11a5 5 0 0 1 0 10h-3"/>',
+ shield:'<path d="M12 2 4 5v6c0 5 3.4 9.3 8 11 4.6-1.7 8-6 8-11V5Z"/><path d="m9 12 2 2 4-4"/>',
+ key:'<circle cx="8" cy="15" r="4"/><path d="m11 12 9-9M16 7l3 3M14 9l2 2"/>',
+ eye:'<path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/>',
+ more:'<circle cx="12" cy="5" r="1.6"/><circle cx="12" cy="12" r="1.6"/><circle cx="12" cy="19" r="1.6"/>',
+ edit:'<path d="M12 20h9M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/>',
+};
+const ic=(n,c='')=>`<svg class="i ${c}" viewBox="0 0 24 24" aria-hidden="true">${IC[n]}</svg>`;
+const ST={ok:['Al día','ok'],warn:['Atrasado','clock'],err:['Error de calidad','err'],cfg:['Error de configuración','cfg'],idle:['Sin ejecutar','idle']};
+const chip=(k,t)=>`<span class="chip ${k}">${ic(ST[k]?ST[k][1]:'ok')}${t??ST[k][0]}</span>`;
+const SEVC={'Crítica':'crit','Alta':'alta','Media':'media','Baja':'baja'};
+const sev=s=>`<span class="sev ${SEVC[s]}">${s}</span>`;
+const initials=n=>n.split(/\s+/).map(w=>w[0]).join('').slice(0,2).toUpperCase();
+
+function toast(msg,bad){const t=document.createElement('div');t.className='toast'+(bad?' bad':'');t.innerHTML=ic(bad?'alert':'ok')+'<span>'+msg+'</span>';$('#toasts').append(t);setTimeout(()=>t.remove(),3800)}
+
+/* ---------- Gráficas ---------- */
+function lineChart({series,labels,min,max,w=640,h=220,marks=[],area=false,fy=v=>fmt(v,0),ticks=4}){
+  const L=46,R=16,T=12,B=26,iw=w-L-R,ih=h-T-B,n=labels.length;
+  const x=i=>L+(n===1?iw/2:i*iw/(n-1)), y=v=>T+ih-(v-min)/(max-min)*ih;
+  let g='';
+  for(let k=0;k<=ticks;k++){const v=min+(max-min)*k/ticks,yy=y(v).toFixed(1);g+=`<line x1="${L}" x2="${w-R}" y1="${yy}" y2="${yy}" class="grid"/><text x="${L-8}" y="${+yy+4}" class="ax" text-anchor="end">${fy(v)}</text>`}
+  const step=Math.max(1,Math.ceil(n/7));
+  labels.forEach((l,i)=>{if(i%step===0||i===n-1){if(i!==n-1&&n-1-i<step*.6)return;const a=i===0?'start':i===n-1?'end':'middle';g+=`<text x="${x(i).toFixed(1)}" y="${h-7}" class="ax" text-anchor="${a}">${l}</text>`}});
+  series.forEach(s=>{
+    const d=s.values.map((v,i)=>(i?'L':'M')+x(i).toFixed(1)+','+y(v).toFixed(1)).join('');
+    if(area)g+=`<path d="${d}L${x(n-1).toFixed(1)},${T+ih}L${x(0)},${T+ih}Z" style="fill:${s.color};opacity:.13"/>`;
+    g+=`<path d="${d}" style="fill:none;stroke:${s.color};stroke-width:2;stroke-linejoin:round;stroke-linecap:round"/>`;
+    g+=`<circle cx="${x(n-1).toFixed(1)}" cy="${y(s.values[n-1]).toFixed(1)}" r="3.5" style="fill:${s.color}"/>`;
+  });
+  marks.forEach(m=>{g+=`<circle cx="${x(m.i).toFixed(1)}" cy="${y(m.v).toFixed(1)}" r="7" style="fill:none;stroke:var(--err);stroke-width:2"/><circle cx="${x(m.i).toFixed(1)}" cy="${y(m.v).toFixed(1)}" r="3" style="fill:var(--err)"/>`});
+  return `<svg class="chart" viewBox="0 0 ${w} ${h}" role="img">${g}</svg>`;
+}
+function spark(vals,color='var(--c1)'){const w=90,h=24,mn=Math.min(...vals),mx=Math.max(...vals),n=vals.length;const p=vals.map((v,i)=>(i?'L':'M')+(2+i*(w-4)/(n-1)).toFixed(1)+','+(h-3-(v-mn)/((mx-mn)||1)*(h-6)).toFixed(1)).join('');return `<svg class="spark" viewBox="0 0 ${w} ${h}" aria-hidden="true"><path d="${p}" style="fill:none;stroke:${color};stroke-width:1.6"/></svg>`}
+function series30(seed,base,amp,endIso,noise=.08){const r=rng(seed);const out=[],lab=[];for(let i=29;i>=0;i--){const iso=addDays(endIso,-i);lab.push(dLabel(iso));const k=29-i;out.push(+(base+amp*Math.sin(k/4.2+seed%7)+base*noise*(r()-.5)).toFixed(1))}return{vals:out,labels:lab}}
+
+/* ---------- Datos de ejemplo ---------- */
+const INC=[
+ {id:'INC-2026-0412',set:'Vertimientos embalse ESMERALDA',kind:'err',sev:'Alta',src:'Oracle',age:'hace 2 h',who:'Laura M.',step:1,origin:1,date:'2026-09-01',unit:'m³/s',det:'25 sep · 07:42',sum:'4 de 24 horas difieren entre la fuente y SIMEM'},
+ {id:'INC-2026-0411',set:'Generación real por recurso',kind:'err',sev:'Crítica',src:'Oracle',age:'hace 40 min',who:null,step:0,origin:0,date:'2026-09-24',unit:'MWh',det:'25 sep · 09:02',sum:'Recurso nuevo sin registros en 6 horas'},
+ {id:'INC-2026-0405',set:'Liquidación TIE · versión TX2',kind:'err',sev:'Crítica',src:'FTP',age:'hace 19 días',who:null,step:0,origin:0,date:'2026-09-03',unit:'COP',det:'06 sep · 08:00',sum:'La versión TX2 no llegó al Data Lake'},
+ {id:'INC-2026-0410',set:'Restricciones del SIN',kind:'err',sev:'Media',src:'Excel',age:'hace 5 h',who:'Kevin H.',step:1,origin:0,date:'2026-09-24',unit:'COP',det:'25 sep · 04:31',sum:'Valor atípico: 12 veces la mediana de 30 días'},
+ {id:'INC-2026-0407',set:'Consumo de combustibles',kind:'err',sev:'Baja',src:'API',age:'hace 1 día',who:null,step:0,origin:2,date:'2026-09-23',unit:'MBTU',det:'24 sep · 10:15',sum:'Registros duplicados en la publicación'},
+ {id:'INC-2026-0409',set:'Precio de bolsa nacional',kind:'warn',sev:'Crítica',src:'Oracle',age:'atrasado 3 días',who:'Andrés P.',step:1,origin:0,date:'2026-09-22',unit:'COP/kWh',det:'22 sep · 06:15',sum:'La ejecución termina bien, pero los datos son del 21 sep'},
+ {id:'INC-2026-0408',set:'Intercambios internacionales TIE',kind:'warn',sev:'Alta',src:'FTP',age:'atrasado 1 día',who:null,step:0,origin:0,date:'2026-09-24',unit:'MWh',det:'25 sep · 06:00',sum:'Archivo del día anterior no depositado'},
+ {id:'INC-2026-0406',set:'Aportes hídricos diarios',kind:'warn',sev:'Alta',src:'FTP',age:'atrasado 1 día',who:null,step:0,origin:0,date:'2026-09-24',unit:'GWh',det:'25 sep · 05:40',sum:'Tiempo de espera agotado en el servidor FTP'},
+ {id:'INC-2026-0404',set:'Disponibilidad declarada',kind:'warn',sev:'Media',src:'API',age:'atrasado 2 días',who:null,step:0,origin:0,date:'2026-09-26',unit:'MW',det:'24 sep · 07:10',sum:'La API respondió vacío para el día siguiente'},
+ {id:'INC-2026-0403',set:'Demanda comercial por agente',kind:'warn',sev:'Media',src:'Oracle',age:'atrasado 18 h',who:'Milena C.',step:1,origin:0,date:'2026-09-24',unit:'GWh',det:'25 sep · 06:05',sum:'Última ejecución fallida por bloqueo de tabla'},
+ {id:'INC-2026-0402',set:'Volumen útil diario embalses',kind:'warn',sev:'Media',src:'Oracle',age:'atrasado 9 h',who:null,step:0,origin:1,date:'2026-09-24',unit:'GWh',det:'25 sep · 00:40',sum:'Carga en cola desde medianoche'},
+ {id:'INC-2026-0401',set:'Precio de escasez',kind:'warn',sev:'Baja',src:'Excel',age:'atrasado 5 días',who:null,step:0,origin:0,date:'2026-09-01',unit:'COP/kWh',det:'20 sep · 08:00',sum:'El archivo mensual no se ha publicado'},
+ {id:'INC-2026-0400',set:'Precio de oferta despacho ideal',kind:'cfg',sev:'Media',src:'Oracle',age:'hace 3 h',who:null,step:0,origin:0,date:'2026-09-24',unit:'COP/kWh',det:'25 sep · 06:30',sum:'Consulta SQL apunta a una tabla renombrada',cfgKey:'sql'},
+ {id:'INC-2026-0399',set:'Pérdidas del STN',kind:'cfg',sev:'Alta',src:'Oracle',age:'desde 12 sep',who:null,step:0,origin:0,date:'2026-09-12',unit:'GWh',det:'13 sep · 06:00',sum:'Delta temporal de un recargue sin revertir',cfgKey:'delta'},
+ {id:'INC-2026-0397',set:'Capacidad efectiva neta',kind:'cfg',sev:'Baja',src:'FTP',age:'hace 1 día',who:'Daniela T.',step:1,origin:0,date:'2026-09-24',unit:'MW',det:'24 sep · 08:20',sum:'Ruta FTP configurada ya no existe',cfgKey:'ftp'},
+];
+const incState={};
+INC.forEach(i=>{incState[i.id]={step:i.step,who:i.who,log:[
+  {c:'sys',t:'Motor de validación detectó el hallazgo',m:i.det+' · automático'},
+  {c:'sys',t:'Incluido en el resumen de Teams de las 07:30',m:'canal #calidad-simem'},
+  ...(i.who?[{c:'',t:i.who+' tomó el incidente',m:'hace 1 h'}]:[])
+]}});
+let curInc='INC-2026-0412';
+
+const OPP=[
+ {n:'Precio de bolsa nacional',per:'Diario',cls:'Día anterior',last:'2026-09-25 06:10',max:'2026-09-21',exp:'2026-09-24',late:3,exec:'Exitosa',next:'2026-09-26 06:00',note:'Ejecución exitosa, datos desactualizados'},
+ {n:'Aportes hídricos diarios',per:'Diario',cls:'Día anterior',last:'2026-09-25 05:40',max:'2026-09-23',exp:'2026-09-24',late:1,exec:'Fallida',next:'2026-09-26 05:30'},
+ {n:'Demanda comercial por agente',per:'Diario',cls:'Día anterior',last:'2026-09-25 06:05',max:'2026-09-23',exp:'2026-09-24',late:1,exec:'Fallida',next:'2026-09-26 06:00'},
+ {n:'Intercambios internacionales TIE',per:'Diario',cls:'Día anterior',last:'2026-09-25 06:00',max:'2026-09-23',exp:'2026-09-24',late:1,exec:'Fallida',next:'2026-09-26 06:00'},
+ {n:'Volumen útil diario embalses',per:'Diario',cls:'Día anterior',last:'2026-09-24 23:50',max:'2026-09-23',exp:'2026-09-24',late:1,exec:'En cola',next:'2026-09-25 12:00'},
+ {n:'Disponibilidad declarada',per:'Diario',cls:'Día siguiente',last:'2026-09-24 07:10',max:'2026-09-24',exp:'2026-09-26',late:2,exec:'Fallida',next:'2026-09-25 13:00'},
+ {n:'Precio de escasez',per:'Mensual',cls:'Mes en curso',last:'2026-08-02 08:00',max:'2026-08-01',exp:'2026-09-01',late:5,exec:'Exitosa',next:'2026-09-26 08:00'},
+ {n:'Generación real por recurso',per:'Diario',cls:'Día anterior',last:'2026-09-25 05:55',max:'2026-09-24',exp:'2026-09-24',late:0,exec:'Exitosa',next:'2026-09-26 05:55'},
+ {n:'Transacciones en bolsa',per:'Diario',cls:'Día anterior',last:'2026-09-25 06:20',max:'2026-09-24',exp:'2026-09-24',late:0,exec:'Exitosa',next:'2026-09-26 06:20'},
+ {n:'Vertimientos embalse ESMERALDA',per:'Diario',cls:'Día anterior',last:'2026-09-25 05:30',max:'2026-09-24',exp:'2026-09-24',late:0,exec:'Exitosa',next:'2026-09-26 05:30'},
+ {n:'Proyección de demanda semanal',per:'Semanal',cls:'Semana siguiente',last:'2026-09-22 09:00',max:'2026-10-04',exp:'2026-10-04',late:0,exec:'Exitosa',next:'2026-09-29 09:00'},
+ {n:'Cargo por confiabilidad',per:'Mensual',cls:'Mes anterior',last:'2026-09-05 10:00',max:'2026-08-31',exp:'2026-08-31',late:0,exec:'Exitosa',next:'2026-10-05 10:00'},
+ {n:'Pérdidas del STN',per:'Mensual',cls:'Mes anterior',last:'2026-09-12 14:30',max:'2026-08-31',exp:'2026-08-31',late:0,exec:'Exitosa',next:'2026-10-12 06:00'},
+ {n:'Reporte de pérdidas trimestral',per:'Trimestral',cls:'Trimestre anterior',last:'2026-07-15 08:00',max:'2026-06-30',exp:'2026-06-30',late:0,exec:'Exitosa',next:'2026-10-15 08:00'},
+ {n:'Índices de escasez',per:'Semestral',cls:'Semestre anterior',last:'2026-07-10 08:00',max:'2026-06-30',exp:'2026-06-30',late:0,exec:'Exitosa',next:'2027-01-10 08:00'},
+ {n:'Capacidad instalada anual',per:'Anual',cls:'Año anterior',last:'2026-02-01 08:00',max:'2025-12-31',exp:'2025-12-31',late:0,exec:'Exitosa',next:'2027-02-01 08:00'},
+];
+const oppSel=new Set(); let oppPer='Todas', oppState='Todos', oppQ='';
+
+const TEMAS=['EstadisticasCttos','InformacionTransaccionesMEM'];
+const CFG=[
+ {n:'Precio de bolsa nacional',tema:'InformacionTransaccionesMEM',src:'Oracle',alt:null,per:'Diario',ini:'2026-01-01',fin:'2026-12-31',mod:'10 sep 2026 · Kevin H.',warn:null,on:true,exec:'cron: 0 6 * * *\nreintentos: 2'},
+ {n:'Precio de oferta despacho ideal',tema:'InformacionTransaccionesMEM',src:'Oracle',alt:null,per:'Diario',ini:'2026-01-01',fin:'2026-12-31',mod:'02 mar 2026 · Daniela T.',warn:'sql',on:true},
+ {n:'Pérdidas del STN',tema:'InformacionTransaccionesMEM',src:'Oracle',alt:null,per:'Mensual',ini:'2025-01-01',fin:'2026-12-31',mod:'12 sep 2026 · Milena C.',warn:'delta',on:true},
+ {n:'Capacidad efectiva neta',tema:'EstadisticasCttos',src:'Excel',alt:'/publicaciones/capacidad_efectiva/2026/CEN_mensual.xlsx',per:'Mensual',ini:'2026-01-01',fin:'2026-12-31',mod:'28 ago 2026 · Kevin H.',warn:'ftp',on:true},
+ {n:'Vertimientos embalse ESMERALDA',tema:'InformacionTransaccionesMEM',src:'Oracle',alt:null,per:'Diario',ini:'2026-01-01',fin:'2026-12-31',mod:'14 jul 2026 · Sebastián S.',warn:null,on:true},
+ {n:'Aportes hídricos diarios',tema:'InformacionTransaccionesMEM',src:'API',alt:'/publicaciones/aportes/diario/aportes.csv',per:'Diario',ini:'2026-01-01',fin:'2026-12-31',mod:'30 jun 2026 · Milena C.',warn:null,on:true},
+ {n:'Demanda comercial por agente',tema:'EstadisticasCttos',src:'Oracle',alt:null,per:'Diario',ini:'2026-01-01',fin:'2026-12-31',mod:'19 may 2026 · Daniela T.',warn:null,on:true},
+ {n:'Históricos precio de bolsa 2015–2020',tema:'InformacionTransaccionesMEM',src:'Oracle',alt:null,per:'A demanda',ini:'2015-01-01',fin:'2020-12-31',mod:'23 sep 2026 · Sebastián S.',warn:null,on:false,note:'Pausado durante prueba de calidad histórica'},
+];
+const CFGW={sql:'Consulta SQL desactualizada: la tabla fue renombrada',delta:'Delta temporal sin revertir desde el 12 sep',ftp:'Ruta de la fuente alterna FTP no encontrada'};
+
+const TRZ=[
+ ['INC-2026-0412','Vertimientos embalse ESMERALDA','Valor inconsistente','Alta','Data Lake','La transformación omitió las horas 14 a 17','25 sep 07:42','','','Laura M.','En revisión',1],
+ ['INC-2026-0411','Generación real por recurso','Registro faltante','Crítica','Fuente','Recurso nuevo sin mapeo en la fuente','25 sep 09:02','','','Sin asignar','Nuevo',1],
+ ['INC-2026-0410','Restricciones del SIN','Valor atípico','Media','Fuente','Error de digitación del agente','25 sep 04:31','','','Kevin H.','En revisión',2],
+ ['INC-2026-0409','Precio de bolsa nacional','Atraso','Crítica','Fuente','Intermitencia en la extracción de Oracle','22 sep 06:15','','','Andrés P.','En revisión',3],
+ ['INC-2026-0405','Liquidación TIE · TX2','Versión faltante','Crítica','Fuente','El archivo TX2 no se depositó','06 sep 08:00','','','Sin asignar','Nuevo',2],
+ ['INC-2026-0399','Pérdidas del STN','Configuración','Alta','Herramienta','Delta de recargue sin revertir','13 sep 06:00','','','Sin asignar','Nuevo',1],
+ ['INC-2026-0396','Aportes hídricos diarios','Atraso','Alta','Fuente','Tiempo de espera agotado en FTP','18 sep 05:40','18 sep 09:12','3 h 32 min','Milena C.','Cerrado',2],
+ ['INC-2026-0394','Precio de bolsa nacional','Atraso','Crítica','Fuente','Intermitencia en la extracción de Oracle','15 sep 06:10','15 sep 08:02','1 h 52 min','Andrés P.','Cerrado',3],
+ ['INC-2026-0391','Transacciones en bolsa','Duplicado','Media','Data Lake','Reproceso ejecutado dos veces','12 sep 11:20','12 sep 16:45','5 h 25 min','Kevin H.','Cerrado',1],
+ ['INC-2026-0388','Demanda comercial por agente','Registro faltante','Alta','Fuente','Agente reportó tarde','10 sep 06:00','10 sep 13:30','7 h 30 min','Milena C.','Verificado',1],
+ ['INC-2026-0385','Precio de bolsa nacional','Atraso','Crítica','Fuente','Intermitencia en la extracción de Oracle','08 sep 06:12','08 sep 07:40','1 h 28 min','Sebastián S.','Cerrado',3],
+ ['INC-2026-0381','Liquidación TIE · TX2','Versión faltante','Crítica','Fuente','El archivo TX2 no se depositó','07 sep 08:00','09 sep 10:15','2 d 2 h','Daniela T.','Cerrado',2],
+ ['INC-2026-0377','Vertimientos embalse ESMERALDA','Valor atípico','Media','Fuente','Mantenimiento del sensor','04 sep 07:05','04 sep 15:00','7 h 55 min','Laura M.','Cerrado',1],
+ ['INC-2026-0372','Precio de oferta despacho ideal','Configuración','Media','Herramienta','Falsa alerta por consulta desactualizada','02 sep 06:30','02 sep 08:10','1 h 40 min','Daniela T.','Corregido',1],
+];
+const TRZ_IDX={'INC-2026-0412':'2026-09-01','INC-2026-0411':'2026-09-24','INC-2026-0410':'2026-09-24','INC-2026-0409':'2026-09-22','INC-2026-0405':'2026-09-03','INC-2026-0399':'2026-09-12','INC-2026-0396':'2026-09-17','INC-2026-0394':'2026-09-14','INC-2026-0391':'2026-09-11','INC-2026-0388':'2026-09-09','INC-2026-0385':'2026-09-07','INC-2026-0381':'2026-09-06','INC-2026-0377':'2026-09-03','INC-2026-0372':'2026-09-01'};
+const INCS=[...INC];
+(()=>{const unit=n=>/Vertimientos/.test(n)?'m³/s':/Aportes|Demanda|Pérdidas/.test(n)?'GWh':/Precio/.test(n)?'COP/kWh':'COP';
+  TRZ.filter(r=>!INC.some(i=>i.id===r[0])).forEach(r=>{
+    const kind=['Atraso','Versión faltante'].includes(r[2])?'warn':r[2]==='Configuración'?'cfg':'err',step=['Nuevo','En revisión','Corregido','Verificado','Cerrado'].indexOf(r[10]),who=r[9]==='Sin asignar'?null:r[9];
+    INCS.push({id:r[0],set:r[1],kind,sev:r[3],src:/Aportes|Liquidación/.test(r[1])?'FTP':'Oracle',age:'Resuelto '+(r[7]||''),who,step,origin:0,date:TRZ_IDX[r[0]]||'2026-09-01',unit:unit(r[1]),det:r[6],sum:r[5]});
+    incState[r[0]]={step,who,log:[{c:'sys',t:'Motor de validación detectó el hallazgo',m:r[6]+' · automático'},{c:'sys',t:'Incluido en el resumen de Teams de las 07:30',m:'canal #calidad-simem'},...(who?[{c:'',t:who+' tomó el incidente',m:r[6]}]:[]),...(step>=2&&r[7]?[{c:'good',t:'Corrección aplicada',m:r[7]},{c:'good',t:'Verificado automáticamente en la siguiente ejecución',m:r[7]}]:[])]};
+  })})();
+let trzF={q:'',tipo:'',crit:'',estado:''};
+
+/* ---------- Navegación ---------- */
+const VIEWS=[['torre','Torre de Control','tower'],['oportunidad','Oportunidad de publicación','clock'],['versiones','Versiones de liquidación','layers'],['validacion','Validación Fuente vs SIMEM','shield'],['indicadores','Indicadores y tendencias','chart'],['configuracion','Configuración de conjuntos','cfg'],['trazabilidad','Trazabilidad','history'],['credenciales','Credenciales','key']];
+let route='torre';
+const navK=()=>route==='incidentes'?(incFrom||'torre'):route;
+function renderNav(){
+  const openErr=INC.filter(i=>incState[i.id].step<4).length;
+  $('#nav').innerHTML=VIEWS.map(([k,t,i],n)=>`<a href="#${k}" class="${navK()===k?'on':''}" ${navK()===k?'aria-current="page"':''}>${ic(i)}<span>${t}</span>${k==='incidentes'?`<span class="badge">${openErr}</span>`:''}<kbd>${n+1}</kbd></a>`).join('');
+}
+function go(k){if(location.hash.slice(1)===k)render();else location.hash=k}
+function render(){
+  const h=location.hash.slice(1);route=[...VIEWS.map(v=>v[0]),'incidentes'].includes(h)?h:'torre';
+  if(route!=='incidentes')incFrom='';else if(!incFrom){incFrom='torre'}
+  renderNav();
+  const v=$('#view');
+  v.innerHTML=({torre:vTorre,incidentes:vInc,oportunidad:vOpp,versiones:vVer,validacion:vVal,indicadores:vInd,configuracion:vCfg,trazabilidad:vTrz,credenciales:vCred})[route]();
+  ({torre:bTorre,incidentes:bInc,oportunidad:bOpp,versiones:bVer,validacion:bVal,indicadores:bInd,configuracion:bCfg,trazabilidad:bTrz,credenciales:bCred})[route]();
+  document.title='Torre de Control SIMEM';
+}
+let incFrom='';
+function openInc(id){incFrom=route==='incidentes'?(incFrom||'torre'):route;curInc=id;go('incidentes');window.scrollTo(0,0)}
+function openTrz(id){incFrom=route==='incidentes'?(incFrom||'trazabilidad'):route;curInc=id;go('incidentes');window.scrollTo(0,0)}
+
+/* ---------- 1. Torre de Control ---------- */
+let torreTab='warn';
+const TTABS=[['warn','Atrasados','clock','¿Llegó? El dato no se ha publicado a tiempo.'],['err','Errores de calidad','err','¿Llegó bien? El dato está, pero no coincide con la fuente.'],['cfg','Errores de configuración','cfg','¿Falló la herramienta? Revise antes de escalar.']];
+function vTorre(){
+  const late=OPP.filter(r=>r.late>0).length;
+  const q=[96.1,95.8,96.0,95.6,95.9,96.2,96.4];
+  const cur=TTABS.find(t=>t[0]===torreTab),items=INC.filter(i=>i.kind===torreTab);
+  const tabs=TTABS.map(([k,t,i])=>`<button class="tab ${k===torreTab?'on':''}" role="tab" id="tab-${k}" aria-selected="${k===torreTab}" aria-controls="tabpanel" tabindex="${k===torreTab?0:-1}" data-tab="${k}">${ic(i)}${t}<span class="n">${INC.filter(x=>x.kind===k).length}</span></button>`).join('');
+  const rows=items.map(i=>{const s=incState[i.id];return `<tr class="click" data-inc="${i.id}" tabindex="0"><td><div style="font-weight:600">${i.set}</div><div class="muted" style="font-size:12px;white-space:normal;max-width:380px">${i.sum}</div></td><td>${sev(i.sev)}</td><td><span class="tag">${i.src}</span></td><td class="mono">${i.age}</td><td>${s.who?`<span style="display:inline-flex;align-items:center;gap:6px"><span class="avatar sm">${initials(s.who)}</span>${s.who}</span>`:'<span class="muted" style="font-style:italic">Sin asignar</span>'}</td><td class="mono muted">${i.id}</td></tr>`}).join('');
+  const tbMiss=[];VDS.forEach(([n])=>{for(let d=1;d<=30;d++){const c=verCell(n,'2026-09',d);if(c&&c.st==='miss')tbMiss.push(`<tr><td style="font-weight:600">${n}</td><td>${c.vers.filter(x=>x.miss).map(x=>`<span class="tag">${x.v}</span>`).join(' ')}</td><td class="mono">${c.iso}</td></tr>`)}});
+  return `
+  <div class="vh"><div><h1>Torre de Control</h1><p>Estado de los 412 conjuntos publicados en SIMEM. Corte: jueves 25 sep 2026 · 09:40.</p></div>
+  <div class="vh-act"><button class="btn" data-go="oportunidad">${ic('repeat')}Relanzar atrasados</button></div></div>
+  <div class="kpis kpis-row">
+    <div class="kpi ok"><div class="kpi-l">${ic('ok')}Calidad global del sitio</div><div class="kpi-v">96,4 %</div><div class="kpi-s up">▲ 0,8 pts vs. semana anterior</div>${spark(q,'var(--ok)')}</div>
+    <div class="kpi"><div class="kpi-l">${ic('db')}Conjuntos monitoreados</div><div class="kpi-v">412</div><div class="kpi-s">397 al día · 96,4 %</div></div>
+    <div class="kpi warn"><div class="kpi-l">${ic('clock')}Atrasados</div><div class="kpi-v">${late}</div><div class="kpi-s">2 críticos · el mayor, 5 días</div></div>
+    <div class="kpi err"><div class="kpi-l">${ic('err')}Con errores de calidad</div><div class="kpi-v">5</div><div class="kpi-s">3 sin asignar</div></div>
+    <div class="kpi cfg"><div class="kpi-l">${ic('cfg')}Errores de configuración</div><div class="kpi-v">3</div><div class="kpi-s">Posibles falsas alertas</div></div>
+  </div>
+  <section class="panel"><div class="tabs" role="tablist" aria-label="Tipo de incidente">${tabs}</div>
+    <div id="tabpanel" role="tabpanel" aria-labelledby="tab-${torreTab}"><p class="muted" style="margin:0;padding:12px 16px 0;font-size:12.5px">${cur[3]}</p>
+    <div class="tbl-wrap"><table class="tbl"><thead><tr><th>Conjunto</th><th>Criticidad</th><th>Fuente</th><th>Antigüedad</th><th>Responsable</th><th>Incidente</th></tr></thead><tbody>${rows}</tbody></table></div></div></section>
+  <section class="panel"><div class="panel-h"><h3>Versiones de liquidación faltantes</h3><button class="btn sm ghost" data-go="versiones">Ir a Versiones de liquidación</button></div>
+    <p class="muted" style="margin:0;padding:12px 16px 0;font-size:12.5px">Solo fechas en las que falta la última versión obligatoria y su plazo ya venció.</p>
+    <div class="tbl-wrap">${tbMiss.length?`<table class="tbl"><thead><tr><th>Conjunto de datos</th><th>Versión que falta</th><th>Fecha que falta</th></tr></thead><tbody>${tbMiss.join('')}</tbody></table>`:'<p class="muted" style="padding:16px;margin:0">No hay versiones faltantes vencidas.</p>'}</div></section>
+  <section class="panel digest"><div class="panel-h"><h3>Resumen del día</h3><small class="mono">07:30</small></div><div class="panel-b">
+    <div class="digest-meta">Generado automáticamente a partir de 23 alertas. Reemplaza los correos individuales.</div>
+    <ul>
+      <li class="err">${ic('err')}<span><b>2 incidentes críticos nuevos</b>: Generación real por recurso y Liquidación TIE TX2. Ninguno tiene responsable.</span></li>
+      <li class="warn">${ic('clock')}<span><b>Precio de bolsa nacional</b> completa 3 días con datos del 21 sep aunque la ejecución reporta éxito.</span></li>
+      <li class="cfg">${ic('cfg')}<span><b>3 alertas vienen de la configuración</b>, entre ellas un delta de Pérdidas del STN sin revertir desde el 12 sep.</span></li>
+      <li class="ok">${ic('ok')}<span>9 incidentes cerrados ayer. Tiempo medio de resolución: 4,1 h.</span></li>
+    </ul>
+    <div style="display:flex;gap:8px;margin-top:16px;flex-wrap:wrap"><button class="btn primary sm" id="sendTeams">${ic('send')}Enviar resumen a Teams</button><button class="btn sm ghost" data-go="trazabilidad">Ver historial</button></div>
+  </div></section>`;
+}
+function bTorre(){
+  $$('[data-inc]').forEach(b=>{const f=()=>openInc(b.dataset.inc);b.onclick=f;b.onkeydown=e=>{if(e.key==='Enter')f()}});
+  $$('[data-go]').forEach(b=>b.onclick=()=>go(b.dataset.go));
+  $$('[data-tab]').forEach(b=>{b.onclick=()=>{torreTab=b.dataset.tab;render();$('#tab-'+torreTab).focus()};
+    b.onkeydown=e=>{const k=TTABS.map(t=>t[0]),i=k.indexOf(torreTab);if(e.key==='ArrowRight'||e.key==='ArrowLeft'){torreTab=k[(i+(e.key==='ArrowRight'?1:2))%3];render();$('#tab-'+torreTab).focus()}}});
+  $('#sendTeams').onclick=()=>toast('Resumen enviado al canal #calidad-simem (simulado)');
+}
+
+/* ---------- 2. Incidentes ---------- */
+const STEPS=['Nuevo','En revisión','Corregido','Verificado','Cerrado'];
+function diffRows(inc){
+  const r=rng(inc.id.length*97+inc.set.length);
+  const bad=inc.id==='INC-2026-0412'?{14:'zero',15:'zero',16:'dup',17:'miss'}:{9:'zero',10:'x10',18:'miss'};
+  const base=inc.id==='INC-2026-0412'?95:400;
+  const rows=[];let prev=0;
+  for(let h=1;h<=24;h++){const s=+(base+base*.35*Math.sin((h-5)/24*Math.PI*2)+base*.08*(r()-.5)).toFixed(1);let p=s;
+    if(bad[h]==='zero')p=0;if(bad[h]==='dup')p=prev;if(bad[h]==='x10')p=s*10;if(bad[h]==='miss')p=null;
+    rows.push({h,s,p,bad:!!bad[h]});prev=s}
+  return rows;
+}
+function dispPanel(inc,s){
+  const o=OPP.find(r=>r.n===inc.set),res=s.step>=2||s.rl,row=o||{last:'2026-09-25 06:00',max:inc.date,late:2,next:'2026-09-26 06:00',cls:'Día anterior',exec:'Fallida',exp:inc.date},late=res?0:row.late,ok=late===0;
+  const exec=row.exec==='Fallida'&&!res?`<span class="chip err">${ic('x')}Fallida</span>`:row.exec==='En cola'&&!res?'<span class="chip idle">En cola</span>':`<span class="chip ok">${ic('ok')}Exitosa</span>`;
+  return `<section class="panel"><div class="panel-h"><h3>Disponibilidad del dato</h3><small>${inc.set}</small></div><div class="tbl-wrap"><table class="tbl dispt"><thead><tr><th>Clasificación</th><th>Última ejecución</th><th>Última actualización</th><th>Fecha indexada máx.</th><th class="num">Atraso</th><th>Próxima ejecución</th><th>Disponible en Datalake</th><th><span class="sr-only">Acción</span></th></tr></thead><tbody><tr><td>${row.cls}</td><td>${exec}</td><td class="mono">${row.last}</td><td class="mono">${res&&o?o.exp:row.max}</td><td class="num" style="${late?'color:var(--warn-t);font-weight:600':''}">${late?late+' d':'—'}</td><td class="mono">${row.next}</td><td>${ok?`<span class="chip ok">${ic('ok')}Sí</span>`:`<span class="chip err">${ic('x')}No</span>`}</td><td style="text-align:right"><button class="btn sm primary" id="rlInc" ${ok?'disabled title="El dato ya está al día"':''}>${ic('repeat')}Relanzar</button></td></tr></tbody></table></div></section>`;
+}
+function incRelaunch(inc,s,log){
+  const o=OPP.find(r=>r.n===inc.set),ini0=o?addDays(o.max,1):inc.date,fin0=o?o.exp:inc.date;
+  modal(`Relanzar carga · ${inc.set}`,`
+    <p class="muted" style="margin:0;font-size:13px">Se recargará el rango indicado. Puede ajustar las fechas de inicio y fin de la carga antes de confirmar.</p>
+    <div class="vfilters" style="padding:0;display:grid;grid-template-columns:1fr 1fr;gap:12px"><div class="field"><label for="rlIni">Fecha inicio de la carga</label><input class="in mono" type="date" id="rlIni" value="${ini0}"></div><div class="field"><label for="rlFin">Fecha fin de la carga</label><input class="in mono" type="date" id="rlFin" value="${fin0}"></div></div>
+    <div id="rlErr" class="vstate err" role="alert" hidden></div>
+    <span class="result-box" style="background:color-mix(in srgb,var(--warn) 18%,transparent);color:var(--warn-t)">${ic('alert')}Simulación del prototipo: no se ejecuta ninguna carga real.</span>`,
+    `<button class="btn" data-close>Cancelar</button><button class="btn primary" id="rlGo">${ic('play')}Relanzar carga</button>`);
+  $('#rlGo').onclick=()=>{
+    const a=$('#rlIni').value,b=$('#rlFin').value,e=$('#rlErr');let m='';
+    if(!a||!b)m='Indique la fecha de inicio y la fecha de fin.';else if(a>b)m='La fecha de inicio no puede ser posterior a la fecha de fin.';else if(b>TODAY)m='La fecha fin no puede ser futura. El corte del prototipo es '+TODAY+'.';
+    if(m){e.hidden=false;e.innerHTML=ic('alert')+'<div>'+m+'</div>';return}
+    $('.modal-b').innerHTML=`<div class="prog-row"><span>${esc(inc.set)} · ${a} a ${b}</span><span id="rlp">0 %</span><div class="prog" id="rlb"><i></i></div></div><p class="muted" id="rlmsg" style="margin:0;font-size:13px" aria-live="polite">Ejecutando (simulado)…</p>`;
+    $('.modal-f').innerHTML=`<button class="btn" data-close disabled id="rlclose">Cerrar</button>`;bindClose();
+    let p=0;const t=setInterval(()=>{p=Math.min(100,p+9);const bar=$('#rlb');if(!bar){clearInterval(t);return}bar.firstChild.style.width=p+'%';$('#rlp').textContent=p+' %';
+      if(p>=100){clearInterval(t);bar.classList.add('done');
+        if(o){o.late=0;o.max=o.exp;o.exec='Exitosa';o.last='2026-09-25 09:4'+(inc.id.length%10);o.note='Relanzado hoy'}
+        s.rl=true;log('Carga relanzada para '+a+' a '+b+' (simulado)','good');
+        $('#rlmsg').textContent='La carga terminó y el dato quedó al día (simulado).';const c=$('#rlclose');c.disabled=false;c.classList.add('primary');c.onclick=()=>{render()};toast('Carga relanzada (simulado)');}},180);
+  };
+}
+function cfgErrPanel(inc){
+  return `<section class="panel"><div class="panel-h"><h3>Configuración que generó la alerta</h3><small>La alerta no indica un error en los datos</small></div><div class="panel-b"><div class="vstate err" role="alert">${ic('alert')}<div><b>${CFGW[inc.cfgKey]||inc.sum}</b>${CFGW[inc.cfgKey]&&inc.sum!==CFGW[inc.cfgKey]?`<br><span class="muted">${inc.sum}</span>`:''}</div></div></div></section>`;
+}
+function vInc(){
+  const inc=INCS.find(i=>i.id===curInc),s=incState[inc.id],trz=true,bkTo=VIEWS.find(v=>v[0]===incFrom)||VIEWS[0];
+  const list=INC.map(i=>`<button class="inc-item ${i.id===curInc?'on':''}" data-inc="${i.id}"><b>${i.set}</b><div class="row">${chip(i.kind,i.kind==='warn'?'Atrasado':i.kind==='err'?'Calidad':'Config.')}${sev(i.sev)}</div></button>`).join('');
+  const nodes=[['Fuente',inc.src==='FTP'?'FTP · repositorio':inc.src==='Excel'?'Excel · agente':inc.src==='API'?'API · agente':'Oracle · base transaccional','db'],['Data Lake','capa curada','lake'],['SIMEM','API pública y portal','globe']];
+  const flow=nodes.map(([t,d,i],k)=>`<div class="flow-node ${k===inc.origin?'bad':k<inc.origin?'good':''}"><b>${ic(k===inc.origin?'err':k<inc.origin?'ok':i)}${t}${k===inc.origin?' · origen del fallo':''}</b><span>${d}</span></div>`).join(`<div class="flow-arrow">${ic('arrow')}</div>`);
+  const steps=STEPS.map((t,k)=>`<span class="step ${k<s.step?'done':k===s.step?'cur':''}"><i>${k<s.step?'✓':k+1}</i>${t}</span>`).join('');
+  let evidence='';
+  if(inc.kind==='err'){
+    const rows=diffRows(inc);const nb=rows.filter(r=>r.bad).length;
+    evidence=`<section class="panel"><div class="panel-h"><h3>Fuente vs. publicado en SIMEM · ${dLabel(inc.date)} 2026</h3><div class="diff-sum"><span>${ic('err')} ${nb} de 24 horas difieren</span><span>Unidad: ${inc.unit}</span></div></div>
+    <div class="tbl-wrap" style="max-height:420px;overflow:auto"><table class="tbl diff"><thead><tr><th>Hora</th><th class="num">Valor en fuente</th><th class="num">Valor en SIMEM</th><th class="num">Diferencia</th><th>Estado</th></tr></thead><tbody>
+    ${rows.map(r=>{const d=r.p==null?null:r.p-r.s;return `<tr><td class="mono">${String(r.h).padStart(2,'0')}:00</td><td class="num ${r.bad?'bad src':''}">${fmt(r.s)}</td><td class="num ${r.bad?'bad':''}">${r.p==null?'— sin dato':fmt(r.p)}</td><td class="num delta ${r.bad?'bad':''}">${d==null?'—':(d>0?'+':'')+fmt(d)}</td><td>${r.bad?chip('err',r.p==null?'Faltante':'Difiere'):chip('ok','Coincide')}</td></tr>`}).join('')}
+    </tbody></table></div></section>`;
+  }else if(inc.kind==='warn'&&trz){evidence=dispPanel(inc,s)}else if(inc.kind==='warn'){
+    const rows=[];for(let k=6;k>=0;k--){const e=addDays(inc.date,-k+ (k>2?-3:0));rows.push(e)}
+    const days=[...new Set(rows)].slice(-7);
+    evidence=`<section class="panel"><div class="panel-h"><h3>Fecha esperada vs. dato disponible en SIMEM</h3><small>Frecuencia: diaria · clasificación: día anterior</small></div><div class="tbl-wrap"><table class="tbl"><thead><tr><th>Fecha de ejecución</th><th>Fecha indexada esperada</th><th>Fecha indexada publicada</th><th>Resultado de la ejecución</th><th>Estado</th></tr></thead><tbody>
+    ${[0,1,2,3,4,5,6].map(k=>{const run=addDays(TODAY,k-6),exp=addDays(run,-1),lateDays=inc.id==='INC-2026-0409'?3:1;const isLate=k>=7-lateDays;const pub=isLate?addDays(TODAY,-1-lateDays):exp;return `<tr class="${isLate?'hl':''}"><td class="mono">${run} 06:00</td><td class="mono">${exp}</td><td class="mono">${pub}</td><td>${inc.id==='INC-2026-0409'||!isLate?'Exitosa':'<span style="color:var(--err)">Fallida</span>'}</td><td>${isLate?chip('warn','Atrasado'):chip('ok')}</td></tr>`}).join('')}
+    </tbody></table></div></section>`;
+  }else if(trz){evidence=cfgErrPanel(inc)}else{
+    const code={sql:`<span class="del">- SELECT fecha, agente, precio FROM MEM.OFERTA_DESPACHO_IDEAL</span>\n<span class="add">+ SELECT fecha, agente, precio FROM MEM.OFERTA_DESP_IDEAL_V2</span>\n  WHERE fecha = :fecha_indexada`,
+      delta:`  conjunto: perdidas_stn\n<span class="del">- delta_dias: 45        # temporal, recargue del 12 sep</span>\n<span class="add">+ delta_dias: 1         # valor estándar</span>\n  periodicidad: mensual`,
+      ftp:`<span class="del">- ruta: /publicaciones/capacidad/2026/CEN_mensual.xlsx</span>\n<span class="add">+ ruta: /publicaciones/capacidad_efectiva/2026/CEN_mensual.xlsx</span>`}[inc.cfgKey];
+    evidence=`<section class="panel"><div class="panel-h"><h3>Configuración que generó la alerta</h3><small>La alerta no indica un error en los datos</small></div><div class="panel-b" style="display:flex;flex-direction:column;gap:10px"><pre class="code">${code}</pre><p class="muted" style="margin:0;font-size:13px">Cambio sugerido por la herramienta. Aplíquelo desde Configuración de conjuntos para dejar registro del antes y el después.</p></div></section>`;
+  }
+  const sr=series30(inc.id.charCodeAt(9)+inc.id.length*13, inc.kind==='err'?(inc.id==='INC-2026-0412'?2280:9600):inc.id==='INC-2026-0409'?520:180, inc.kind==='err'?(inc.id==='INC-2026-0412'?260:600):60, inc.date);
+  const markV=inc.kind==='err'?sr.vals[29]*.72:sr.vals[29];if(inc.kind==='err')sr.vals[29]=+markV.toFixed(1);
+  const mn=Math.min(...sr.vals),mx=Math.max(...sr.vals),pad=(mx-mn)*.15;
+  const chartTitle=inc.kind==='cfg'?'Serie publicada (sin afectación)':inc.kind==='warn'?'Serie publicada · últimos 30 días':'Total diario · últimos 30 días';
+  const acts={err:[['repeat','Reejecutar carga para esta fecha','rerun'],['flag','Marcar como falsa alerta','fp'],['mute','Silenciar regla 7 días','mute'],['ticket','Crear requerimiento a soporte','ticket']],
+    warn:[['repeat','Relanzar carga atrasada','rerun'],['clock','Ver en Oportunidad de publicación','goopp'],['mute','Silenciar 7 días','mute'],['ticket','Crear requerimiento a soporte','ticket']],
+    cfg:[['cfg','Abrir configuración del conjunto','gocfg'],['undo','Aplicar el cambio sugerido','fix'],['flag','Marcar como falsa alerta','fp'],['ticket','Crear requerimiento a soporte','ticket']]}[inc.kind].filter(a=>!trz||!['rerun','fix'].includes(a[2])||(inc.kind==='warn'&&a[2]==='rerun')).filter(a=>!(trz&&inc.kind==='warn'&&a[2]==='mute'));
+  const PEOPLE=['Laura M.','Kevin H.','Andrés P.','Milena C.','Daniela T.','Sebastián S.'];
+  const stl=STEPS[s.step],stc=s.step>=3?'ok':s.step===2?'info':s.step===0?'err':'warn';
+  const hdr=`<section class="inc-hdr"><div class="ih-top"><div class="ih-title"><div><button class="btn sm" id="backTrz">← Volver a ${bkTo[1]}</button></div><h1>${inc.set}</h1><div>${chip(stc,stl)}</div></div>
+    <div class="ih-act"><div class="field"><label for="assignTo">Asignar a</label><select class="in" id="assignTo"><option value="">Sin asignar</option>${PEOPLE.map(n=>`<option ${n===s.who?'selected':''}>${n}</option>`).join('')}</select></div>
+    <div class="kebab-wrap"><button class="icon-btn kebab" id="kebab" type="button" aria-label="Acciones sugeridas" aria-haspopup="menu" aria-expanded="false">${ic('more')}</button><div class="kmenu" id="kmenu" role="menu" aria-label="Acciones sugeridas" hidden>${acts.map(([i,t,a])=>`<button role="menuitem" data-act="${a}">${ic(i)}${t}</button>`).join('')}</div></div></div></div>
+    <dl class="ih-meta"><div><dt>Fuente origen</dt><dd><span class="tag">${inc.src}</span></dd></div><div><dt>Incidente</dt><dd class="mono">${inc.id}</dd></div><div><dt>Detectado</dt><dd>${inc.det}</dd></div><div><dt>Responsable</dt><dd>${s.who?`<span style="display:inline-flex;align-items:center;gap:6px"><span class="avatar sm">${initials(s.who)}</span>${s.who}</span>`:'<span class="muted">Sin asignar</span>'}</dd></div></dl></section>`;
+  return `
+  <div class="inc ${trz?'solo':''}">${trz?'':`<nav class="inc-list" aria-label="Incidentes abiertos"><h3>Abiertos · ${INC.length}</h3>${list}</nav>`}
+  <div class="inc-detail">
+    ${trz?hdr:`<div class="inc-head">
+      <div class="inc-meta"><span class="mono">${inc.id}</span><span>Detectado ${inc.det}</span><span>Fecha del dato: <span class="mono">${inc.date}</span></span></div>
+      <h1>${inc.set}</h1>
+      <div class="inc-meta">${chip(inc.kind)}${sev(inc.sev)}<span class="tag">${inc.src}</span><span>${inc.sum}</span></div>
+    </div>
+    ${trz?'':`<div class="flow" aria-label="Recorrido del dato">${flow}</div>`}
+    <section class="panel"><div class="panel-b assign">
+      <div class="steps" aria-label="Estado de gestión">${steps}</div>
+      <div class="assign-who">${s.who?`<span class="avatar sm">${initials(s.who)}</span><span>Responsable: <b>${s.who}</b></span>`:`<span class="muted">Sin responsable</span>`}
+        ${s.who!==ME?`<button class="btn primary sm" id="take">${ic('user')}Tomar incidente</button>`:s.step<4?`<button class="btn primary sm" id="adv">Pasar a ${STEPS[s.step+1]}</button>`:''}</div>
+    </div></section>
+    `}
+    ${evidence}
+    <div class="inc-grid">
+      <div class="inc-col">
+        <section class="panel"><div class="panel-h"><h3>${chartTitle}</h3><small>${inc.unit}</small></div><div class="panel-b">${lineChart({series:[{values:sr.vals,color:'var(--c1)'}],labels:sr.labels,min:Math.floor(mn-pad),max:Math.ceil(mx+pad),area:true,marks:inc.kind==='err'?[{i:29,v:sr.vals[29]}]:[]})}</div></section>
+      </div>
+      <div class="inc-col">
+        ${trz?'':`<section class="panel"><div class="panel-h"><h3>Acciones sugeridas</h3></div><div class="panel-b actions">${acts.map(([i,t,a])=>`<button class="btn" data-act="${a}">${ic(i)}${t}</button>`).join('')}</div></section>`}
+        <section class="panel"><div class="panel-h"><h3>Bitácora</h3><small>${s.log.length} eventos</small></div><div class="panel-b">
+          <ol class="tl">${s.log.map(l=>`<li class="${l.c}"><i></i><div><div class="t">${l.t}</div><div class="m">${l.m}</div></div></li>`).join('')}</ol>
+          <form class="comment" id="cform"><label for="ctext" class="sr" hidden>Comentario</label><input class="in" id="ctext" placeholder="Agregar un comentario para el equipo…" autocomplete="off"><button class="btn sm" type="submit">Comentar</button></form>
+        </div></section>
+      </div>
+    </div>
+  </div></div>`;
+}
+function bInc(){
+  const inc=INCS.find(i=>i.id===curInc),s=incState[inc.id];
+  const bk=$('#backTrz');if(bk)bk.onclick=()=>go(incFrom||'torre');
+  const asg=$('#assignTo');if(asg)asg.onchange=()=>{const v=asg.value;s.who=v||null;if(v&&s.step<1)s.step=1;log(v?'Incidente asignado a '+v:'Se quitó la asignación');const t=TRZ.find(r=>r[0]===inc.id);if(t){t[9]=v||'Sin asignar';t[10]=STEPS[s.step]}render();toast(v?'Incidente asignado a '+v:'Asignación eliminada')};
+  const kb=$('#kebab');if(kb)kb.onclick=e=>{e.stopPropagation();const m=$('#kmenu');m.hidden=!m.hidden;kb.setAttribute('aria-expanded',String(!m.hidden));if(!m.hidden){const f=m.querySelector('button');if(f)f.focus()}};
+  const log=(t,c='')=>s.log.push({c,t,m:'25 sep · '+new Date().toTimeString().slice(0,5)+' · '+ME});
+  $$('[data-inc]').forEach(b=>b.onclick=()=>{curInc=b.dataset.inc;render()});
+  const rli=$('#rlInc');if(rli)rli.onclick=()=>incRelaunch(inc,s,log);
+  const take=$('#take');if(take)take.onclick=()=>{s.who=ME;if(s.step<1)s.step=1;log('Tomaste el incidente');render();toast('Ahora eres responsable de '+inc.id)};
+  const adv=$('#adv');if(adv)adv.onclick=()=>{s.step++;log('Estado cambiado a '+STEPS[s.step],s.step>=3?'good':'');render();toast(inc.id+' pasó a '+STEPS[s.step])};
+  $$('[data-act]').forEach(b=>b.onclick=()=>{const a=b.dataset.act;
+    if(a==='rerun'&&inc.kind==='warn')return incRelaunch(inc,s,log);if(a==='goopp')return go('oportunidad');if(a==='gocfg')return go('configuracion');
+    const m={rerun:['Reejecución encolada para '+inc.date+'. La configuración temporal se revertirá al terminar.','Reejecución encolada para '+inc.date],fp:['Marcado como falsa alerta. La regla queda en revisión.','Marcado como falsa alerta'],mute:['Regla silenciada hasta el 2 oct.','Regla silenciada 7 días'],ticket:['Requerimiento REQ-8841 creado para soporte con el detalle adjunto.','Requerimiento REQ-8841 creado'],fix:['Cambio aplicado y registrado en Trazabilidad.','Cambio de configuración aplicado']}[a];
+    log(m[1],a==='fix'||a==='rerun'?'good':'');if(a==='fix'&&inc.cfgKey){const c=CFG.find(c=>c.warn===inc.cfgKey);if(c)c.warn=null}
+    render();toast(m[0])});
+  $('#cform').onsubmit=e=>{e.preventDefault();const v=$('#ctext').value.trim();if(!v)return;log('“'+esc(v)+'”');render();$('#ctext').focus()};
+}
+
+/* ---------- 3. Oportunidad de publicación ---------- */
+function oppRows(){return OPP.filter(r=>(oppPer==='Todas'||r.per===oppPer)&&(oppState==='Todos'||(oppState==='Atrasados'?r.late>0:r.late===0))&&(!oppQ||r.n.toLowerCase().includes(oppQ.toLowerCase())))}
+function vOpp(){
+  const pers=['Todas','Diario','Semanal','Mensual','Trimestral','Semestral','Anual'];
+  const rows=oppRows();const lateN=OPP.filter(r=>r.late>0).length;
+  return `
+  <div class="vh"><div><h1>Oportunidad de publicación</h1><p>Compara la fecha indexada que debería estar publicada con la que realmente hay en SIMEM. Una ejecución exitosa no garantiza datos al día.</p></div>
+  <div class="vh-act"><button class="btn" id="selLate">${ic('clock')}Seleccionar los ${lateN} atrasados</button></div></div>
+  <div class="filters">
+    <div class="seg" role="group" aria-label="Periodicidad">${pers.map(p=>`<button data-per="${p}" class="${p===oppPer?'on':''}">${p}</button>`).join('')}</div>
+    <select class="in" id="oppState" style="width:auto" aria-label="Estado">${['Todos','Atrasados','Al día'].map(s=>`<option ${s===oppState?'selected':''}>${s}</option>`).join('')}</select>
+    <input class="in" id="oppQ" style="width:240px" placeholder="Filtrar por nombre…" value="${esc(oppQ)}" aria-label="Filtrar por nombre">
+    <span class="muted" style="font-size:12.5px">${rows.length} de ${OPP.length} conjuntos</span>
+  </div>
+  <section class="panel"><div class="tbl-wrap"><table class="tbl"><thead><tr><th><input type="checkbox" id="oppAll" aria-label="Seleccionar todos"></th><th>Conjunto</th><th>Periodicidad</th><th>Clasificación</th><th>Última actualización</th><th>Fecha indexada máx.</th><th>Fecha esperada</th><th class="num">Atraso</th><th>Última ejecución</th><th>Próxima ejecución</th><th>Estado</th></tr></thead><tbody>
+  ${rows.map(r=>{const i=OPP.indexOf(r);return `<tr class="${oppSel.has(i)?'sel':r.note&&r.late?'hl':''}"><td><input type="checkbox" data-row="${i}" ${oppSel.has(i)?'checked':''} aria-label="Seleccionar ${r.n}"></td><td><div style="font-weight:500">${r.n}</div>${r.note&&r.late?`<div class="sub-note">${ic('alert')}${r.note}</div>`:r.note?`<div class="sub-note" style="color:var(--ok)">${ic('ok')}${r.note}</div>`:''}</td><td>${r.per}</td><td class="muted">${r.cls}</td><td class="mono">${r.last}</td><td class="mono">${r.max}</td><td class="mono">${r.exp}</td><td class="num" style="${r.late?'color:var(--warn-t);font-weight:500':''}">${r.late?r.late+' d':'—'}</td><td>${r.exec==='Fallida'?`<span style="color:var(--err)">${ic('x')} Fallida</span>`:r.exec==='En cola'?'<span class="muted">En cola</span>':'Exitosa'}</td><td class="mono muted">${r.next}</td><td>${r.late?chip('warn','Atrasado'):chip('ok')}</td></tr>`}).join('')}
+  </tbody></table></div></section>
+  ${oppSel.size?`<div class="floatbar" role="region" aria-label="Acciones sobre la selección"><b>${oppSel.size} ${oppSel.size===1?'conjunto seleccionado':'conjuntos seleccionados'}</b><button class="btn primary sm" id="relaunch">${ic('repeat')}Relanzar masivamente</button><button class="btn sm" id="sched">${ic('clock')}Programar reejecución</button><button class="btn sm ghost" id="clearSel">Quitar selección</button></div>`:''}`;
+}
+function bOpp(){
+  $$('[data-per]').forEach(b=>b.onclick=()=>{oppPer=b.dataset.per;render()});
+  $('#oppState').onchange=e=>{oppState=e.target.value;render()};
+  $('#oppQ').oninput=e=>{oppQ=e.target.value;const pos=e.target.selectionStart;render();const q=$('#oppQ');q.focus();q.setSelectionRange(pos,pos)};
+  $$('[data-row]').forEach(c=>c.onchange=()=>{const i=+c.dataset.row;c.checked?oppSel.add(i):oppSel.delete(i);render()});
+  const vis=oppRows().map(r=>OPP.indexOf(r));const all=$('#oppAll');all.checked=vis.length>0&&vis.every(i=>oppSel.has(i));
+  all.onchange=()=>{vis.forEach(i=>all.checked?oppSel.add(i):oppSel.delete(i));render()};
+  $('#selLate').onclick=()=>{oppSel.clear();OPP.forEach((r,i)=>r.late&&oppSel.add(i));render()};
+  if(oppSel.size){$('#clearSel').onclick=()=>{oppSel.clear();render()};$('#relaunch').onclick=relaunchModal;$('#sched').onclick=()=>toast('Reejecución programada para esta noche a las 22:00 (simulado)')}
+}
+function relaunchModal(){
+  const rows=[...oppSel].map(i=>OPP[i]);
+  modal(`Relanzar ${rows.length} ${rows.length===1?'conjunto':'conjuntos'}`,`
+    <p class="muted" style="margin:0;font-size:13px">Se recargará el rango faltante de cada conjunto. Revise las fechas antes de confirmar.</p>
+    <div class="tbl-wrap"><table class="tbl"><thead><tr><th>Conjunto</th><th>Desde</th><th>Hasta</th></tr></thead><tbody>
+    ${rows.map(r=>`<tr><td>${r.n}</td><td class="mono">${r.late?addDays(r.max,1):r.max}</td><td class="mono">${r.exp}</td></tr>`).join('')}</tbody></table></div>
+    <label class="check-line"><input type="checkbox" id="revert" checked><span>Revertir automáticamente la configuración temporal al finalizar<small>El delta vuelve a su valor estándar y queda registrado en Trazabilidad. Evita dejar configuraciones olvidadas.</small></span></label>`,
+    `<button class="btn" data-close>Cancelar</button><button class="btn primary" id="confirmRl">${ic('play')}Relanzar ${rows.length}</button>`);
+  $('#confirmRl').onclick=()=>{
+    const rev=$('#revert').checked;
+    $('.modal-b').innerHTML=rows.map((r,k)=>`<div class="prog-row"><span>${r.n}</span><span id="pl${k}">En cola</span><div class="prog" id="pb${k}"><i></i></div></div>`).join('')+`<p class="muted" id="rlmsg" style="margin:0;font-size:13px">Ejecutando…</p>`;
+    $('.modal-f').innerHTML=`<button class="btn" data-close disabled id="rlclose">Cerrar</button>`;bindClose();
+    const p=rows.map(()=>0),sp=rows.map((_,k)=>6+((k*37)%11));
+    const t=setInterval(()=>{let done=0;rows.forEach((r,k)=>{p[k]=Math.min(100,p[k]+sp[k]);if(p[k]>=100)done++;const bar=$('#pb'+k);if(!bar)return;bar.firstChild.style.width=p[k]+'%';$('#pl'+k).textContent=p[k]>=100?'Completado':p[k]+' %';if(p[k]>=100)bar.classList.add('done')});
+      if(done===rows.length){clearInterval(t);rows.forEach(r=>{r.late=0;r.max=r.exp;r.exec='Exitosa';r.last='2026-09-25 09:4'+(rows.indexOf(r)%10);r.note='Relanzado hoy'+(rev?' · configuración temporal revertida':'')});oppSel.clear();if(route==='oportunidad')render();
+        const m=$('#rlmsg');if(m)m.textContent=`${rows.length} conjuntos quedaron al día.`+(rev?' Las configuraciones temporales se revirtieron.':'');const c=$('#rlclose');if(c){c.disabled=false;c.classList.add('primary')}
+        toast(rows.length+' conjuntos relanzados');}},180);
+  };
+}
+
+/* ---------- 4. Versiones de liquidación ---------- */
+const VOFF={TX1:2,TX2:5,TXR:10,TXF:25,TX3:30};
+const VTODAY='2026-10-15';
+const VDS=[['BanderaDisponibilidadReal','Liquidación TIE','InformacionTransaccionesMEM'],['BanderaPruebasDisponibilidad','Liquidación TIE','InformacionTransaccionesMEM'],['BanderasArranqueRecurso','Liquidación TIE','InformacionTransaccionesMEM'],['BanderasdeAutorizacionaDesviarse','Liquidación TIE','InformacionTransaccionesMEM'],['BanderasParadaRecurso','Liquidación TIE','InformacionTransaccionesMEM'],['BanderasPruebasUnidad','Liquidación TIE','InformacionTransaccionesMEM'],['CalculoGeneracionSeguridadAsociada','Cargo por confiabilidad','InformacionTransaccionesMEM'],['CantidadHorariaContratosAdjudicadosSICEP','Liquidación de restricciones','EstadisticasCttos'],['CapacidadInstaladaTecnologiaRecurso','Cargo por confiabilidad','EstadisticasCttos'],['CausasGeneracionSeguridad','Cargo por confiabilidad','InformacionTransaccionesMEM'],['CombustibleUtilizadoParaCalculoCostos','Liquidación de restricciones','EstadisticasCttos'],['CostosOperacionMantenimientoCombustibles','Liquidación de restricciones','EstadisticasCttos']];
+const VLIQ=['Liquidación TIE','Cargo por confiabilidad','Liquidación de restricciones'],VTEMAS=['EstadisticasCttos','InformacionTransaccionesMEM'];
+const VMONTHS=[['2026-09','Septiembre de 2026'],['2026-08','Agosto de 2026'],['2026-07','Julio de 2026']];
+const VLBL={ok:'Completa: todas las versiones obligatorias publicadas',miss:'Falta la última versión obligatoria y venció su plazo',late:'Última versión publicada, faltan versiones anteriores',pend:'Pendiente: versiones dentro del plazo'};
+const VSHORT={ok:'Completa',miss:'Vencida',late:'Faltan anteriores',pend:'Pendiente en plazo'};
+let vf={mes:'2026-09',liq:'Todos',tema:'Todos'},verSel=null,verFixed={},verMsg='';
+const VCACHE={};
+const SEP={"BanderaDisponibilidadReal":[[5,[["TX1",1],["TX2",1],["TXR",1],["TXF",1],["TX3",0]]],[6,[["TX1",1],["TX2",1],["TXR",1]]],[23,[["TX1",1],["TX2",1],["TXR",1]]]],"BanderaPruebasDisponibilidad":[[16,[["TX1",1],["TX2",1]]],[21,[["TX1",1],["TX2",1],["TXR",1]]],[26,[["TX1",1],["TX2",1],["TXR",1]]]],"BanderasArranqueRecurso":[[6,[["TX1",1],["TX2",1],["TXR",1],["TXF",1]]],[26,[["TX1",1],["TX2",1],["TXR",1],["TXF",0]]],[30,[["TX1",1],["TX2",0],["TXR",0],["TXF",1]]]],"BanderasdeAutorizacionaDesviarse":[[1,[["TX1",1],["TX2",1],["TXR",1]]],[17,[["TX1",1],["TX2",1]]],[26,[["TX1",1],["TX2",1]]]],"BanderasParadaRecurso":[[5,[["TX1",1],["TX2",1]]],[14,[["TX1",1],["TX2",1]]],[30,[["TX1",1],["TX2",1],["TXR",1],["TXF",0]]]],"BanderasPruebasUnidad":[[14,[["TX1",1],["TX2",1],["TXR",1],["TXF",1]]],[23,[["TX1",1],["TX2",1]]],[30,[["TX1",1],["TX2",1]]]],"CalculoGeneracionSeguridadAsociada":[[9,[["TX1",1],["TX2",0],["TXR",1],["TXF",0]]],[20,[["TX1",1],["TX2",1],["TXR",1]]],[25,[["TX1",1],["TX2",1],["TXR",1]]]],"CantidadHorariaContratosAdjudicadosSICEP":[[2,[["TX1",1],["TX2",1],["TXR",1]]],[18,[["TX1",1],["TX2",1],["TXR",1]]],[23,[["TX1",1],["TX2",1]]]],"CapacidadInstaladaTecnologiaRecurso":[[1,[["TX1",1],["TX2",1]]],[21,[["TX1",1],["TX2",1],["TXR",1]]],[24,[["TX1",1],["TX2",1]]]],"CausasGeneracionSeguridad":[[4,[["TX1",1],["TX2",1]]],[12,[["TX1",1],["TX2",0]]],[15,[["TX1",1],["TX2",1]]]],"CombustibleUtilizadoParaCalculoCostos":[[11,[["TX1",1],["TX2",1],["TXR",1]]],[16,[["TX1",1],["TX2",1]]],[18,[["TX1",1],["TX2",1],["TXR",1],["TXF",1]]]],"CostosOperacionMantenimientoCombustibles":[[2,[["TX1",1],["TX2",1],["TXR",1]]],[6,[["TX1",1],["TX2",1],["TXR",1],["TXF",1]]],[28,[["TX1",1],["TX2",1]]]]};
+function verEvents(mes){
+  if(mes==='2026-09')return SEP;
+  if(VCACHE[mes])return VCACHE[mes];
+  const r=rng(+mes.slice(5)*977),types=[['TX1','TX2'],['TX1','TX2','TXR'],['TX1','TX2','TXR','TXF']],out={};
+  VDS.forEach(([n])=>{const used=new Set(),l=[];while(l.length<3){const d=1+Math.floor(r()*28);if(used.has(d))continue;used.add(d);const vs=types[Math.floor(r()*3)];l.push([d,vs.map(v=>[v,r()<.04?0:1])])}l.sort((a,b)=>a[0]-b[0]);out[n]=l});
+  return VCACHE[mes]=out;
+}
+function verCell(ds,mes,day){
+  const ev=(verEvents(mes)[ds]||[]).find(e=>e[0]===day);if(!ev)return null;
+  const iso=`${mes}-${String(day).padStart(2,'0')}`;
+  const vers=ev[1].map(([v,p])=>{const due=addDays(iso,VOFF[v]),fixed=!!verFixed[[ds,mes,day,v].join('|')],pub=!!p||fixed;
+    return{v,pub,fixed,due,miss:!pub&&due<VTODAY,pend:!pub&&due>=VTODAY,pdate:pub?(fixed?VTODAY:addDays(iso,Math.max(1,VOFF[v]-1))):null}});
+  const last=vers[vers.length-1];let st;
+  if(last.miss)st='miss';else if(last.pub&&vers.some(x=>x.miss))st='late';else if(vers.some(x=>!x.pub))st='pend';else st='ok';
+  return{ds,iso,day,vers,st,last};
+}
+function verRows(){return VDS.filter(r=>(vf.liq==='Todos'||r[1]===vf.liq)&&(vf.tema==='Todos'||r[2]===vf.tema))}
+function verStats(){
+  const rows=verRows(),nd=new Date(+vf.mes.slice(0,4),+vf.mes.slice(5),0).getDate();
+  const s={pub:0,miss:0,pend:0,cells:{ok:0,miss:0,late:0,pend:0},byDs:{},nd};
+  rows.forEach(([n])=>{s.byDs[n]=0;for(let d=1;d<=nd;d++){const c=verCell(n,vf.mes,d);if(!c)continue;s.cells[c.st]++;c.vers.forEach(x=>{if(x.pub)s.pub++;else if(x.miss){s.miss++;s.byDs[n]++}else s.pend++})}});
+  const exp=s.pub+s.miss;s.pct=exp?s.pub/exp*100:100;s.exp=exp;return s;
+}
+const VICO={ok:'ok',miss:'x',late:'alert',pend:'clock'};
+function vPct(p){return fmt(p,Number.isInteger(p)?0:1)}
+function vVer(){
+  const s=verStats(),rows=verRows(),mes=vf.mes,[y,m]=mes.split('-').map(Number);
+  const dirty=vf.mes!=='2026-09'||vf.liq!=='Todos'||vf.tema!=='Todos';
+  let head='<th class="rh corner" scope="col">Conjunto de datos</th>';
+  for(let d=1;d<=s.nd;d++){const wd=new Date(`${mes}-${String(d).padStart(2,'0')}T12:00:00`).getDay();head+=`<th scope="col" class="${wd===0||wd===6?'we':''}"><span class="wd">${DIA[wd]}</span>${d}</th>`}
+  const body=rows.map(([n,liq,tema])=>{let tds='';
+    for(let d=1;d<=s.nd;d++){const c=verCell(n,mes,d);
+      tds+=c?`<td><button class="vcell ${c.st} ${verSel&&verSel.ds===n&&verSel.day===d?'pick':''}" data-ds="${n}" data-d="${d}" aria-label="${n}, ${d} de ${MES[m-1]}: ${VLBL[c.st]}">${ic(VICO[c.st])}</button></td>`:`<td><span class="vcell none" aria-label="${n}, ${d} de ${MES[m-1]}: sin liquidación programada">·</span></td>`}
+    const f=s.byDs[n];
+    return `<tr><th class="rh" scope="row" title="${n}"><span class="rn">${n}</span><small>${tema}${f?` · <b class="mf">${f} ${f===1?'faltante':'faltantes'}</b>`:''}</small></th>${tds}</tr>`}).join('')||`<tr><td colspan="${s.nd+1}" class="muted" style="padding:24px;text-align:center">Ningún conjunto coincide con los filtros.</td></tr>`;
+  const lg=(c,t)=>`<span class="lgi"><i class="vcell ${c}">${c==='none'?'·':ic(VICO[c])}</i>${t}</span>`;
+  const selOpt=(arr,cur)=>['Todos',...arr].map(o=>Array.isArray(o)?`<option value="${o[0]}" ${o[0]===cur?'selected':''}>${o[1]}</option>`:`<option ${o===cur?'selected':''}>${o}</option>`).join('');
+  return `
+  <div class="vh"><div><h1>Versiones de liquidación</h1><p>Cada fecha debe recibir sus versiones obligatorias en orden. Seleccione una celda para ver el detalle y recuperar una versión faltante.</p></div></div>
+  <section class="panel"><div class="panel-b vfilters">
+    <div class="field"><label for="vMes">Mes</label><select class="in" id="vMes">${VMONTHS.map(([v,t])=>`<option value="${v}" ${v===mes?'selected':''}>${t}</option>`).join('')}</select></div>
+    <div class="field"><label for="vLiq">Conjunto de liquidación</label><select class="in" id="vLiq">${selOpt(VLIQ,vf.liq)}</select></div>
+    <div class="field"><label for="vTema">Tema</label><select class="in" id="vTema">${selOpt(VTEMAS,vf.tema)}</select></div>
+    <button class="btn" id="vClear" ${dirty?'':'disabled'}>${ic('undo')}Limpiar filtros</button>
+    <span class="muted vcount">${rows.length} de ${VDS.length} conjuntos de datos</span>
+  </div></section>
+  <section class="vsum ${s.miss?'bad':'good'}" aria-live="polite"><div class="vsum-main">${ic(s.miss?'alert':'ok')}<span>Completitud de versiones del mes: <b>${vPct(s.pct)} %</b> · <b>${s.miss} ${s.miss===1?'versión faltante':'versiones faltantes'}</b></span></div>
+    <div class="vsum-sub"><span class="chip ok">${ic('ok')}${s.cells.ok} completas</span><span class="chip err">${ic('x')}${s.cells.miss} vencidas</span><span class="chip warn">${ic('alert')}${s.cells.late} con faltantes previas</span><span class="chip idle">${ic('clock')}${s.cells.pend} pendientes en plazo</span></div></section>
+  <section class="panel"><div class="panel-h"><h3>Matriz de versiones · ${VMONTHS.find(x=>x[0]===mes)[1]}</h3>
+    <div class="legend vleg" aria-label="Leyenda de estados">${lg('ok','Completa')}${lg('miss','Falta la última y venció')}${lg('late','Última publicada, faltan anteriores')}${lg('pend','Pendiente en plazo')}${lg('none','Sin liquidación')}</div></div>
+    <div class="vm-wrap" id="vmWrap" tabindex="0" role="region" aria-label="Matriz de versiones, desplazable"><table class="vm"><thead><tr>${head}</tr></thead><tbody>${body}</tbody></table></div></section>
+  <p class="muted" style="margin:0;font-size:12px">Corte del prototipo: 15 oct 2026. Plazos de ejemplo: TX1 D+2, TX2 D+5, TXR D+10, TXF D+25, TX3 D+30. En la versión final se toman de la regulación vigente. El indicador cuenta versiones publicadas frente a publicadas más faltantes; las pendientes en plazo no se cuentan.</p>
+  <div class="vtip" id="vtip" role="tooltip" hidden></div>`;
+}
+function vTipText(c){
+  const miss=c.vers.filter(x=>x.miss).map(x=>x.v),pend=c.vers.filter(x=>x.pend).map(x=>x.v);
+  return `<b>${c.ds}</b><span>${dLabel(c.iso)} 2026 · ${VSHORT[c.st]}</span><span>${VLBL[c.st]}</span>`+(miss.length?`<span class="t-err">Faltan: ${miss.join(', ')}</span>`:'')+(pend.length?`<span>En plazo: ${pend.join(', ')}</span>`:'');
+}
+function bVer(){
+  $('#vMes').onchange=e=>{vf.mes=e.target.value;verSel=null;render()};
+  $('#vLiq').onchange=e=>{vf.liq=e.target.value;render()};
+  $('#vTema').onchange=e=>{vf.tema=e.target.value;render()};
+  $('#vClear').onclick=()=>{vf={mes:'2026-09',liq:'Todos',tema:'Todos'};verSel=null;render();toast('Filtros restablecidos')};
+  const tip=$('#vtip'),wrap=$('#vmWrap');
+  const show=b=>{const c=verCell(b.dataset.ds,vf.mes,+b.dataset.d);tip.innerHTML=vTipText(c);tip.hidden=false;const r=b.getBoundingClientRect(),w=tip.offsetWidth,h=tip.offsetHeight;let x=Math.min(Math.max(8,r.left+r.width/2-w/2),innerWidth-w-8),y=r.top-h-8;if(y<8)y=r.bottom+8;tip.style.left=x+'px';tip.style.top=y+'px'};
+  const hide=()=>{tip.hidden=true};
+  wrap.addEventListener('mouseover',e=>{const b=e.target.closest('.vcell[data-ds]');if(b)show(b)});
+  wrap.addEventListener('mouseout',e=>{if(e.target.closest('.vcell[data-ds]'))hide()});
+  wrap.addEventListener('focusin',e=>{const b=e.target.closest('.vcell[data-ds]');if(b)show(b)});
+  wrap.addEventListener('focusout',hide);wrap.addEventListener('scroll',hide);
+  $$('.vcell[data-ds]').forEach(b=>b.onclick=()=>{hide();$$('.vcell.pick').forEach(x=>x.classList.remove('pick'));b.classList.add('pick');verSel={ds:b.dataset.ds,day:+b.dataset.d};verMsg='';verDrawer(verSel.ds,verSel.day)});
+}
+const verDb=c=>c.st==='miss'&&c.vers.some(x=>x.miss&&x!==c.last);
+const verIsDb=(c,x)=>verDb(c)&&x===c.last;
+const verFtpOpt={};
+const verList=c=>{const m=c.vers.filter(x=>x.miss);return verDb(c)?m.filter(x=>x===c.last||verFtpOpt[c.ds+'|'+c.iso]):m};
+const verSrcOk=(ds,v,db)=>db||!(ds==='BanderasArranqueRecurso'&&v==='TX2');
+const verDbPath=(c,v)=>`oracle://bd-fuente.ficticio.simem.invalid/LIQUIDACION/${c.ds}?version=${v}&fecha=${c.iso}`;
+const verPath=(c,v)=>`ftp://ftp.ficticio.simem.invalid/liquidacion/${c.iso.slice(0,7).replace('-','/')}/${c.ds}/${v.toLowerCase()}_${c.iso.replace(/-/g,'')}.csv`;
+function verDrawer(ds,day,msg=''){
+  const c=verCell(ds,vf.mes,day),info=VDS.find(x=>x[0]===ds);
+  const stChip={ok:chip('ok','Completa'),miss:chip('err','Falta la última versión · vencida'),late:chip('warn','Faltan versiones anteriores'),pend:chip('idle','Pendiente dentro del plazo')}[c.st];
+  const missing=c.vers.filter(x=>x.miss),pending=c.vers.filter(x=>x.pend),pubd=c.vers.filter(x=>x.pub);
+  const ago=d=>{const n=Math.round((new Date(VTODAY)-new Date(d))/864e5);return n+(n===1?' día':' días')};
+  const rowSt=x=>x.pub?chip('ok',x.fixed?'Recuperada (simulado)':'Publicada'):x.miss?chip('err','Faltante · vencida hace '+ago(x.due)):chip('idle','Pendiente en plazo');
+  const names=l=>l.length?l.map(x=>x.v).join(', '):'Ninguna';
+  drawer(`${dLabel(c.iso)} 2026 · ${ds}`,`
+    <div class="vd-top">${stChip}<span class="mono muted">${c.iso}</span></div>
+    <dl class="vd-meta"><div><dt>Conjunto de liquidación</dt><dd>${info[1]}</dd></div><div><dt>Tema</dt><dd>${info[2]}</dd></div></dl>
+    <div class="vd-sum"><div class="ok"><b>${pubd.length}</b><span>Publicadas</span><em>${names(pubd)}</em></div><div class="${missing.length?'bad':''}"><b>${missing.length}</b><span>Faltantes</span><em>${names(missing)}</em></div>${pending.length?`<div><b>${pending.length}</b><span>En plazo</span><em>${names(pending)}</em></div>`:''}</div>
+    ${verDb(c)?`<div class="vd-note">${ic('alert')}<span><b>Faltan la última versión y una previa.</b> ${c.last.v} sale de <b>Oracle</b>; la previa puede salir del <b>FTP alterno</b> (opcional).</span></div>`:''}
+    <ul class="vd-list">${c.vers.map(x=>{const db=verIsDb(c,x),ok=verSrcOk(ds,x.v,db);return `<li class="${x.pub?'ok':x.miss?'miss':'pend'}"><div class="vl-h"><b>${x.v}</b>${x===c.last?'<span class="tag" title="Última versión obligatoria">última</span>':''}${rowSt(x)}</div>
+      <div class="vl-d muted">Plazo <span class="mono">${x.due}</span> · ${x.pub?`Publicada <span class="mono">${x.pdate}</span>`:x.miss?'Sin publicar':'Aún no vence'}</div>
+      ${x.miss?`<div class="vl-s ${ok?'found':'gone'}">${ic(ok?'ok':'x')}<span>${db?'Base de datos Oracle XM (conexión ficticia): registros encontrados':`Fuente alterna FTP (ruta ficticia): ${ok?'archivo encontrado':'archivo no encontrado'}`}<code>${db?verDbPath(c,x.v):verPath(c,x.v)}</code>${verDb(c)&&!db?`<label class="vl-opt"><input type="checkbox" id="ftpOpt" ${verFtpOpt[c.ds+'|'+c.iso]?'checked':''}> Recuperar también desde el FTP alterno <i>(opcional)</i></label>`:''}</span></div>`:''}</li>`}).join('')}</ul>
+    <div id="recArea">${msg}</div>`,
+    missing.length?`<button class="btn primary" id="recover">${ic('download')}${verDb(c)?`Recuperar ${verList(c).map(x=>x.v).join(' y ')} (${verFtpOpt[c.ds+'|'+c.iso]?'Oracle y FTP':'Oracle'})`:'Recuperar y cargar versión faltante'}</button>`:`<button class="btn" data-close>Cerrar</button>`,'ver');
+  const rb=$('#recover');if(rb)rb.onclick=()=>verConfirm(c,verList(c));
+  const fo=$('#ftpOpt');if(fo)fo.onchange=()=>{verFtpOpt[c.ds+'|'+c.iso]=fo.checked;verDrawer(ds,day,msg);const n=$('#ftpOpt');if(n)n.focus()};
+}
+function verConfirm(c,missing){
+  $('#recover').disabled=true;
+  $('#recArea').innerHTML=`<div class="check-line" role="alertdialog" aria-label="Confirmar recuperación"><div style="display:flex;flex-direction:column;gap:10px;width:100%"><b>¿Recuperar y cargar ${missing.length===1?'la versión':'las '+missing.length+' versiones'} ${missing.map(x=>x.v).join(', ')}?</b>
+    <span class="muted">${verDb(c)?'Se extraería '+c.last.v+' desde la base de datos Oracle'+(missing.length>1?' y las previas desde su ruta alterna FTP':'')+', se validaría y se cargaría a SIMEM.':'Se descargaría cada archivo desde su ruta alterna, se validaría y se cargaría a SIMEM.'}</span>
+    <span class="result-box" style="background:color-mix(in srgb,var(--warn) 18%,transparent);color:var(--warn-t)">${ic('alert')}Simulación del prototipo: no se ejecuta ninguna descarga ni carga real.</span>
+    <div style="display:flex;gap:8px;justify-content:flex-end"><button class="btn sm" id="recNo">Cancelar</button><button class="btn primary sm" id="recYes">Confirmar recuperación</button></div></div></div>`;
+  $('#recNo').onclick=()=>{$('#recArea').innerHTML='';$('#recover').disabled=false};
+  $('#recYes').onclick=()=>verRun(c,missing);$('#recYes').focus();
+}
+function verRun(c,list){
+  $('#recArea').innerHTML=`<div aria-live="polite">${list.map((x,k)=>`<div class="prog-row"><span>${x.v} · ${verSrcOk(c.ds,x.v,verIsDb(c,x))?'Procesando…':'Buscando archivo…'}</span><span id="rp${k}">0 %</span><div class="prog" id="rb${k}"><i></i></div></div>`).join('')}<p class="muted" style="margin:6px 0 0;font-size:12.5px">Procesando (simulado)… No cierre este panel.</p></div>`;
+  const p=list.map(()=>0),t=setInterval(()=>{let done=0;list.forEach((x,k)=>{p[k]=Math.min(100,p[k]+8+k*3);if(p[k]>=100)done++;const b=$('#rb'+k);if(b){b.firstChild.style.width=p[k]+'%';$('#rp'+k).textContent=p[k]+' %'}});
+    if(done===list.length){clearInterval(t);
+      const ok=list.filter(x=>verSrcOk(c.ds,x.v,verIsDb(c,x))),bad=list.filter(x=>!verSrcOk(c.ds,x.v,verIsDb(c,x)));
+      ok.forEach(x=>verFixed[[c.ds,vf.mes,c.day,x.v].join('|')]=1);
+      const msg=(ok.length?`<div class="result-box ok">${ic('ok')}${ok.map(x=>x.v).join(', ')} ${ok.length===1?'quedó cargada':'quedaron cargadas'} (simulado). El estado de la celda se actualizó.</div>`:'')+
+        (bad.length?`<div class="result-box" style="background:color-mix(in srgb,var(--err) 12%,transparent);color:var(--err)">${ic('x')}Error en ${bad.map(x=>x.v).join(', ')}: no se encontró el archivo en la ruta alterna ficticia. Revise la ruta o cargue el archivo manualmente.</div>`:'');
+      render();toast(ok.length?'Recuperación simulada completada':'La recuperación simulada terminó con errores');
+      verDrawer(c.ds,c.day,msg);}},180);
+}
+
+/* ---------- 5. Validación Fuente vs SIMEM ---------- */
+const VAL_CFG={
+ 'Aportes Hídricos':{src:'API XM',srcT:'API',rep:'Datalake SIMEM',repT:'Datalake',date:'fechaOperacion',ids:['nombreEmbalse'],idCol:['nombre_embalse'],cmp:'valor',time:false,per:24,unit:'GWh',pool:['TOMINE','PEÑOL','GUAVIO','BETANIA','URRA','SAN LORENZO','MIEL I','PRADO','ALTOANCHICAYÁ']},
+ 'Generación Real':{src:'Oracle XM',srcT:'Base de datos',rep:'Datalake SIMEM',repT:'Datalake',date:'fechaHoraOperacion',ids:['codigoPlanta'],idCol:['codigo_planta'],cmp:'valor',time:true,per:480,unit:'MWh',pool:['GTPE','TEBSA','CHVR','GVIO','SNCL','TCNT','PGRD']},
+ 'Precio de Bolsa Nacional':{src:'API XM',srcT:'API',rep:'Datalake SIMEM',repT:'Datalake',date:'fechaOperacion',ids:['codigoVariable'],idCol:['codigo_variable'],cmp:'valor',time:false,per:24,unit:'COP/kWh',pool:['PRECIO_BOLSA','PRECIO_ESCASEZ','PRECIO_OFERTA']},
+};
+const VAL_SRCS=['API XM','Oracle XM'];
+const VAL_ROWS={
+ 'Aportes Hídricos':[['2026-09-01','TOMINE',200,50,0],['2026-09-03','PEÑOL',118.4,98.1,1],['2026-09-08','GUAVIO',342,null,0],['2026-09-12','BETANIA',null,87.2,0],['2026-09-17','URRA',56.5,61.9,0],['2026-09-22','SAN LORENZO',140.2,14.02,1],['2026-09-27','MIEL I',75,null,0]],
+ 'Generación Real':[['2026-09-01 12:34','GTPE',30,null,1],['2026-09-02 08:00','TEBSA',155,150,0],['2026-09-05 19:00','CHVR',null,41.5,0],['2026-09-11 03:00','GVIO',212.4,0,0],['2026-09-19 15:00','SNCL',64,64.8,1]],
+ 'Precio de Bolsa Nacional':[['2026-09-04','PRECIO_BOLSA',312.45,298.1,0],['2026-09-15','PRECIO_ESCASEZ',null,610.5,0],['2026-09-22','PRECIO_BOLSA',287,null,0]],
+};
+const VAL_EXTRA={ // nuevas inconsistencias que aparecen al re-ejecutar (simulado)
+ 'Aportes Hídricos':[['2026-09-29','PRADO',22.8,2.28,0],['2026-09-30','ALTOANCHICAYÁ',31,null,0]],
+ 'Generación Real':[['2026-09-29 21:00','TCNT',88,80,0]],
+ 'Precio de Bolsa Nacional':[['2026-09-30','PRECIO_OFERTA',401.2,380,0]],
+};
+let valF={fuente:'Todas',conj:'Aportes Hídricos',fecha:'2026-09-03'},valSol={},valBusy=false,valRuns=0,valLast='2026-10-15 · datos de demostración';
+let valH={conj:'Aportes Hídricos',ini:'2026-08-01',fin:'2026-08-31',state:'idle',rows:[],msg:'',reg:0};
+const valEstado=r=>r[2]==null?'fuente':r[3]==null?'simem':'dif';
+const valFmt=v=>fmt(v,Number.isInteger(v)?0:(Math.abs(v)<10?2:1));
+const valDiff=r=>r[2]==null||r[3]==null?null:+(r[2]-r[3]).toFixed(2);
+const valOk=(a,b)=>/^\d{4}-\d{2}-\d{2}$/.test(a||'')&&/^\d{4}-\d{2}-\d{2}$/.test(b||'')&&a<=b;
+const daysBetween=(a,b)=>Math.round((new Date(b)-new Date(a))/864e5)+1;
+function valChip(k){return k==='dif'?`<span class="chip warn">${ic('alert')}Diferente</span>`:k==='simem'?`<span class="chip err">${ic('x')}Faltante en SIMEM</span>`:`<span class="chip cfg">${ic('search')}Faltante en Fuente</span>`}
+function valTable(cfg,rows,withSol){
+  const idH=cfg.idCol.join(', ');
+  const body=rows.map((r,i)=>{const d=valDiff(r),k=valEstado(r);
+    return `<tr><td class="mono">${r[0]}</td><td>${cfg.idCol.map(c=>`<span class="idp"><span class="muted">${c}:</span> <b>${esc(r[1])}</b></span>`).join('')}</td>
+    <td class="num">${r[2]==null?'<span class="na">No disponible</span>':valFmt(r[2])}</td><td class="num">${r[3]==null?'<span class="na">No disponible</span>':valFmt(r[3])}</td>
+    <td class="num ${d!=null&&d!==0?'dfv':''}">${d==null?'<span class="na">NA</span>':valFmt(d)}</td><td>${valChip(k)}</td>
+    ${withSol?`<td><button class="solbtn ${r.sol?'yes':'no'}" data-sol="${i}" aria-pressed="${r.sol?'true':'false'}" aria-label="Solucionado: ${r.sol?'sí':'no'}. Cambiar" title="${r.sol?'Solucionado':'Sin solucionar'}">${ic(r.sol?'ok':'x')}<span>${r.sol?'Sí':'No'}</span></button></td>`:''}</tr>`}).join('');
+  return `<div class="tbl-wrap"><table class="tbl valtbl"><thead><tr><th>Fecha de indexación<small class="mono">${cfg.date}</small></th><th>Campos identificadores<small class="mono">${idH}</small></th><th class="num">Valor Fuente</th><th class="num">Valor SIMEM</th><th class="num">Diferencia</th><th>Estado</th>${withSol?'<th>Solucionado</th>':''}</tr></thead><tbody>${body}</tbody></table></div>`;
+}
+const valState={};
+function valRows(name){if(!valState[name])valState[name]=VAL_ROWS[name].map(r=>{const x=r.slice(0,4);x.sol=!!r[4];return x});return valState[name]}
+const valDOk=d=>/^\d{4}-\d{2}-\d{2}$/.test(d||'');
+function valVisible(){if(!valDOk(valF.fecha))return[];return valRows(valF.conj).map((r,i)=>({r,i})).filter(({r})=>r[0].slice(0,10)===valF.fecha)}
+const valKey=()=>[VAL_CFG[valF.conj].src,valF.conj,valF.fecha].join('|');
+function valSolved(){const k=valKey();if(k in valSol)return valSol[k];const v=valVisible();return v.length>0&&v.every(x=>x.r.sol)}
+const valDates=()=>[...new Set(valRows(valF.conj).map(r=>r[0].slice(0,10)))]
+function histGen(name,ini,fin){
+  const cfg=VAL_CFG[name],days=daysBetween(ini,fin),n=days<=3?0:Math.min(9,Math.floor(days/4));
+  const r=rng(name.length*131+days*7+ +ini.slice(5,7)),rows=[];
+  for(let k=0;k<n;k++){const d=addDays(ini,Math.floor(r()*days)),hh=String(Math.floor(r()*24)).padStart(2,'0'),id=cfg.pool[Math.floor(r()*cfg.pool.length)];
+    const base=cfg.unit==='COP/kWh'?300+r()*200:cfg.unit==='GWh'?20+r()*250:20+r()*200,t=r();
+    const row=[cfg.time?`${d} ${hh}:00`:d,id,+base.toFixed(1),t<.5?+(base*(.6+r()*.7)).toFixed(1):null,0];
+    if(t>=.5&&t<.75){row[2]=null;row[3]=+base.toFixed(1)}rows.push(row)}
+  return rows.sort((a,b)=>a[0]<b[0]?-1:1);
+}
+function vVal(){
+  const cfg=VAL_CFG[valF.conj],vis=valVisible(),ok=valDOk(valF.fecha),solved=valSolved();
+  const reg=ok?cfg.per:0,inc=vis.length,rate=reg?inc/reg*100:0;
+  const names=Object.keys(VAL_CFG).filter(n=>valF.fuente==='Todas'||VAL_CFG[n].src===valF.fuente);
+  const kv=(l,v)=>`<div class="cfgi"><span>${l}</span><b>${v}</b></div>`;
+  const hs=valH.state;
+  let hbody='';
+  if(hs==='loading')hbody=`<div class="vstate" role="status" aria-live="polite"><span class="spin"></span>Ejecutando validación histórica…</div>`;
+  else if(hs==='error')hbody=`<div class="vstate err" role="alert">${ic('alert')}<div><b>No se pudo ejecutar la validación</b><br>${esc(valH.msg)}</div></div>`;
+  else if(hs==='empty')hbody=`<div class="vstate" role="status">${ic('ok')}<div><b>Sin inconsistencias</b><br>No se encontraron diferencias entre la fuente y SIMEM para ${esc(valH.conj)} del ${valH.ini} al ${valH.fin}.</div></div>`;
+  else if(hs==='ok'){const hr=valH.reg,hrate=hr?valH.rows.length/hr*100:0;hbody=`<div class="vsum-sub" style="margin-bottom:10px"><span class="chip info">${ic('db')}${fmt(hr,0)} registros</span><span class="chip err">${ic('alert')}${valH.rows.length} inconsistencias</span><span class="chip idle">${fmt(hrate,2)} % de inconsistencias</span><span class="muted" style="font-size:12px">Resultado simulado con datos de demostración</span></div>`+valTable(VAL_CFG[valH.conj],valH.rows,false)}
+  else hbody=`<div class="vstate" role="status">${ic('history')}<div><b>Aún no hay resultados</b><br>Elija un conjunto y un rango de fechas, y ejecute la validación histórica. No modifica la validación principal.</div></div>`;
+  return `
+  <div class="vh"><div><h1>Validación Fuente vs SIMEM</h1><p>Compara el valor oficial de la fuente con el publicado en SIMEM, identifica las inconsistencias y registra si ya se solucionaron.</p></div>
+</div>
+  <section class="panel"><div class="panel-h"><h3>Configuración del conjunto</h3><small>Última validación: ${valLast}</small></div><div class="panel-b cfgband">
+    ${kv('Conjunto seleccionado',valF.conj)}${kv('Fuente oficial',`${cfg.src} <span class="tag">${cfg.srcT}</span>`)}${kv('Fuente réplica',`${cfg.rep} <span class="tag">${cfg.repT}</span>`)}${kv('Fecha de indexación',`<span class="mono">${cfg.date}</span>`)}${kv('Campos identificadores',`<span class="mono">${cfg.ids.join(', ')}</span>`)}${kv('Campo comparado',`<span class="mono">${cfg.cmp}</span>`)}
+  </div></section>
+  <div class="kpis vkpis">
+    <div class="kpi"><div class="kpi-l">${ic('db')}Cantidad de registros</div><div class="kpi-v">${fmt(reg,0)}</div><div class="kpi-s">${ok?`Fecha indexado ${valF.fecha}`:'Fecha no válida'}</div></div>
+    <div class="kpi ${inc?'err':'ok'}"><div class="kpi-l">${ic('alert')}Cantidad de inconsistencias</div><div class="kpi-v">${inc}</div><div class="kpi-s">${inc?`Solucionado: ${solved?'Sí':'No'}`:'Sin inconsistencias en la fecha'}</div></div>
+    <div class="kpi ${inc?'warn':'ok'}"><div class="kpi-l">${ic('chart')}Tasa de inconsistencias</div><div class="kpi-v">${fmt(rate,2)} %</div><div class="kpi-s">Inconsistencias / registros</div></div>
+  </div>
+  <section class="panel" aria-busy="${valBusy}"><div class="panel-h"><h3>Comparación Fuente vs SIMEM</h3><small>Datos de demostración · unidad ${cfg.unit}</small><button class="btn primary sm" id="valRun" style="margin-left:auto" ${valBusy?'disabled aria-busy="true"':''}>${ic('repeat')}Re-ejecutar comparación Fuente vs SIMEM</button></div>
+    <div class="panel-b vfilters">
+      <div class="field"><label for="valConj">Conjunto de datos</label><select class="in" id="valConj">${names.map(o=>`<option ${o===valF.conj?'selected':''}>${o}</option>`).join('')}</select></div>
+      <div class="field"><label for="valFuente">Fuente de origen</label><select class="in" id="valFuente">${['Todas',...VAL_SRCS].map(o=>`<option ${o===valF.fuente?'selected':''}>${o}</option>`).join('')}</select></div>
+      <div class="field"><label for="valFecha">Fecha indexado</label><input class="in mono" type="date" id="valFecha" value="${valF.fecha}" ${ok?'':'aria-invalid="true"'}></div>
+      <div class="field"><label for="valSol">Solucionado</label><select class="in" id="valSol" ${vis.length?'':'disabled'} aria-describedby="valSolH"><option value="si" ${solved?'selected':''}>Sí</option><option value="no" ${solved?'':'selected'}>No</option></select></div>
+    </div>
+    <div class="muted" id="valSolH" style="padding:0 16px 12px;font-size:12.5px;display:flex;gap:8px;flex-wrap:wrap;align-items:center">Solucionado aplica a ${cfg.src} · ${esc(valF.conj)} · ${ok?valF.fecha:'sin fecha'}. Fechas con inconsistencias: ${valDates().map(d=>`<button class="chip info" data-fd="${d}" style="cursor:pointer;border:0">${d}</button>`).join('')}</div>
+    ${ok?'':`<div class="vstate err" role="alert" style="margin:0 16px 16px">${ic('alert')}<div><b>Fecha no válida</b><br>Indique una fecha indexado.</div></div>`}
+    ${valBusy?`<div class="vstate" role="status" aria-live="polite" style="margin:0 16px 16px"><span class="spin"></span>Ejecutando validación de calidad…</div>`:''}
+    ${ok&&!vis.length&&!valBusy?`<div class="vstate" style="margin:0 16px 16px">${ic('ok')}<div><b>Sin inconsistencias en esta fecha</b><br>Pruebe con otra fecha indexado.</div></div>`:''}
+    ${ok&&vis.length?`<div style="${valBusy?'opacity:.5;pointer-events:none':''}">${valTable(cfg,vis.map(x=>x.r),false)}</div>`:''}
+  </section>
+  <section class="panel"><div class="panel-h"><h3>Validación histórica personalizada</h3><small>Consulta independiente de la validación principal</small></div>
+    <div class="panel-b vfilters">
+      <div class="field"><label for="hConj">Conjunto de datos</label><select class="in" id="hConj">${Object.keys(VAL_CFG).map(o=>`<option ${o===valH.conj?'selected':''}>${o}</option>`).join('')}</select></div>
+      <div class="field"><label for="hIni">Fecha inicial</label><input class="in mono" type="date" id="hIni" value="${valH.ini}"></div>
+      <div class="field"><label for="hFin">Fecha final</label><input class="in mono" type="date" id="hFin" value="${valH.fin}"></div>
+      <button class="btn primary" id="hRun" ${hs==='loading'?'disabled':''}>${ic('history')}Ejecutar validación histórica</button>
+    </div>
+    <div style="padding:0 16px 16px">${hbody}</div>
+  </section>`;
+}
+function bVal(){
+  $('#valRun').onclick=()=>{
+    if(valBusy)return;
+    if(!valDOk(valF.fecha)){toast('Indique una fecha indexado antes de ejecutar',true);return}
+    valBusy=true;render();
+    setTimeout(()=>{
+      valRuns++;const fail=valRuns%4===0;valBusy=false;
+      if(fail){render();toast('La validación simulada terminó con error. Intente de nuevo.',true);return}
+      const cur=valRows(valF.conj),add=(VAL_EXTRA[valF.conj]||[]).filter(e=>!cur.some(c=>c[0]===e[0]&&c[1]===e[1]))[0];
+      if(add){const x=add.slice(0,4);x.sol=false;cur.push(x);cur.sort((a,b)=>a[0]<b[0]?-1:1)}
+      const d=new Date();valLast=`${String(d.getHours()).padStart(2,'0')}:${String(d.getMinutes()).padStart(2,'0')} · simulada`;
+      render();toast(add?'Validación simulada completada: 1 inconsistencia nueva':'Validación simulada completada: sin cambios');
+    },2400);
+  };
+  $('#valFuente').onchange=e=>{valF.fuente=e.target.value;const names=Object.keys(VAL_CFG).filter(n=>valF.fuente==='Todas'||VAL_CFG[n].src===valF.fuente);if(!names.includes(valF.conj))valF.conj=names[0];render()};
+  $('#valConj').onchange=e=>{valF.conj=e.target.value;const d=valDates();if(!d.includes(valF.fecha))valF.fecha=d[0];render()};
+  $('#valFecha').onchange=e=>{valF.fecha=e.target.value;render()};
+  $$('[data-fd]').forEach(b=>b.onclick=()=>{valF.fecha=b.dataset.fd;render()});
+  $('#valSol').onchange=e=>{valSol[valKey()]=e.target.value==='si';render();toast(valSol[valKey()]?'Marcado como solucionado (solo en el prototipo)':'Marcado como no solucionado (solo en el prototipo)');$('#valSol').focus()};
+  $('#hConj').onchange=e=>{valH.conj=e.target.value};
+  $('#hIni').onchange=e=>{valH.ini=e.target.value};
+  $('#hFin').onchange=e=>{valH.fin=e.target.value};
+  $('#hRun').onclick=()=>{
+    valH.conj=$('#hConj').value;valH.ini=$('#hIni').value;valH.fin=$('#hFin').value;
+    let msg='';
+    if(!valH.ini||!valH.fin)msg='Indique la fecha inicial y la fecha final.';
+    else if(valH.ini>valH.fin)msg='La fecha inicial no puede ser posterior a la fecha final.';
+    else if(valH.fin>VTODAY)msg='La fecha final no puede ser futura. El corte del prototipo es 2026-10-15.';
+    else if(daysBetween(valH.ini,valH.fin)>366)msg='El rango máximo es de 366 días. Reduzca el rango.';
+    if(msg){valH.state='error';valH.msg=msg;render();return}
+    valH.state='loading';render();
+    setTimeout(()=>{const rows=histGen(valH.conj,valH.ini,valH.fin);valH.rows=rows.map(r=>r.slice(0,4));valH.reg=VAL_CFG[valH.conj].per*daysBetween(valH.ini,valH.fin);valH.state=rows.length?'ok':'empty';render()},1800);
+  };
+}
+
+/* ---------- 6. Indicadores y tendencias ---------- */
+let expVar='Vertimientos embalse ESMERALDA';
+const EXPV={'Vertimientos embalse ESMERALDA':['m³/s',2280,260],'Precio de bolsa nacional':['COP/kWh',520,60],'Generación real por recurso':['GWh',212,9],'Demanda comercial por agente':['GWh',228,7],'Aportes hídricos diarios':['GWh',235,40]};
+/* ---- Indicadores: gráfica, calendario y explorador ---- */
+const IND_BASE=[['Aportes Hídricos',168,1.4],['Generación Real',3360,.55],['Precio de Bolsa Nacional',168,2.1],['Restricciones del SIN',280,1.0],['Demanda comercial por agente',420,.6],['Vertimientos embalse ESMERALDA',168,2.4]];
+const IND_COL=['var(--c1)','var(--c2)','var(--c3)','var(--c4)','var(--c5)','var(--muted)','#6D59D1','#1395BD'];
+const IND_MAXLINES=8;
+const IND_CAT=(()=>{const r=rng(2026),P=['Aportes','Generación','Precio','Demanda','Restricciones','Vertimientos','Disponibilidad','Capacidad','Costos','Cargo','Intercambios','Transacciones','Liquidación','Combustible','Reservas','Despacho'],S=['diario','horario','por agente','por recurso','por embalse','por planta','nacional','regional','TIE','STN','mensual','real','programado','ideal','adjudicado','reconciliado','neto','efectivo','histórico','SICEP'],out=[],seen=new Set();
+  IND_BASE.forEach(([n,g,t])=>{out.push({n,tema:n.startsWith('Precio')||n.startsWith('Gener')||n.startsWith('Dem')?'InformacionTransaccionesMEM':'EstadisticasCttos',reg:g,rate:t});seen.add(n)});
+  P.forEach(a=>S.forEach(b=>{const n=a+' '+b;if(out.length<320&&!seen.has(n)){seen.add(n);out.push({n,tema:TEMAS[Math.floor(r()*2)],reg:Math.round(100+r()*r()*3400),rate:+(.25+r()*2.4).toFixed(2)})}}));
+  return out})();
+const IND_IDX=Object.fromEntries(IND_CAT.map((c,i)=>[c.n,i]));
+const IND_WEEKS=Array.from({length:12},(_,i)=>addDays('2026-09-25',-7*(11-i)));
+let indAll=true,indSel=new Set(),indQ='',indTema='Todos',indDay='2026-09-25';
+const indCache={};
+function indOne(name){
+  if(indCache[name])return indCache[name];
+  const k=IND_IDX[name],c=IND_CAT[k],r=rng(300+k*17),cant=[];
+  IND_WEEKS.forEach((_,i)=>cant.push(Math.max(0,Math.round(c.reg*c.rate/100*(1.25-i*.025)*(.6+.8*r())))));
+  return indCache[name]={cant,reg:c.reg};
+}
+function indAgg(names){
+  const cant=IND_WEEKS.map(()=>0);let reg=0;
+  names.forEach(n=>{const d=indOne(n);d.cant.forEach((v,i)=>cant[i]+=v);reg+=d.reg});
+  return{cant,tasa:cant.map(v=>+(v/reg*100).toFixed(2)),reg};
+}
+const indNames=()=>indAll?IND_CAT.map(c=>c.n):IND_CAT.map(c=>c.n).filter(n=>indSel.has(n));
+function indSeries(){
+  if(indAll){const d=indAgg(indNames());return[{nm:`Todos los conjuntos (${IND_CAT.length})`,col:IND_COL[0],cant:d.cant,tasa:d.tasa,agg:true}]}
+  const names=indNames();
+  if(names.length>IND_MAXLINES){const d=indAgg(names);return[{nm:`Selección agregada (${names.length} conjuntos)`,col:IND_COL[0],cant:d.cant,tasa:d.tasa,agg:true}]}
+  return names.map((nm,k)=>{const d=indAgg([nm]);return{nm,col:IND_COL[k],cant:d.cant,tasa:d.tasa}});
+}
+let indLast={};
+function niceMax(x){const rough=Math.max(x,0.0001)/4,mag=Math.pow(10,Math.floor(Math.log10(rough)));const f=[1,2,2.5,5,10].find(m=>m*mag>=rough);return f*mag*4}
+function indChart(idx){
+  const W=900,H=300,L=54,R=54,T=14,B=30,iw=W-L-R,ih=H-T-B,n=idx.length;
+  if(!n)return '<div class="vstate">Sin datos en el rango elegido.</div>';
+  const SER=indSeries();indLast={};SER.forEach(d=>indLast[d.nm]=d);const D=SER.map(d=>({nm:d.nm,col:d.col,cant:idx.map(i=>d.cant[i]),tasa:idx.map(i=>d.tasa[i])}));
+  const mT=niceMax(Math.max(...D.flatMap(d=>d.tasa))),mC=niceMax(Math.max(...D.flatMap(d=>d.cant)));
+  const x=i=>n===1?L+iw/2:L+i*iw/(n-1),yT=v=>T+ih-v/mT*ih,yC=v=>T+ih-v/mC*ih,step=Math.ceil(n/7);
+  let g='';
+  for(let k=0;k<=4;k++){const yy=T+ih-k*ih/4;g+=`<line x1="${L}" x2="${W-R}" y1="${yy}" y2="${yy}" class="grid"/><text x="${L-8}" y="${yy+4}" class="ax" text-anchor="end">${fmt(mT*k/4,mT<4?1:0)} %</text><text x="${W-R+8}" y="${yy+4}" class="ax" text-anchor="start">${fmt(mC*k/4,0)}</text>`}
+  idx.forEach((gi,i)=>{if(i%step===0||i===n-1)g+=`<text x="${x(i)}" y="${H-8}" class="ax" text-anchor="${n===1?'middle':i===0?'start':i===n-1?'end':'middle'}">${dLabel(IND_WEEKS[gi])}</text>`});
+  D.forEach(d=>{
+    g+=`<path d="${d.tasa.map((v,i)=>(i?'L':'M')+x(i).toFixed(1)+','+yT(v).toFixed(1)).join('')}" style="fill:none;stroke:${d.col};stroke-width:2;stroke-dasharray:6 4;stroke-linecap:round"/>`;
+    g+=`<path d="${d.cant.map((v,i)=>(i?'L':'M')+x(i).toFixed(1)+','+yC(v).toFixed(1)).join('')}" style="fill:none;stroke:${d.col};stroke-width:2.5;stroke-linejoin:round;stroke-linecap:round"/>`;
+    d.cant.forEach((v,i)=>{g+=`<circle cx="${x(i).toFixed(1)}" cy="${yC(v).toFixed(1)}" r="3.5" style="fill:${d.col}"/>`;
+      g+=`<circle class="pt" tabindex="0" role="img" data-s="${esc(d.nm)}" data-i="${idx[i]}" cx="${x(i).toFixed(1)}" cy="${yC(v).toFixed(1)}" r="10" aria-label="${esc(d.nm)}, semana del ${dLabel(IND_WEEKS[idx[i]])}: ${v} inconsistencias, tasa ${fmt(d.tasa[i],2)} %"/>`});
+    d.tasa.forEach((v,i)=>{g+=`<circle cx="${x(i).toFixed(1)}" cy="${yT(v).toFixed(1)}" r="3" style="fill:var(--surface);stroke:${d.col};stroke-width:2"/>`})
+  });
+  return `<svg class="chart" viewBox="0 0 ${W} ${H}" role="group" aria-label="Cantidad de inconsistencias y tasa por semana">${g}</svg>`;
+}
+const TW=['2026-08-04','2026-08-11','2026-08-18','2026-08-25','2026-09-01','2026-09-08','2026-09-15','2026-09-22'];
+const TTYPES=[['Registro faltante','var(--c1)'],['Valor atípico','var(--c2)'],['Atraso','var(--c3)'],['Versión faltante','var(--c4)'],['Duplicado','var(--c5)']];
+const TSTACK=(()=>{const r=rng(77);return TW.map(()=>TTYPES.map((_,k)=>Math.round([4,2,5,1,1][k]*(0.5+r()))))})();
+function indTypes(){
+  const ix=TW.map((d,i)=>i).filter(i=>indOk()&&TW[i]>=indIni&&TW[i]<=indFin),n=ix.length;
+  if(!n)return '<div class="vstate">Sin semanas completas en el rango elegido.</div>';
+  const W=640,H=230,L=36,R=12,T=10,B=26,iw=W-L-R,ih=H-T-B,max=25,bw=Math.min(48,iw/n*.56);
+  let sb='';for(let k=0;k<=5;k++){const v=k*5,yy=T+ih-v/max*ih;sb+=`<line x1="${L}" x2="${W-R}" y1="${yy}" y2="${yy}" class="grid"/><text x="${L-6}" y="${yy+4}" class="ax" text-anchor="end">${v}</text>`}
+  ix.forEach((gi,i)=>{let acc=0;const cx=L+iw/n*(i+.5);TSTACK[gi].forEach((v,k)=>{const h=v/max*ih;sb+=`<rect x="${(cx-bw/2).toFixed(1)}" y="${(T+ih-acc-h).toFixed(1)}" width="${bw.toFixed(1)}" height="${Math.max(0,h-1).toFixed(1)}" style="fill:${TTYPES[k][1]}"><title>${dLabel(TW[gi])} · ${TTYPES[k][0]}: ${v}</title></rect>`;acc+=h});sb+=`<text x="${cx.toFixed(1)}" y="${H-7}" class="ax" text-anchor="middle">${dLabel(TW[gi])}</text>`});
+  return `<svg class="chart" viewBox="0 0 ${W} ${H}" role="img" aria-label="Barras apiladas por semana">${sb}</svg>`;
+}
+const DIAS_L=['domingo','lunes','martes','miércoles','jueves','viernes','sábado'],MES_L=['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
+const CAL_RED=['2026-09-09','2026-09-18','2026-08-14','2026-08-27','2026-07-06'];
+function calExec(iso){
+  if(iso>TODAY)return{st:'fut'};
+  if(CAL_RED.includes(iso))return{st:'miss',n:0};
+  const r=rng(+iso.replace(/-/g,'')%100003+7);r();return{st:'ok',n:1+Math.floor(r()*3)};
+}
+const CAL_L={ok:'Ejecutada',miss:'No se ejecutó',fut:'Fecha futura, sin ejecución esperada'};
+function indCal(){
+  const MAXD=126;
+  if(!indOk())return `<section class="panel"><div class="panel-h"><h3>Ejecución de la herramienta de calidad</h3></div><div class="panel-b"><div class="vstate">Corrija el rango de fechas para ver el calendario.</div></div></section>`;
+  let ini=indIni;const total=daysBetween(indIni,indFin),cut=total>MAXD;if(cut)ini=addDays(indFin,-(MAXD-1));
+  const n=cut?MAXD:total,off=(new Date(ini+'T12:00:00').getDay()+6)%7;
+  const head=['Lun','Mar','Mié','Jue','Vie','Sáb','Dom'].map(d=>`<span class="ch">${d}</span>`).join('');
+  let cells='<i></i>'.repeat(off),cnt={ok:0,miss:0,fut:0};
+  for(let k=0;k<n;k++){const iso=addDays(ini,k),dt=new Date(iso+'T12:00:00'),d=dt.getDate(),e=calExec(iso);cnt[e.st]++;
+    const lab=k===0||d===1?`${d} ${MES[dt.getMonth()]}`:d;
+    cells+=`<button class="ccell ${e.st} ${indDay===iso?'pick':''}" data-day="${iso}" aria-pressed="${indDay===iso}" aria-label="${d} de ${MES_L[dt.getMonth()]} de ${dt.getFullYear()}: ${CAL_L[e.st]}"><b>${lab}</b>${ic(e.st==='ok'?'ok':e.st==='miss'?'x':'clock')}</button>`}
+  const sel=indDay&&indDay>=ini&&indDay<=indFin?indDay:null,se=sel?calExec(sel):null,sd=sel?new Date(sel+'T12:00:00'):null;
+  const det=sel?`<div class="calsel" role="status"><b>${DIAS_L[sd.getDay()][0].toUpperCase()+DIAS_L[sd.getDay()].slice(1)} ${sd.getDate()} de ${MES_L[sd.getMonth()]} de ${sd.getFullYear()}</b><span class="chip ${se.st==='ok'?'ok':se.st==='miss'?'err':'idle'}">${ic(se.st==='ok'?'ok':se.st==='miss'?'x':'clock')}${CAL_L[se.st]}</span>${se.st==='ok'?`<span>${se.n} ${se.n===1?'ejecución registrada':'ejecuciones registradas'}</span>`:se.st==='miss'?'<span>Sin ejecuciones registradas</span>':'<span>No se espera ejecución todavía</span>'}</div>`:`<div class="calsel muted" role="status">Seleccione un día para ver su estado de ejecución.</div>`;
+  return `<section class="panel calpanel"><div class="panel-h"><h3>Ejecución de la herramienta de calidad</h3><small>${dLabel(ini)} a ${dLabel(indFin)}${cut?' · últimos '+MAXD+' días del rango':''}</small></div>
+    <div class="panel-b" style="display:flex;flex-direction:column;gap:12px;height:100%">
+      <div class="calgrid" role="group" aria-label="Calendario de ejecuciones">${head}${cells}</div>
+      <div class="legend"><span class="lgi"><i class="ccell ok mini">${ic('ok')}</i>Ejecutada (${cnt.ok})</span><span class="lgi"><i class="ccell miss mini">${ic('x')}</i>No se ejecutó (${cnt.miss})</span><span class="lgi"><i class="ccell fut mini">${ic('clock')}</i>Fecha futura (${cnt.fut})</span></div>
+      ${det}</div></section>`;
+}
+const EXP_DEF={ini:'2026-08-03',fin:'2026-09-01'};
+let expIni=EXP_DEF.ini,expFin=EXP_DEF.fin;
+function expRange(){return expIni&&expFin&&expIni<=expFin}
+function expAnswer(){
+  const inR=d=>d>=expIni&&d<=expFin;
+  if(expVar.startsWith('Vertimientos')&&inR('2026-09-01'))return['err','Con errores de calidad','El 1 sep, 4 de 24 horas difieren entre la fuente y SIMEM (horas 14 a 17).','INC-2026-0412'];
+  if(expVar.startsWith('Precio de bolsa')&&expFin>='2026-09-22'&&expFin>=expIni)return['warn','Sin publicar','El conjunto está atrasado. El último dato publicado es del 21 sep.','INC-2026-0409'];
+  if(expIni>TODAY)return['warn','Fechas futuras','Aún no hay datos para ese rango.',null];
+  const n=daysBetween(expIni,expFin>TODAY?TODAY:expFin);
+  return['ok','Correcto',`${n} ${n===1?'día revisado':'días revisados'} sin diferencias frente a la fuente. Última validación: ${dLabel(addDays(expFin>TODAY?TODAY:expFin,1))} · 06:40.`,null];
+}
+function expSeries(){
+  const [,base,amp]=EXPV[expVar],end=expFin>TODAY?TODAY:expFin,days=Math.min(daysBetween(expIni,end),366),ini=days<366?expIni:addDays(end,-365);
+  const r=rng(expVar.length*11),vals=[],lab=[],iso=[];
+  for(let i=0;i<days;i++){const d=addDays(ini,i);iso.push(d);lab.push(dLabel(d));vals.push(+(base+amp*Math.sin(i/4.2+expVar.length%7)+base*.04*(r()-.5)).toFixed(1))}
+  return{vals,lab,iso};
+}
+
+const IND_DEF={ini:'2026-07-10',fin:'2026-09-25'};
+let indIni=IND_DEF.ini,indFin=IND_DEF.fin,indDd=false;
+const indOk=()=>!!indIni&&!!indFin&&indIni<=indFin;
+const indIdx=()=>indOk()?IND_WEEKS.map((d,i)=>i).filter(i=>IND_WEEKS[i]>=indIni&&IND_WEEKS[i]<=indFin):[];
+const indLabel=()=>indAll?`Todos los conjuntos (${IND_CAT.length})`:indSel.size===1?[...indSel][0]:`${indSel.size} conjuntos seleccionados`;
+const indMatches=()=>{const q=indQ.trim().toLowerCase();return IND_CAT.filter(c=>(indTema==='Todos'||c.tema===indTema)&&(!q||c.n.toLowerCase().includes(q)))};
+const IND_SHOW=60;
+function indLegend(){
+  const S=indSeries();
+  return `<span class="lgk"><svg width="28" height="8" aria-hidden="true"><path d="M0 4h28" style="stroke:var(--text);stroke-width:2.5"/></svg>Cantidad (eje derecho)</span><span class="lgk"><svg width="28" height="8" aria-hidden="true"><path d="M0 4h28" style="stroke:var(--text);stroke-width:2;stroke-dasharray:6 4"/></svg>Tasa en % (eje izquierdo)</span>`+S.map(d=>`<span><i style="background:${d.col}"></i>${esc(d.nm)}${d.agg?' · suma':''}</span>`).join('')+(S[0]&&S[0].agg&&!indAll?`<span class="muted">Más de ${IND_MAXLINES} conjuntos: se muestra la suma. Elija ${IND_MAXLINES} o menos para ver una línea por conjunto.</span>`:'');
+}
+function indChips(){
+  if(indAll)return '';
+  const l=[...indSel];return l.slice(0,4).map(n=>`<span class="chip info">${esc(n)}<button type="button" data-rm="${esc(n)}" aria-label="Quitar ${esc(n)}">×</button></span>`).join('')+(l.length>4?`<span class="muted" style="font-size:12.5px">+${l.length-4} más</span>`:'')+`<button class="btn sm ghost" type="button" id="ddClear">Volver a todos</button>`;
+}
+function indList(){
+  const m=indMatches(),sh=m.slice(0,IND_SHOW);
+  $('#ddList').innerHTML=sh.map(c=>`<label class="ddi"><input type="checkbox" data-set="${esc(c.n)}" ${!indAll&&indSel.has(c.n)?'checked':''}><span class="ddn">${esc(c.n)}<small>${c.tema}</small></span></label>`).join('')||'<div class="muted" style="padding:10px">Ningún conjunto coincide con la búsqueda.</div>';
+  $('#ddFoot').textContent=(m.length>IND_SHOW?`Mostrando ${IND_SHOW} de ${m.length} resultados. Afine la búsqueda para ver el resto. `:`${m.length} ${m.length===1?'resultado':'resultados'}. `)+(indAll?'Viendo todos los conjuntos.':`${indSel.size} seleccionados.`);
+  const ab=$('#ddAllBtn');ab.textContent=`Todos los conjuntos (${IND_CAT.length})`;ab.setAttribute('aria-pressed',String(indAll));ab.classList.toggle('primary',indAll);
+  const fb=$('#ddFilt');fb.textContent=`Seleccionar los ${m.length} resultados`;fb.disabled=!m.length||m.length===IND_CAT.length;
+}
+function indApply(){
+  $('#ddTxt').textContent=indLabel();$('#ddChips').innerHTML=indChips();$('#indLeg').innerHTML=indLegend();
+  $('.chartbox').innerHTML=indChart(indIdx());indList();bindPts();bindChips();
+}
+function bindChips(){
+  $$('#ddChips [data-rm]').forEach(b=>b.onclick=()=>{indSel.delete(b.dataset.rm);if(!indSel.size)indAll=true;indApply()});
+  const c=$('#ddClear');if(c)c.onclick=()=>{indAll=true;indSel.clear();indApply()};
+}
+function bindPts(){
+  const tip=$('#itip');
+  const show=c=>{const nm=c.dataset.s,i=+c.dataset.i,d=indLast[nm];if(!d)return;tip.innerHTML=`<b>${esc(nm)}</b><span>Semana del ${dLabel(IND_WEEKS[i])} 2026</span><span>Inconsistencias: ${d.cant[i]}</span><span>Tasa: ${fmt(d.tasa[i],2)} %</span>`;tip.hidden=false;const r=c.getBoundingClientRect(),w=tip.offsetWidth,h=tip.offsetHeight;tip.style.left=Math.min(Math.max(8,r.left+r.width/2-w/2),innerWidth-w-8)+'px';tip.style.top=(r.top-h-8<8?r.bottom+8:r.top-h-8)+'px'};
+  $$('.pt').forEach(c=>{c.onmouseenter=()=>show(c);c.onfocus=()=>show(c);c.onmouseleave=c.onblur=()=>{tip.hidden=true}});
+}
+function vInd(){
+  const idx=indIdx(),ok=indOk(),days=ok?daysBetween(indIni,indFin):0;
+  const srcBase=[['Oracle',48],['FTP',31],['Excel',22],['API',9]],srcs=srcBase.map(([n,v])=>[n,ok?Math.round(v*days/90):0]),stot=srcs.reduce((a,b)=>a+b[1],0),smax=Math.max(1,...srcs.map(x=>x[1]));
+  const rank=[['Liquidación TIE',88.2,-.4],['Precio de bolsa nacional',90.1,-1.2],['Restricciones del SIN',91.4,.3],['Aportes hídricos diarios',92.8,.5],['Vertimientos embalse ESMERALDA',93.5,-.2],['Generación real por recurso',94.0,.1]];
+  const okR=expRange();const [ak,at,ad,ainc]=okR?expAnswer():['warn','Rango no válido','La fecha inicial no puede ser posterior a la final.',null];const [unit]=EXPV[expVar];
+  const es=expSeries(),errIdx=ak==='err'?es.iso.indexOf('2026-09-01'):-1;if(errIdx>=0)es.vals[errIdx]=+(es.vals[errIdx]*.72).toFixed(1);
+  const emn=es.vals.length?Math.min(...es.vals):0,emx=es.vals.length?Math.max(...es.vals):1,ep=(emx-emn)*.15||1;
+    const isDef=indIni===IND_DEF.ini&&indFin===IND_DEF.fin;
+  return `
+  <div class="vh"><div><h1>Indicadores y tendencias</h1><p>Cómo evoluciona la calidad de los datos publicados, dónde se originan los problemas y cuánto tardan en resolverse.</p></div></div>
+  <div class="rangebar" role="group" aria-label="Rango de fechas">
+    <b>Rango de fechas</b>
+    <div class="field rb"><label for="indIni">Desde</label><input class="in mono" type="date" id="indIni" value="${indIni}" ${ok?'':'aria-invalid="true"'}></div>
+    <div class="field rb"><label for="indFin">Hasta</label><input class="in mono" type="date" id="indFin" value="${indFin}" ${ok?'':'aria-invalid="true"'}></div>
+    <button class="btn" id="indReset" ${isDef?'disabled':''}>${ic('undo')}Restablecer</button>
+    <span class="muted rb-note">${ok?'Aplica a todas las gráficas, menos al Explorador de variable.':'<span style="color:var(--err)" role="alert">La fecha inicial no puede ser posterior a la final.</span>'}</span>
+  </div>
+  <div class="kpis">
+    <div class="kpi ok"><div class="kpi-l">${ic('ok')}Calidad global</div><div class="kpi-v">96,4 %</div><div class="kpi-s up">▲ 2,1 pts desde abril</div></div>
+    <div class="kpi"><div class="kpi-l">${ic('clock')}Tiempo medio de resolución</div><div class="kpi-v">5,2 h</div><div class="kpi-s up">▼ 1,1 h vs. agosto</div></div>
+    <div class="kpi"><div class="kpi-l">${ic('alert')}Incidentes de septiembre</div><div class="kpi-v">38</div><div class="kpi-s">29 cerrados · 9 abiertos</div></div>
+    <div class="kpi cfg"><div class="kpi-l">${ic('cfg')}Falsas alertas</div><div class="kpi-v">12,5 %</div><div class="kpi-s">Por configuración desactualizada</div></div>
+  </div>
+  <section class="panel"><div class="panel-h"><h3>Cantidad de inconsistencias vs. tiempo</h3><small>${ok?dLabel(indIni)+' a '+dLabel(indFin)+' · por semana · datos de demostración':'Rango no válido'}</small></div>
+    <div class="panel-b" style="display:flex;flex-direction:column;gap:12px">
+      <div class="chart-ctl"><div class="ddwrap"><span class="ddlab" id="ddLab">Conjuntos de datos</span><button class="in ddbtn" id="ddBtn" type="button" aria-haspopup="true" aria-expanded="${indDd}" aria-labelledby="ddLab ddBtn"><span id="ddTxt">${esc(indLabel())}</span><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+        <div class="ddmenu" id="ddMenu" ${indDd?'':'hidden'}>
+          <input class="in" id="ddQ" type="search" placeholder="Buscar entre ${IND_CAT.length} conjuntos…" aria-label="Buscar conjunto de datos" value="${esc(indQ)}" autocomplete="off">
+          <select class="in" id="ddT" aria-label="Filtrar por tema"><option value="Todos">Todos los temas</option>${TEMAS.map(t=>`<option ${t===indTema?'selected':''}>${t}</option>`).join('')}</select>
+          <div class="dd-act"><button class="btn sm" id="ddAllBtn" type="button"></button><button class="btn sm" id="ddFilt" type="button"></button></div>
+          <div class="dd-list" id="ddList" role="group" aria-label="Conjuntos de datos"></div>
+          <div class="dd-foot muted" id="ddFoot" aria-live="polite"></div>
+        </div></div>
+      <div class="legend" id="indLeg"></div></div>
+      <div class="ddchips" id="ddChips"></div>
+      <div class="axlab"><span>Tasa de inconsistencias (%)</span><span>Cantidad de inconsistencias</span></div>
+      <div class="chartbox">${indChart(idx)}</div></div></section>
+  <div class="ind-row2">
+    <div class="stack">
+      <section class="panel"><div class="panel-h"><h3>Tipos de inconsistencia por semana</h3><div class="legend">${TTYPES.map(t=>`<span><i style="background:${t[1]}"></i>${t[0]}</span>`).join('')}</div></div>
+        <div class="panel-b">${indTypes()}</div></section>
+      <section class="panel"><div class="panel-h"><h3>Fuentes con más errores</h3><small>${ok?days+(days===1?' día':' días'):'Rango no válido'}</small></div><div class="panel-b">${srcs.map(([n,v])=>`<div class="hbar"><span>${n}</span><div class="track"><i style="width:${v/smax*100}%"></i></div><span>${v}</span></div>`).join('')}
+        <p class="muted" style="margin:10px 0 0;font-size:12.5px">${stot?`Oracle concentra el ${Math.round(srcs[0][1]/stot*100)} % de los incidentes del rango, sobre todo atrasos en la extracción de las 06:00.`:'Sin incidentes en el rango elegido.'}</p></div></section>
+      <section class="panel"><div class="panel-h"><h3>Conjuntos con menor calidad</h3></div><div class="tbl-wrap"><table class="tbl"><thead><tr><th>Conjunto</th><th class="num">Calidad</th><th class="num">Cambio</th><th>Tendencia</th></tr></thead><tbody>
+        ${rank.map(([n,v,d],k)=>{const rr=rng(k+40);const sv=Array.from({length:12},(_,i)=>v-d*(11-i)/4+(rr()-.5)*1.6),sl=idx.map(i=>sv[i]);return `<tr><td>${n}</td><td class="num">${fmt(v)} %</td><td class="num" style="color:${d<0?'var(--err)':'var(--ok)'}">${d>0?'+':''}${fmt(d)}</td><td>${sl.length>1?spark(sl,d<0?'var(--err)':'var(--c1)'):'<span class="muted">—</span>'}</td></tr>`}).join('')}
+      </tbody></table></div></section>
+    </div>
+    ${indCal()}
+  </div>
+  <section class="panel"><div class="panel-h"><h3>Explorador de variable</h3><small>¿Está correcto este dato?</small></div><div class="panel-b explorer">
+    <div class="exp-l">
+      <div class="form-grid"><div class="field full"><label for="expVar">Variable</label><select class="in" id="expVar">${Object.keys(EXPV).map(k=>`<option ${k===expVar?'selected':''}>${k}</option>`).join('')}</select></div>
+      <div class="field"><label for="expIni">Fecha inicial</label><input class="in mono" type="date" id="expIni" value="${expIni}" ${okR?'':'aria-invalid="true"'}></div>
+      <div class="field"><label for="expFin">Fecha final</label><input class="in mono" type="date" id="expFin" value="${expFin}" ${okR?'':'aria-invalid="true"'}></div>
+      <div class="field full"><button class="btn" id="expReset" ${expIni===EXP_DEF.ini&&expFin===EXP_DEF.fin?'disabled':''}>${ic('undo')}Restablecer fechas</button></div></div>
+      <div class="answer ${ak}"><div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">${chip(ak==='ok'?'ok':ak,at)}<span class="mono muted" style="font-size:12px">${expIni} a ${expFin}</span></div><p>${ad}</p>${ainc?`<div><button class="btn sm" data-inc="${ainc}">Ver incidente ${ainc}</button></div>`:''}</div>
+    </div>
+    <div class="exp-r">
+      ${es.vals.length?lineChart({series:[{values:es.vals,color:'var(--c1)'}],labels:es.lab,min:Math.floor(emn-ep),max:Math.ceil(emx+ep),area:true,h:200,marks:errIdx>=0?[{i:errIdx,v:es.vals[errIdx]}]:[]}):'<div class="vstate">Sin datos para el rango elegido.</div>'}
+      <div class="muted" style="font-size:12px">Unidad: ${unit} · ${es.vals.length} ${es.vals.length===1?'día':'días'} del rango consultado</div>
+    </div>
+  </div></section>
+  <div class="vtip" id="itip" role="tooltip" hidden></div>`;
+}
+function bInd(){
+  $('#indIni').onchange=e=>{indIni=e.target.value;render()};
+  $('#indFin').onchange=e=>{indFin=e.target.value;render()};
+  $('#indReset').onclick=()=>{indIni=IND_DEF.ini;indFin=IND_DEF.fin;render();toast('Rango restablecido')};
+  $('#expVar').onchange=e=>{expVar=e.target.value;render()};
+  $('#expIni').onchange=e=>{expIni=e.target.value;render()};
+  $('#expFin').onchange=e=>{expFin=e.target.value;render()};
+  $('#expReset').onclick=()=>{expIni=EXP_DEF.ini;expFin=EXP_DEF.fin;render();toast('Fechas restablecidas')};
+  $$('[data-inc]').forEach(b=>b.onclick=()=>openInc(b.dataset.inc));
+  $('#ddBtn').onclick=e=>{e.stopPropagation();indDd=!indDd;$('#ddMenu').hidden=!indDd;$('#ddBtn').setAttribute('aria-expanded',String(indDd))};
+  indApply();
+  $('#ddQ').oninput=e=>{indQ=e.target.value;indList()};
+  $('#ddT').onchange=e=>{indTema=e.target.value;indList()};
+  $('#ddAllBtn').onclick=()=>{indAll=true;indSel.clear();indApply()};
+  $('#ddFilt').onclick=()=>{const m=indMatches();indAll=false;indSel=new Set(m.map(c=>c.n));indApply()};
+  $('#ddList').onchange=e=>{const c=e.target.closest('[data-set]');if(!c)return;const n=c.dataset.set;
+    if(indAll){indAll=false;indSel=new Set([n])}else if(c.checked)indSel.add(n);else{indSel.delete(n);if(!indSel.size)indAll=true}
+    indApply()};
+}
+document.addEventListener('click',e=>{if(indDd&&!e.target.closest('.ddwrap')){indDd=false;const m=$('#ddMenu');if(m){m.hidden=true;$('#ddBtn').setAttribute('aria-expanded','false')}}});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&indDd){indDd=false;const m=$('#ddMenu');if(m){m.hidden=true;const b=$('#ddBtn');b.setAttribute('aria-expanded','false');b.focus()}}});
+
+/* ---------- 7. Configuración de conjuntos ---------- */
+let wz=null;
+const opt=(list,cur)=>list.map(o=>`<option ${o===cur?'selected':''}>${esc(o)}</option>`).join('');
+function vCfg(){
+  const warnN=CFG.filter(c=>c.warn).length;
+  return `
+  <div class="vh"><div><h1>Configuración de conjuntos</h1><p>Alta, pausa y ajuste de las variables que valida la herramienta. Reemplaza la edición manual del archivo CSV y de las consultas SQL.</p></div>
+  <div class="vh-act"><button class="btn primary" id="newVar">${ic('plus')}Nueva variable</button></div></div>
+  ${warnN?`<div class="check-line" style="background:var(--surface);border-color:color-mix(in srgb,var(--warn) 55%,transparent)">${ic('alert')}<span><b>${warnN} ${warnN===1?'configuración necesita':'configuraciones necesitan'} atención.</b><small>Consultas desactualizadas y deltas temporales sin revertir generan falsas alertas en la Torre de Control.</small></span></div>`:''}
+  <section class="panel"><div class="tbl-wrap"><table class="tbl"><thead><tr><th>Activo</th><th>Conjunto / variable</th><th>Tema</th><th>Fuente principal</th><th>Fuente alterna</th><th>Periodicidad</th><th>Fecha inicial de validación</th><th>Fecha final de validación</th><th>Última modificación</th><th>Advertencias</th><th></th></tr></thead><tbody>
+  ${CFG.map((c,i)=>`<tr class="${c.warn?'hl':''}"><td><label class="switch"><input type="checkbox" data-tog="${i}" ${c.on?'checked':''} aria-label="Activar ${c.n}"><span></span></label></td>
+    <td><div style="font-weight:600">${c.n}</div>${c.note?`<div class="muted" style="font-size:12px">${c.note}</div>`:''}${c.exec?`<div class="muted mono" style="font-size:11.5px" title="Configuración de ejecución">Ejecución: ${esc(c.exec.split('\n')[0])}</div>`:''}</td>
+    <td>${c.tema}</td><td><span class="tag">${c.src}</span></td><td>${c.alt?`<span class="tag" title="${esc(c.alt)}">FTP</span> <span class="muted" style="font-size:12px">opcional</span>`:'<span class="muted">—</span>'}</td><td>${c.per}</td><td class="mono">${c.ini}</td><td class="mono">${c.fin}</td><td class="muted">${c.mod}</td>
+    <td>${c.warn?`<span class="sub-note" style="margin:0">${ic('alert')}${CFGW[c.warn]}</span>`:'<span class="muted">—</span>'}</td>
+    <td style="text-align:right;display:flex;gap:6px;justify-content:flex-end">${c.warn==='delta'?`<button class="btn sm" data-rev="${i}">${ic('undo')}Revertir delta</button>`:c.warn?`<button class="btn sm" data-fix="${i}">${ic('edit')}Aplicar corrección</button>`:''}<button class="btn sm ghost" data-edit="${i}" aria-label="Editar ${c.n}">${ic('edit')}Editar</button></td></tr>`).join('')}
+  </tbody></table></div></section>`;
+}
+function bCfg(){
+  $('#newVar').onclick=()=>{wz=wzNew();wizard()};
+  $$('[data-tog]').forEach(t=>t.onchange=()=>{const c=CFG[+t.dataset.tog];c.on=t.checked;c.note=c.on?null:'Pausado por '+ME+' · 25 sep';render();toast(c.n+(c.on?' reactivado':' pausado. No afecta la ejecución diaria de los demás conjuntos'))});
+  $$('[data-rev]').forEach(b=>b.onclick=()=>{const c=CFG[+b.dataset.rev];c.warn=null;c.mod='25 sep 2026 · '+ME;render();toast('Delta de '+c.n+' revertido a 1 día')});
+  $$('[data-fix]').forEach(b=>b.onclick=()=>{const c=CFG[+b.dataset.fix];c.warn=null;c.mod='25 sep 2026 · '+ME;render();toast('Corrección aplicada a '+c.n)});
+  $$('[data-edit]').forEach(b=>b.onclick=()=>{wz=wzFrom(+b.dataset.edit);wizard()});
+}
+const WZ_RULES=['El valor no debe ser nulo','La diferencia entre la fuente y SIMEM debe ser 0','Debe publicarse antes de las 10:00 del día siguiente'];
+const WZ_BD=['Oracle Dacco','SQL Server MRID','Oracle SIOX'];
+const WZ_APIS=['API XM · Aportes hídricos','API XM · Generación real por recurso','API XM · Precio de bolsa nacional','API XM · Demanda comercial','API XM · Vertimientos de embalses'];
+const WZ_PARAMS='fechaInicio=:fecha_indexada\nfechaFin=:fecha_indexada\nformato=json';
+const WZ_BODY='{\n  "variable": "PRECIO_BOLSA",\n  "granularidad": "diaria"\n}';
+const wzSrcMap=v=>v==='Oracle'?'Oracle Dacco':v;
+const WZ_Q='SELECT fecha, hora, agente, valor\nFROM MEM.RECONCILIACION_POSITIVA\nWHERE fecha = :fecha_indexada\nORDER BY hora, agente';
+const wzNew=()=>({step:0,conn:false,dry:false,edit:null,name:'Precio de reconciliación positiva',tema:'InformacionTransaccionesMEM',tipo:'Base de datos',src:'Oracle Dacco',api:WZ_APIS[0],params:WZ_PARAMS,body:'',per:'Diario',cls:'Día anterior',ini:'2026-01-01',fin:'2026-12-31',query:WZ_Q,altOn:false,altPath:'',exec:'',rules:[...WZ_RULES]});
+const wzFrom=i=>{const c=CFG[i];return{step:0,conn:false,dry:false,edit:i,name:c.n,tema:c.tema,tipo:c.src==='API'?'API':'Base de datos',src:c.src==='API'?'Oracle Dacco':wzSrcMap(c.src),api:c.api||WZ_APIS[0],params:c.params!=null?c.params:WZ_PARAMS,body:c.body||'',per:c.per,cls:c.cls||'Día anterior',ini:c.ini,fin:c.fin,query:c.query||WZ_Q,altOn:!!c.alt,altPath:c.alt||'',exec:c.exec||'',rules:[...(c.rules||WZ_RULES)]}};
+function wzRead(){
+  const g=id=>{const e=$('#'+id);return e?e.value:undefined};
+  const m={w1:'name',w2:'tema',w3t:'tipo',w3:'src',wApi:'api',wParams:'params',wBody:'body',w4:'per',w5:'cls',wIni:'ini',wFin:'fin',w6:'query',wAltP:'altPath',wExec:'exec'};
+  Object.entries(m).forEach(([id,k])=>{const v=g(id);if(v!==undefined)wz[k]=v});
+  const a=$('#wAlt');if(a)wz.altOn=a.checked;
+}
+const wzDatesOk=()=>wz.ini&&wz.fin&&wz.ini<=wz.fin;
+function wizard(){
+  const names=['Datos generales','Conexión a la fuente','Reglas de calidad','Ejecución y prueba'];
+  const s=wz.step;let body='';
+  if(s===0)body=`<div class="form-grid">
+    <div class="field full"><label for="w1">Nombre de la variable</label><input class="in" id="w1" value="${esc(wz.name)}"></div>
+    <div class="field"><label for="w2">Tema</label><select class="in" id="w2">${opt(TEMAS,wz.tema)}</select></div>
+    <div class="field"><label for="w3t">Tipo de fuente</label><select class="in" id="w3t">${opt(['Base de datos','API'],wz.tipo)}</select></div>
+    ${wz.tipo==='Base de datos'?`<div class="field"><label for="w3">Fuente principal</label><select class="in" id="w3">${opt(WZ_BD.includes(wz.src)?WZ_BD:[...WZ_BD,wz.src],wz.src)}</select></div>`:`<div class="field"><label>Fuente principal</label><div class="in" style="display:flex;align-items:center;color:var(--muted)">Se elige la API en el paso siguiente</div></div>`}
+    <div class="field"><label for="w4">Periodicidad</label><select class="in" id="w4">${opt(['Diario','Semanal','Mensual','Trimestral','Semestral','Anual'],wz.per)}</select></div>
+    <div class="field"><label for="w5">Clasificación</label><select class="in" id="w5">${opt(['Día anterior','Semana siguiente','Mes en curso'],wz.cls)}</select></div>
+    <div class="field"><label for="wIni">Fecha inicial de validación</label><input class="in mono" type="date" id="wIni" value="${wz.ini}"></div>
+    <div class="field"><label for="wFin">Fecha final de validación</label><input class="in mono" type="date" id="wFin" value="${wz.fin}"></div>
+    <div class="field full" id="wzErr" role="alert" style="color:var(--err);font-size:12.5px" ${wzDatesOk()?'hidden':''}>La fecha inicial de validación no puede ser posterior a la fecha final.</div></div>`;
+  if(s===1)body=(wz.tipo==='Base de datos'?`<div class="field"><label for="w6">Consulta a la fuente principal (${esc(wz.src)})</label><textarea class="in mono" id="w6" rows="6">${esc(wz.query)}</textarea></div>
+    <p class="muted" style="margin:0;font-size:12.5px"><span class="mono">:fecha_indexada</span> se reemplaza en cada ejecución. No hace falta editar la consulta para recargar históricos.</p>`:
+    `<div class="field"><label for="wApi">API disponible</label><select class="in" id="wApi">${opt(WZ_APIS,wz.api)}</select></div>
+    <div class="field"><label for="wParams">Parámetros</label><textarea class="in mono" id="wParams" rows="4" placeholder="clave=valor, una por línea">${esc(wz.params)}</textarea></div>
+    <div class="field"><label for="wBody">Body <span class="muted" style="font-weight:400">(JSON, opcional)</span></label><textarea class="in mono" id="wBody" rows="5" placeholder='{ "clave": "valor" }' aria-describedby="wBodyErr">${esc(wz.body)}</textarea><div id="wBodyErr" role="alert" style="color:var(--err);font-size:12.5px" hidden>El body no es un JSON válido. Revise comillas y llaves.</div></div>
+    <p class="muted" style="margin:0;font-size:12.5px"><span class="mono">:fecha_indexada</span> se reemplaza en cada ejecución en parámetros y body. El listado de APIs es de demostración.</p>`)+`
+    <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap"><button class="btn" id="testConn">${ic('play')}Probar conexión</button>${wz.conn?`<div class="result-box ok">${ic('ok')}Conexión simulada exitosa · 1.248 filas para 2026-09-24</div>`:''}</div>
+    <div class="check-line" style="flex-direction:column;gap:10px"><label style="display:flex;gap:10px;align-items:flex-start;cursor:pointer"><input type="checkbox" id="wAlt" ${wz.altOn?'checked':''}><span><b>Fuente alterna FTP (opcional)</b><small>Si la fuente principal no entrega el dato, SIMEM puede buscar el archivo aquí. No es obligatoria.</small></span></label>
+      <div class="field" style="width:100%"><label for="wAltP">Ruta del archivo en el FTP</label><input class="in mono" id="wAltP" value="${esc(wz.altPath)}" placeholder="/publicaciones/conjunto/2026/archivo.csv" ${wz.altOn?'':'disabled'}></div></div>`;
+  if(s===2)body=`<div class="rules">${wz.rules.map((r,k)=>`<div class="rule">${ic('ok')}<span>${esc(r)}</span><span class="tag">${['completitud','consistencia','oportunidad'][k]||'personalizada'}</span></div>`).join('')}</div>
+    <form id="addRule" style="display:flex;gap:8px"><input class="in" id="ruleIn" placeholder="Ej.: El valor debe estar entre 0 y 2.000 COP/kWh" aria-label="Nueva regla"><button class="btn" type="submit">${ic('plus')}Agregar regla</button></form>`;
+  if(s===3)body=`<section style="display:flex;flex-direction:column;gap:6px"><h3 style="margin:0;font-size:14px">Configuración de ejecución</h3><label for="wExec" class="muted" style="font-size:12px">Texto libre. Se guarda con la configuración y se muestra al consultarla o editarla.</label>
+    <textarea class="in" id="wExec" rows="4" placeholder="Ej.: cron: 0 6 * * *&#10;reintentos: 2&#10;timeout: 900 s">${esc(wz.exec)}</textarea></section>
+    <h3 style="margin:6px 0 0;font-size:14px">Prueba en seco</h3>
+    <p class="muted" style="margin:0;font-size:13px">Ejecuta la validación solo para esta variable. No modifica la configuración de los demás conjuntos ni la ejecución diaria. Resultado simulado.</p>
+    <div style="display:flex;gap:10px;align-items:flex-end;flex-wrap:wrap"><div class="field"><label for="w7">Fecha a validar</label><input class="in mono" type="date" id="w7" value="2026-09-24" style="width:180px"></div><button class="btn" id="dryRun">${ic('play')}Ejecutar prueba en seco</button></div>
+    ${wz.dry?`<div class="result-box ok">${ic('ok')}${wz.rules.length} reglas evaluadas · 24 de 24 horas coinciden · 0 hallazgos (simulado)</div>
+    <div class="tbl-wrap"><table class="tbl"><thead><tr><th>Hora</th><th>Agente</th><th class="num">Fuente</th><th class="num">SIMEM</th><th>Resultado</th></tr></thead><tbody>
+    ${[1,2,3,4,5].map(h=>`<tr><td class="mono">0${h}:00</td><td>AGT-${100+h*7}</td><td class="num">${fmt(180+h*6.4)}</td><td class="num">${fmt(180+h*6.4)}</td><td>${chip('ok','Coincide')}</td></tr>`).join('')}</tbody></table></div>`:''}`;
+  modal(wz.edit!=null?'Editar variable':'Nueva variable',`<div class="wz-steps">${names.map((n,k)=>`<div class="${k<s?'done':k===s?'cur':''}">${k+1}. ${n}</div>`).join('')}</div>${body}`,
+    `${s>0?`<button class="btn" id="wBack">Atrás</button>`:`<button class="btn" data-close>Cancelar</button>`}${s<3?`<button class="btn primary" id="wNext">Siguiente</button>`:`<button class="btn primary" id="wSave" ${wz.dry||wz.edit!=null?'':'disabled'}>${ic('ok')}${wz.edit!=null?'Guardar cambios':'Guardar y activar'}</button>`}`,true);
+  const b=$('#wBack');if(b)b.onclick=()=>{wzRead();wz.step--;wizard()};
+  const n=$('#wNext');if(n)n.onclick=()=>{wzRead();if(s===0){if(!wz.name.trim())wz.name='Nueva variable';if(!wzDatesOk()){wizard();const e=$('#wzErr');if(e)e.hidden=false;return}}if(s===1&&wz.tipo==='API'&&wz.body.trim()){try{JSON.parse(wz.body)}catch(_){wizard();const e=$('#wBodyErr');if(e)e.hidden=false;const t=$('#wBody');if(t)t.focus();return}}wz.step++;wizard()};
+  const wb=$('#wBody');if(wb)wb.oninput=()=>{const e=$('#wBodyErr');if(e)e.hidden=true};
+  const tt=$('#w3t');if(tt)tt.onchange=()=>{wzRead();wizard();const t=$('#w3t');if(t)t.focus()};
+  if(s===0){const chk=()=>{wzRead();const e=$('#wzErr');if(e)e.hidden=wzDatesOk();};$('#wIni').onchange=chk;$('#wFin').onchange=chk}
+  const al=$('#wAlt');if(al)al.onchange=()=>{wzRead();$('#wAltP').disabled=!wz.altOn;if(wz.altOn)$('#wAltP').focus()};
+  const tc=$('#testConn');if(tc)tc.onclick=()=>{wzRead();wz.conn=true;wizard()};
+  const ar=$('#addRule');if(ar)ar.onsubmit=e=>{e.preventDefault();const v=$('#ruleIn').value.trim();if(v){wz.rules.push(v);wizard()}};
+  const dr=$('#dryRun');if(dr)dr.onclick=()=>{wzRead();wz.dry=true;wizard()};
+  const sv=$('#wSave');if(sv)sv.onclick=()=>{wzRead();
+    const alt=wz.altOn&&wz.altPath.trim()?wz.altPath.trim():null;
+    const f={n:wz.name,tema:wz.tema,src:wz.tipo==='API'?'API':wz.src,tipo:wz.tipo,api:wz.tipo==='API'?wz.api:null,params:wz.params,body:wz.body,alt,per:wz.per,cls:wz.cls,ini:wz.ini,fin:wz.fin,exec:wz.exec,query:wz.query,rules:[...wz.rules],mod:'25 sep 2026 · '+ME};
+    if(wz.edit!=null){Object.assign(CFG[wz.edit],f);closeOverlay();render();toast('Cambios guardados en '+wz.name+'. Se conservaron los demás datos de la configuración')}
+    else{CFG.unshift(Object.assign(f,{warn:null,on:true,note:'Nueva · validada en seco'}));closeOverlay();render();toast(wz.name+' quedó activa. Se validará en la próxima ejecución')}};
+}
+
+/* ---------- 8. Trazabilidad ---------- */
+const trzKind=t=>['Atraso','Versión faltante'].includes(t)?'warn':t==='Configuración'?'cfg':'err';
+function trzRows(){return TRZ.filter(r=>(!trzF.q||(r[0]+r[1]+r[5]).toLowerCase().includes(trzF.q.toLowerCase()))&&(!trzF.tipo||r[2]===trzF.tipo)&&(!trzF.crit||r[3]===trzF.crit)&&(!trzF.estado||r[10]===trzF.estado))}
+function vTrz(){
+  const uniq=k=>[...new Set(TRZ.map(r=>r[k]))];
+  const sel=(id,k,lbl)=>`<select class="in" id="${id}" style="width:auto" aria-label="${lbl}"><option value="">${lbl}: todos</option>${uniq(k).map(v=>`<option ${trzF[id]===v?'selected':''}>${v}</option>`).join('')}</select>`;
+  const rows=trzRows();const active=Object.entries(trzF).filter(([k,v])=>v);
+  const stChip=e=>e==='Cerrado'||e==='Verificado'?chip('ok',e):e==='Corregido'?chip('info',e):e==='Nuevo'?chip('err',e):chip('warn',e);
+  return `
+  <div class="vh"><div><h1>Trazabilidad</h1><p>Historial de todos los hallazgos: cuándo aparecieron, quién los atendió, cómo se corrigieron y si volvieron a presentarse.</p></div>
+  <div class="vh-act"><button class="btn primary" id="exportTrz">${ic('download')}Exportar reporte</button></div></div>
+  <div class="filters trz"><input class="in" id="q" style="width:260px" placeholder="Buscar por ID, conjunto o causa…" value="${esc(trzF.q)}" aria-label="Buscar">${sel('tipo',2,'Tipo')}${sel('crit',3,'Criticidad')}${sel('estado',10,'Estado')}
+  ${active.map(([k,v])=>`<button class="chip info" data-clr="${k}" style="border:0;cursor:pointer">${esc(v)} ${ic('x')}</button>`).join('')}<span class="muted" style="font-size:12.5px">${rows.length} de ${TRZ.length} incidentes</span></div>
+  <section class="panel"><div class="tbl-wrap"><table class="tbl"><thead><tr><th>ID</th><th>Conjunto</th><th>Tipo</th><th>Origen</th><th>Fecha indexación</th><th>Detectado</th><th>Resuelto</th><th>Responsable</th><th>Estado</th><th></th></tr></thead><tbody>
+  ${rows.map(r=>`<tr class="click" data-trz="${r[0]}" tabindex="0"><td class="mono">${r[0]}</td><td><div style="display:flex;align-items:center;gap:8px">${r[1]}${r[11]>1?`<span class="chip warn" title="Recurrente">${ic('repeat')}${r[11]}.ª vez este mes</span>`:''}</div></td><td><span class="tipo ${trzKind(r[2])}">${ic(trzKind(r[2])==='warn'?'clock':trzKind(r[2])==='cfg'?'cfg':'err')}${r[2]}</span></td><td>${r[4]}</td><td class="mono">${TRZ_IDX[r[0]]||'—'}</td><td class="mono">${r[6]}</td><td class="mono">${r[7]||'—'}</td><td>${r[9]==='Sin asignar'?'<span class="muted">Sin asignar</span>':r[9]}</td><td>${stChip(r[10])}</td><td class="muted">${ic('arrow')}</td></tr>`).join('')||`<tr><td colspan="10" class="muted" style="text-align:center;padding:24px">Ningún incidente coincide con los filtros.</td></tr>`}
+  </tbody></table></div></section>`;
+}
+function bTrz(){
+  $('#q').oninput=e=>{trzF.q=e.target.value;const p=e.target.selectionStart;render();const q=$('#q');q.focus();q.setSelectionRange(p,p)};
+  ['tipo','crit','estado'].forEach(k=>$('#'+k).onchange=e=>{trzF[k]=e.target.value;render()});
+  $$('[data-clr]').forEach(b=>b.onclick=()=>{trzF[b.dataset.clr]='';render()});
+  $('#exportTrz').onclick=()=>toast('Reporte de '+trzRows().length+' incidentes generado (simulado en el prototipo)');
+  $$('[data-trz]').forEach(tr=>{const f=()=>openTrz(tr.dataset.trz);tr.onclick=f;tr.onkeydown=e=>{if(e.key==='Enter')f()}});
+}
+function trzDrawer(id){
+  const r=TRZ.find(x=>x[0]===id);const closed=['Cerrado','Verificado','Corregido'].includes(r[10]);
+  const ev=[['sys',`Detectado por el motor de validación`,r[6]],['sys','Incluido en el resumen diario de Teams',r[6].slice(0,6)+' 07:30'],
+    ...(r[9]!=='Sin asignar'?[['',`${r[9]} tomó el incidente`,r[6].slice(0,6)+' 08:05']]:[]),
+    ...(closed?[['good','Corrección aplicada: '+(r[2]==='Atraso'?'relanzamiento de la carga':r[2]==='Versión faltante'?'versión recuperada del FTP alterno':r[2]==='Configuración'?'configuración actualizada':'recarga del rango afectado'),r[7]],['good','Verificado automáticamente en la siguiente ejecución',r[7]]]:[])];
+  const change=r[2]==='Atraso'||r[2]==='Versión faltante'?`  conjunto: ${r[1].toLowerCase().replace(/[^a-z0-9]+/g,'_')}\n<span class="del">- delta_dias: 1</span>\n<span class="add">+ delta_dias: 4        # temporal para el recargue</span>\n${closed?`<span class="del">- delta_dias: 4</span>\n<span class="add">+ delta_dias: 1        # revertido automáticamente</span>`:''}`:r[2]==='Configuración'?`<span class="del">- FROM MEM.OFERTA_DESPACHO_IDEAL</span>\n<span class="add">+ FROM MEM.OFERTA_DESP_IDEAL_V2</span>`:null;
+  drawer(id,`<div style="display:flex;gap:8px;flex-wrap:wrap">${sev(r[3])}<span class="tag">${r[4]}</span>${r[11]>1?chip('warn',r[11]+'.ª vez este mes'):''}</div>
+    <h3 style="margin:0;font-size:17px">${r[1]}</h3>
+    <dl class="kv"><dt>Tipo</dt><dd>${r[2]}</dd><dt>Causa raíz</dt><dd>${r[5]}</dd><dt>Responsable</dt><dd>${r[9]}</dd><dt>Estado</dt><dd>${r[10]}</dd><dt>Resolución</dt><dd class="mono">${r[8]||'En curso'}</dd></dl>
+    <h3 style="margin:6px 0 0;font-size:14px">Línea de tiempo</h3><ol class="tl">${ev.map(e=>`<li class="${e[0]}"><i></i><div><div class="t">${e[1]}</div><div class="m">${e[2]}</div></div></li>`).join('')}</ol>
+    ${change?`<h3 style="margin:6px 0 0;font-size:14px">Cambios de configuración asociados</h3><pre class="code">${change}</pre>`:''}`,
+    `<button class="btn" data-close>Cerrar</button>${!closed&&INC.some(i=>i.id===id)?`<button class="btn primary" id="goInc">Abrir incidente</button>`:''}`);
+  const g=$('#goInc');if(g)g.onclick=()=>{closeOverlay();openInc(id)};
+}
+
+/* ---------- 9. Credenciales ---------- */
+const CRED=[{f:'Oracle XM',t:'Base de datos',len:12},{f:'API XM',t:'API',len:16},{f:'Datalake SIMEM',t:'Datalake',len:14},{f:'FTP alterno SIMEM',t:'FTP',len:10},{f:'Excel de agentes',t:'Archivo compartido',len:9}];
+function vCred(){
+  return `
+  <div class="vh"><div><h1>Credenciales</h1><p>Administre los accesos a todas las fuentes que usa la herramienta de calidad. Las contraseñas siempre se muestran enmascaradas.</p></div></div>
+  <section class="panel"><div class="panel-h"><h3>Mis Credenciales</h3><small>${CRED.length} fuentes</small></div><div class="tbl-wrap"><table class="tbl"><thead><tr><th>Fuente</th><th>Tipo</th><th style="text-align:right">Acciones</th></tr></thead><tbody>
+  ${CRED.map((c,i)=>`<tr><td style="font-weight:600">${c.f}</td><td><span class="tag">${c.t}</span></td><td style="text-align:right"><button class="btn sm" data-cred="${i}" aria-label="Editar credencial de ${c.f}">${ic('edit')}Editar</button></td></tr>`).join('')}
+  </tbody></table></div></section>
+  <p class="muted" style="margin:0;font-size:12px">Prototipo: las contraseñas no se guardan ni se envían a ningún servicio. Guardar, validar y renovar son simulaciones.</p>`;
+}
+function bCred(){$$('[data-cred]').forEach(b=>b.onclick=()=>credDrawer(+b.dataset.cred))}
+function credDrawer(i,msg=''){
+  const c=CRED[i];
+  drawer('Credencial · '+c.f,`
+    <div class="field"><label for="cFuente">Fuente</label><input class="in" id="cFuente" value="${esc(c.f)}" readonly></div>
+    <div class="field"><label for="cPass">Contraseña</label><input class="in mono" id="cPass" type="password" autocomplete="new-password" value="${'•'.repeat(c.len)}" aria-describedby="cHelp"><small id="cHelp" class="muted">Mínimo 8 caracteres. Escriba una nueva para reemplazarla.</small></div>
+    <div id="cMsg" aria-live="polite">${msg}</div>`,
+    `<button class="btn" id="cRenew">${ic('repeat')}Renovar</button><button class="btn" id="cVal">${ic('shield')}Validar</button><button class="btn primary" id="cSave">${ic('ok')}Guardar</button>`);
+  const say=(k,t)=>{$('#cMsg').innerHTML=k?`<div class="result-box ${k==='ok'?'ok':''}" style="${k==='ok'?'':k==='bad'?'background:color-mix(in srgb,var(--err) 12%,transparent);color:var(--err)':'background:var(--surface-2)'}">${ic(k==='ok'?'ok':k==='bad'?'alert':'clock')}${t}</div>`:''};
+  const pass=()=>$('#cPass').value;
+  $('#cSave').onclick=()=>{const v=pass();if(!v){say('bad','La contraseña no puede estar vacía.');return}
+    if(!/^•+$/.test(v)){if(v.length<8){say('bad','La contraseña debe tener al menos 8 caracteres.');return}c.len=v.length}
+    say('ok','Cambios guardados (simulado). La contraseña no se almacena en el prototipo.');toast('Credencial de '+c.f+' guardada (simulado)')};
+  $('#cVal').onclick=()=>{if(!pass()){say('bad','Escriba la contraseña antes de validar.');return}
+    $('#cVal').disabled=true;say('wait','Validando acceso a '+c.f+' (simulado)…');setTimeout(()=>{$('#cVal').disabled=false;say('ok','Acceso válido (resultado simulado, no se contactó la fuente).')},1200)};
+  $('#cRenew').onclick=()=>{$('#cRenew').disabled=true;say('wait','Renovando credencial (simulado)…');setTimeout(()=>{c.len=16;$('#cRenew').disabled=false;$('#cPass').value='•'.repeat(16);say('ok','Credencial renovada (simulado). No se generó ninguna contraseña real.');toast('Credencial de '+c.f+' renovada (simulado)')},1200)};
+}
+
+/* ---------- Superposiciones ---------- */
+let lastFocus=null;
+function bindClose(){$$('#overlay [data-close]').forEach(b=>b.onclick=closeOverlay)}
+function modal(title,body,foot,wide){lastFocus=lastFocus||document.activeElement;$('#overlay').innerHTML=`<div class="scrim" id="scrim"><div class="modal ${wide?'wide':''}" role="dialog" aria-modal="true" aria-label="${esc(title)}"><div class="modal-h"><h2>${title}</h2><button class="icon-btn" data-close aria-label="Cerrar">${ic('x')}</button></div><div class="modal-b">${body}</div><div class="modal-f">${foot}</div></div></div>`;
+  $('#scrim').onclick=e=>{if(e.target.id==='scrim')closeOverlay()};bindClose();const f=$('#overlay .modal-b input, #overlay .modal-b select, #overlay .modal-b textarea, #overlay .modal-f .primary');if(f)f.focus()}
+function drawer(title,body,foot,cls=''){lastFocus=lastFocus||document.activeElement;$('#overlay').innerHTML=`<div class="drawer-scrim" data-close></div><aside class="drawer ${cls}" role="dialog" aria-modal="true" aria-label="${esc(title)}"><div class="modal-h"><h2>${title}</h2><button class="icon-btn" data-close aria-label="Cerrar">${ic('x')}</button></div><div class="modal-b">${body}</div>${foot?`<div class="modal-f">${foot}</div>`:''}</aside>`;bindClose();$('#overlay .drawer .icon-btn').focus()}
+function closeOverlay(){verSel=null;$('#overlay').innerHTML='';$$('.vcell.pick').forEach(x=>x.classList.remove('pick'));if(lastFocus&&document.contains(lastFocus))lastFocus.focus();lastFocus=null}
+const isOpen=()=>$('#overlay').children.length>0;
+
+function palette(){
+  lastFocus=document.activeElement;
+  const items=[...VIEWS.map(([k,t,i])=>({t,i,sub:'Pantalla',run:()=>go(k)})),...INC.map(i=>({t:i.set,i:ST[i.kind][1],sub:i.id,run:()=>openInc(i.id)})),...CFG.filter(c=>!INC.some(i=>i.set===c.n)).map(c=>({t:c.n,i:'cfg',sub:'Configuración',run:()=>go('configuracion')}))];
+  $('#overlay').innerHTML=`<div class="scrim" id="scrim"><div class="palette" role="dialog" aria-modal="true" aria-label="Búsqueda"><div class="palette-in">${ic('search')}<input id="pq" placeholder="Buscar conjunto, incidente o pantalla…" autocomplete="off" aria-label="Buscar"><kbd>Esc</kbd></div><ul id="pl"></ul></div></div>`;
+  let sel=0,list=items;
+  const draw=()=>{const q=$('#pq').value.toLowerCase();list=items.filter(x=>(x.t+x.sub).toLowerCase().includes(q)).slice(0,12);sel=Math.min(sel,Math.max(0,list.length-1));
+    $('#pl').innerHTML=list.map((x,k)=>`<li class="${k===sel?'on':''}" data-k="${k}">${ic(x.i)}<span>${x.t}</span><small>${x.sub}</small></li>`).join('')||'<li class="muted">Sin resultados</li>';
+    $$('#pl li[data-k]').forEach(li=>li.onclick=()=>{closeOverlay();list[+li.dataset.k].run()})};
+  draw();$('#pq').focus();$('#pq').oninput=()=>{sel=0;draw()};
+  $('#pq').onkeydown=e=>{if(e.key==='ArrowDown'){sel=Math.min(sel+1,list.length-1);draw();e.preventDefault()}if(e.key==='ArrowUp'){sel=Math.max(sel-1,0);draw();e.preventDefault()}if(e.key==='Enter'&&list[sel]){const x=list[sel];closeOverlay();x.run()}};
+  $('#scrim').onclick=e=>{if(e.target.id==='scrim')closeOverlay()};
+}
+
+/* ---------- Tema, atajos y arranque ---------- */
+const root=document.documentElement;
+function curTheme(){return root.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light')}
+function paintThemeBtn(){$('#themeBtn').innerHTML=curTheme()==='dark'?ic('sun'):ic('moon');$('#themeBtn').title=curTheme()==='dark'?'Cambiar a tema claro':'Cambiar a tema oscuro'}
+try{const t=localStorage.getItem('simem-theme');if(t)root.dataset.theme=t}catch(e){}
+paintThemeBtn();
+$('#themeBtn').onclick=()=>{const n=curTheme()==='dark'?'light':'dark';root.dataset.theme=n;try{localStorage.setItem('simem-theme',n)}catch(e){}paintThemeBtn()};
+$('#bellBtn').onclick=()=>drawer('Notificaciones',[
+  ['err','Generación real por recurso: registros faltantes','Crítica · hace 40 min','INC-2026-0411'],
+  ['err','Vertimientos embalse ESMERALDA: 4 horas difieren','Alta · hace 2 h','INC-2026-0412'],
+  ['clock','Precio de bolsa nacional sigue atrasado (3 días)','Crítica · hace 3 h','INC-2026-0409'],
+  ['cfg','Delta temporal de Pérdidas del STN sin revertir','Alta · desde 12 sep','INC-2026-0399']
+ ].map(([i,t,m,id])=>`<button class="notif btn ghost" style="height:auto;justify-content:flex-start;text-align:left;white-space:normal;border-radius:0" data-n="${id}">${ic(i)}<span>${t}<small>${m}</small></span></button>`).join(''),`<button class="btn" data-close>Cerrar</button>`)||$$('[data-n]').forEach(b=>b.onclick=()=>{closeOverlay();openInc(b.dataset.n)});
+document.addEventListener('keydown',e=>{
+  if(e.key==='Escape'){const m=$('#kmenu');if(m&&!m.hidden){m.hidden=true;$('#kebab').setAttribute('aria-expanded','false');$('#kebab').focus();return}}
+  if(e.key==='Escape'&&isOpen()){closeOverlay();return}
+  const tg=e.target.tagName;if(isOpen()||e.ctrlKey||e.metaKey||e.altKey||['INPUT','TEXTAREA','SELECT'].includes(tg))return;
+  const n=+e.key;if(n>=1&&n<=VIEWS.length){go(VIEWS[n-1][0]);window.scrollTo(0,0)}
+});
+document.addEventListener('click',e=>{const m=$('#kmenu');if(m&&!m.hidden&&!e.target.closest('.kebab-wrap')){m.hidden=true;$('#kebab').setAttribute('aria-expanded','false')}});
+window.addEventListener('hashchange',()=>{closeOverlay();render()});
+render();
+</script>
+
+</body></html>
